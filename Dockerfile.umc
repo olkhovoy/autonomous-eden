@@ -1,0 +1,14 @@
+FROM python:3.12-slim
+
+WORKDIR /app
+
+RUN pip install --no-cache-dir requests
+
+COPY umc_core /app/umc_core
+COPY gggp_bundle /app/gggp_bundle
+COPY tools /app/tools
+
+ENV PYTHONUNBUFFERED=1
+ENV PYTHONPATH=/app
+
+CMD ["python", "umc_core/soul_memory_node.py"]

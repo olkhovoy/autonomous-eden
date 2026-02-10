@@ -1,0 +1,11 @@
+# MCS Runtime Dependencies
+# All services use only requests + stdlib
+requests>=2.31.0
+
+# Dashboard (tools/dashboard/)
+nicegui>=1.4
+uvicorn>=0.24.0
+
+# Development
+# torch>=2.0.0          # For NC4 training (benchmark/)
+# transformers>=4.35.0  # For NC4 training (benchmark/)

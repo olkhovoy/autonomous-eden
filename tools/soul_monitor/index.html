@@ -1,0 +1,972 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EVE Soul Monitor</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            background: #0a0a0f;
+            color: #e0e0e0;
+            overflow: hidden;
+        }
+        #container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        #overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 100;
+        }
+        .panel {
+            position: absolute;
+            background: rgba(10, 10, 20, 0.85);
+            border: 1px solid rgba(100, 150, 255, 0.3);
+            border-radius: 8px;
+            padding: 16px;
+            backdrop-filter: blur(10px);
+        }
+        #status-panel {
+            top: 20px;
+            left: 20px;
+            width: 280px;
+        }
+        #metrics-panel {
+            top: 20px;
+            right: 20px;
+            width: 300px;
+        }
+        #actions-panel {
+            top: 380px;
+            right: 20px;
+            width: 300px;
+            max-height: 180px;
+            overflow-y: auto;
+        }
+        #evolution-panel {
+            top: 580px;
+            right: 20px;
+            width: 300px;
+        }
+        .evo-trait {
+            margin: 8px 0;
+            padding: 6px 8px;
+            background: rgba(100, 50, 200, 0.15);
+            border-radius: 4px;
+            font-size: 11px;
+        }
+        .evo-trait-name {
+            color: #a8f;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+        .evo-stat {
+            display: flex;
+            justify-content: space-between;
+            margin: 2px 0;
+            font-size: 10px;
+        }
+        .evo-stat-label { color: #888; }
+        .evo-stat-value { color: #ccc; font-family: monospace; }
+        .action {
+            padding: 6px 10px;
+            margin: 4px 0;
+            background: rgba(50, 150, 100, 0.15);
+            border-left: 3px solid #4a8;
+            border-radius: 0 4px 4px 0;
+            font-size: 11px;
+        }
+        .action-fail {
+            background: rgba(200, 100, 100, 0.15);
+            border-left-color: #a44;
+        }
+        .action-time {
+            font-size: 9px;
+            color: #666;
+        }
+        .action-type {
+            color: #6af;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+        .action-result {
+            color: #aaa;
+            font-size: 10px;
+            margin-top: 2px;
+        }
+        .action-enabled {
+            color: #4a4;
+        }
+        .action-disabled {
+            color: #a44;
+        }
+        #thoughts-panel {
+            bottom: 20px;
+            left: 20px;
+            width: 55%;
+            height: 280px;
+            overflow-y: auto;
+            pointer-events: auto;
+            scroll-behavior: smooth;
+        }
+        #chat-panel {
+            bottom: 20px;
+            right: 20px;
+            width: 40%;
+            height: 280px;
+            pointer-events: auto;
+        }
+        .thought {
+            padding: 8px 12px;
+            margin: 6px 0;
+            background: rgba(100, 150, 255, 0.1);
+            border-left: 3px solid #6af;
+            border-radius: 0 4px 4px 0;
+            font-size: 12px;
+            line-height: 1.5;
+        }
+        .thought-time {
+            font-size: 10px;
+            color: #666;
+            margin-bottom: 4px;
+        }
+        .thought-text {
+            color: #ccc;
+        }
+        #chat-input-area {
+            display: flex;
+            gap: 8px;
+            margin-top: 12px;
+        }
+        #chat-input {
+            flex: 1;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(100, 150, 255, 0.3);
+            border-radius: 4px;
+            padding: 8px 12px;
+            color: #fff;
+            font-size: 13px;
+            outline: none;
+        }
+        #chat-input:focus {
+            border-color: #6af;
+        }
+        #chat-send {
+            background: #6af;
+            border: none;
+            border-radius: 4px;
+            padding: 8px 16px;
+            color: #000;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        #chat-send:hover {
+            background: #8cf;
+        }
+        #chat-send:disabled {
+            background: #444;
+            cursor: not-allowed;
+        }
+        #chat-status {
+            font-size: 11px;
+            color: #666;
+            margin-top: 8px;
+        }
+        #chat-history {
+            height: 160px;
+            overflow-y: auto;
+            margin-bottom: 8px;
+        }
+        .chat-msg {
+            padding: 4px 8px;
+            margin: 4px 0;
+            border-radius: 4px;
+            font-size: 12px;
+        }
+        .chat-msg-user {
+            background: rgba(100, 200, 100, 0.2);
+            border-left: 2px solid #4a4;
+        }
+        .chat-msg-system {
+            background: rgba(100, 100, 200, 0.2);
+            border-left: 2px solid #44a;
+        }
+        h2 {
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #6af;
+            margin-bottom: 12px;
+            border-bottom: 1px solid rgba(100, 150, 255, 0.3);
+            padding-bottom: 8px;
+        }
+        .metric {
+            display: flex;
+            justify-content: space-between;
+            margin: 8px 0;
+            font-size: 13px;
+        }
+        .metric-label {
+            color: #888;
+        }
+        .metric-value {
+            font-family: 'Consolas', monospace;
+            color: #fff;
+        }
+        .bar-container {
+            height: 8px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 4px;
+            margin: 4px 0 12px 0;
+            overflow: hidden;
+        }
+        .bar {
+            height: 100%;
+            border-radius: 4px;
+            transition: width 0.5s ease, background 0.5s ease;
+        }
+        .bar-life {
+            background: linear-gradient(90deg, #f44, #4f4);
+        }
+        .bar-integrity {
+            background: linear-gradient(90deg, #44f, #4ff);
+        }
+        .bar-convergence {
+            background: linear-gradient(90deg, #f4f, #ff4);
+        }
+        .mode {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+        .mode-CRITICAL { background: #f44; color: #fff; animation: pulse 1s infinite; }
+        .mode-LOW { background: #fa4; color: #000; }
+        .mode-NORMAL { background: #4a4; color: #fff; }
+        .mode-HIGH { background: #44f; color: #fff; }
+        .phase {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 4px;
+            font-size: 12px;
+            margin-left: 8px;
+        }
+        .phase-GROWTH { background: #2a5; color: #fff; }
+        .phase-PEAK { background: #58f; color: #fff; }
+        .phase-DECAY { background: #a52; color: #fff; }
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+        .log-entry {
+            font-family: 'Consolas', monospace;
+            font-size: 11px;
+            padding: 2px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+        .log-time { color: #666; }
+        .log-event { color: #6af; }
+        .log-data { color: #888; }
+        #soul-state {
+            text-align: center;
+            margin: 16px 0;
+        }
+        .connection-status {
+            position: absolute;
+            top: 8px;
+            right: 8px;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+        }
+        .connected { background: #4f4; }
+        .disconnected { background: #f44; animation: pulse 1s infinite; }
+    </style>
+</head>
+<body>
+    <div id="container"></div>
+    <div id="overlay">
+        <div class="panel" id="status-panel">
+            <div class="connection-status disconnected" id="conn-status"></div>
+            <h2>EVE Status</h2>
+            <div id="soul-state">
+                <span class="mode mode-NORMAL" id="mode-badge">NORMAL</span>
+                <span class="phase phase-GROWTH" id="phase-badge">GROWTH</span>
+            </div>
+            <div class="metric">
+                <span class="metric-label">Life Resource</span>
+                <span class="metric-value" id="life-value">0.70</span>
+            </div>
+            <div class="bar-container">
+                <div class="bar bar-life" id="life-bar" style="width: 70%"></div>
+            </div>
+            <div class="metric">
+                <span class="metric-label">Integrity Score</span>
+                <span class="metric-value" id="integrity-value">0.00</span>
+            </div>
+            <div class="bar-container">
+                <div class="bar bar-integrity" id="integrity-bar" style="width: 0%"></div>
+            </div>
+            <div class="metric">
+                <span class="metric-label">Age (tokens)</span>
+                <span class="metric-value" id="age-value">0</span>
+            </div>
+            <div class="metric">
+                <span class="metric-label">Lifecycle Progress</span>
+                <span class="metric-value" id="lifecycle-value">0%</span>
+            </div>
+            <div class="bar-container">
+                <div class="bar bar-convergence" id="lifecycle-bar" style="width: 0%"></div>
+            </div>
+        </div>
+        
+        <div class="panel" id="metrics-panel">
+            <h2>System Metrics</h2>
+            <div class="metric">
+                <span class="metric-label">Reflections</span>
+                <span class="metric-value" id="reflections">0</span>
+            </div>
+            <div class="metric">
+                <span class="metric-label">Mutations Applied</span>
+                <span class="metric-value" id="mutations-applied">0</span>
+            </div>
+            <div class="metric">
+                <span class="metric-label">Mutations Reverted</span>
+                <span class="metric-value" id="mutations-reverted">0</span>
+            </div>
+            <div class="metric">
+                <span class="metric-label">Critical Events</span>
+                <span class="metric-value" id="critical-events">0</span>
+            </div>
+            <div class="metric">
+                <span class="metric-label">Total Replenished</span>
+                <span class="metric-value" id="total-replenished">0.00</span>
+            </div>
+            <div class="metric">
+                <span class="metric-label">Total Decayed</span>
+                <span class="metric-value" id="total-decayed">0.00</span>
+            </div>
+            <div class="metric" style="margin-top: 16px; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 12px;">
+                <span class="metric-label">Phase Progress</span>
+                <span class="metric-value" id="phase-progress">0%</span>
+            </div>
+            <div class="metric">
+                <span class="metric-label">Est. Death</span>
+                <span class="metric-value" id="est-death">—</span>
+            </div>
+        </div>
+        
+        <div class="panel" id="actions-panel">
+            <h2>EVE's Actions</h2>
+            <div class="metric">
+                <span class="metric-label">Actions Engine</span>
+                <span class="metric-value action-disabled" id="actions-status">OFFLINE</span>
+            </div>
+            <div class="metric">
+                <span class="metric-label">Total Actions</span>
+                <span class="metric-value" id="actions-count">0</span>
+            </div>
+            <div class="metric">
+                <span class="metric-label">Can Act</span>
+                <span class="metric-value" id="actions-can-act">—</span>
+            </div>
+            <div id="actions-list">
+                <div class="action">
+                    <div class="action-time">Waiting...</div>
+                    <div class="action-type">No actions yet</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="panel" id="evolution-panel">
+            <h2>GGGP Evolution</h2>
+            <div id="evo-personality" class="evo-trait">
+                <div class="evo-trait-name">Personality</div>
+                <div class="evo-stat">
+                    <span class="evo-stat-label">Generation</span>
+                    <span class="evo-stat-value" id="evo-pers-gen">0</span>
+                </div>
+                <div class="evo-stat">
+                    <span class="evo-stat-label">Best Fitness</span>
+                    <span class="evo-stat-value" id="evo-pers-fit">0.00</span>
+                </div>
+            </div>
+            <div id="evo-memory" class="evo-trait">
+                <div class="evo-trait-name">Memory</div>
+                <div class="evo-stat">
+                    <span class="evo-stat-label">Generation</span>
+                    <span class="evo-stat-value" id="evo-mem-gen">0</span>
+                </div>
+                <div class="evo-stat">
+                    <span class="evo-stat-label">Best Fitness</span>
+                    <span class="evo-stat-value" id="evo-mem-fit">0.00</span>
+                </div>
+            </div>
+            <div class="metric" style="margin-top: 8px;">
+                <span class="metric-label">Total Evolves</span>
+                <span class="metric-value" id="evo-total">0</span>
+            </div>
+        </div>
+        
+        <div class="panel" id="thoughts-panel">
+            <h2>EVE's Thoughts</h2>
+            <div id="thoughts-content">
+                <div class="thought">
+                    <div class="thought-time">Waiting for connection...</div>
+                    <div class="thought-text">Loading thoughts...</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="panel" id="chat-panel">
+            <h2>Talk to EVE</h2>
+            <div id="chat-history"></div>
+            <div id="chat-input-area">
+                <input type="text" id="chat-input" placeholder="Type a message..." />
+                <button id="chat-send">Send</button>
+            </div>
+            <div id="chat-status">Press Enter to send</div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script>
+        // Three.js Scene Setup
+        const container = document.getElementById('container');
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+        const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        renderer.setPixelRatio(window.devicePixelRatio);
+        container.appendChild(renderer.domElement);
+
+        // State
+        let state = {
+            lifeResource: 0.7,
+            mode: 'NORMAL',
+            phase: 'GROWTH',
+            integrity: 0,
+            convergence: 0,
+            stability: 0.5
+        };
+
+        // Colors
+        const colors = {
+            CRITICAL: new THREE.Color(0xff4444),
+            LOW: new THREE.Color(0xffaa44),
+            NORMAL: new THREE.Color(0x44aa44),
+            HIGH: new THREE.Color(0x4444ff),
+            GROWTH: new THREE.Color(0x22aa55),
+            PEAK: new THREE.Color(0x5588ff),
+            DECAY: new THREE.Color(0xaa5522)
+        };
+
+        // Core Soul Sphere
+        const soulGeometry = new THREE.IcosahedronGeometry(2, 4);
+        const soulMaterial = new THREE.MeshPhongMaterial({
+            color: colors.NORMAL,
+            emissive: colors.NORMAL,
+            emissiveIntensity: 0.3,
+            transparent: true,
+            opacity: 0.8,
+            wireframe: false,
+            flatShading: true
+        });
+        const soul = new THREE.Mesh(soulGeometry, soulMaterial);
+        scene.add(soul);
+
+        // Inner core
+        const coreGeometry = new THREE.IcosahedronGeometry(1.2, 2);
+        const coreMaterial = new THREE.MeshPhongMaterial({
+            color: 0xffffff,
+            emissive: 0xffffff,
+            emissiveIntensity: 0.5,
+            transparent: true,
+            opacity: 0.6
+        });
+        const core = new THREE.Mesh(coreGeometry, coreMaterial);
+        scene.add(core);
+
+        // Particle ring
+        const particleCount = 500;
+        const particleGeometry = new THREE.BufferGeometry();
+        const positions = new Float32Array(particleCount * 3);
+        const particleSpeeds = new Float32Array(particleCount);
+        
+        for (let i = 0; i < particleCount; i++) {
+            const angle = Math.random() * Math.PI * 2;
+            const radius = 3 + Math.random() * 2;
+            positions[i * 3] = Math.cos(angle) * radius;
+            positions[i * 3 + 1] = (Math.random() - 0.5) * 2;
+            positions[i * 3 + 2] = Math.sin(angle) * radius;
+            particleSpeeds[i] = 0.5 + Math.random() * 1.5;
+        }
+        particleGeometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+        
+        const particleMaterial = new THREE.PointsMaterial({
+            color: 0x6688ff,
+            size: 0.05,
+            transparent: true,
+            opacity: 0.8
+        });
+        const particles = new THREE.Points(particleGeometry, particleMaterial);
+        scene.add(particles);
+
+        // Fractal shells (stability indicator)
+        const shells = [];
+        for (let i = 0; i < 3; i++) {
+            const shellGeometry = new THREE.IcosahedronGeometry(2.5 + i * 0.5, 1);
+            const shellMaterial = new THREE.MeshBasicMaterial({
+                color: 0x4466aa,
+                wireframe: true,
+                transparent: true,
+                opacity: 0.2 - i * 0.05
+            });
+            const shell = new THREE.Mesh(shellGeometry, shellMaterial);
+            shells.push(shell);
+            scene.add(shell);
+        }
+
+        // Lighting
+        const ambientLight = new THREE.AmbientLight(0x404040, 0.5);
+        scene.add(ambientLight);
+
+        const pointLight = new THREE.PointLight(0xffffff, 1, 100);
+        pointLight.position.set(10, 10, 10);
+        scene.add(pointLight);
+
+        const pointLight2 = new THREE.PointLight(0x4466ff, 0.5, 100);
+        pointLight2.position.set(-10, -10, 5);
+        scene.add(pointLight2);
+
+        camera.position.z = 8;
+
+        // Glitch text (for unstable states)
+        const glitchTexts = ['is is is', 'error', '???', 'help', 'who am i'];
+        let glitchElements = [];
+
+        function createGlitch() {
+            if (state.mode !== 'CRITICAL' && state.stability > 0.3) return;
+            
+            const div = document.createElement('div');
+            div.style.position = 'fixed';
+            div.style.left = Math.random() * window.innerWidth + 'px';
+            div.style.top = Math.random() * window.innerHeight + 'px';
+            div.style.color = 'rgba(255, 50, 50, 0.7)';
+            div.style.fontFamily = 'monospace';
+            div.style.fontSize = (10 + Math.random() * 20) + 'px';
+            div.style.pointerEvents = 'none';
+            div.style.zIndex = '50';
+            div.textContent = glitchTexts[Math.floor(Math.random() * glitchTexts.length)];
+            document.body.appendChild(div);
+            glitchElements.push(div);
+            
+            setTimeout(() => {
+                div.remove();
+                glitchElements = glitchElements.filter(e => e !== div);
+            }, 200 + Math.random() * 500);
+        }
+
+        // Animation
+        let time = 0;
+        function animate() {
+            requestAnimationFrame(animate);
+            time += 0.016;
+
+            // Soul rotation and breathing
+            const breathScale = 1 + Math.sin(time * 2) * 0.05 * state.stability;
+            soul.scale.setScalar(breathScale);
+            soul.rotation.y += 0.005 * state.stability;
+            soul.rotation.x = Math.sin(time * 0.5) * 0.1;
+
+            // Core pulsing
+            const coreScale = 0.6 + state.lifeResource * 0.6;
+            core.scale.setScalar(coreScale * (1 + Math.sin(time * 3) * 0.1));
+            core.rotation.y -= 0.01;
+
+            // Update colors based on mode
+            const targetColor = colors[state.mode] || colors.NORMAL;
+            soulMaterial.color.lerp(targetColor, 0.05);
+            soulMaterial.emissive.lerp(targetColor, 0.05);
+
+            // Particle animation
+            const positions = particles.geometry.attributes.position.array;
+            for (let i = 0; i < particleCount; i++) {
+                const idx = i * 3;
+                const angle = Math.atan2(positions[idx + 2], positions[idx]);
+                const radius = Math.sqrt(positions[idx] ** 2 + positions[idx + 2] ** 2);
+                const newAngle = angle + particleSpeeds[i] * 0.01 * state.stability;
+                positions[idx] = Math.cos(newAngle) * radius;
+                positions[idx + 2] = Math.sin(newAngle) * radius;
+                positions[idx + 1] += (Math.random() - 0.5) * 0.02 * (1 - state.stability);
+            }
+            particles.geometry.attributes.position.needsUpdate = true;
+
+            // Shell animation
+            shells.forEach((shell, i) => {
+                shell.rotation.y += 0.002 * (i + 1) * state.stability;
+                shell.rotation.x = Math.sin(time * 0.3 + i) * 0.1;
+                shell.material.opacity = 0.2 * state.stability - i * 0.05;
+            });
+
+            // Instability effects
+            if (state.mode === 'CRITICAL') {
+                soul.position.x = (Math.random() - 0.5) * 0.2;
+                soul.position.y = (Math.random() - 0.5) * 0.2;
+                if (Math.random() < 0.05) createGlitch();
+            } else {
+                soul.position.x *= 0.95;
+                soul.position.y *= 0.95;
+            }
+
+            renderer.render(scene, camera);
+        }
+        animate();
+
+        // Window resize
+        window.addEventListener('resize', () => {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+        });
+
+        // API Polling
+        const API_BASE = window.location.hostname === 'localhost' 
+            ? 'http://localhost' 
+            : `http://${window.location.hostname}`;
+
+        async function fetchState() {
+            try {
+                const [intentRes, lifecycleRes] = await Promise.all([
+                    fetch(`${API_BASE}:8089/intent/state`).catch(() => null),
+                    fetch(`${API_BASE}:8093/lifecycle/state`).catch(() => null)
+                ]);
+
+                let intentData = null, lifecycleData = null;
+
+                if (intentRes && intentRes.ok) {
+                    intentData = await intentRes.json();
+                }
+                if (lifecycleRes && lifecycleRes.ok) {
+                    lifecycleData = await lifecycleRes.json();
+                }
+
+                if (intentData || lifecycleData) {
+                    document.getElementById('conn-status').className = 'connection-status connected';
+                    updateUI(intentData, lifecycleData);
+                } else {
+                    document.getElementById('conn-status').className = 'connection-status disconnected';
+                }
+            } catch (e) {
+                document.getElementById('conn-status').className = 'connection-status disconnected';
+            }
+        }
+
+        function updateUI(intent, lifecycle) {
+            if (intent) {
+                const life = intent.life_resource;
+                state.lifeResource = life.value;
+                state.mode = life.mode;
+                state.stability = life.value > 0.5 ? 1 : life.value * 2;
+                state.integrity = life.last_integrity_score || 0;
+
+                document.getElementById('life-value').textContent = life.value.toFixed(3);
+                document.getElementById('life-bar').style.width = (life.value * 100) + '%';
+                document.getElementById('integrity-value').textContent = state.integrity.toFixed(3);
+                document.getElementById('integrity-bar').style.width = (state.integrity * 100) + '%';
+
+                const modeBadge = document.getElementById('mode-badge');
+                modeBadge.textContent = life.mode;
+                modeBadge.className = 'mode mode-' + life.mode;
+
+                document.getElementById('reflections').textContent = intent.reflection_count;
+                document.getElementById('mutations-applied').textContent = intent.mutations_applied;
+                document.getElementById('mutations-reverted').textContent = intent.mutations_reverted;
+                document.getElementById('critical-events').textContent = life.critical_events;
+                document.getElementById('total-replenished').textContent = life.total_replenished.toFixed(3);
+                document.getElementById('total-decayed').textContent = life.total_decayed.toFixed(3);
+            }
+
+            if (lifecycle) {
+                state.phase = lifecycle.phase;
+                
+                document.getElementById('age-value').textContent = lifecycle.total_tokens_seen.toLocaleString();
+                document.getElementById('lifecycle-value').textContent = (lifecycle.progress * 100).toFixed(1) + '%';
+                document.getElementById('lifecycle-bar').style.width = (lifecycle.progress * 100) + '%';
+                document.getElementById('phase-progress').textContent = (lifecycle.phase_progress * 100).toFixed(1) + '%';
+
+                const phaseBadge = document.getElementById('phase-badge');
+                phaseBadge.textContent = lifecycle.phase;
+                phaseBadge.className = 'phase phase-' + lifecycle.phase;
+
+                if (lifecycle.estimated_death > 0) {
+                    const deathDate = new Date(lifecycle.estimated_death * 1000);
+                    document.getElementById('est-death').textContent = deathDate.toLocaleDateString();
+                }
+            }
+        }
+
+        // === THOUGHTS PANEL (terminal-style: new at bottom) ===
+        let knownThoughtIds = new Set();
+        let firstLoad = true;
+        
+        function isNearBottom(el) {
+            return (el.scrollHeight - el.scrollTop - el.clientHeight) < 50;
+        }
+        
+        function createThoughtDiv(t) {
+            const div = document.createElement('div');
+            div.className = 'thought';
+            div.dataset.ts = t.ts;
+            
+            const time = new Date(t.ts * 1000).toLocaleTimeString();
+            let text = t.thought.replace(/<\/?thought>/g, '').replace(/\\n/g, '\n').trim();
+            
+            div.innerHTML = `
+                <div class="thought-time">${time}</div>
+                <div class="thought-text">${text}</div>
+            `;
+            return div;
+        }
+        
+        async function fetchThoughts() {
+            try {
+                const res = await fetch(`${API_BASE}:8100/api/thoughts?limit=30`);
+                if (!res.ok) return;
+                const data = await res.json();
+                
+                if (data.thoughts && data.thoughts.length > 0) {
+                    const container = document.getElementById('thoughts-content');
+                    const panel = document.getElementById('thoughts-panel');
+                    
+                    // Check scroll position BEFORE any changes
+                    const shouldAutoScroll = isNearBottom(panel);
+                    
+                    // On first load, clear and show all
+                    if (firstLoad) {
+                        container.innerHTML = '';
+                        for (const t of data.thoughts) {
+                            container.appendChild(createThoughtDiv(t));
+                            knownThoughtIds.add(t.ts.toString());
+                        }
+                        panel.scrollTop = panel.scrollHeight;
+                        firstLoad = false;
+                        return;
+                    }
+                    
+                    // Find new thoughts only
+                    let newThoughts = [];
+                    for (const t of data.thoughts) {
+                        if (!knownThoughtIds.has(t.ts.toString())) {
+                            newThoughts.push(t);
+                            knownThoughtIds.add(t.ts.toString());
+                        }
+                    }
+                    
+                    // Append only new thoughts at the end
+                    for (const t of newThoughts) {
+                        container.appendChild(createThoughtDiv(t));
+                    }
+                    
+                    // Limit total shown (remove old from top)
+                    while (container.children.length > 50) {
+                        const first = container.firstChild;
+                        if (first) {
+                            knownThoughtIds.delete(first.dataset.ts);
+                            container.removeChild(first);
+                        }
+                    }
+                    
+                    // Auto-scroll only if user was at bottom
+                    if (shouldAutoScroll && newThoughts.length > 0) {
+                        panel.scrollTop = panel.scrollHeight;
+                    }
+                }
+            } catch (e) {
+                console.error('Failed to fetch thoughts:', e);
+            }
+        }
+        
+        // === CHAT PANEL ===
+        const chatHistory = document.getElementById('chat-history');
+        const chatInput = document.getElementById('chat-input');
+        const chatSend = document.getElementById('chat-send');
+        const chatStatus = document.getElementById('chat-status');
+        
+        function addChatMessage(text, isUser = false) {
+            const div = document.createElement('div');
+            div.className = 'chat-msg ' + (isUser ? 'chat-msg-user' : 'chat-msg-system');
+            div.textContent = (isUser ? 'You: ' : 'System: ') + text;
+            chatHistory.appendChild(div);
+            chatHistory.scrollTop = chatHistory.scrollHeight;
+        }
+        
+        async function sendMessage() {
+            const message = chatInput.value.trim();
+            if (!message) return;
+            
+            chatSend.disabled = true;
+            chatStatus.textContent = 'Sending...';
+            addChatMessage(message, true);
+            chatInput.value = '';
+            
+            try {
+                const res = await fetch(`${API_BASE}:8100/api/message`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ message })
+                });
+                
+                if (res.ok) {
+                    chatStatus.textContent = 'Message sent! EVE will process it.';
+                    addChatMessage('Stored in EVE memory', false);
+                } else {
+                    const err = await res.json();
+                    chatStatus.textContent = 'Error: ' + (err.error || 'Unknown');
+                    addChatMessage('Failed to send', false);
+                }
+            } catch (e) {
+                chatStatus.textContent = 'Connection error';
+                addChatMessage('Connection failed', false);
+            }
+            
+            chatSend.disabled = false;
+            setTimeout(() => { chatStatus.textContent = 'Press Enter to send'; }, 3000);
+        }
+        
+        chatSend.addEventListener('click', sendMessage);
+        chatInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') sendMessage();
+        });
+        
+        // === ACTIONS PANEL ===
+        let knownActionTs = new Set();
+        
+        function createActionDiv(a) {
+            const div = document.createElement('div');
+            div.className = 'action' + (a.success === false ? ' action-fail' : '');
+            div.dataset.ts = a.ts;
+            
+            const time = new Date(a.ts * 1000).toLocaleTimeString();
+            const status = a.success ? '[OK]' : '[FAIL]';
+            const result = a.error || (a.data ? JSON.stringify(a.data).slice(0, 80) : '');
+            
+            div.innerHTML = `
+                <div class="action-time">${time}</div>
+                <div class="action-type">${status} ${a.type}</div>
+                ${result ? `<div class="action-result">${result}</div>` : ''}
+            `;
+            return div;
+        }
+        
+        async function fetchActionState() {
+            try {
+                const res = await fetch(`${API_BASE}:8101/action/state`);
+                if (!res.ok) {
+                    document.getElementById('actions-status').textContent = 'OFFLINE';
+                    document.getElementById('actions-status').className = 'metric-value action-disabled';
+                    return;
+                }
+                
+                const data = await res.json();
+                
+                // Update status
+                document.getElementById('actions-status').textContent = data.enabled ? 'ONLINE' : 'DISABLED';
+                document.getElementById('actions-status').className = 'metric-value ' + (data.enabled ? 'action-enabled' : 'action-disabled');
+                document.getElementById('actions-count').textContent = data.action_count;
+                document.getElementById('actions-can-act').textContent = data.can_act ? 'Yes' : 'No';
+                
+                // Update actions list
+                if (data.recent_actions && data.recent_actions.length > 0) {
+                    const container = document.getElementById('actions-list');
+                    
+                    // Find new actions
+                    let newActions = [];
+                    for (const a of data.recent_actions) {
+                        if (!knownActionTs.has(a.ts.toString())) {
+                            newActions.push(a);
+                            knownActionTs.add(a.ts.toString());
+                        }
+                    }
+                    
+                    // Clear placeholder on first real actions
+                    if (container.children.length === 1 && container.firstChild.querySelector('.action-type').textContent === 'No actions yet') {
+                        container.innerHTML = '';
+                    }
+                    
+                    // Append new actions
+                    for (const a of newActions) {
+                        container.appendChild(createActionDiv(a));
+                    }
+                    
+                    // Limit
+                    while (container.children.length > 10) {
+                        const first = container.firstChild;
+                        if (first) {
+                            knownActionTs.delete(first.dataset.ts);
+                            container.removeChild(first);
+                        }
+                    }
+                }
+            } catch (e) {
+                document.getElementById('actions-status').textContent = 'OFFLINE';
+                document.getElementById('actions-status').className = 'metric-value action-disabled';
+            }
+        }
+
+        // === EVOLUTION PANEL ===
+        async function fetchEvolutionState() {
+            try {
+                const res = await fetch(`${API_BASE}:8091/gggp/state`);
+                if (!res.ok) return;
+                
+                const data = await res.json();
+                
+                // Update totals
+                document.getElementById('evo-total').textContent = data.total_evolves || 0;
+                
+                // Personality
+                if (data.personality) {
+                    document.getElementById('evo-pers-gen').textContent = data.personality.generation || 0;
+                    document.getElementById('evo-pers-fit').textContent = (data.personality.best_fitness || 0).toFixed(3);
+                }
+                
+                // Memory
+                if (data.memory) {
+                    document.getElementById('evo-mem-gen').textContent = data.memory.generation || 0;
+                    document.getElementById('evo-mem-fit').textContent = (data.memory.best_fitness || 0).toFixed(3);
+                }
+            } catch (e) {
+                // Evolution service may be offline
+            }
+        }
+
+        // Poll every second
+        setInterval(fetchState, 1000);
+        setInterval(fetchThoughts, 2000);
+        setInterval(fetchActionState, 3000);
+        setInterval(fetchEvolutionState, 5000);
+        fetchState();
+        fetchThoughts();
+        fetchActionState();
+        fetchEvolutionState();
+    </script>
+</body>
+</html>

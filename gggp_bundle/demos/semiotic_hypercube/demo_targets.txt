@@ -1,0 +1,3 @@
+sort a list of integers efficiently
+extract dates and amounts from invoices
+classify support tickets by urgency and topic

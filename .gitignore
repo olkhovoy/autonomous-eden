@@ -1,0 +1,62 @@
+# Python
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+
+# Runtime data
+logs/
+data/
+cache/
+models/
+workspace/
+Legacy/
+benchmark_output/
+
+# External tools
+wandb/
+zeone_data/
+
+# IDE
+.cursor/
+.vscode/
+
+# Environment (secrets)
+.env
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Build artifacts
+*.egg-info/
+dist/
+build/
+
+# Rust build artifacts (keep source)
+gggp_bundle/rust/target/
+
+# Private files (transcripts, dumps)
+adam.md
+cursor_.md
+umc-mcs.md
+umc-shadow-timeline.md
+GOD-TIER-ARCHITECT.md
+*.pdf
+
+# Legacy / archive
+archive/
+
+# Old root-level files
+agent_node.py
+interface.py
+umc_controller.py
+umc_supervisor.py
+debug_physics.py
+texput.log
+
+# Benchmark models (large)
+benchmark/models/
+
+# Node
+node_modules/

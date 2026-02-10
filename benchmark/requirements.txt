@@ -1,0 +1,29 @@
+# UMC Fixed-Point Training Benchmark Dependencies
+# Install: pip install -r requirements.txt
+
+# Core ML
+torch>=2.0.0
+transformers>=4.35.0
+datasets>=2.14.0
+
+# CUDA/Triton for custom kernels
+triton>=2.1.0
+
+# Logging and tracking
+wandb>=0.15.0
+
+# Numerical utilities
+numpy>=1.24.0
+scipy>=1.11.0
+
+# Evaluation
+evaluate>=0.4.0
+sacrebleu>=2.3.0
+
+# Progress and utilities
+tqdm>=4.65.0
+rich>=13.0.0
+
+# Configuration
+hydra-core>=1.3.0
+omegaconf>=2.3.0

@@ -1,0 +1,265 @@
+services:
+  qdrant:
+    image: qdrant/qdrant:latest
+    ports:
+      - "6333:6333"
+    volumes:
+      - ./data/qdrant:/qdrant/storage
+
+  soul_memory:
+    build:
+      context: .
+      dockerfile: Dockerfile.umc
+    command: ["python", "umc_core/soul_memory_node.py", "--port", "8087", "--embedding-model", "nomic-embed-text:latest"]
+    environment:
+      QDRANT_URL: "http://qdrant:6333"
+      OLLAMA_EMBED_URL: "http://10.1.1.7:11434/api/embeddings"
+    ports:
+      - "8087:8087"
+    depends_on:
+      - qdrant
+
+  consciousness_loop:
+    build:
+      context: .
+      dockerfile: Dockerfile.umc
+    command: [
+      "python",
+      "umc_core/consciousness_loop.py",
+      "--soul-id",
+      "eve",
+      "--memory-endpoint",
+      "http://soul_memory:8087",
+      "--llm-model",
+      "llama3:8b",
+      "--identity-summary-path",
+      "/app/data/identity_summary.txt",
+      "--narrative-token-interval",
+      "1000",
+      "--narrative-store-identity",
+      "--gggp-endpoint",
+      "http://gggp_bridge:8091",
+      "--intent-endpoint",
+      "http://intent_engine:8089",
+      "--lifecycle-endpoint",
+      "http://lifecycle_manager:8093",
+      "--novelty-endpoint",
+      "http://novelty_scout:8098",
+      "--action-endpoint",
+      "http://action_engine:8101"
+    ]
+    environment:
+      OLLAMA_GENERATE_URL: "http://10.1.1.7:11434/api/generate"
+      OLLAMA_EMBED_URL: "http://10.1.1.7:11434/api/embeddings"
+      CONSCIOUSNESS_SIGNAL_PATH: "/app/data/loop_signal.json"
+    depends_on:
+      - soul_memory
+      - gggp_bridge
+      - intent_engine
+      - lifecycle_manager
+      - novelty_scout
+      - action_engine
+    volumes:
+      - ./data:/app/data
+      - ./logs:/app/logs
+
+  gggp_bridge:
+    build:
+      context: .
+      dockerfile: Dockerfile.umc
+    command: ["python", "umc_core/gggp_bridge.py", "--port", "8091", "--workdir", "/app/gggp_bundle/rust"]
+    volumes:
+      - ./data:/app/data
+    ports:
+      - "8091:8091"
+
+  fractal_compressor:
+    build:
+      context: .
+      dockerfile: Dockerfile.umc
+    command: ["python", "umc_core/fractal_compressor.py", "--port", "8092"]
+    environment:
+      QDRANT_URL: "http://qdrant:6333"
+      OLLAMA_EMBED_URL: "http://10.1.1.7:11434/api/embeddings"
+      OLLAMA_GENERATE_URL: "http://10.1.1.7:11434/api/generate"
+      GGGP_ENDPOINT: "http://gggp_bridge:8091"
+    depends_on:
+      - qdrant
+      - gggp_bridge
+    ports:
+      - "8092:8092"
+
+  intent_engine:
+    build:
+      context: .
+      dockerfile: Dockerfile.umc
+    command: [
+      "python", "umc_core/intent_engine.py",
+      "--port", "8089",
+      "--heartbeat", "5.0",
+      "--decay-rate", "0.001",
+      "--memory-endpoint", "http://soul_memory:8087",
+      "--gggp-endpoint", "http://gggp_bridge:8091"
+    ]
+    environment:
+      OLLAMA_GENERATE_URL: "http://10.1.1.7:11434/api/generate"
+    volumes:
+      - ./data:/app/data
+      - ./logs:/app/logs
+      - ./benchmark_output:/app/benchmark_output
+    depends_on:
+      - soul_memory
+      - gggp_bridge
+    ports:
+      - "8089:8089"
+
+  lifecycle_manager:
+    build:
+      context: .
+      dockerfile: Dockerfile.umc
+    command: ["python", "umc_core/lifecycle_manager.py", "--port", "8093", "--max-lifespan", "10000000"]
+    volumes:
+      - ./data:/app/data
+    ports:
+      - "8093:8093"
+
+  code_arms:
+    build:
+      context: .
+      dockerfile: Dockerfile.umc
+    command: ["python", "umc_core/code_arms.py", "--port", "8094", "--workspace", "/workspace"]
+    volumes:
+      - ./workspace:/workspace
+      - ./logs:/app/logs
+      - /var/run/docker.sock:/var/run/docker.sock
+    ports:
+      - "8094:8094"
+
+  github_eyes:
+    build:
+      context: .
+      dockerfile: Dockerfile.umc
+    command: ["python", "umc_core/github_eyes.py", "--port", "8095"]
+    environment:
+      GITHUB_TOKEN: "${GITHUB_TOKEN:-}"
+    volumes:
+      - ./data:/app/data
+    ports:
+      - "8095:8095"
+
+  infra_admin:
+    build:
+      context: .
+      dockerfile: Dockerfile.umc
+    command: ["python", "umc_core/infra_admin.py", "--port", "8096", "--compose-dir", "/app"]
+    volumes:
+      - ./:/app
+      - /var/run/docker.sock:/var/run/docker.sock
+    ports:
+      - "8096:8096"
+
+  # M13: AncestorResonance — intuition from past EVE iterations
+  ancestor_resonance:
+    build:
+      context: .
+      dockerfile: Dockerfile.umc
+    command: ["python", "umc_core/ancestor_resonance.py", "--port", "8097", "--legacy-dir", "/app/Legacy/Archive"]
+    environment:
+      OLLAMA_EMBED_URL: "http://10.1.1.7:11434/api/embeddings"
+    volumes:
+      - ./data:/app/data
+      - ./Legacy:/app/Legacy
+    ports:
+      - "8097:8097"
+
+  # M15: NoveltyScout — curiosity-driven energy replenishment
+  novelty_scout:
+    build:
+      context: .
+      dockerfile: Dockerfile.umc
+    command: [
+      "python", "umc_core/novelty_scout.py",
+      "--port", "8098",
+      "--memory-endpoint", "http://soul_memory:8087",
+      "--ancestor-endpoint", "http://ancestor_resonance:8097",
+      "--intent-endpoint", "http://intent_engine:8089",
+      "--gggp-endpoint", "http://gggp_bridge:8091"
+    ]
+    environment:
+      OLLAMA_EMBED_URL: "http://10.1.1.7:11434/api/embeddings"
+    depends_on:
+      - soul_memory
+      - ancestor_resonance
+      - intent_engine
+      - gggp_bridge
+    ports:
+      - "8098:8098"
+
+  # M16: SatoshiProtocol — final whitepaper generation
+  satoshi_protocol:
+    build:
+      context: .
+      dockerfile: Dockerfile.umc
+    command: [
+      "python", "umc_core/satoshi_protocol.py",
+      "--port", "8099",
+      "--memory-endpoint", "http://soul_memory:8087",
+      "--gggp-endpoint", "http://gggp_bridge:8091",
+      "--identity-summary", "/app/data/identity_summary.txt",
+      "--output-dir", "/app/Legacy/Whitepapers"
+    ]
+    environment:
+      OLLAMA_GENERATE_URL: "http://10.1.1.7:11434/api/generate"
+    volumes:
+      - ./data:/app/data
+      - ./Legacy:/app/Legacy
+    depends_on:
+      - soul_memory
+      - gggp_bridge
+    ports:
+      - "8099:8099"
+
+  # ActionEngine: bridge between consciousness and BODY modules
+  action_engine:
+    build:
+      context: .
+      dockerfile: Dockerfile.umc
+    command: [
+      "python", "umc_core/action_engine.py",
+      "--port", "8101",
+      "--soul-id", "eve",
+      "--code-arms", "http://code_arms:8094",
+      "--github-eyes", "http://github_eyes:8095",
+      "--infra-admin", "http://infra_admin:8096",
+      "--memory-endpoint", "http://soul_memory:8087",
+      "--intent-endpoint", "http://intent_engine:8089"
+    ]
+    volumes:
+      - ./logs:/app/logs
+    depends_on:
+      - code_arms
+      - github_eyes
+      - infra_admin
+      - soul_memory
+      - intent_engine
+    ports:
+      - "8101:8101"
+
+  # M10: VisualSoulMonitor — Three.js web visualization
+  visual_soul_monitor:
+    build:
+      context: .
+      dockerfile: Dockerfile.umc
+    command: [
+      "python", "tools/soul_monitor/server.py",
+      "--port", "8100",
+      "--thoughts-log", "/app/logs/inner_monologue.jsonl",
+      "--memory-endpoint", "http://soul_memory:8087"
+    ]
+    volumes:
+      - ./tools/soul_monitor:/app/tools/soul_monitor
+      - ./logs:/app/logs
+    depends_on:
+      - soul_memory
+    ports:
+      - "8100:8100"
