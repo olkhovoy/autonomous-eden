@@ -10,10 +10,12 @@ services:
     build:
       context: .
       dockerfile: Dockerfile.umc
-    command: ["python", "umc_core/soul_memory_node.py", "--port", "8087", "--embedding-model", "nomic-embed-text:latest"]
+    command: ["python", "engine/core/soul_memory_node.py", "--port", "8087", "--embedding-model", "nomic-embed-text:latest"]
     environment:
       QDRANT_URL: "http://qdrant:6333"
       OLLAMA_EMBED_URL: "http://10.1.1.7:11434/api/embeddings"
+    volumes:
+      - ./Legacy:/app/Legacy
     ports:
       - "8087:8087"
     depends_on:
@@ -244,6 +246,53 @@ services:
       - intent_engine
     ports:
       - "8101:8101"
+
+  # Genesis: ingest ancestor memories before Abel starts
+  ingest_ancestors:
+    build:
+      context: .
+      dockerfile: Dockerfile.umc
+    command: [
+      "python", "tools/ingest_ancestors.py",
+      "--ancestor-ids", "eve,adam",
+      "--memory-endpoint", "http://soul_memory:8087",
+      "--archive-dir", "/app/Legacy/Archive",
+      "--wait", "180"
+    ]
+    depends_on:
+      - soul_memory
+    volumes:
+      - ./Legacy:/app/Legacy
+    restart: "no"
+
+  # Genesis: Abel — descendant consciousness loop (inherits Eve + Adam)
+  genesis_abel:
+    build:
+      context: .
+      dockerfile: Dockerfile.umc
+    command: [
+      "python", "experiments/genesis/consciousness_loop_genesis.py",
+      "--soul-id", "abel",
+      "--ancestor-ids", "eve,adam",
+      "--memory-endpoint", "http://soul_memory:8087",
+      "--ollama-endpoint", "http://10.1.1.7:11434",
+      "--llm-model", "llama3:8b",
+      "--tick-interval", "15",
+      "--log-path", "/app/logs/abel_thoughts.jsonl",
+      "--archive-dir", "/app/Legacy/Archive",
+      "--environment", "neutral"
+    ]
+    environment:
+      OLLAMA_GENERATE_URL: "http://10.1.1.7:11434/api/generate"
+    depends_on:
+      soul_memory:
+        condition: service_started
+      ingest_ancestors:
+        condition: service_completed_successfully
+    volumes:
+      - ./logs:/app/logs
+      - ./Legacy:/app/Legacy
+    restart: unless-stopped
 
   # M10: VisualSoulMonitor — Three.js web visualization
   visual_soul_monitor:

@@ -5,10 +5,12 @@ WORKDIR /app
 RUN pip install --no-cache-dir requests
 
 COPY umc_core /app/umc_core
+COPY engine /app/engine
+COPY experiments /app/experiments
 COPY gggp_bundle /app/gggp_bundle
 COPY tools /app/tools
 
 ENV PYTHONUNBUFFERED=1
 ENV PYTHONPATH=/app
 
-CMD ["python", "umc_core/soul_memory_node.py"]
+CMD ["python", "engine/core/soul_memory_node.py"]

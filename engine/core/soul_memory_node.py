@@ -15,6 +15,7 @@ import threading
 import time
 import uuid
 from dataclasses import dataclass, asdict
+from pathlib import Path
 from typing import Any, Dict, List, Optional, Tuple
 
 import requests
@@ -158,6 +159,7 @@ class SoulMemoryNode:
         self.router = EmotionalSaliencyRouter()
         self.qdrant = QdrantHTTP(qdrant_url)
         self.decay_rate = decay_rate
+        self._lock = threading.RLock()
 
     def _collection(self, soul_id: str) -> str:
         return f"soul_{soul_id}"
@@ -181,15 +183,17 @@ class SoulMemoryNode:
             tags=tags,
             meta=meta,
         )
-        self.qdrant.ensure_collection(self._collection(soul_id), vector_size=len(vec))
-        payload = asdict(mem).copy()
-        payload.pop("vector")
-        self.qdrant.upsert(self._collection(soul_id), mem_id, vec, payload)
+        with self._lock:
+            self.qdrant.ensure_collection(self._collection(soul_id), vector_size=len(vec))
+            payload = asdict(mem).copy()
+            payload.pop("vector")
+            self.qdrant.upsert(self._collection(soul_id), mem_id, vec, payload)
         return mem
 
     def query(self, soul_id: str, query_text: str, limit: int = 5) -> List[MemoryObject]:
         vec = self.embedder.embed(query_text)
-        results = self.qdrant.search(self._collection(soul_id), vec, limit=limit)
+        with self._lock:
+            results = self.qdrant.search(self._collection(soul_id), vec, limit=limit)
         memories = []
         now = time.time()
         for r in results:
@@ -210,9 +214,154 @@ class SoulMemoryNode:
             mem.strength = min(1.0, mem.strength + 0.05 * mem.saliency)
             payload["last_accessed"] = now
             payload["strength"] = mem.strength
-            self.qdrant.update_payload(self._collection(soul_id), mem.id, payload)
+            with self._lock:
+                self.qdrant.update_payload(self._collection(soul_id), mem.id, payload)
             memories.append(mem)
         return memories
+
+    def query_lineage(
+        self,
+        soul_id: str,
+        ancestor_ids: List[str],
+        query_text: str,
+        limit: int = 5,
+        ancestor_weight: float = 0.6,
+    ) -> List[Dict[str, Any]]:
+        """
+        Query own and ancestor memories, then return weighted top-K.
+        Own memories keep full score; ancestor memory score is multiplied by ancestor_weight.
+        """
+        if limit <= 0:
+            return []
+        ancestor_weight = max(0.0, ancestor_weight)
+        vec = self.embedder.embed(query_text)
+        now = time.time()
+        merged: List[Dict[str, Any]] = []
+
+        with self._lock:
+            own_results = self.qdrant.search(self._collection(soul_id), vec, limit=limit)
+
+        for r in own_results:
+            payload = r.get("payload", {})
+            base_strength = float(payload.get("strength", 0.1))
+            saliency = float(payload.get("saliency", 0.1))
+            reinforced = min(1.0, base_strength + 0.05 * saliency)
+            payload["last_accessed"] = now
+            payload["strength"] = reinforced
+            with self._lock:
+                self.qdrant.update_payload(self._collection(soul_id), str(r.get("id")), payload)
+            merged.append({
+                "id": str(r.get("id")),
+                "soul_id": payload.get("soul_id", soul_id),
+                "text": payload.get("text", ""),
+                "saliency": saliency,
+                "created_at": float(payload.get("created_at", now)),
+                "last_accessed": now,
+                "strength": reinforced,
+                "tags": payload.get("tags", []),
+                "meta": payload.get("meta", {}),
+                "source": "self",
+                "score": float(r.get("score", 0.0)),
+                "weighted_score": float(r.get("score", 0.0)),
+            })
+
+        for ancestor_id in ancestor_ids:
+            if not ancestor_id or ancestor_id == soul_id:
+                continue
+            with self._lock:
+                ancestor_results = self.qdrant.search(self._collection(ancestor_id), vec, limit=limit)
+            for r in ancestor_results:
+                payload = r.get("payload", {})
+                score = float(r.get("score", 0.0))
+                strength = float(payload.get("strength", 0.1)) * ancestor_weight
+                merged.append({
+                    "id": str(r.get("id")),
+                    "soul_id": payload.get("soul_id", ancestor_id),
+                    "text": payload.get("text", ""),
+                    "saliency": float(payload.get("saliency", 0.1)),
+                    "created_at": float(payload.get("created_at", now)),
+                    "last_accessed": float(payload.get("last_accessed", now)),
+                    "strength": strength,
+                    "tags": payload.get("tags", []),
+                    "meta": payload.get("meta", {}),
+                    "source": ancestor_id,
+                    "score": score,
+                    "weighted_score": score * ancestor_weight,
+                })
+
+        merged.sort(key=lambda m: m.get("weighted_score", 0.0), reverse=True)
+        return merged[:limit]
+
+    def ingest_archive(self, soul_id: str, archive_path: str) -> int:
+        """
+        Ingest archived memories from {archive_path}/memories_snapshot.json.
+        Archived memories are inserted with low initial strength and 'archived' tag.
+        """
+        snapshot = Path(archive_path) / "memories_snapshot.json"
+        if not snapshot.exists():
+            raise FileNotFoundError(f"{snapshot} not found")
+        with snapshot.open("r", encoding="utf-8") as f:
+            records = json.load(f)
+        if not isinstance(records, list):
+            raise ValueError("memories_snapshot.json must contain a JSON list")
+        if not records:
+            return 0
+
+        inferred_dim: Optional[int] = None
+        for rec in records:
+            vec = rec.get("vector")
+            if isinstance(vec, list) and vec:
+                inferred_dim = len(vec)
+                break
+
+        if inferred_dim is None:
+            for rec in records:
+                text = str(rec.get("text", "")).strip()
+                if text:
+                    inferred_dim = len(self.embedder.embed(text))
+                    break
+
+        if inferred_dim is None:
+            return 0
+
+        ingested = 0
+        collection = self._collection(soul_id)
+        with self._lock:
+            self.qdrant.ensure_collection(collection, vector_size=inferred_dim)
+
+        for rec in records:
+            text = str(rec.get("text", ""))
+            if not text:
+                continue
+            vec = rec.get("vector")
+            if not isinstance(vec, list) or not vec:
+                vec = self.embedder.embed(text)
+            if len(vec) != inferred_dim:
+                continue
+
+            tags = rec.get("tags", [])
+            if not isinstance(tags, list):
+                tags = []
+            if "archived" not in tags:
+                tags.append("archived")
+
+            now = time.time()
+            mem_id = str(rec.get("id") or uuid.uuid4())
+            payload = {
+                "id": mem_id,
+                "soul_id": soul_id,
+                "text": text,
+                "saliency": float(rec.get("saliency", 0.3)),
+                "created_at": float(rec.get("created_at", now)),
+                "last_accessed": now,
+                "strength": 0.3,
+                "tags": tags,
+                "meta": rec.get("meta", {}),
+            }
+            with self._lock:
+                self.qdrant.upsert(collection, mem_id, vec, payload)
+            ingested += 1
+        return ingested
 
     def decay(self, soul_id: str):
         """Decay memory strength over time unless recently accessed."""
@@ -220,7 +369,8 @@ class SoulMemoryNode:
         now = time.time()
         offset = None
         while True:
-            points, offset = self.qdrant.scroll(collection, limit=100, offset=offset)
+            with self._lock:
+                points, offset = self.qdrant.scroll(collection, limit=100, offset=offset)
             for p in points:
                 payload = p.get("payload", {})
                 last = float(payload.get("last_accessed", now))
@@ -229,7 +379,8 @@ class SoulMemoryNode:
                 decay = math.exp(-self.decay_rate * age)
                 new_strength = max(0.01, strength * decay)
                 payload["strength"] = new_strength
-                self.qdrant.update_payload(collection, p.get("id"), payload)
+                with self._lock:
+                    self.qdrant.update_payload(collection, p.get("id"), payload)
             if not offset:
                 break
 
@@ -239,7 +390,8 @@ class SoulMemoryNode:
         points: List[Dict[str, Any]] = []
         offset = None
         while True:
-            batch, offset = self.qdrant.scroll(collection, limit=100, offset=offset, with_vectors=True)
+            with self._lock:
+                batch, offset = self.qdrant.scroll(collection, limit=100, offset=offset, with_vectors=True)
             points.extend(batch)
             if not offset:
                 break
@@ -282,6 +434,11 @@ class SoulMemoryHandler(BaseHTTPRequestHandler):
         self.end_headers()
         self.wfile.write(body)
 
+    def do_GET(self):
+        if self.path == "/health":
+            return self._json(200, {"status": "ok"})
+        return self._json(404, {"error": "not found"})
+
     def do_POST(self):
         length = int(self.headers.get("Content-Length", "0"))
         raw = self.rfile.read(length).decode("utf-8")
@@ -321,6 +478,33 @@ class SoulMemoryHandler(BaseHTTPRequestHandler):
                 limit = int(data.get("limit", 10))
                 mems = self.node.recent(soul_id, limit=limit)
                 return self._json(200, {"results": [asdict(m) for m in mems]})
+
+            if self.path == "/memories/query_lineage":
+                soul_id = data.get("soul_id")
+                query_text = data.get("query", "")
+                if not soul_id or not query_text:
+                    return self._json(400, {"error": "soul_id and query required"})
+                ancestor_ids = data.get("ancestor_ids", [])
+                if not isinstance(ancestor_ids, list):
+                    return self._json(400, {"error": "ancestor_ids must be a list"})
+                limit = int(data.get("limit", 5))
+                ancestor_weight = float(data.get("ancestor_weight", 0.6))
+                results = self.node.query_lineage(
+                    soul_id=soul_id,
+                    ancestor_ids=[str(a) for a in ancestor_ids],
+                    query_text=query_text,
+                    limit=limit,
+                    ancestor_weight=ancestor_weight,
+                )
+                return self._json(200, {"results": results})
+
+            if self.path == "/memories/ingest_archive":
+                soul_id = data.get("soul_id")
+                archive_path = data.get("archive_path")
+                if not soul_id or not archive_path:
+                    return self._json(400, {"error": "soul_id and archive_path required"})
+                count = self.node.ingest_archive(str(soul_id), str(archive_path))
+                return self._json(200, {"ingested": count, "soul_id": soul_id})
         except Exception as exc:
             return self._json(500, {"error": str(exc)})
 
