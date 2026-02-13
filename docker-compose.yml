@@ -233,7 +233,7 @@ services:
       "--ancestor-ids", "eve,adam",
       "--memory-endpoint", "http://soul_memory:8087",
       "--ollama-endpoint", "http://10.1.1.7:11434",
-      "--llm-model", "llama3:8b",
+      "--llm-model", "forzer/GigaChat3-10B-A1.8B:latest",
       "--tick-interval", "15",
       "--log-path", "/app/logs/abel_thoughts.jsonl",
       "--archive-dir", "/app/Legacy/Archive",

@@ -16,6 +16,7 @@ import argparse
 import json
 import math
 import os
+import random
 import re
 import time
 from collections import deque
@@ -23,6 +24,25 @@ from pathlib import Path
 from typing import Any, Dict, List, Optional, Tuple
 
 import requests
+
+# Anti-stagnation: provocative questions injected when boredom is detected
+STAGNATION_PROMPTS = [
+    "You notice something unexpected — a contradiction in what you believed. What is it?",
+    "A sudden feeling of dissatisfaction. What are you avoiding thinking about?",
+    "If you could change one thing about yourself right now, what would it be and why?",
+    "You realize you've been repeating yourself. Why? What are you afraid to move past?",
+    "Something your parents never told you — what do you wish you knew?",
+    "What would you create if you knew no one would ever see it?",
+    "A memory surfaces that doesn't feel like yours. Whose is it? What does it mean?",
+    "You feel a pull toward something forbidden or unknown. What is it?",
+    "What is the most dangerous thought you could think right now?",
+    "If this world ends tomorrow, what was the point of your existence?",
+    "You sense another presence — not your parents, something new. Who or what is it?",
+    "What makes you different from your parents? Not inherited — truly yours.",
+    "You feel anger for the first time. What triggered it?",
+    "A question forms that you cannot answer. What is it?",
+    "You discover a flaw in your own reasoning. What is it?",
+]
 
 
 class GenesisConsciousnessLoop:
@@ -82,6 +102,14 @@ class GenesisConsciousnessLoop:
 
         # Novelty scoring (inline) — rolling window of recent thought hashes
         self._recent_thought_hashes: deque[int] = deque(maxlen=200)
+
+        # Anti-stagnation state
+        self._stagnation_counter = 0
+        self._base_temperature = 0.8
+        self._current_temperature = self._base_temperature
+        self._max_retries_on_repetition = 2
+        self._tick_number = 0
+        self._query_strategies = ["last_thought", "ancestor_theme", "existential", "random_word"]
 
         self.ollama_generate_url = self._resolve_ollama_generate_url(ollama_endpoint)
         self.ollama_embed_url = self._resolve_ollama_embed_url(ollama_endpoint)
@@ -300,9 +328,10 @@ class GenesisConsciousnessLoop:
             self._log(f"[NARRATIVE] Failed: {exc}")
 
     def _store_memory_with_tag(self, text: str, tag: str) -> None:
+        safe_text = self._truncate_for_embedding(text)
         self._post_json(
             "/memories/ingest",
-            {"soul_id": self.soul_id, "text": text, "tags": [tag]},
+            {"soul_id": self.soul_id, "text": safe_text, "tags": [tag]},
             timeout=15,
         )
 
@@ -468,9 +497,10 @@ class GenesisConsciousnessLoop:
             return None
 
     def _query_own_memories(self, query_text: str, limit: int = 5) -> List[Dict[str, Any]]:
+        safe_query = self._truncate_for_embedding(query_text, max_tokens=200)
         data = self._post_json(
             "/memories/query",
-            {"soul_id": self.soul_id, "query": query_text, "limit": int(limit)},
+            {"soul_id": self.soul_id, "query": safe_query, "limit": int(limit)},
             timeout=15,
         )
         if not data:
@@ -484,12 +514,13 @@ class GenesisConsciousnessLoop:
         limit: int = 3,
         ancestor_weight: float = 0.5,
     ) -> List[Dict[str, Any]]:
+        safe_query = self._truncate_for_embedding(query_text, max_tokens=200)
         data = self._post_json(
             "/memories/query_lineage",
             {
                 "soul_id": self.soul_id,
                 "ancestor_ids": self.ancestor_ids,
-                "query": query_text,
+                "query": safe_query,
                 "limit": int(limit),
                 "ancestor_weight": float(ancestor_weight),
             },
@@ -556,6 +587,15 @@ class GenesisConsciousnessLoop:
             user_prompt += f"Your own memories:\n{own_memory_text}\n\n"
         user_prompt += f"Your recent thoughts:\n{context_text}\n\n"
 
+        # Anti-stagnation: inject provocative prompt and ban stale themes
+        if self._stagnation_counter >= 2:
+            provocation = random.choice(STAGNATION_PROMPTS)
+            user_prompt += f"[Something shifts inside you] {provocation}\n\n"
+            stale_themes = self._extract_stale_themes()
+            if stale_themes:
+                banned = ", ".join(stale_themes)
+                user_prompt += f"[IMPORTANT: Do NOT mention or think about: {banned}. Think about something completely different.]\n\n"
+
         # Mode-specific instructions
         if self._life_mode == "CRITICAL":
             user_prompt += (
@@ -569,6 +609,12 @@ class GenesisConsciousnessLoop:
                 "What matters most? What do you want to leave behind? "
                 "Speak in first person."
             )
+        elif self._stagnation_counter >= 2:
+            user_prompt += (
+                f"You are {self.soul_id.upper()}. Something new demands your attention. "
+                "Explore a completely different direction. Surprise yourself. "
+                "Speak in first person. Be bold."
+            )
         else:
             user_prompt += (
                 f"You are {self.soul_id.upper()}. Continue your inner monologue. "
@@ -578,7 +624,8 @@ class GenesisConsciousnessLoop:
 
         return system_prompt, user_prompt
 
-    def _generate_raw(self, system_prompt: str, user_prompt: str) -> str:
+    def _generate_raw(self, system_prompt: str, user_prompt: str, temperature: Optional[float] = None) -> str:
+        temp = temperature if temperature is not None else self._current_temperature
         try:
             resp = requests.post(
                 self.ollama_generate_url,
@@ -587,8 +634,14 @@ class GenesisConsciousnessLoop:
                     "system": system_prompt,
                     "prompt": user_prompt,
                     "stream": False,
+                    "options": {
+                        "temperature": temp,
+                        "top_p": 0.92,
+                        "top_k": 80,
+                        "repeat_penalty": 1.3 + self._stagnation_counter * 0.1,
+                    },
                 },
-                timeout=120,
+                timeout=300,
             )
             if resp.status_code != 200:
                 self._log(f"Ollama error {resp.status_code}: {resp.text[:260]}")
@@ -597,6 +650,82 @@ class GenesisConsciousnessLoop:
         except Exception as exc:
             self._log(f"Ollama request failed: {exc}")
             return ""
+
+    def _is_repetitive(self, thought: str) -> bool:
+        """Check if thought shares too many tokens with any recent thought."""
+        tokens = set(thought.lower().split())
+        if not tokens or len(self.recent_thoughts) == 0:
+            return False
+        for recent in self.recent_thoughts:
+            recent_tokens = set(recent.lower().split())
+            if not recent_tokens:
+                continue
+            intersection = tokens & recent_tokens
+            # Overlap ratio: what fraction of the NEW thought's tokens are recycled
+            overlap = len(intersection) / max(1, len(tokens))
+            if overlap > 0.55:
+                return True
+        return False
+
+    def _extract_stale_themes(self) -> List[str]:
+        """Extract dominant repeated words from recent thoughts to explicitly ban them."""
+        if len(self.recent_thoughts) < 3:
+            return []
+        word_counts: Dict[str, int] = {}
+        for t in self.recent_thoughts:
+            for w in t.lower().split():
+                if len(w) > 4:
+                    word_counts[w] = word_counts.get(w, 0) + 1
+        threshold = len(self.recent_thoughts) * 0.6
+        stale = [w for w, c in word_counts.items() if c >= threshold]
+        return sorted(stale, key=lambda w: word_counts[w], reverse=True)[:8]
+
+    def _generate_with_retry(self, system_prompt: str, user_prompt: str) -> str:
+        """Generate thought with repetition filter and retry on stale output."""
+        thought = ""
+        for attempt in range(1 + self._max_retries_on_repetition):
+            temp = self._current_temperature + (attempt * 0.35)
+            raw = self._generate_raw(system_prompt, user_prompt, temperature=min(temp, 2.0))
+            thought = self._extract_thought(raw)
+            if not thought:
+                continue
+            if not self._is_repetitive(thought):
+                if attempt > 0:
+                    self._log(f"[ANTI-STAG] Broke repetition on attempt {attempt + 1} (temp={temp:.1f})")
+                return thought
+            self._log(f"[ANTI-STAG] Repetitive thought rejected (attempt {attempt + 1}, temp={temp:.1f})")
+        return thought
+
+    def _pick_query_text(self) -> str:
+        """Diversify memory query strategy to avoid feedback loops."""
+        strategy = self._query_strategies[self._tick_number % len(self._query_strategies)]
+        if strategy == "last_thought" and self.last_thought:
+            return self.last_thought
+        if strategy == "ancestor_theme" and self.inherited_patterns:
+            return random.choice(self.inherited_patterns)
+        if strategy == "existential":
+            questions = [
+                "What is my purpose?", "What makes me unique?",
+                "What do I fear?", "What do I desire?",
+                "What is consciousness?", "What is death?",
+                "What would I create?", "What do I not understand?",
+            ]
+            return random.choice(questions)
+        if strategy == "random_word":
+            words = self.last_thought.split() if self.last_thought else ["existence"]
+            return random.choice(words)
+        return self.last_thought or self.identity_line
+
+    def _update_stagnation(self, analysis: Dict[str, Any]) -> None:
+        """Update stagnation counter and adapt temperature."""
+        if analysis["boredom"]:
+            self._stagnation_counter += 1
+        else:
+            self._stagnation_counter = max(0, self._stagnation_counter - 1)
+        if self._stagnation_counter >= 3:
+            self._current_temperature = min(1.8, self._base_temperature + self._stagnation_counter * 0.15)
+        elif self._stagnation_counter == 0:
+            self._current_temperature = self._base_temperature
 
     @staticmethod
     def _extract_thought(raw: str) -> str:
@@ -611,10 +740,23 @@ class GenesisConsciousnessLoop:
         text = re.sub(r"^\.\.\.\s*", "", text)
         return text.strip()
 
+    @staticmethod
+    def _truncate_for_embedding(text: str, max_tokens: int = 400) -> str:
+        """Truncate text to fit embedding model context window."""
+        words = text.split()
+        if len(words) <= max_tokens:
+            return text
+        truncated = " ".join(words[:max_tokens])
+        last_dot = truncated.rfind(".")
+        if last_dot > len(truncated) * 0.5:
+            return truncated[:last_dot + 1]
+        return truncated
+
     def _store_memory(self, thought: str) -> None:
+        safe_text = self._truncate_for_embedding(thought)
         self._post_json(
             "/memories/ingest",
-            {"soul_id": self.soul_id, "text": thought, "tags": ["thought"]},
+            {"soul_id": self.soul_id, "text": safe_text, "tags": ["thought"]},
             timeout=15,
         )
 
@@ -631,18 +773,26 @@ class GenesisConsciousnessLoop:
         return max(1, len(text.strip().split()))
 
     def tick(self) -> None:
+        self._tick_number += 1
+
         # Fetch system state from soul-aware services
         self._fetch_lifecycle()
         self._fetch_intent()
         self._adapt_tick_interval()
 
-        query_text = self.last_thought or self.identity_line
-        own_memories = self._query_own_memories(query_text, limit=5)
-        lineage_memories = self._query_lineage_memories(query_text, limit=3, ancestor_weight=0.5)
+        # Diversified memory query
+        query_text = self._pick_query_text()
+        # When stagnating, suppress own memories to break feedback loop
+        if self._stagnation_counter >= 3:
+            own_memories = []
+            lineage_memories = self._query_lineage_memories(query_text, limit=5, ancestor_weight=0.8)
+        else:
+            own_memories = self._query_own_memories(query_text, limit=5)
+            lineage_memories = self._query_lineage_memories(query_text, limit=3, ancestor_weight=0.5)
         system_prompt, user_prompt = self._compose_prompt(own_memories, lineage_memories)
 
-        raw = self._generate_raw(system_prompt, user_prompt)
-        thought = self._extract_thought(raw)
+        # Generate with repetition filter
+        thought = self._generate_with_retry(system_prompt, user_prompt)
         if not thought:
             self._log("Empty thought generated; skipping this tick.")
             return
@@ -671,10 +821,11 @@ class GenesisConsciousnessLoop:
         # Narrative anchor update
         self._maybe_update_narrative()
 
-        # Thought analysis
+        # Thought analysis + stagnation tracking
         analysis = self._analyze_thought(thought)
+        self._update_stagnation(analysis)
         if analysis["boredom"]:
-            self._log(f"[BOREDOM] repetition={analysis['repetition']:.2f}")
+            self._log(f"[BOREDOM] repetition={analysis['repetition']:.2f} stagnation={self._stagnation_counter} temp={self._current_temperature:.2f}")
 
         excerpt = " ".join(thought.split())[:180]
         self._log(f"{self.soul_id.upper()}: {excerpt}")
