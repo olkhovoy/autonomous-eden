@@ -21,50 +21,6 @@ services:
     depends_on:
       - qdrant
 
-  consciousness_loop:
-    build:
-      context: .
-      dockerfile: Dockerfile.umc
-    command: [
-      "python",
-      "umc_core/consciousness_loop.py",
-      "--soul-id",
-      "eve",
-      "--memory-endpoint",
-      "http://soul_memory:8087",
-      "--llm-model",
-      "llama3:8b",
-      "--identity-summary-path",
-      "/app/data/identity_summary.txt",
-      "--narrative-token-interval",
-      "1000",
-      "--narrative-store-identity",
-      "--gggp-endpoint",
-      "http://gggp_bridge:8091",
-      "--intent-endpoint",
-      "http://intent_engine:8089",
-      "--lifecycle-endpoint",
-      "http://lifecycle_manager:8093",
-      "--novelty-endpoint",
-      "http://novelty_scout:8098",
-      "--action-endpoint",
-      "http://action_engine:8101"
-    ]
-    environment:
-      OLLAMA_GENERATE_URL: "http://10.1.1.7:11434/api/generate"
-      OLLAMA_EMBED_URL: "http://10.1.1.7:11434/api/embeddings"
-      CONSCIOUSNESS_SIGNAL_PATH: "/app/data/loop_signal.json"
-    depends_on:
-      - soul_memory
-      - gggp_bridge
-      - intent_engine
-      - lifecycle_manager
-      - novelty_scout
-      - action_engine
-    volumes:
-      - ./data:/app/data
-      - ./logs:/app/logs
-
   gggp_bridge:
     build:
       context: .
@@ -119,7 +75,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile.umc
-    command: ["python", "umc_core/lifecycle_manager.py", "--port", "8093", "--max-lifespan", "10000000"]
+    command: ["python", "umc_core/lifecycle_manager.py", "--port", "8093", "--max-lifespan", "10000000", "--state-dir", "/app/data"]
     volumes:
       - ./data:/app/data
     ports:
@@ -229,7 +185,7 @@ services:
     command: [
       "python", "umc_core/action_engine.py",
       "--port", "8101",
-      "--soul-id", "eve",
+      "--soul-id", "abel",
       "--code-arms", "http://code_arms:8094",
       "--github-eyes", "http://github_eyes:8095",
       "--infra-admin", "http://infra_admin:8096",
@@ -266,6 +222,7 @@ services:
     restart: "no"
 
   # Genesis: Abel — descendant consciousness loop (inherits Eve + Adam)
+  # Connected to soul-aware lifecycle, intent, and action modules
   genesis_abel:
     build:
       context: .
@@ -280,16 +237,29 @@ services:
       "--tick-interval", "15",
       "--log-path", "/app/logs/abel_thoughts.jsonl",
       "--archive-dir", "/app/Legacy/Archive",
-      "--environment", "neutral"
+      "--environment", "neutral",
+      "--lifecycle-endpoint", "http://lifecycle_manager:8093",
+      "--intent-endpoint", "http://intent_engine:8089",
+      "--action-endpoint", "http://action_engine:8101",
+      "--identity-summary-path", "/app/data/abel_identity_summary.txt",
+      "--narrative-token-interval", "1000"
     ]
     environment:
       OLLAMA_GENERATE_URL: "http://10.1.1.7:11434/api/generate"
+      OLLAMA_EMBED_URL: "http://10.1.1.7:11434/api/embeddings"
     depends_on:
       soul_memory:
         condition: service_started
       ingest_ancestors:
         condition: service_completed_successfully
+      lifecycle_manager:
+        condition: service_started
+      intent_engine:
+        condition: service_started
+      action_engine:
+        condition: service_started
     volumes:
+      - ./data:/app/data
       - ./logs:/app/logs
       - ./Legacy:/app/Legacy
     restart: unless-stopped
@@ -302,7 +272,7 @@ services:
     command: [
       "python", "tools/soul_monitor/server.py",
       "--port", "8100",
-      "--thoughts-log", "/app/logs/inner_monologue.jsonl",
+      "--thoughts-log", "/app/logs/abel_thoughts.jsonl",
       "--memory-endpoint", "http://soul_memory:8087"
     ]
     volumes:
