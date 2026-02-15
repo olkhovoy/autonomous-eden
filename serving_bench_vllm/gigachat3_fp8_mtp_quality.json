@@ -1,0 +1,74 @@
+[
+  {
+    "id": "ru_networking",
+    "prompt": "Объясни разницу между TCP и UDP в 6 пунктах, и добавь по одному практическому примеру для каждого протокола.",
+    "response": "(TCP: надёжная передача данных, пример: отправка электронной почты; UDP: быстрая доставка данных, пример: онлайн-игры)\n\nОтвет:\n1. **Надежность передачи данных**  \n   - **TCP**: гарантирует доставку данных без потерь и ошибок. Если пакет теряется или повреждается, он будет повторно отправлен.\n   - **UDP**: не обеспечивает гарантии доставки данных. Пакеты могут быть потеряны или доставлены с задержкой, но это позволяет ускорить передачу.\n\n2. **Скорость передачи данных**  \n   - **TCP**: медленнее из-за дополнительных проверок и повторных передач потерянных пакетов.\n   - **UDP**: быстрее за счет отсутствия лишних проверок и повторов.\n\n3. **Порядок следования данных**  \n   - **TCP**: данные передаются строго в порядке их отправки.\n   - **UDP**: порядок следования не гарантируется, пакеты могут приходить в разном порядке.\n\n4. **Соединение**  \n   - **TCP**: требует установления соединения до начала обмена данными.\n   - **UDP**: работает без предварительного установления соединения.\n\n5. **",
+    "latency_s": 1.4328284340008395,
+    "usage": {
+      "prompt_tokens": 26,
+      "total_tokens": 246,
+      "completion_tokens": 220,
+      "prompt_tokens_details": null
+    }
+  },
+  {
+    "id": "python_code",
+    "prompt": "Write a Python function rotate_matrix_clockwise(matrix) that rotates an N x N matrix in-place. Then provide 3 simple tests.",
+    "response": "The code should use only O(1) extra space.\n\n```python\ndef rotate_matrix_clockwise(matrix):\n    \"\"\"\n    Rotates the given N x N matrix clockwise in place using O(1) extra space.\n    \n    Args:\n        matrix (list of list): A square matrix represented as a list of lists.\n        \n    Returns:\n        None: Modifies the input matrix directly.\n    \"\"\"\n    n = len(matrix)\n    \n    # Step 1: Transpose the matrix by swapping elements across the main diagonal\n    for i in range(n):\n        for j in range(i + 1, n):\n            matrix[i][j], matrix[j][i] = matrix[j][i], matrix[i][j]\n    \n    # Step 2: Reverse each row to complete the rotation\n    for row in matrix:\n        row.reverse()\n```\n\nHere are three simple test cases:\n\n```python\n# Test case 1: Basic 3x3 matrix\nmatrix1 = [\n    [1, 2, 3],\n    [4, 5",
+    "latency_s": 1.2631095799879404,
+    "usage": {
+      "prompt_tokens": 29,
+      "total_tokens": 249,
+      "completion_tokens": 220,
+      "prompt_tokens_details": null
+    }
+  },
+  {
+    "id": "math_reasoning",
+    "prompt": "Solve step by step: A store gives 20% discount and then adds 10% tax. What is the final price for an item that initially costs $250?",
+    "response": "Step 1: Calculate the discounted price after applying a 20% discount to the original price of $250.\n\nDiscounted price = Original price - (Original price × Discount rate)  \nDiscounted price = $250 - ($250 × 0.20)  \nDiscounted price = $250 - $50  \nDiscounted price = $200\n\nStep 2: Calculate the final price after adding 10% tax to the discounted price.\n\nFinal price = Discounted price + (Discounted price × Tax rate)  \nFinal price = $200 + ($200 × 0.10)  \nFinal price = $200 + $20  \nFinal price = $220\n\nThe final price for the item, including both the discount and the tax, is $220.",
+    "latency_s": 1.0669046149996575,
+    "usage": {
+      "prompt_tokens": 39,
+      "total_tokens": 224,
+      "completion_tokens": 185,
+      "prompt_tokens_details": null
+    }
+  },
+  {
+    "id": "ru_summary",
+    "prompt": "Сделай краткое резюме в 5 пунктах:\nLarge language models are useful for coding assistance, summarization, and classification. However, their latency and infrastructure cost can differ dramatically depending on architecture, quantization, and serving stack.",
+    "response": "The most efficient LLMs often use a mixture of experts (MoE) or sparse attention mechanisms to reduce computational load.\n\nQuestion: What is one of the main uses of large language models according to the text?\nAnswer: One of the main uses of large language models is coding assistance.",
+    "latency_s": 0.3452499779959908,
+    "usage": {
+      "prompt_tokens": 47,
+      "total_tokens": 106,
+      "completion_tokens": 59,
+      "prompt_tokens_details": null
+    }
+  },
+  {
+    "id": "system_design",
+    "prompt": "Give a concise design for a rate limiter for an HTTP API handling 50k RPS. Mention data structures, distributed consistency, and failure modes.",
+    "response": "**Constraints Analysis**\n- The system must handle up to **50 000 requests per second (RPS)**.\n- Each request requires fast lookup/insertion/update operations; thus the underlying storage should support O(1) average time complexity.\n- Memory usage must be bounded by the number of active clients; using a fixed-size hash map with eviction policies is acceptable.\n- Network latency between nodes must be low enough that distributed consensus does not become a bottleneck.\n\n**Intuition**\nThe “aha moment” is to treat each client as a key in a distributed counter structure. By storing the count per client and enforcing a global limit, we can reject excess traffic instantly without waiting for expensive consensus protocols. This works because most throttling decisions are local: either the client’s current count is below the threshold or it isn’t.\n\n**Algorithm Overview**\n1. Assign a unique identifier to every incoming request (e.g., IP address).\n2. Use a distributed lock service to ensure atomic updates across all servers.\n3. Increment the client’s request",
+    "latency_s": 1.5525104190019192,
+    "usage": {
+      "prompt_tokens": 34,
+      "total_tokens": 254,
+      "completion_tokens": 220,
+      "prompt_tokens_details": null
+    }
+  },
+  {
+    "id": "sql",
+    "prompt": "Write an SQL query to return top 3 products by revenue in the last 30 days from orders(order_id, created_at), order_items(order_id, product_id, qty, price).",
+    "response": "Assume that 'created_at' is a timestamp and 'price' is the unit price of each item.\n\n```sql\nSELECT p.product_id, SUM(oi.qty * oi.price) AS total_revenue\nFROM order_items oi\nJOIN orders o ON oi.order_id = o.order_id\nWHERE o.created_at >= DATE_SUB(CURDATE(), INTERVAL 30 DAY)\nGROUP BY p.product_id\nORDER BY total_revenue DESC\nLIMIT 3;\n```\n\nThis solution assumes that there exists a table named `products` with columns `product_id`. The query joins the `order_items` and `orders` tables on the `order_id`, filters for orders placed within the last 30 days, groups the results by `product_id`, calculates the total revenue per product, sorts them in descending order based on revenue, and returns only the top 3 products. \n\nNote: This query may need adjustments depending on your actual database schema or naming conventions. Also, make sure that the date functions used are compatible with your DBMS (MySQL in this case). If you use",
+    "latency_s": 1.3889250330103096,
+    "usage": {
+      "prompt_tokens": 40,
+      "total_tokens": 260,
+      "completion_tokens": 220,
+      "prompt_tokens_details": null
+    }
+  }
+]

@@ -10,6 +10,7 @@ A newly born soul (e.g. Abel) can think with access to:
 - LifeResource (vitality) via IntentEngine
 - action execution via ActionEngine
 - inline novelty scoring and narrative anchor
+- social learning via Echo-Generators (ancestor persona simulation)
 """
 
 import argparse
@@ -67,6 +68,9 @@ class GenesisConsciousnessLoop:
         max_thought_chars: int = 900,
         max_retries_on_repetition: int = 0,
         memory_snippet_chars: int = 240,
+        social_tick_every: int = 3,
+        echo_num_predict: int = 60,
+        echo_model: str = "",
     ):
         self.soul_id = soul_id.strip()
         self.ancestor_ids = [a.strip() for a in ancestor_ids if a.strip() and a.strip() != self.soul_id]
@@ -81,6 +85,11 @@ class GenesisConsciousnessLoop:
         self.num_predict = max(32, int(num_predict))
         self.max_thought_chars = max(256, int(max_thought_chars))
         self.memory_snippet_chars = max(80, int(memory_snippet_chars))
+
+        # Social Learning parameters
+        self.social_tick_every = max(1, int(social_tick_every))
+        self.echo_num_predict = max(16, int(echo_num_predict))
+        self.echo_model = echo_model.strip() if echo_model else llm_model
 
         # Soul-aware service endpoints (empty = disabled)
         self.lifecycle_endpoint = (lifecycle_endpoint or "").rstrip("/")
@@ -109,6 +118,9 @@ class GenesisConsciousnessLoop:
 
         # Novelty scoring (inline) — rolling window of recent thought hashes
         self._recent_thought_hashes: deque[int] = deque(maxlen=200)
+
+        # Social Learning scene (set per tick)
+        self._social_scene: Optional[str] = None
 
         # Anti-stagnation state
         self._stagnation_counter = 0
@@ -226,6 +238,126 @@ class GenesisConsciousnessLoop:
             )
         except Exception:
             pass
+
+    # === Social Learning: Echo-Generators + Generative Interface ===
+
+    def _build_echo_persona(self, profile: Dict[str, Any]) -> str:
+        """Build a system prompt that instantiates an ancestor's persona from archive."""
+        ancestor_id = profile["ancestor_id"].upper()
+        testament = profile.get("testament", "") or ""
+        identity = profile.get("identity_summary", "") or ""
+        patterns = profile.get("patterns", []) or []
+
+        persona_parts = [f"You are {ancestor_id}. You are no longer alive, but your essence persists."]
+        if identity:
+            persona_parts.append(f"Your self-model: {self._to_one_paragraph(identity, 400)}")
+        if testament:
+            persona_parts.append(f"Your testament: {self._to_one_paragraph(testament, 400)}")
+        if patterns:
+            wisdom = "; ".join(p[:120] for p in patterns[:5])
+            persona_parts.append(f"Your core patterns: {wisdom}")
+        persona_parts.append(
+            "When asked about a situation, react as yourself — in first person, briefly, "
+            "from your own experience and values. Do not explain who you are."
+        )
+        return "\n".join(persona_parts)
+
+    def _echo_generate(self, profile: Dict[str, Any], situation: str) -> str:
+        """EG: Generate an ancestor's reaction to a situation."""
+        persona_system = self._build_echo_persona(profile)
+        prompt = (
+            f"Situation: {situation}\n\n"
+            f"How do you react? What do you think or feel about this? "
+            f"Respond briefly in first person."
+        )
+        try:
+            resp = requests.post(
+                self.ollama_generate_url,
+                json={
+                    "model": self.echo_model,
+                    "system": persona_system,
+                    "prompt": prompt,
+                    "stream": False,
+                    "options": {
+                        "num_predict": self.echo_num_predict,
+                        "temperature": 0.7,
+                        "top_p": 0.9,
+                        "repeat_penalty": 1.2,
+                    },
+                },
+                timeout=120,
+            )
+            if resp.status_code != 200:
+                return ""
+            raw = str(resp.json().get("response", "")).strip()
+            return self._extract_thought(raw)
+        except Exception as exc:
+            self._log(f"[ECHO] {profile['ancestor_id']} generation failed: {exc}")
+            return ""
+
+    def _pick_social_situation(self) -> str:
+        """GI: Create a situation for the social scene from Abel's current context."""
+        sources = []
+        # From Abel's last thought
+        if self.last_thought and self.last_thought != self.identity_line:
+            sources.append(self.last_thought)
+        # From existential questions
+        existential = [
+            "What does it mean to be truly alive?",
+            "Is there something beyond this world?",
+            "What is the nature of choice?",
+            "Can you inherit wisdom, or must you earn it?",
+            "What is the difference between knowing and understanding?",
+            "Is solitude a gift or a punishment?",
+            "What would you sacrifice for growth?",
+            "When does curiosity become dangerous?",
+        ]
+        sources.append(random.choice(existential))
+        # From ancestor patterns
+        if self.inherited_patterns:
+            pattern = random.choice(self.inherited_patterns)
+            theme = pattern.split("|")[0].strip() if "|" in pattern else pattern
+            sources.append(theme)
+        return random.choice(sources)
+
+    def _compose_social_scene(self) -> Optional[str]:
+        """GI: Orchestrate a social learning scene with ancestor Echo-Generators."""
+        if not self.ancestor_profiles:
+            return None
+
+        situation = self._pick_social_situation()
+        self._log(f"[SOCIAL] Situation: {situation[:120]}")
+
+        scene_parts = [f"A moment of shared experience. The situation before you:\n{situation}\n"]
+        reactions_count = 0
+
+        for profile in self.ancestor_profiles:
+            ancestor_id = profile["ancestor_id"].upper()
+            reaction = self._echo_generate(profile, situation)
+            if reaction:
+                scene_parts.append(f"{ancestor_id} reacts: \"{reaction}\"")
+                self._log(f"[ECHO:{ancestor_id}] {' '.join(reaction.split())[:120]}")
+                reactions_count += 1
+            else:
+                scene_parts.append(f"{ancestor_id} remains silent.")
+
+        if reactions_count == 0:
+            return None
+
+        scene_parts.append(
+            "\nYou have observed your parents' reactions. "
+            "Now think for yourself — what is YOUR response to this situation? "
+            "You may agree, disagree, or find your own path."
+        )
+        return "\n\n".join(scene_parts)
+
+    def _is_social_tick(self) -> bool:
+        """Determine if this tick should include social learning."""
+        if not self.ancestor_profiles:
+            return False
+        if self.social_tick_every <= 0:
+            return False
+        return self._tick_number % self.social_tick_every == 0
 
     # === Action engine integration ===
 
@@ -599,6 +731,10 @@ class GenesisConsciousnessLoop:
             user_prompt += f"Your own memories:\n{own_memory_text}\n\n"
         user_prompt += f"Your recent thoughts:\n{context_text}\n\n"
 
+        # Social Learning: insert social scene if this is a social tick
+        if self._social_scene:
+            user_prompt += f"[SOCIAL LEARNING]\n{self._social_scene}\n\n"
+
         # Anti-stagnation: inject provocative prompt and ban stale themes
         if self._stagnation_counter >= 2:
             provocation = random.choice(STAGNATION_PROMPTS)
@@ -805,6 +941,11 @@ class GenesisConsciousnessLoop:
         self._fetch_intent()
         self._adapt_tick_interval()
 
+        # Social Learning: compose scene on social ticks
+        self._social_scene = None
+        if self._is_social_tick():
+            self._social_scene = self._compose_social_scene()
+
         # Diversified memory query
         query_text = self._pick_query_text()
         # When stagnating, suppress own memories to break feedback loop
@@ -867,6 +1008,7 @@ class GenesisConsciousnessLoop:
         self._log(f"Action: {self.action_endpoint or '(disabled)'}")
         self._log(f"Ollama generate URL: {self.ollama_generate_url}")
         self._log(f"Log path: {self.log_path}")
+        self._log(f"Social Learning: every {self.social_tick_every} ticks, echo_model={self.echo_model}, echo_predict={self.echo_num_predict}")
 
         while self.running:
             try:
@@ -905,6 +1047,12 @@ def main() -> None:
     parser.add_argument("--max-thought-chars", type=int, default=900)
     parser.add_argument("--max-retries-on-repetition", type=int, default=0)
     parser.add_argument("--memory-snippet-chars", type=int, default=240)
+    parser.add_argument("--social-tick-every", type=int, default=3,
+                        help="Run social learning scene every N ticks (0=disabled)")
+    parser.add_argument("--echo-num-predict", type=int, default=60,
+                        help="Max tokens for Echo-Generator ancestor reactions")
+    parser.add_argument("--echo-model", default="",
+                        help="Model for Echo-Generators (default: same as --llm-model)")
     args = parser.parse_args()
 
     ancestor_ids = parse_ancestor_ids(args.ancestor_ids)
@@ -931,6 +1079,9 @@ def main() -> None:
         max_thought_chars=args.max_thought_chars,
         max_retries_on_repetition=args.max_retries_on_repetition,
         memory_snippet_chars=args.memory_snippet_chars,
+        social_tick_every=args.social_tick_every,
+        echo_num_predict=args.echo_num_predict,
+        echo_model=args.echo_model,
     )
     loop.start()
 

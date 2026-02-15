@@ -1,0 +1,32 @@
+{
+  "model": "forzer/GigaChat3-10B-A1.8B:latest",
+  "num_prompts": 300,
+  "completed_prompts": 299,
+  "failed_prompts": 1,
+  "seed": 42,
+  "metrics": {
+    "request_throughput": 0.8374897766316958,
+    "output_throughput": 161.5206871546601,
+    "total_token_throughput": 402.92781551103457,
+    "mean_ttft_ms": 136.04441849168515
+  },
+  "extra_metrics": {
+    "p50_ttft_ms": 105.26833799667656,
+    "p95_ttft_ms": 331.8488920063828,
+    "mean_prompt_eval_tps": 4941.02349082821,
+    "mean_eval_tps": 218.35625265245858,
+    "total_wall_time_s": 357.0192835100024,
+    "total_prompt_tokens": 86187,
+    "total_output_tokens": 57666,
+    "total_tokens": 143853,
+    "mean_total_duration_ms": 1137.6663922541807,
+    "mean_load_duration_ms": 74.02344632775919
+  },
+  "failed_requests": [
+    {
+      "index": 263,
+      "error": "Stream ended without final done chunk",
+      "retries": 3
+    }
+  ]
+}

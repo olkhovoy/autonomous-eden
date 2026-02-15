@@ -181,7 +181,14 @@ def build_loop_command(genes: Dict[str, Any], runtime_config_path: str) -> List[
         str(runtime.get("max_retries_on_repetition", 0)),
         "--memory-snippet-chars",
         str(runtime.get("memory_snippet_chars", 240)),
+        "--social-tick-every",
+        str(runtime.get("social_tick_every", 3)),
+        "--echo-num-predict",
+        str(runtime.get("echo_num_predict", 60)),
     ]
+    echo_model = str(runtime.get("echo_model", "")).strip()
+    if echo_model:
+        command.extend(["--echo-model", echo_model])
     forbidden_fruit = str(world.get("forbidden_fruit", "")).strip()
     if forbidden_fruit:
         command.extend(["--forbidden-fruit", forbidden_fruit])

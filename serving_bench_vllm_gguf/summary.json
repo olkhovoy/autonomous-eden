@@ -1,0 +1,54 @@
+[
+  {
+    "label": "gigachat3_ollama_gguf",
+    "model": "/usr/share/ollama/.ollama/models/blobs/sha256-d5b2c4b50565f503d00c5f1c334d45bdc219e9b2e6293da84018343ceac09e59",
+    "speculative_config": null,
+    "load_format": "gguf",
+    "generation_config": "vllm",
+    "status": "failed",
+    "error": "vLLM server exited early with code 1",
+    "serve_log": "serving_bench_vllm_gguf/logs/gigachat3_ollama_gguf_serve.log"
+  },
+  {
+    "label": "llama3_8b_ollama_gguf",
+    "model": "/usr/share/ollama/.ollama/models/blobs/sha256-6a0746a1ec1aef3e7ec53868f220ff6e389f6f8ef87a01d77c96807de94ca2aa",
+    "speculative_config": null,
+    "load_format": "gguf",
+    "generation_config": "vllm",
+    "benchmark_file": "serving_bench_vllm_gguf/llama3_8b_ollama_gguf_throughput_serving.json",
+    "quality_file": "serving_bench_vllm_gguf/llama3_8b_ollama_gguf_quality.json",
+    "metrics": {
+      "request_throughput": 0.4513297836464337,
+      "output_throughput": 100.38777934386411,
+      "total_token_throughput": 204.5125692963207,
+      "mean_ttft_ms": 390.36354919977987,
+      "median_ttft_ms": 176.34222950437106,
+      "p99_ttft_ms": 1575.3715562629804,
+      "completed": 300,
+      "total_input_tokens": 69212,
+      "total_output_tokens": 66728
+    },
+    "status": "ok"
+  },
+  {
+    "label": "mistral_7b_ollama_gguf",
+    "model": "/usr/share/ollama/.ollama/models/blobs/sha256-f5074b1221da0f5a2910d33b642efa5b9eb58cfdddca1c79e16d7ad28aa2b31f",
+    "speculative_config": null,
+    "load_format": "gguf",
+    "generation_config": "vllm",
+    "benchmark_file": "serving_bench_vllm_gguf/mistral_7b_ollama_gguf_throughput_serving.json",
+    "quality_file": "serving_bench_vllm_gguf/mistral_7b_ollama_gguf_quality.json",
+    "metrics": {
+      "request_throughput": 0.30100511417080555,
+      "output_throughput": 73.26464478917407,
+      "total_token_throughput": 147.91491645391443,
+      "mean_ttft_ms": 704.6347488466805,
+      "median_ttft_ms": 317.4244269976043,
+      "p99_ttft_ms": 2783.17434994009,
+      "completed": 300,
+      "total_input_tokens": 74401,
+      "total_output_tokens": 73020
+    },
+    "status": "ok"
+  }
+]

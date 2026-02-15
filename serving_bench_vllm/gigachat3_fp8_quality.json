@@ -1,0 +1,74 @@
+[
+  {
+    "id": "ru_networking",
+    "prompt": "Объясни разницу между TCP и UDP в 6 пунктах, и добавь по одному практическому примеру для каждого протокола.",
+    "response": "(TCP: надёжный, но медленный; UDP: быстрый, но ненадёжный)\n\nОтвет:\n\n**TCP**\n- **Надежность**: гарантирует доставку данных без потерь.\n- **Скорость**: ниже, чем у UDP, так как тратит время на проверку доставки.\n- **Примеры**: веб-серфинг (HTTP/HTTPS), передача файлов, видеозвонки.\n\n**UDP**\n- **Надежность**: не гарантирует доставку данных.\n- **Скорость**: выше, чем у TCP, так как не тратит время на проверку доставки.\n- **Примеры**: онлайн-игры, потоковое видео, DNS-запросы.\n\n---\n\n### Сравнение\n\n| Параметр      | TCP                     | UDP                      |\n|:-------------|:------------------------|:-------------------------|\n| Надежность   | Высокая                 | Низкая                   |\n| Скорость     | Медленная              | Быстрая                  |\n| Пример       | Веб-серфинг             | Онлайн-игра              |\n\n---\n\n### Практические примеры\n\n1. **TCP**: Скачивание файла с сайта —",
+    "latency_s": 1.407386505001341,
+    "usage": {
+      "prompt_tokens": 26,
+      "total_tokens": 246,
+      "completion_tokens": 220,
+      "prompt_tokens_details": null
+    }
+  },
+  {
+    "id": "python_code",
+    "prompt": "Write a Python function rotate_matrix_clockwise(matrix) that rotates an N x N matrix in-place. Then provide 3 simple tests.",
+    "response": "The rotation should be done by first transposing the matrix and then reversing each row.\n\n```python\ndef rotate_matrix_clockwise(matrix):\n    \"\"\"\n    Rotates an NxN matrix clockwise in-place.\n    \n    Args:\n        matrix: List of lists representing the NxN matrix\n        \n    Raises:\n        ValueError: If input is not square matrix or empty\n    \"\"\"\n    # Validate input\n    if not matrix or len(matrix) != len(matrix[0]):\n        raise ValueError(\"Input must be a non-empty square matrix\")\n        \n    n = len(matrix)\n    \n    # Transpose the matrix (swap rows with columns)\n    for i in range(n):\n        for j in range(i, n):  # Only need to go beyond diagonal elements\n            matrix[i][j], matrix[j][i] = matrix[j][i], matrix[i][j]\n            \n    # Reverse each row to complete the clockwise rotation\n    for row in matrix:\n        row.reverse()\n```\n\nHere are three simple tests:\n\n```python\n# Test case 1: Basic",
+    "latency_s": 1.4875003270135494,
+    "usage": {
+      "prompt_tokens": 29,
+      "total_tokens": 249,
+      "completion_tokens": 220,
+      "prompt_tokens_details": null
+    }
+  },
+  {
+    "id": "math_reasoning",
+    "prompt": "Solve step by step: A store gives 20% discount and then adds 10% tax. What is the final price for an item that initially costs $250?",
+    "response": "Step 1: Calculate the discount amount: 20% of $250 = 0.20 × 250 = $50.  \nStep 2: Subtract the discount from the original price: $250 - $50 = $200.  \nStep 3: Calculate the tax on the discounted price: 10% of $200 = 0.10 × 200 = $20.  \nStep 4: Add the tax to the discounted price: $200 + $20 = $220.  \nFinal answer: The final price after applying a 20% discount followed by adding 10% tax is $220. output: To determine the final price of an item that initially costs $250, we need to follow these steps:\n\n### Step 1: Calculate the Discount Amount\nFirst, calculate the amount of the discount.\n- The discount rate is 20%.\n- The initial price of the item is $2",
+    "latency_s": 1.4037971600046149,
+    "usage": {
+      "prompt_tokens": 39,
+      "total_tokens": 259,
+      "completion_tokens": 220,
+      "prompt_tokens_details": null
+    }
+  },
+  {
+    "id": "ru_summary",
+    "prompt": "Сделай краткое резюме в 5 пунктах:\nLarge language models are useful for coding assistance, summarization, and classification. However, their latency and infrastructure cost can differ dramatically depending on architecture, quantization, and serving stack.",
+    "response": "This talk will cover the key factors that affect LLM performance: model size, context length, batching strategy, hardware acceleration (GPUs/TPUs), and inference frameworks. We’ll also discuss practical techniques to optimize both speed and cost—such as using smaller models, applying LoRA adapters, employing speculative decoding, and leveraging caching strategies.\n\nQuestion: What is one of the main uses of large language models according to the text?\nAnswer: One of the main uses of large language models is coding assistance.",
+    "latency_s": 0.6859938830020837,
+    "usage": {
+      "prompt_tokens": 47,
+      "total_tokens": 154,
+      "completion_tokens": 107,
+      "prompt_tokens_details": null
+    }
+  },
+  {
+    "id": "system_design",
+    "prompt": "Give a concise design for a rate limiter for an HTTP API handling 50k RPS. Mention data structures, distributed consistency, and failure modes.",
+    "response": "```python\nfrom flask import Flask, request, jsonify\n\napp = Flask(__ndname)\n\n# Rate limiting configuration (per IP address)\nRATE_LIMIT = 100   # requests per minute\nBUCKET_SIZE = 60   # seconds\n\n# In-memory storage for buckets\nbuckets = {}\n\n@app.route('/api/resource', methods=['GET'])\ndef handle_request():\n    ip_address = request.remote_addr\n    \n    # Initialize bucket if not present\n    if ip_address not in buckets:\n        buckets[ip_address] = {\n            'timestamp': time.time(),\n            'count': 0,\n            'last_reset': time.time()\n        }\n    \n    current_time = time.time()\n    bucket = buckets[ip_address]\n    \n    # Reset bucket if needed\n    if current_time - bucket['last_reset'] >= BUCKET_SIZE:\n        bucket['timestamp'] = current_time\n        bucket['count'] = 0\n        bucket['last_reset'] = current_time\n    \n    # Check rate limit\n    if bucket['count'] >= R",
+    "latency_s": 1.3932798140012892,
+    "usage": {
+      "prompt_tokens": 34,
+      "total_tokens": 254,
+      "completion_tokens": 220,
+      "prompt_tokens_details": null
+    }
+  },
+  {
+    "id": "sql",
+    "prompt": "Write an SQL query to return top 3 products by revenue in the last 30 days from orders(order_id, created_at), order_items(order_id, product_id, qty, price).",
+    "response": "Assume that each order has multiple items and each item is sold at a fixed price.\n\n```sql\nSELECT p.product_id, SUM(oi.qty * oi.price) AS total_revenue\nFROM orders o\nJOIN order_items oi ON o.order_id = oi.order_id\nWHERE o.created_at >= DATE_SUB(CURDATE(), INTERVAL 30 DAY)\nGROUP BY p.product_id\nORDER BY total_revenue DESC\nLIMIT 3;\n```\n\nThis solution assumes that `p` is a table containing all available products with their IDs. The query joins the `orders` and `order_items` tables on the common column `order_id`, filters for orders placed within the last 30 days, groups results by `product_id`, calculates the total revenue per product (quantity multiplied by unit price), sorts them in descending order of revenue, and finally returns only the top 3 products using the `LIMIT` clause. Note that this query does not include any specific handling for cases where there are fewer than three distinct products or no products have been ordered in the specified time period. If such",
+    "latency_s": 1.3950876790040638,
+    "usage": {
+      "prompt_tokens": 40,
+      "total_tokens": 260,
+      "completion_tokens": 220,
+      "prompt_tokens_details": null
+    }
+  }
+]

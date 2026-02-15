@@ -1,0 +1,44 @@
+[
+  {
+    "label": "gigachat3_fp8",
+    "model": "models/hf/ai-sage_GigaChat3-10B-A1.8B",
+    "speculative_config": null,
+    "benchmark_file": "serving_bench_vllm/gigachat3_fp8_throughput_serving.json",
+    "quality_file": "serving_bench_vllm/gigachat3_fp8_quality.json",
+    "metrics": {
+      "request_throughput": 0.702486012245556,
+      "output_throughput": 152.13739567202006,
+      "total_token_throughput": 309.61368503710634,
+      "mean_ttft_ms": 35.8849917765959,
+      "median_ttft_ms": 32.330804999219254,
+      "p99_ttft_ms": 82.85409397140029,
+      "completed": 300,
+      "total_input_tokens": 67251,
+      "total_output_tokens": 64971
+    },
+    "status": "ok"
+  },
+  {
+    "label": "gigachat3_fp8_mtp",
+    "model": "models/hf/ai-sage_GigaChat3-10B-A1.8B",
+    "speculative_config": {
+      "method": "mtp",
+      "num_speculative_tokens": 1,
+      "disable_padded_drafter_batch": false
+    },
+    "benchmark_file": "serving_bench_vllm/gigachat3_fp8_mtp_throughput_serving.json",
+    "quality_file": "serving_bench_vllm/gigachat3_fp8_mtp_quality.json",
+    "metrics": {
+      "request_throughput": 0.6535722012920362,
+      "output_throughput": 141.54413163381628,
+      "total_token_throughput": 288.05541199745204,
+      "mean_ttft_ms": 36.323695769776045,
+      "median_ttft_ms": 33.05918899422977,
+      "p99_ttft_ms": 83.70446856948547,
+      "completed": 300,
+      "total_input_tokens": 67251,
+      "total_output_tokens": 64971
+    },
+    "status": "ok"
+  }
+]

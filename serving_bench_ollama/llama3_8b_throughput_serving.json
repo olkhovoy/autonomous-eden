@@ -1,0 +1,23 @@
+{
+  "model": "llama3:8b",
+  "num_prompts": 300,
+  "seed": 42,
+  "metrics": {
+    "request_throughput": 0.6287023067439548,
+    "output_throughput": 119.9438260806117,
+    "total_token_throughput": 232.06449979097277,
+    "mean_ttft_ms": 143.69433683323828
+  },
+  "extra_metrics": {
+    "p50_ttft_ms": 116.34911799774272,
+    "p95_ttft_ms": 330.90244809864106,
+    "mean_prompt_eval_tps": 3946.8300355469228,
+    "mean_eval_tps": 143.8512359051718,
+    "total_wall_time_s": 477.1733724880032,
+    "total_prompt_tokens": 53501,
+    "total_output_tokens": 57234,
+    "total_tokens": 110735,
+    "mean_total_duration_ms": 1589.1866617599999,
+    "mean_load_duration_ms": 95.93078405333333
+  }
+}

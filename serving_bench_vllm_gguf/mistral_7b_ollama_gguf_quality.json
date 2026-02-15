@@ -1,0 +1,74 @@
+[
+  {
+    "id": "ru_networking",
+    "prompt": "Объясни разницу между TCP и UDP в 6 пунктах, и добавь по одному практическому примеру для каждого протокола.",
+    "response": "1. Протокол: TCP (Transmission Control Protocol)\n   - Тип: Потоковое, соединеное, надежное\n   - Принцип работы: TCP создает соединение между двумя устройствами перед передачей данных, обеспечивая надежность и порядок передачи пакетов.\n   - Пример использования: HTTP, FTP, SMTP, SSH\n   - Пример практического применения: HTTP (веб-сервер и веб-браузер) - при передаче веб-страницы, веб-сервер отправляет веб-страницу в виде потока байтов, а веб-браузер получает их в порядке и отображает на экране.\n\n2. Протокол: UDP (User Datagram Protocol)\n   - Тип:",
+    "latency_s": 2.669357292004861,
+    "usage": {
+      "prompt_tokens": 46,
+      "total_tokens": 266,
+      "completion_tokens": 220,
+      "prompt_tokens_details": null
+    }
+  },
+  {
+    "id": "python_code",
+    "prompt": "Write a Python function rotate_matrix_clockwise(matrix) that rotates an N x N matrix in-place. Then provide 3 simple tests.",
+    "response": "Here's a Python function that rotates an N x N matrix in-place using transposition and reversing rows:\n\n```python\ndef rotate_matrix_clockwise(matrix):\n    n = len(matrix)\n    for i in range(n // 2):\n        for j in range(i, n - i):\n            temp = matrix[i][j]\n            matrix[i][j] = matrix[n - j][i]\n            matrix[n - j][i] = matrix[n - i][n - j]\n            matrix[n - i][n - j] = matrix[j][n - i]\n            matrix[j][n - i] = temp\n```\n\nNow let's create 3 simple tests to verify the function's behavior:\n\n```python\ndef test_rotate_matrix_clockwise():\n    test_cases = [\n        (([1, 2, 3],), [[3,",
+    "latency_s": 2.632804208988091,
+    "usage": {
+      "prompt_tokens": 34,
+      "total_tokens": 254,
+      "completion_tokens": 220,
+      "prompt_tokens_details": null
+    }
+  },
+  {
+    "id": "math_reasoning",
+    "prompt": "Solve step by step: A store gives 20% discount and then adds 10% tax. What is the final price for an item that initially costs $250?",
+    "response": "First, let's calculate the discounted price:\n\nDiscounted price = Initial price * (1 - Discount rate)\n                            = $250 * (1 - 0.20)\n                            = $250 * 0.80\n                            = $200\n\nNow, let's calculate the taxed price:\n\nTaxed price = Discounted price * (1 + Tax rate)\n                     = $200 * (1 + 0.10)\n                     = $200 * 1.10\n                     = $220\n\nSo, the final price for the item after the discount and tax is $220.",
+    "latency_s": 2.0167521980038146,
+    "usage": {
+      "prompt_tokens": 40,
+      "total_tokens": 202,
+      "completion_tokens": 162,
+      "prompt_tokens_details": null
+    }
+  },
+  {
+    "id": "ru_summary",
+    "prompt": "Сделай краткое резюме в 5 пунктах:\nLarge language models are useful for coding assistance, summarization, and classification. However, their latency and infrastructure cost can differ dramatically depending on architecture, quantization, and serving stack.",
+    "response": "To address these challenges, we propose a novel approach to building efficient large language models using a combination of model compression techniques and optimized serving infrastructure. Our method achieves up to 90% reduction in latency and 80% reduction in infrastructure cost compared to state-of-the-art models, while maintaining high accuracy.\n\n1. Large language models are valuable for coding assistance, summarization, and classification tasks.\n2. The efficiency of these models can be impacted by factors such as architecture, quantization, and serving stack, leading to significant differences in latency and infrastructure cost.\n3. To address these challenges, we propose a novel approach that combines model compression techniques and optimized serving infrastructure.\n4. This approach achieves up to 90% reduction in latency and 80% reduction in infrastructure cost compared to state-of-the-art models, while maintaining high accuracy.\n5. The proposed method is designed to improve the efficiency and cost-effectiveness of large language models for various applications.",
+    "latency_s": 2.6833564590051537,
+    "usage": {
+      "prompt_tokens": 58,
+      "total_tokens": 275,
+      "completion_tokens": 217,
+      "prompt_tokens_details": null
+    }
+  },
+  {
+    "id": "system_design",
+    "prompt": "Give a concise design for a rate limiter for an HTTP API handling 50k RPS. Mention data structures, distributed consistency, and failure modes.",
+    "response": "Designing a rate limiter for an HTTP API handling 50k requests per second (RPS) involves several considerations, including data structures, distributed consistency, and failure modes. Here's a high-level design for such a system:\n\n1. **Data Structures:**\n   - **In-Memory Counter:** To keep track of the number of requests from each client within a specific time window (e.g., 1 minute). This counter can be implemented using a hash map where the key is the client IP address and the value is the request count.\n   - **Redis Cache:** To store the in-memory counters across multiple servers. Redis is a popular choice for in-memory data persistence, with support for various data structures and distributed consistency.\n\n2. **Distributed Consistency:**\n   - **Locking:** To ensure that only one instance updates the counter for a given client IP address. Redis provides a `SETNX` command that can be used to implement optimistic locking",
+    "latency_s": 2.6102001090039266,
+    "usage": {
+      "prompt_tokens": 35,
+      "total_tokens": 255,
+      "completion_tokens": 220,
+      "prompt_tokens_details": null
+    }
+  },
+  {
+    "id": "sql",
+    "prompt": "Write an SQL query to return top 3 products by revenue in the last 30 days from orders(order_id, created_at), order_items(order_id, product_id, qty, price).",
+    "response": "Assuming you have a table `orders` with columns `order_id` and `created_at`, and a table `order_items` with columns `order_id`, `product_id`, `qty`, and `price`.\n\nTo achieve this, you can use a subquery to find the total revenue for each product in the last 30 days, and then sort the results in descending order to get the top 3 products by revenue. Here's the SQL query:\n\n```sql\nSELECT\n    p.product_id,\n    p.product_name, -- Assuming you have a product table with product_name\n    SUM(oi.qty * oi.price) as total_revenue\nFROM\n    order_items oi\nJOIN\n    orders o ON o.order_id = oi.order_id\nJOIN\n    products p ON oi.product_id = p.product_id\nWHERE\n    o.created_at",
+    "latency_s": 2.6554099549975945,
+    "usage": {
+      "prompt_tokens": 48,
+      "total_tokens": 268,
+      "completion_tokens": 220,
+      "prompt_tokens_details": null
+    }
+  }
+]

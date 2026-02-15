@@ -1,0 +1,23 @@
+[
+  {
+    "label": "llama3_8b_ollama_gguf",
+    "model": "/usr/share/ollama/.ollama/models/blobs/sha256-6a0746a1ec1aef3e7ec53868f220ff6e389f6f8ef87a01d77c96807de94ca2aa",
+    "speculative_config": null,
+    "load_format": "gguf",
+    "generation_config": "vllm",
+    "benchmark_file": "serving_bench_vllm_gguf_smoke/llama3_8b_ollama_gguf_throughput_serving.json",
+    "quality_file": "serving_bench_vllm_gguf_smoke/llama3_8b_ollama_gguf_quality.json",
+    "metrics": {
+      "request_throughput": 0.31311548113044546,
+      "output_throughput": 111.65698057111686,
+      "total_token_throughput": 182.29583311414535,
+      "mean_ttft_ms": 256.451981398277,
+      "median_ttft_ms": 100.84700749575859,
+      "p99_ttft_ms": 1085.479082887032,
+      "completed": 10,
+      "total_input_tokens": 2256,
+      "total_output_tokens": 3566
+    },
+    "status": "ok"
+  }
+]

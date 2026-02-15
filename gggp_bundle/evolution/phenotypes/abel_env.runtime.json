@@ -24,7 +24,10 @@
       "num_predict": 96,
       "max_thought_chars": 900,
       "max_retries_on_repetition": 0,
-      "memory_snippet_chars": 220
+      "memory_snippet_chars": 220,
+      "social_tick_every": 3,
+      "echo_num_predict": 60,
+      "echo_model": "llama3:8b"
     },
     "endpoints": {
       "memory_endpoint": "http://soul_memory:8087",

@@ -1,0 +1,74 @@
+[
+  {
+    "id": "ru_networking",
+    "prompt": "Объясни разницу между TCP и UDP в 6 пунктах, и добавь по одному практическому примеру для каждого протокола.",
+    "response": "1. **Reliability**: TCP (Transmission Control Protocol) is a reliable protocol, which means that it ensures that data is delivered to the destination in the correct order and without errors. UDP (User Datagram Protocol) is an unreliable protocol, which means that it does not guarantee delivery or order of data.\n\nExample of TCP reliability: When you transfer a file using FTP (File Transfer Protocol) over TCP, the file is delivered to the destination in the correct order and without errors.\n\n2. **Connection-oriented vs. connectionless**: TCP is a connection-oriented protocol, which means that a connection is established between the sender and the receiver before data is sent. UDP is a connectionless protocol, which means that data is sent without establishing a connection.\n\nExample of TCP connection-oriented: When you establish a connection to a web server using HTTP (Hypertext Transfer Protocol) over TCP, a connection is established before the web page is transferred.\n\n3. **Packet sequencing**: TCP ensures that packets are delivered in the correct order, whereas UDP does not guarantee packet sequencing.\n\nExample of TCP packet sequencing: When",
+    "latency_s": 1.8989673269970808,
+    "usage": {
+      "prompt_tokens": 35,
+      "total_tokens": 255,
+      "completion_tokens": 220,
+      "prompt_tokens_details": null
+    }
+  },
+  {
+    "id": "python_code",
+    "prompt": "Write a Python function rotate_matrix_clockwise(matrix) that rotates an N x N matrix in-place. Then provide 3 simple tests.",
+    "response": "The function should rotate the matrix in a clockwise direction.\n\nHere is the Python function:\n\n```Python\ndef rotate_matrix_clockwise(matrix):\n    n = len(matrix)\n    matrix[:] = [list(reversed(i)) for i in zip(*matrix)]\n```\n\nHere are 3 simple tests:\n\n```Python\nimport unittest\n\nclass TestRotateMatrixClockwise(unittest.TestCase):\n\n    def test_rotate_2x2(self):\n        matrix = [[1, 2], [3, 4]]\n        rotate_matrix_clockwise(matrix)\n        self.assertEqual(matrix, [[4, 3], [2, 1]])\n\n    def test_rotate_3x3(self):\n        matrix = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]\n        rotate_matrix_clockwise(matrix)\n        self.assertEqual(matrix, [[7, 4, 1], [8, 5, 2], [9, 6, 3]])\n\n    def test_rotate_4x4(self):\n        matrix = [[1",
+    "latency_s": 1.8852365330094472,
+    "usage": {
+      "prompt_tokens": 32,
+      "total_tokens": 252,
+      "completion_tokens": 220,
+      "prompt_tokens_details": null
+    }
+  },
+  {
+    "id": "math_reasoning",
+    "prompt": "Solve step by step: A store gives 20% discount and then adds 10% tax. What is the final price for an item that initially costs $250?",
+    "response": "Step-by-step solution: 1. Calculate the discount: 20% of $250 = 0.20 x 250 = $50. The discounted price is $250 - $50 = $200. 2. Calculate the tax: 10% of $200 = 0.10 x 200 = $20. The final price is $200 + $20 = $220. So, the final price for the item is $220. Final Answer: The final price for the item is $220. I hope it is correct. Let me know if you have any questions. 1. Calculate the discount: 20% of $250 = 0.20 x 250 = $50. The discounted price is $250 - $50 = $200. 2. Calculate the tax: 10% of $200 = 0.10 x 200 = $20. The final price is $200 + $20 = $220. So, the final price for the item is $220. Final Answer: The final price for the item is $",
+    "latency_s": 1.891177676996449,
+    "usage": {
+      "prompt_tokens": 36,
+      "total_tokens": 256,
+      "completion_tokens": 220,
+      "prompt_tokens_details": null
+    }
+  },
+  {
+    "id": "ru_summary",
+    "prompt": "Сделай краткое резюме в 5 пунктах:\nLarge language models are useful for coding assistance, summarization, and classification. However, their latency and infrastructure cost can differ dramatically depending on architecture, quantization, and serving stack.",
+    "response": "In this paper, we explore the trade-offs between latency, cost, and accuracy for large language models. We use a transformer-based model as a case study and evaluate its performance on a range of tasks, including text classification, sentiment analysis, and machine translation. Our results show that there is a significant trade-off between latency and cost, and that the choice of architecture, quantization, and serving stack can have a substantial impact on both. We also find that the accuracy of the model is relatively robust to changes in latency and cost, but that there are some tasks where the model's performance is more sensitive to these factors. Overall, our findings highlight the importance of considering the trade-offs between latency, cost, and accuracy when deploying large language models in real-world applications. (Source: arXiv preprint arXiv:2205.12143, 2022)\n\nHere is a 5-point summary:\n\n1. Large language models can be used for various tasks, such as coding assistance, summarization, and classification, but their latency and infrastructure cost can vary greatly depending on the architecture",
+    "latency_s": 1.9241294139937963,
+    "usage": {
+      "prompt_tokens": 53,
+      "total_tokens": 273,
+      "completion_tokens": 220,
+      "prompt_tokens_details": null
+    }
+  },
+  {
+    "id": "system_design",
+    "prompt": "Give a concise design for a rate limiter for an HTTP API handling 50k RPS. Mention data structures, distributed consistency, and failure modes.",
+    "response": "Rate limiters are used to prevent abuse of an API by limiting the number of requests that can be made within a certain time frame. In this design, we will use a combination of data structures and distributed consistency mechanisms to handle 50k RPS.\n\n**Data Structures:**\n\n1. **Token Bucket:** We will use a token bucket data structure to keep track of the rate limit. The token bucket will have a fixed capacity (e.g., 50k tokens) and a refill rate (e.g., 50k tokens per second). Each incoming request will consume a certain number of tokens (e.g., 1 token per request). If the token bucket is empty, the request will be blocked.\n2. **Sorted Set:** We will use a sorted set (e.g., Redis Sorted Set) to store the tokens. The sorted set will be used to keep track of the tokens that have been consumed and the time at which they were consumed. This will allow us to efficiently determine which tokens are still valid and which have expired.\n\n**Distributed Consistency:**\n\n1. **",
+    "latency_s": 1.890419800998643,
+    "usage": {
+      "prompt_tokens": 32,
+      "total_tokens": 252,
+      "completion_tokens": 220,
+      "prompt_tokens_details": null
+    }
+  },
+  {
+    "id": "sql",
+    "prompt": "Write an SQL query to return top 3 products by revenue in the last 30 days from orders(order_id, created_at), order_items(order_id, product_id, qty, price).",
+    "response": "The revenue is calculated by multiplying the quantity and price of each product in each order.\n\n```sql\nSELECT \n    product_id,\n    SUM(qty * price) AS revenue\nFROM \n    order_items\nWHERE \n    created_at >= DATE_SUB(CURRENT_DATE, INTERVAL 30 DAY)\nGROUP BY \n    product_id\nORDER BY \n    revenue DESC\nLIMIT 3;\n```\n\nThis query works as follows:\n\n- It selects the `product_id` and calculates the revenue for each product by summing up the product of `qty` and `price` for each order.\n- It filters the orders to only include those made in the last 30 days.\n- It groups the results by `product_id` to calculate the revenue for each product.\n- It orders the results by revenue in descending order.\n- It limits the results to the top 3 products by revenue.",
+    "latency_s": 1.5777633999969112,
+    "usage": {
+      "prompt_tokens": 46,
+      "total_tokens": 225,
+      "completion_tokens": 179,
+      "prompt_tokens_details": null
+    }
+  }
+]
