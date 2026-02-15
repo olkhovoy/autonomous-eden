@@ -19,6 +19,11 @@ from http.server import BaseHTTPRequestHandler, HTTPServer
 
 from umc_core.evolution_engine import EvolutionEngine, get_engine, EvolutionConfig
 
+try:
+    import gggp as gggp_sdk
+except Exception:
+    gggp_sdk = None
+
 
 @dataclass
 class PersonalityVector:
@@ -91,6 +96,14 @@ class GGGPBridge:
     def __init__(self, gggp_bin: str = "", workdir: str = "/home/user/mcs/gggp_bundle/rust"):
         self.gggp_bin = gggp_bin
         self.workdir = workdir
+        self.gggp_sdk_version = ""
+        self.gggp_sdk_source = "unavailable"
+        if gggp_sdk is not None:
+            try:
+                self.gggp_sdk_version = str(gggp_sdk.version())
+                self.gggp_sdk_source = "python_package"
+            except Exception:
+                self.gggp_sdk_source = "python_package_error"
         
         # Initialize evolution engines for each trait type
         self.personality_engine = get_engine("personality")
@@ -250,6 +263,10 @@ class GGGPHandler(BaseHTTPRequestHandler):
                 "modes": ["personality", "memory", "anchor"],
                 "total_evolves": self.bridge.total_evolves,
                 "new_generations": self.bridge.new_generations,
+                "sdk": {
+                    "source": self.bridge.gggp_sdk_source,
+                    "version": self.bridge.gggp_sdk_version,
+                },
                 "personality": self.bridge.get_evolution_state("personality"),
                 "memory": self.bridge.get_evolution_state("memory"),
                 "anchor": self.bridge.get_evolution_state("anchor"),

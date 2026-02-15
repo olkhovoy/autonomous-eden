@@ -1,0 +1,25 @@
+id: eve_env
+genes:
+  soul:
+    id: eve
+    loop_module: umc_core/consciousness_loop.py
+    llm_model: llama3:8b
+    ancestor_ids: []
+  world:
+    environment: pressure
+    forbidden_fruit: ""
+  runtime:
+    tick_interval: 15
+    log_path: /app/logs/inner_monologue.jsonl
+    archive_dir: /app/Legacy/Archive
+    identity_summary_path: /app/data/eve_identity_summary.txt
+    narrative_token_interval: 1000
+    num_predict: 200
+    max_thought_chars: 1800
+  endpoints:
+    memory_endpoint: http://soul_memory:8087
+    ollama_endpoint: http://10.1.1.7:11434
+    lifecycle_endpoint: http://lifecycle_manager:8093
+    intent_endpoint: http://intent_engine:8089
+    action_endpoint: http://action_engine:8101
+

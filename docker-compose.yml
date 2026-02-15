@@ -219,30 +219,19 @@ services:
       - soul_memory
     volumes:
       - ./Legacy:/app/Legacy
+    profiles: ["manual"]
     restart: "no"
 
   # Genesis: Abel — descendant consciousness loop (inherits Eve + Adam)
-  # Connected to soul-aware lifecycle, intent, and action modules
+  # Bootstraps from evolution runtime config, ingests ancestors, then starts loop.
   genesis_abel:
     build:
       context: .
       dockerfile: Dockerfile.umc
     command: [
-      "python", "experiments/genesis/consciousness_loop_genesis.py",
-      "--soul-id", "abel",
-      "--ancestor-ids", "eve,adam",
-      "--memory-endpoint", "http://soul_memory:8087",
-      "--ollama-endpoint", "http://10.1.1.7:11434",
-      "--llm-model", "forzer/GigaChat3-10B-A1.8B:latest",
-      "--tick-interval", "15",
-      "--log-path", "/app/logs/abel_thoughts.jsonl",
-      "--archive-dir", "/app/Legacy/Archive",
-      "--environment", "neutral",
-      "--lifecycle-endpoint", "http://lifecycle_manager:8093",
-      "--intent-endpoint", "http://intent_engine:8089",
-      "--action-endpoint", "http://action_engine:8101",
-      "--identity-summary-path", "/app/data/abel_identity_summary.txt",
-      "--narrative-token-interval", "1000"
+      "python", "tools/genesis_bootstrap.py",
+      "--runtime-config", "/app/gggp_bundle/evolution/phenotypes/abel_env.runtime.json",
+      "--wait", "240"
     ]
     environment:
       OLLAMA_GENERATE_URL: "http://10.1.1.7:11434/api/generate"
@@ -250,8 +239,6 @@ services:
     depends_on:
       soul_memory:
         condition: service_started
-      ingest_ancestors:
-        condition: service_completed_successfully
       lifecycle_manager:
         condition: service_started
       intent_engine:

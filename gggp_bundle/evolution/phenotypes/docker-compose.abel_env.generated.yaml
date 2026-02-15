@@ -1,0 +1,61 @@
+services:
+  genesis_abel:
+    build:
+      context: .
+      dockerfile: Dockerfile.umc
+    command:
+    - python
+    - experiments/genesis/consciousness_loop_genesis.py
+    - --soul-id
+    - abel
+    - --ancestor-ids
+    - eve,adam
+    - --memory-endpoint
+    - http://soul_memory:8087
+    - --ollama-endpoint
+    - http://10.1.1.7:11434
+    - --llm-model
+    - forzer/GigaChat3-10B-A1.8B:latest
+    - --tick-interval
+    - '20'
+    - --log-path
+    - /app/logs/abel_thoughts.jsonl
+    - --archive-dir
+    - /app/Legacy/Archive
+    - --environment
+    - neutral
+    - --lifecycle-endpoint
+    - http://lifecycle_manager:8093
+    - --intent-endpoint
+    - http://intent_engine:8089
+    - --action-endpoint
+    - http://action_engine:8101
+    - --identity-summary-path
+    - /app/data/abel_identity_summary.txt
+    - --narrative-token-interval
+    - '1000'
+    - --num-predict
+    - '96'
+    - --max-thought-chars
+    - '900'
+    - --max-retries-on-repetition
+    - '0'
+    - --memory-snippet-chars
+    - '220'
+    environment:
+      OLLAMA_GENERATE_URL: http://10.1.1.7:11434/api/generate
+      OLLAMA_EMBED_URL: http://10.1.1.7:11434/api/embeddings
+    depends_on:
+      soul_memory:
+        condition: service_started
+      lifecycle_manager:
+        condition: service_started
+      intent_engine:
+        condition: service_started
+      action_engine:
+        condition: service_started
+    volumes:
+    - ./data:/app/data
+    - ./logs:/app/logs
+    - ./Legacy:/app/Legacy
+    restart: unless-stopped

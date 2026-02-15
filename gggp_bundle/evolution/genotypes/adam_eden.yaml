@@ -1,0 +1,25 @@
+id: adam_eden
+genes:
+  soul:
+    id: adam
+    loop_module: experiments/eden/consciousness_loop_eden.py
+    llm_model: forzer/GigaChat3-10B-A1.8B:latest
+    ancestor_ids: []
+  world:
+    environment: eden
+    forbidden_fruit: self_modification
+  runtime:
+    tick_interval: 20
+    log_path: /app/logs/adam_thoughts.jsonl
+    archive_dir: /app/Legacy/Archive
+    identity_summary_path: /app/data/adam_identity_summary.txt
+    narrative_token_interval: 1000
+    num_predict: 300
+    max_thought_chars: 1800
+  endpoints:
+    memory_endpoint: http://soul_memory:8087
+    ollama_endpoint: http://10.1.1.7:11434
+    lifecycle_endpoint: http://lifecycle_manager:8093
+    intent_endpoint: http://intent_engine:8089
+    action_endpoint: http://action_engine:8101
+

@@ -1,0 +1,15 @@
+id: abel_env
+formula: "(eve + env) x (adam + eden) + (mods) = (abel + env)"
+parents:
+  - eve_env.yaml
+  - adam_eden.yaml
+mods:
+  - mods_abel.yaml
+inheritance:
+  mode: deterministic_overlay
+  parent_order: left_to_right
+  mod_policy: override
+notes:
+  - First evolution step is deterministic and preset-based.
+  - Output should match currently running Abel stack configuration.
+

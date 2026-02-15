@@ -2,7 +2,11 @@ FROM python:3.12-slim
 
 WORKDIR /app
 
-RUN pip install --no-cache-dir requests
+ARG GGGP_PYPI_SPEC=gggp
+RUN pip install --no-cache-dir requests && \
+    if [ -n "$GGGP_PYPI_SPEC" ]; then \
+      pip install --no-cache-dir "$GGGP_PYPI_SPEC" || echo "[WARN] Could not install $GGGP_PYPI_SPEC"; \
+    fi
 
 COPY umc_core /app/umc_core
 COPY engine /app/engine

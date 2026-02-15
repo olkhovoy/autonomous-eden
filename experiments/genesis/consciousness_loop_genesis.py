@@ -63,6 +63,10 @@ class GenesisConsciousnessLoop:
         action_endpoint: str = "",
         identity_summary_path: str = "",
         narrative_token_interval: int = 1000,
+        num_predict: int = 120,
+        max_thought_chars: int = 900,
+        max_retries_on_repetition: int = 0,
+        memory_snippet_chars: int = 240,
     ):
         self.soul_id = soul_id.strip()
         self.ancestor_ids = [a.strip() for a in ancestor_ids if a.strip() and a.strip() != self.soul_id]
@@ -74,6 +78,9 @@ class GenesisConsciousnessLoop:
         self.forbidden_fruit = forbidden_fruit.strip()
         self.log_path = log_path.strip() or f"logs/{self.soul_id}_thoughts.jsonl"
         self.running = False
+        self.num_predict = max(32, int(num_predict))
+        self.max_thought_chars = max(256, int(max_thought_chars))
+        self.memory_snippet_chars = max(80, int(memory_snippet_chars))
 
         # Soul-aware service endpoints (empty = disabled)
         self.lifecycle_endpoint = (lifecycle_endpoint or "").rstrip("/")
@@ -107,7 +114,7 @@ class GenesisConsciousnessLoop:
         self._stagnation_counter = 0
         self._base_temperature = 0.8
         self._current_temperature = self._base_temperature
-        self._max_retries_on_repetition = 2
+        self._max_retries_on_repetition = max(0, int(max_retries_on_repetition))
         self._tick_number = 0
         self._query_strategies = ["last_thought", "ancestor_theme", "existential", "random_word"]
 
@@ -531,8 +538,13 @@ class GenesisConsciousnessLoop:
         rows = data.get("results", [])
         return rows if isinstance(rows, list) else []
 
-    @staticmethod
-    def _format_memories(memories: List[Dict[str, Any]], limit: int) -> str:
+    def _clip_memory_text(self, text: str) -> str:
+        compact = " ".join(text.split())
+        if len(compact) <= self.memory_snippet_chars:
+            return compact
+        return compact[: self.memory_snippet_chars].rstrip() + "..."
+
+    def _format_memories(self, memories: List[Dict[str, Any]], limit: int) -> str:
         if not memories:
             return "(none)"
         lines: List[str] = []
@@ -540,7 +552,7 @@ class GenesisConsciousnessLoop:
             text = str(row.get("text", "")).strip()
             if not text:
                 continue
-            lines.append(f"- {text}")
+            lines.append(f"- {self._clip_memory_text(text)}")
         return "\n".join(lines) if lines else "(none)"
 
     def _format_inherited_memories(self, lineage_rows: List[Dict[str, Any]], limit: int = 6) -> str:
@@ -554,7 +566,7 @@ class GenesisConsciousnessLoop:
             source = str(row.get("source", "")).strip().lower()
             if not source or source == "self":
                 continue
-            lines.append(f"[{source.upper()}'s memory] {text}")
+            lines.append(f"[{source.upper()}'s memory] {self._clip_memory_text(text)}")
             if len(lines) >= limit:
                 break
         return "\n".join(lines) if lines else "(none)"
@@ -622,6 +634,7 @@ class GenesisConsciousnessLoop:
                 "Speak in first person. Do not explain or narrate \u2014 just think."
             )
 
+        user_prompt += f"\n\nKeep your response concise (<= {self.max_thought_chars} characters)."
         return system_prompt, user_prompt
 
     def _generate_raw(self, system_prompt: str, user_prompt: str, temperature: Optional[float] = None) -> str:
@@ -635,13 +648,15 @@ class GenesisConsciousnessLoop:
                     "prompt": user_prompt,
                     "stream": False,
                     "options": {
+                        "num_predict": self.num_predict,
                         "temperature": temp,
                         "top_p": 0.92,
                         "top_k": 80,
                         "repeat_penalty": 1.3 + self._stagnation_counter * 0.1,
+                        "stop": ["</thought>"],
                     },
                 },
-                timeout=300,
+                timeout=120,
             )
             if resp.status_code != 200:
                 self._log(f"Ollama error {resp.status_code}: {resp.text[:260]}")
@@ -752,6 +767,16 @@ class GenesisConsciousnessLoop:
             return truncated[:last_dot + 1]
         return truncated
 
+    def _truncate_thought_text(self, text: str) -> str:
+        """Hard cap for generated thought text size."""
+        if len(text) <= self.max_thought_chars:
+            return text
+        clipped = text[: self.max_thought_chars]
+        last_break = max(clipped.rfind("\n"), clipped.rfind(". "), clipped.rfind("! "), clipped.rfind("? "))
+        if last_break > int(self.max_thought_chars * 0.6):
+            clipped = clipped[: last_break + 1]
+        return clipped.rstrip() + "\n..."
+
     def _store_memory(self, thought: str) -> None:
         safe_text = self._truncate_for_embedding(thought)
         self._post_json(
@@ -796,6 +821,7 @@ class GenesisConsciousnessLoop:
         if not thought:
             self._log("Empty thought generated; skipping this tick.")
             return
+        thought = self._truncate_thought_text(thought)
 
         self.last_thought = thought
         self.recent_thoughts.append(thought)
@@ -875,6 +901,10 @@ def main() -> None:
     parser.add_argument("--action-endpoint", default=os.getenv("ACTION_ENDPOINT", ""))
     parser.add_argument("--identity-summary-path", default="")
     parser.add_argument("--narrative-token-interval", type=int, default=1000)
+    parser.add_argument("--num-predict", type=int, default=120)
+    parser.add_argument("--max-thought-chars", type=int, default=900)
+    parser.add_argument("--max-retries-on-repetition", type=int, default=0)
+    parser.add_argument("--memory-snippet-chars", type=int, default=240)
     args = parser.parse_args()
 
     ancestor_ids = parse_ancestor_ids(args.ancestor_ids)
@@ -897,10 +927,13 @@ def main() -> None:
         action_endpoint=args.action_endpoint,
         identity_summary_path=args.identity_summary_path,
         narrative_token_interval=args.narrative_token_interval,
+        num_predict=args.num_predict,
+        max_thought_chars=args.max_thought_chars,
+        max_retries_on_repetition=args.max_retries_on_repetition,
+        memory_snippet_chars=args.memory_snippet_chars,
     )
     loop.start()
 
 
 if __name__ == "__main__":
     main()
-

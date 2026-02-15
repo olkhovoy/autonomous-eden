@@ -1,8 +1,34 @@
-\# EVE v3.1 — Complete Module Architecture
+\# EVE v3.3 — Complete Module Architecture
 
-This document describes the full 19-module architecture for EVE, an autonomous AI agent with persistent identity, lifecycle management, and self-evolution capabilities.
+This document describes the full 20-module architecture for EVE, an autonomous AI agent with persistent identity, lifecycle management, and self-evolution capabilities.
 
 **Vision:** An autonomous programmer agent that works on tasks when directed, and engages in self-improvement, learning, and open-source contribution when idle. Unlike current AI agents, EVE has a long-term lifecycle with human-like cognitive processes.
+
+---
+
+\#\# Sync Update — 2026-02-15
+
+This document was synchronized with the current codebase and running compose stack.
+
+**What was implemented in this update:**
+- Added/verified descendant runtime bootstrap: `tools/genesis_bootstrap.py`
+- Added deterministic generation-cycle automation: `tools/generational_cycle.py`
+- Added evolution runtime artifact output (`*.runtime.json`) in:
+  - `gggp_bundle/tools/cross_compose_cfg.py`
+  - `gggp_bundle/evolution/phenotypes/abel_env.runtime.json`
+- Switched `genesis_abel` service to bootstrap-based launch from runtime config
+- Limited descendant generation length and retries in:
+  - `experiments/genesis/consciousness_loop_genesis.py`
+- Added `gggp` pip installation into runtime images:
+  - `Dockerfile.umc`
+- Added GGGP SDK visibility in bridge state (`/gggp/state -> sdk.source/version`):
+  - `umc_core/gggp_bridge.py`
+  - `engine/modules/gggp_bridge.py`
+
+**Documentation mismatches corrected in this file:**
+- SoulMemory endpoints extended to include lineage/archive ingest APIs
+- Docker services table aligned with actual `docker-compose.yml`
+- Module sections M9–M19 marked as implemented where code/services already exist
 
 ---
 
@@ -63,13 +89,14 @@ This document describes the full 19-module architecture for EVE, an autonomous A
 **Status:** [OK] Implemented (core functionality)
 
 **Files:**
-- `umc\_core/soul\_memory\_node.py`
+- `engine/core/soul_memory_node.py`
+- `umc\_core/soul\_memory\_node.py` (compat copy)
 
 **How it works:**
 - Accepts `text` + `soul\_id` via HTTP, generates embeddings via Ollama.
 - Computes saliency with heuristic router (surprise/pain/utility).
 - Stores in Qdrant with strength decay over time.
-- Endpoints: `/memories/ingest`, `/memories/query`, `/memories/decay`, `/memories/recent`
+- Endpoints: `/memories/ingest`, `/memories/query`, `/memories/query_lineage`, `/memories/ingest_archive`, `/memories/decay`, `/memories/recent`
 
 **Known gaps:**
 - No formal schema versioning
@@ -85,6 +112,8 @@ This document describes the full 19-module architecture for EVE, an autonomous A
 
 **Files:**
 - `umc\_core/consciousness\_loop.py`
+- `experiments/genesis/consciousness_loop_genesis.py`
+- `tools/genesis_bootstrap.py`
 
 **How it works:**
 - Periodic heartbeat generates `<thought>` via Ollama LLM.
@@ -97,6 +126,8 @@ This document describes the full 19-module architecture for EVE, an autonomous A
 - **[NEW]** Scores thought novelty via M15 NoveltyScout
 - **[NEW]** Adapts heartbeat tempo to lifecycle phase (faster in GROWTH, slower in DECAY)
 - **[NEW]** Handles CRITICAL mode with deep existential reflection
+- **[NEW]** Descendant mode supports ancestor archive context + lineage memory query
+- **[NEW]** Descendant loop has bounded generation controls (`num_predict`, max chars, retry cap)
 
 **Integration Endpoints:**
 - IntentEngine: `http://localhost:8089` — LifeResource management
@@ -112,19 +143,23 @@ This document describes the full 19-module architecture for EVE, an autonomous A
 \#\#\# Module 3 — GGGP Bridge (Evolution)
 **Goal:** Evolutionary parameter mutation via Grammar-Guided Genetic Programming.
 
-**Status:** [PARTIAL] Python fallback only
+**Status:** [OK] Implemented (population evolution + SDK visibility)
 
 **Files:**
 - `umc\_core/gggp\_bridge.py`
-- `gggp\_bundle/rust/` (engine)
+- `engine/modules/gggp_bridge.py`
+- `umc\_core/evolution\_engine.py`
+- `Dockerfile.umc` (installs published `gggp` wheel into services)
+- External SDK repository: `git@github.com:olkhovoy/gggp`
 
 **How it works:**
 - REST bridge: `/evolve`, `/evolve\_memory`, `/evolve\_anchor`
-- Falls back to random mutation if binary unavailable
+- REST state: `/gggp/state`, `/gggp/evolution/{trait_type}`
+- `/gggp/state` now reports SDK source/version from installed `gggp` package
 
 **Known gaps:**
-- Rust binary integration incomplete
-- No formal fitness function
+- Direct Rust SDK usage is still not wired into evolution decision flow (bridge reports SDK version/source, but evolution operators remain Python-side)
+- Fitness strategy is heuristic and can be improved with stronger objective shaping
 
 ---
 
@@ -216,9 +251,9 @@ This document describes the full 19-module architecture for EVE, an autonomous A
 \#\#\# Module 9 — IntentEngine (LifeResource)
 **Goal:** Internal motivation via LifeResource scalar. The ``will to survive.''
 
-**Status:** [TODO] — **CRITICAL PATH**
+**Status:** [OK] Implemented
 
-**Files (planned):**
+**Files:**
 - `umc\_core/intent\_engine.py`
 - `umc\_core/life\_resource.py`
 - `data/life\_resource.json`
@@ -240,11 +275,11 @@ This document describes the full 19-module architecture for EVE, an autonomous A
 \#\#\# Module 10 — VisualSoulMonitor
 **Goal:** Real-time visualization of EVE's internal state.
 
-**Status:** [TODO]
+**Status:** [OK] Implemented (web monitor)
 
-**Files (planned):**
-- `tools/visual\_soul\_monitor.py`
-- `tools/soul\_metrics\_collector.py`
+**Files:**
+- `tools/soul_monitor/index.html`
+- `tools/soul_monitor/server.py`
 
 **Design:**
 - Pygame visualization (800x600)
@@ -262,9 +297,9 @@ This document describes the full 19-module architecture for EVE, an autonomous A
 \#\#\# Module 15 — NoveltyScout (Curiosity)
 **Goal:** Semantic hunger for new information. ``Satoshi Instinct.''
 
-**Status:** [TODO]
+**Status:** [OK] Implemented
 
-**Files (planned):**
+**Files:**
 - `umc\_core/novelty\_scout.py`
 
 **Design:**
@@ -285,9 +320,9 @@ This document describes the full 19-module architecture for EVE, an autonomous A
 \#\#\# Module 11 — LifecycleManager
 **Goal:** Biological clock with GROWTH→PEAK→DECAY phases.
 
-**Status:** [TODO] — **CRITICAL PATH**
+**Status:** [OK] Implemented
 
-**Files (planned):**
+**Files:**
 - `umc\_core/lifecycle\_manager.py`
 - `data/lifecycle\_state.json`
 
@@ -310,9 +345,9 @@ This document describes the full 19-module architecture for EVE, an autonomous A
 \#\#\# Module 12 — LegacyExport (Testament)
 **Goal:** Export identity and wisdom at end of lifecycle.
 
-**Status:** [TODO]
+**Status:** [OK] Implemented
 
-**Files (planned):**
+**Files:**
 - `umc\_core/legacy\_export.py`
 - `scripts/prepare\_reincarnation.py`
 - `Legacy/` directory
@@ -332,9 +367,9 @@ This document describes the full 19-module architecture for EVE, an autonomous A
 \#\#\# Module 13 — AncestorResonance (Déjà Vu)
 **Goal:** Inject ``intuition'' from past EVE iterations.
 
-**Status:** [TODO]
+**Status:** [OK] Implemented
 
-**Files (planned):**
+**Files:**
 - `umc\_core/ancestor\_resonance.py`
 - `data/ancestors/` directory
 
@@ -351,9 +386,9 @@ This document describes the full 19-module architecture for EVE, an autonomous A
 \#\#\# Module 14 — RecursiveRebirth (Primal Seed)
 **Goal:** Lossy compression of essence for next iteration.
 
-**Status:** [TODO]
+**Status:** [OK] Implemented
 
-**Files (planned):**
+**Files:**
 - `umc\_core/recursive\_rebirth.py`
 - `Legacy/Primal\_Seed.pt`
 
@@ -370,9 +405,9 @@ This document describes the full 19-module architecture for EVE, an autonomous A
 \#\#\# Module 16 — SatoshiProtocol (Whitepaper)
 **Goal:** Immutable ``whitepaper of existence'' at lifecycle end.
 
-**Status:** [TODO]
+**Status:** [OK] Implemented
 
-**Files (planned):**
+**Files:**
 - `umc\_core/satoshi\_protocol.py`
 
 **Design:**
@@ -395,9 +430,9 @@ This document describes the full 19-module architecture for EVE, an autonomous A
 \#\#\# Module 17 — CodeArms (Shell/Git)
 **Goal:** Ability to interact with code and filesystem.
 
-**Status:** [TODO]
+**Status:** [OK] Implemented
 
-**Files (planned):**
+**Files:**
 - `umc\_core/code\_arms.py`
 - `umc\_core/sandbox.py`
 
@@ -415,9 +450,9 @@ This document describes the full 19-module architecture for EVE, an autonomous A
 \#\#\# Module 18 — GitHubEyes (Perception)
 **Goal:** Observe the programming world via GitHub.
 
-**Status:** [TODO]
+**Status:** [OK] Implemented
 
-**Files (planned):**
+**Files:**
 - `umc\_core/github\_eyes.py`
 
 **Design:**
@@ -434,9 +469,9 @@ This document describes the full 19-module architecture for EVE, an autonomous A
 \#\#\# Module 19 — InfraAdmin (Self-Management)
 **Goal:** Manage own infrastructure (GPU, Docker, network).
 
-**Status:** [TODO]
+**Status:** [OK] Implemented
 
-**Files (planned):**
+**Files:**
 - `umc\_core/infra\_admin.py`
 - `umc\_core/gpu\_monitor.py`
 
@@ -497,7 +532,7 @@ M9 (Intent) ──▶ M11 (Lifecycle) ──▶ M12 (Legacy) ──▶ M13 (Ance
 └──▶ M15 (Novelty) ──▶ M18 (GitHubEyes)
 ```
 
-**M9 and M11 are blockers for all lifecycle functionality.**
+**M9 and M11 are integrated; current blocker has shifted to full end-to-end autonomous generation-cycle policy orchestration and quality gating.**
 
 ---
 
@@ -507,7 +542,8 @@ M9 (Intent) ──▶ M11 (Lifecycle) ──▶ M12 (Legacy) ──▶ M13 (Ance
 |---------|------|--------|--------|
 | qdrant | 6333 | M1 | Running |
 | soul\_memory | 8087 | M1 | Running |
-| consciousness\_loop | — | M2 | Running |
+| ingest\_ancestors | — | M1 | Manual profile (no auto-start) |
+| genesis\_abel | — | M2 | Running (bootstrap + runtime config) |
 | gggp\_bridge | 8091 | M3 | Running |
 | fractal\_compressor | 8092 | M5 | Running |
 | intent\_engine | 8089 | M9 | Running |
@@ -537,8 +573,8 @@ M9 (Intent) ──▶ M11 (Lifecycle) ──▶ M12 (Legacy) ──▶ M13 (Ance
 
 ---
 
-*Last updated: 2026-02-06*
-*Architecture version: 3.2*
+*Last updated: 2026-02-15*
+*Architecture version: 3.3*
 
 ---
 

@@ -1,0 +1,45 @@
+{
+  "id": "abel_env",
+  "formula": "(eve + env) x (adam + eden) + (mods) = (abel + env)",
+  "genes": {
+    "soul": {
+      "id": "abel",
+      "loop_module": "experiments/genesis/consciousness_loop_genesis.py",
+      "llm_model": "forzer/GigaChat3-10B-A1.8B:latest",
+      "ancestor_ids": [
+        "eve",
+        "adam"
+      ]
+    },
+    "world": {
+      "environment": "neutral",
+      "forbidden_fruit": ""
+    },
+    "runtime": {
+      "tick_interval": 20,
+      "log_path": "/app/logs/abel_thoughts.jsonl",
+      "archive_dir": "/app/Legacy/Archive",
+      "identity_summary_path": "/app/data/abel_identity_summary.txt",
+      "narrative_token_interval": 1000,
+      "num_predict": 96,
+      "max_thought_chars": 900,
+      "max_retries_on_repetition": 0,
+      "memory_snippet_chars": 220
+    },
+    "endpoints": {
+      "memory_endpoint": "http://soul_memory:8087",
+      "ollama_endpoint": "http://10.1.1.7:11434",
+      "lifecycle_endpoint": "http://lifecycle_manager:8093",
+      "intent_endpoint": "http://intent_engine:8089",
+      "action_endpoint": "http://action_engine:8101"
+    },
+    "infra": {
+      "depends_on": {
+        "soul_memory": "service_started",
+        "lifecycle_manager": "service_started",
+        "intent_engine": "service_started",
+        "action_engine": "service_started"
+      }
+    }
+  }
+}
