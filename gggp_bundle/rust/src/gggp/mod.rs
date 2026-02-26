@@ -4,6 +4,9 @@ use std::collections::{HashMap, HashSet};
 use std::io::{self, Read, Write};
 use std::rc::{Rc, Weak};
 
+pub mod phenotype;
+use phenotype::{Phenotype, OutputType};
+
 use crate::storage::Node;
 
 #[derive(Debug)]
@@ -4139,3 +4142,14 @@ fn read_bytes<R: Read>(reader: &mut R, len: usize) -> io::Result<Vec<u8>> {
     reader.read_exact(&mut buf)?;
     Ok(buf)
 }
+
+impl Phenotype for GpTree {
+    fn render(&self) -> OutputType {
+        OutputType::SourceCode(self.indented_text(0))
+    }
+
+    fn dimension(&self) -> usize {
+        1
+    }
+}
+

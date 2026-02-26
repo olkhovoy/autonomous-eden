@@ -1,0 +1,2215 @@
+Using device: cuda
+Starting Deep Evolution for UMC Hyperparameters...
+Population: 20, Max Generations: 100
+
+--- Generation 0 ---
+Evaluating genome: hidden=61, nodes=8, k=0.526, lr=0.0170
+Evaluating genome: hidden=101, nodes=8, k=0.834, lr=0.0422
+Evaluating genome: hidden=34, nodes=8, k=0.970, lr=0.0284
+Evaluating genome: hidden=16, nodes=7, k=0.888, lr=0.0357
+Evaluating genome: hidden=83, nodes=11, k=0.763, lr=0.0205
+Evaluating genome: hidden=103, nodes=7, k=0.742, lr=0.0403
+Evaluating genome: hidden=40, nodes=13, k=0.968, lr=0.0433
+Evaluating genome: hidden=117, nodes=15, k=0.742, lr=0.0047
+Evaluating genome: hidden=25, nodes=2, k=0.949, lr=0.0026
+Evaluating genome: hidden=120, nodes=7, k=0.880, lr=0.0222
+Evaluating genome: hidden=120, nodes=16, k=0.662, lr=0.0490
+Evaluating genome: hidden=108, nodes=9, k=0.621, lr=0.0300
+Evaluating genome: hidden=112, nodes=13, k=0.797, lr=0.0188
+Evaluating genome: hidden=17, nodes=4, k=0.816, lr=0.0485
+Evaluating genome: hidden=37, nodes=14, k=0.870, lr=0.0124
+Evaluating genome: hidden=109, nodes=4, k=0.662, lr=0.0457
+Evaluating genome: hidden=50, nodes=6, k=0.826, lr=0.0459
+Evaluating genome: hidden=99, nodes=1, k=0.508, lr=0.0141
+Evaluating genome: hidden=90, nodes=10, k=0.592, lr=0.0421
+Evaluating genome: hidden=87, nodes=2, k=0.821, lr=0.0131
+Evaluated 20 new individuals.
+Best Fitness: 14.8058 -> Genome: {'hidden_dim': 117, 'num_nodes': 15, 'k_contractive': 0.7416773247272249, 'learning_rate': 0.004665658719592944}
+
+--- Generation 1 ---
+Evaluating genome: hidden=40, nodes=12, k=0.878, lr=0.0243
+Evaluating genome: hidden=51, nodes=14, k=0.870, lr=0.0124
+Evaluating genome: hidden=33, nodes=13, k=0.917, lr=0.0040
+Evaluating genome: hidden=32, nodes=16, k=0.836, lr=0.0005
+Evaluating genome: hidden=109, nodes=5, k=0.742, lr=0.0500
+Evaluating genome: hidden=128, nodes=13, k=0.750, lr=0.0110
+Evaluating genome: hidden=117, nodes=15, k=0.742, lr=0.0047
+Evaluating genome: hidden=37, nodes=12, k=0.999, lr=0.0341
+Evaluating genome: hidden=38, nodes=12, k=0.880, lr=0.0320
+Evaluating genome: hidden=16, nodes=9, k=0.970, lr=0.0284
+Evaluating genome: hidden=46, nodes=3, k=0.969, lr=0.0257
+Evaluating genome: hidden=16, nodes=3, k=0.895, lr=0.0350
+Evaluating genome: hidden=43, nodes=9, k=0.861, lr=0.0210
+Evaluating genome: hidden=103, nodes=7, k=0.742, lr=0.0403
+Evaluating genome: hidden=46, nodes=8, k=0.999, lr=0.0250
+Evaluating genome: hidden=117, nodes=16, k=0.751, lr=0.0047
+Evaluating genome: hidden=87, nodes=11, k=0.819, lr=0.0170
+Evaluating genome: hidden=94, nodes=16, k=0.742, lr=0.0005
+Evaluated 18 new individuals.
+Best Fitness: 14.2904 -> Genome: {'hidden_dim': 117, 'num_nodes': 15, 'k_contractive': 0.7416773247272249, 'learning_rate': 0.004665658719592944}
+
+--- Generation 2 ---
+Evaluating genome: hidden=37, nodes=14, k=0.870, lr=0.0124
+Evaluating genome: hidden=16, nodes=11, k=0.834, lr=0.0021
+Evaluating genome: hidden=84, nodes=13, k=0.785, lr=0.0034
+Evaluating genome: hidden=63, nodes=14, k=0.870, lr=0.0124
+Evaluating genome: hidden=16, nodes=8, k=0.917, lr=0.0052
+Evaluating genome: hidden=51, nodes=14, k=0.729, lr=0.0124
+Evaluating genome: hidden=71, nodes=8, k=0.999, lr=0.0250
+Evaluating genome: hidden=124, nodes=16, k=0.658, lr=0.0314
+Evaluating genome: hidden=16, nodes=14, k=0.787, lr=0.0134
+Evaluating genome: hidden=37, nodes=14, k=0.870, lr=0.0124
+Evaluating genome: hidden=117, nodes=15, k=0.742, lr=0.0047
+Evaluating genome: hidden=53, nodes=13, k=0.917, lr=0.0266
+Evaluating genome: hidden=101, nodes=15, k=0.791, lr=0.0107
+Evaluating genome: hidden=128, nodes=15, k=0.742, lr=0.0121
+Evaluating genome: hidden=128, nodes=15, k=0.742, lr=0.0047
+Evaluating genome: hidden=38, nodes=10, k=0.909, lr=0.0242
+Evaluating genome: hidden=41, nodes=7, k=0.999, lr=0.0010
+Evaluating genome: hidden=37, nodes=16, k=0.999, lr=0.0124
+Evaluated 18 new individuals.
+Best Fitness: 15.1155 -> Genome: {'hidden_dim': 128, 'num_nodes': 15, 'k_contractive': 0.7416773247272249, 'learning_rate': 0.004665658719592944}
+
+--- Generation 3 ---
+Evaluating genome: hidden=128, nodes=12, k=0.742, lr=0.0047
+Evaluating genome: hidden=57, nodes=12, k=0.782, lr=0.0034
+Evaluating genome: hidden=46, nodes=13, k=0.870, lr=0.0124
+Evaluating genome: hidden=87, nodes=11, k=0.898, lr=0.0108
+Evaluating genome: hidden=16, nodes=16, k=0.999, lr=0.0124
+Evaluating genome: hidden=76, nodes=16, k=0.559, lr=0.0050
+Evaluating genome: hidden=117, nodes=12, k=0.742, lr=0.0047
+Evaluating genome: hidden=27, nodes=14, k=0.870, lr=0.0185
+Evaluating genome: hidden=128, nodes=15, k=0.738, lr=0.0047
+Evaluating genome: hidden=120, nodes=15, k=0.992, lr=0.0129
+Evaluating genome: hidden=58, nodes=16, k=0.908, lr=0.0133
+Evaluating genome: hidden=16, nodes=14, k=0.854, lr=0.0153
+Evaluating genome: hidden=46, nodes=13, k=0.769, lr=0.0073
+Evaluating genome: hidden=16, nodes=14, k=0.787, lr=0.0134
+Evaluating genome: hidden=117, nodes=15, k=0.978, lr=0.0047
+Evaluating genome: hidden=38, nodes=14, k=0.870, lr=0.0124
+Evaluating genome: hidden=128, nodes=16, k=0.742, lr=0.0047
+Evaluating genome: hidden=38, nodes=10, k=0.909, lr=0.0242
+Evaluated 18 new individuals.
+Best Fitness: 16.1327 -> Genome: {'hidden_dim': 117, 'num_nodes': 15, 'k_contractive': 0.9778500982894764, 'learning_rate': 0.004665658719592944}
+
+--- Generation 4 ---
+Evaluating genome: hidden=117, nodes=10, k=0.726, lr=0.0047
+Evaluating genome: hidden=128, nodes=16, k=0.741, lr=0.0047
+Evaluating genome: hidden=128, nodes=15, k=0.738, lr=0.0157
+Evaluating genome: hidden=46, nodes=13, k=0.769, lr=0.0073
+Evaluating genome: hidden=116, nodes=16, k=0.742, lr=0.0047
+Evaluating genome: hidden=87, nodes=12, k=0.754, lr=0.0005
+Evaluating genome: hidden=87, nodes=8, k=0.898, lr=0.0108
+Evaluating genome: hidden=77, nodes=15, k=0.598, lr=0.0047
+Evaluating genome: hidden=128, nodes=15, k=0.738, lr=0.0081
+Evaluating genome: hidden=117, nodes=15, k=0.978, lr=0.0047
+Evaluating genome: hidden=117, nodes=15, k=0.963, lr=0.0047
+Evaluating genome: hidden=122, nodes=15, k=0.737, lr=0.0047
+Evaluating genome: hidden=128, nodes=15, k=0.608, lr=0.0047
+Evaluating genome: hidden=98, nodes=9, k=0.838, lr=0.0050
+Evaluating genome: hidden=92, nodes=11, k=0.968, lr=0.0108
+Evaluating genome: hidden=128, nodes=16, k=0.742, lr=0.0125
+Evaluating genome: hidden=113, nodes=9, k=0.855, lr=0.0285
+Evaluating genome: hidden=128, nodes=15, k=0.950, lr=0.0431
+Evaluated 18 new individuals.
+Best Fitness: 16.1562 -> Genome: {'hidden_dim': 117, 'num_nodes': 15, 'k_contractive': 0.9631513643689102, 'learning_rate': 0.004665658719592944}
+
+--- Generation 5 ---
+Evaluating genome: hidden=117, nodes=15, k=0.978, lr=0.0047
+Evaluating genome: hidden=117, nodes=15, k=0.999, lr=0.0005
+Evaluating genome: hidden=121, nodes=9, k=0.879, lr=0.0052
+Evaluating genome: hidden=117, nodes=10, k=0.890, lr=0.0087
+Evaluating genome: hidden=128, nodes=15, k=0.978, lr=0.0085
+Evaluating genome: hidden=103, nodes=10, k=0.648, lr=0.0047
+Evaluating genome: hidden=117, nodes=13, k=0.999, lr=0.0047
+Evaluating genome: hidden=117, nodes=15, k=0.963, lr=0.0005
+Evaluating genome: hidden=115, nodes=15, k=0.710, lr=0.0047
+Evaluating genome: hidden=128, nodes=15, k=0.845, lr=0.0047
+Evaluating genome: hidden=128, nodes=14, k=0.999, lr=0.0047
+Evaluating genome: hidden=128, nodes=12, k=0.755, lr=0.0005
+Evaluating genome: hidden=122, nodes=15, k=0.999, lr=0.0047
+Evaluating genome: hidden=117, nodes=15, k=0.978, lr=0.0047
+Evaluating genome: hidden=117, nodes=10, k=0.726, lr=0.0135
+Evaluating genome: hidden=117, nodes=15, k=0.905, lr=0.0047
+Evaluating genome: hidden=122, nodes=16, k=0.738, lr=0.0015
+Evaluating genome: hidden=117, nodes=15, k=0.978, lr=0.0047
+Evaluated 18 new individuals.
+Best Fitness: 18.0666 -> Genome: {'hidden_dim': 117, 'num_nodes': 15, 'k_contractive': 0.9780661918644183, 'learning_rate': 0.004665658719592944}
+
+--- Generation 6 ---
+Evaluating genome: hidden=117, nodes=15, k=0.999, lr=0.0202
+Evaluating genome: hidden=117, nodes=16, k=0.967, lr=0.0047
+Evaluating genome: hidden=117, nodes=14, k=0.999, lr=0.0047
+Evaluating genome: hidden=117, nodes=15, k=0.923, lr=0.0047
+Evaluating genome: hidden=117, nodes=13, k=0.975, lr=0.0047
+Evaluating genome: hidden=75, nodes=15, k=0.944, lr=0.0047
+Evaluating genome: hidden=100, nodes=14, k=0.999, lr=0.0047
+Evaluating genome: hidden=113, nodes=15, k=0.999, lr=0.0047
+Evaluating genome: hidden=117, nodes=15, k=0.978, lr=0.0047
+Evaluating genome: hidden=117, nodes=14, k=0.978, lr=0.0145
+Evaluating genome: hidden=117, nodes=16, k=0.805, lr=0.0047
+Evaluating genome: hidden=114, nodes=15, k=0.919, lr=0.0005
+Evaluating genome: hidden=117, nodes=15, k=0.999, lr=0.0047
+Evaluating genome: hidden=100, nodes=12, k=0.905, lr=0.0005
+Evaluating genome: hidden=117, nodes=12, k=0.979, lr=0.0047
+Evaluating genome: hidden=117, nodes=15, k=0.978, lr=0.0047
+Evaluating genome: hidden=117, nodes=15, k=0.999, lr=0.0014
+Evaluating genome: hidden=122, nodes=12, k=0.971, lr=0.0046
+Evaluated 18 new individuals.
+Best Fitness: 17.5913 -> Genome: {'hidden_dim': 122, 'num_nodes': 15, 'k_contractive': 0.999, 'learning_rate': 0.004665658719592944}
+
+--- Generation 7 ---
+Evaluating genome: hidden=117, nodes=13, k=0.975, lr=0.0047
+Evaluating genome: hidden=115, nodes=15, k=0.999, lr=0.0047
+Evaluating genome: hidden=117, nodes=15, k=0.978, lr=0.0047
+Evaluating genome: hidden=114, nodes=12, k=0.989, lr=0.0047
+Evaluating genome: hidden=121, nodes=14, k=0.974, lr=0.0047
+Evaluating genome: hidden=117, nodes=15, k=0.942, lr=0.0047
+Evaluating genome: hidden=127, nodes=12, k=0.896, lr=0.0047
+Evaluating genome: hidden=117, nodes=15, k=0.999, lr=0.0047
+Evaluating genome: hidden=117, nodes=15, k=0.999, lr=0.0047
+Evaluating genome: hidden=115, nodes=13, k=0.999, lr=0.0047
+Evaluating genome: hidden=115, nodes=11, k=0.945, lr=0.0062
+Evaluating genome: hidden=117, nodes=15, k=0.999, lr=0.0047
+Evaluating genome: hidden=117, nodes=15, k=0.999, lr=0.0047
+Evaluating genome: hidden=117, nodes=15, k=0.923, lr=0.0036
+Evaluating genome: hidden=72, nodes=16, k=0.967, lr=0.0047
+Evaluating genome: hidden=123, nodes=13, k=0.970, lr=0.0046
+Evaluating genome: hidden=119, nodes=15, k=0.996, lr=0.0047
+Evaluating genome: hidden=120, nodes=15, k=0.918, lr=0.0047
+Evaluated 18 new individuals.
+Best Fitness: 17.7786 -> Genome: {'hidden_dim': 127, 'num_nodes': 12, 'k_contractive': 0.8958891794361467, 'learning_rate': 0.004665658719592944}
+
+--- Generation 8 ---
+Evaluating genome: hidden=117, nodes=15, k=0.990, lr=0.0047
+Evaluating genome: hidden=117, nodes=15, k=0.975, lr=0.0225
+Evaluating genome: hidden=117, nodes=15, k=0.978, lr=0.0047
+Evaluating genome: hidden=122, nodes=15, k=0.999, lr=0.0047
+Evaluating genome: hidden=90, nodes=15, k=0.978, lr=0.0047
+Evaluating genome: hidden=128, nodes=14, k=0.927, lr=0.0047
+Evaluating genome: hidden=117, nodes=16, k=0.999, lr=0.0005
+Evaluating genome: hidden=128, nodes=15, k=0.944, lr=0.0005
+Evaluating genome: hidden=128, nodes=16, k=0.999, lr=0.0047
+Evaluating genome: hidden=128, nodes=11, k=0.913, lr=0.0047
+Evaluating genome: hidden=74, nodes=16, k=0.999, lr=0.0047
+Evaluating genome: hidden=117, nodes=15, k=0.978, lr=0.0194
+Evaluating genome: hidden=128, nodes=15, k=0.903, lr=0.0047
+Evaluating genome: hidden=124, nodes=16, k=0.905, lr=0.0005
+Evaluating genome: hidden=128, nodes=15, k=0.758, lr=0.0047
+Evaluating genome: hidden=115, nodes=15, k=0.854, lr=0.0047
+Evaluating genome: hidden=117, nodes=15, k=0.985, lr=0.0047
+Evaluating genome: hidden=127, nodes=12, k=0.896, lr=0.0047
+Evaluated 18 new individuals.
+Best Fitness: 17.1524 -> Genome: {'hidden_dim': 128, 'num_nodes': 14, 'k_contractive': 0.9273684519541494, 'learning_rate': 0.004665658719592944}
+
+--- Generation 9 ---
+Evaluating genome: hidden=119, nodes=14, k=0.999, lr=0.0034
+Evaluating genome: hidden=128, nodes=16, k=0.927, lr=0.0047
+Evaluating genome: hidden=128, nodes=14, k=0.927, lr=0.0005
+Evaluating genome: hidden=118, nodes=15, k=0.903, lr=0.0005
+Evaluating genome: hidden=120, nodes=11, k=0.999, lr=0.0047
+Evaluating genome: hidden=114, nodes=15, k=0.984, lr=0.0047
+Evaluating genome: hidden=128, nodes=15, k=0.973, lr=0.0047
+Evaluating genome: hidden=128, nodes=15, k=0.903, lr=0.0005
+Evaluating genome: hidden=128, nodes=14, k=0.915, lr=0.0047
+Evaluating genome: hidden=105, nodes=15, k=0.941, lr=0.0005
+Evaluating genome: hidden=125, nodes=9, k=0.909, lr=0.0047
+Evaluating genome: hidden=122, nodes=16, k=0.949, lr=0.0047
+Evaluating genome: hidden=124, nodes=15, k=0.893, lr=0.0005
+Evaluating genome: hidden=128, nodes=11, k=0.860, lr=0.0047
+Evaluating genome: hidden=127, nodes=15, k=0.892, lr=0.0047
+Evaluating genome: hidden=120, nodes=10, k=0.999, lr=0.0047
+Evaluating genome: hidden=126, nodes=15, k=0.911, lr=0.0005
+Evaluating genome: hidden=120, nodes=16, k=0.999, lr=0.0047
+Evaluated 18 new individuals.
+Best Fitness: 18.2793 -> Genome: {'hidden_dim': 128, 'num_nodes': 16, 'k_contractive': 0.9273684519541494, 'learning_rate': 0.004665658719592944}
+
+--- Generation 10 ---
+Evaluating genome: hidden=128, nodes=14, k=0.915, lr=0.0034
+Evaluating genome: hidden=120, nodes=16, k=0.999, lr=0.0005
+Evaluating genome: hidden=68, nodes=14, k=0.932, lr=0.0052
+Evaluating genome: hidden=128, nodes=9, k=0.909, lr=0.0047
+Evaluating genome: hidden=70, nodes=16, k=0.999, lr=0.0047
+Evaluating genome: hidden=128, nodes=9, k=0.999, lr=0.0047
+Evaluating genome: hidden=99, nodes=16, k=0.927, lr=0.0119
+Evaluating genome: hidden=123, nodes=16, k=0.911, lr=0.0047
+Evaluating genome: hidden=128, nodes=11, k=0.860, lr=0.0047
+Evaluating genome: hidden=127, nodes=14, k=0.999, lr=0.0047
+Evaluating genome: hidden=95, nodes=16, k=0.965, lr=0.0047
+Evaluating genome: hidden=118, nodes=10, k=0.915, lr=0.0191
+Evaluating genome: hidden=104, nodes=12, k=0.963, lr=0.0109
+Evaluating genome: hidden=120, nodes=16, k=0.999, lr=0.0009
+Evaluating genome: hidden=128, nodes=7, k=0.915, lr=0.0047
+Evaluating genome: hidden=116, nodes=14, k=0.999, lr=0.0047
+Evaluating genome: hidden=128, nodes=16, k=0.915, lr=0.0047
+Evaluating genome: hidden=128, nodes=9, k=0.882, lr=0.0047
+Evaluated 18 new individuals.
+Best Fitness: 18.2793 -> Genome: {'hidden_dim': 128, 'num_nodes': 16, 'k_contractive': 0.9273684519541494, 'learning_rate': 0.004665658719592944}
+
+--- Generation 11 ---
+Evaluating genome: hidden=127, nodes=14, k=0.831, lr=0.0168
+Evaluating genome: hidden=128, nodes=16, k=0.927, lr=0.0047
+Evaluating genome: hidden=128, nodes=16, k=0.927, lr=0.0047
+Evaluating genome: hidden=127, nodes=14, k=0.915, lr=0.0067
+Evaluating genome: hidden=89, nodes=9, k=0.899, lr=0.0047
+Evaluating genome: hidden=92, nodes=16, k=0.978, lr=0.0047
+Evaluating genome: hidden=128, nodes=13, k=0.916, lr=0.0268
+Evaluating genome: hidden=128, nodes=8, k=0.963, lr=0.0200
+Evaluating genome: hidden=126, nodes=16, k=0.925, lr=0.0129
+Evaluating genome: hidden=128, nodes=16, k=0.915, lr=0.0005
+Evaluating genome: hidden=123, nodes=15, k=0.999, lr=0.0047
+Evaluating genome: hidden=128, nodes=12, k=0.883, lr=0.0101
+Evaluating genome: hidden=128, nodes=9, k=0.989, lr=0.0047
+Evaluating genome: hidden=126, nodes=16, k=0.999, lr=0.0047
+Evaluating genome: hidden=127, nodes=13, k=0.940, lr=0.0047
+Evaluating genome: hidden=124, nodes=16, k=0.967, lr=0.0047
+Evaluating genome: hidden=128, nodes=16, k=0.709, lr=0.0047
+Evaluating genome: hidden=113, nodes=16, k=0.938, lr=0.0047
+Evaluated 18 new individuals.
+Best Fitness: 16.9470 -> Genome: {'hidden_dim': 124, 'num_nodes': 16, 'k_contractive': 0.9673357775180108, 'learning_rate': 0.004665658719592944}
+
+--- Generation 12 ---
+Evaluating genome: hidden=128, nodes=14, k=0.901, lr=0.0049
+Evaluating genome: hidden=123, nodes=15, k=0.999, lr=0.0047
+Evaluating genome: hidden=118, nodes=16, k=0.968, lr=0.0036
+Evaluating genome: hidden=127, nodes=14, k=0.999, lr=0.0047
+Evaluating genome: hidden=93, nodes=6, k=0.875, lr=0.0047
+Evaluating genome: hidden=80, nodes=6, k=0.900, lr=0.0047
+Evaluating genome: hidden=122, nodes=16, k=0.976, lr=0.0044
+Evaluating genome: hidden=77, nodes=8, k=0.899, lr=0.0047
+Evaluating genome: hidden=128, nodes=15, k=0.999, lr=0.0005
+Evaluating genome: hidden=125, nodes=13, k=0.999, lr=0.0047
+Evaluating genome: hidden=125, nodes=16, k=0.962, lr=0.0051
+Evaluating genome: hidden=128, nodes=16, k=0.927, lr=0.0047
+Evaluating genome: hidden=124, nodes=14, k=0.999, lr=0.0028
+Evaluating genome: hidden=128, nodes=16, k=0.999, lr=0.0047
+Evaluating genome: hidden=123, nodes=8, k=0.957, lr=0.0005
+Evaluating genome: hidden=124, nodes=16, k=0.967, lr=0.0047
+Evaluating genome: hidden=127, nodes=16, k=0.999, lr=0.0047
+Evaluating genome: hidden=125, nodes=11, k=0.960, lr=0.0047
+Evaluated 18 new individuals.
+Best Fitness: 17.4252 -> Genome: {'hidden_dim': 122, 'num_nodes': 16, 'k_contractive': 0.9761475956631881, 'learning_rate': 0.004375226545347264}
+
+--- Generation 13 ---
+Evaluating genome: hidden=123, nodes=15, k=0.985, lr=0.0005
+Evaluating genome: hidden=125, nodes=5, k=0.999, lr=0.0005
+Evaluating genome: hidden=117, nodes=16, k=0.976, lr=0.0005
+Evaluating genome: hidden=128, nodes=13, k=0.941, lr=0.0044
+Evaluating genome: hidden=78, nodes=13, k=0.999, lr=0.0134
+Evaluating genome: hidden=76, nodes=16, k=0.967, lr=0.0047
+Evaluating genome: hidden=122, nodes=16, k=0.999, lr=0.0005
+Evaluating genome: hidden=125, nodes=8, k=0.999, lr=0.0047
+Evaluating genome: hidden=122, nodes=16, k=0.976, lr=0.0150
+Evaluating genome: hidden=128, nodes=16, k=0.999, lr=0.0047
+Evaluating genome: hidden=119, nodes=15, k=0.989, lr=0.0168
+Evaluating genome: hidden=128, nodes=16, k=0.978, lr=0.0278
+Evaluating genome: hidden=125, nodes=13, k=0.999, lr=0.0005
+Evaluating genome: hidden=123, nodes=16, k=0.966, lr=0.0044
+Evaluating genome: hidden=122, nodes=16, k=0.976, lr=0.0044
+Evaluating genome: hidden=128, nodes=3, k=0.928, lr=0.0005
+Evaluating genome: hidden=124, nodes=16, k=0.967, lr=0.0200
+Evaluating genome: hidden=122, nodes=16, k=0.996, lr=0.0322
+Evaluated 18 new individuals.
+Best Fitness: 17.3729 -> Genome: {'hidden_dim': 125, 'num_nodes': 8, 'k_contractive': 0.999, 'learning_rate': 0.004665658719592944}
+
+--- Generation 14 ---
+Evaluating genome: hidden=123, nodes=16, k=0.999, lr=0.0044
+Evaluating genome: hidden=76, nodes=16, k=0.967, lr=0.0047
+Evaluating genome: hidden=123, nodes=16, k=0.979, lr=0.0044
+Evaluating genome: hidden=124, nodes=16, k=0.999, lr=0.0047
+Evaluating genome: hidden=128, nodes=16, k=0.912, lr=0.0044
+Evaluating genome: hidden=124, nodes=15, k=0.943, lr=0.0147
+Evaluating genome: hidden=128, nodes=16, k=0.966, lr=0.0139
+Evaluating genome: hidden=123, nodes=9, k=0.963, lr=0.0045
+Evaluating genome: hidden=118, nodes=8, k=0.999, lr=0.0093
+Evaluating genome: hidden=124, nodes=13, k=0.967, lr=0.0014
+Evaluating genome: hidden=89, nodes=16, k=0.976, lr=0.0044
+Evaluating genome: hidden=71, nodes=16, k=0.976, lr=0.0052
+Evaluating genome: hidden=124, nodes=16, k=0.933, lr=0.0005
+Evaluating genome: hidden=124, nodes=16, k=0.967, lr=0.0200
+Evaluating genome: hidden=78, nodes=15, k=0.614, lr=0.0265
+Evaluating genome: hidden=120, nodes=16, k=0.991, lr=0.0043
+Evaluating genome: hidden=120, nodes=16, k=0.811, lr=0.0048
+Evaluating genome: hidden=53, nodes=16, k=0.970, lr=0.0088
+Evaluated 18 new individuals.
+Best Fitness: 17.8211 -> Genome: {'hidden_dim': 128, 'num_nodes': 16, 'k_contractive': 0.911678957238701, 'learning_rate': 0.004375226545347264}
+
+--- Generation 15 ---
+Evaluating genome: hidden=128, nodes=16, k=0.921, lr=0.0044
+Evaluating genome: hidden=123, nodes=12, k=0.979, lr=0.0246
+Evaluating genome: hidden=76, nodes=16, k=0.963, lr=0.0047
+Evaluating genome: hidden=124, nodes=16, k=0.999, lr=0.0047
+Evaluating genome: hidden=128, nodes=12, k=0.999, lr=0.0356
+Evaluating genome: hidden=123, nodes=16, k=0.979, lr=0.0044
+Evaluating genome: hidden=121, nodes=8, k=0.999, lr=0.0160
+Evaluating genome: hidden=81, nodes=16, k=0.999, lr=0.0047
+Evaluating genome: hidden=123, nodes=10, k=0.705, lr=0.0045
+Evaluating genome: hidden=125, nodes=12, k=0.993, lr=0.0043
+Evaluating genome: hidden=128, nodes=16, k=0.999, lr=0.0045
+Evaluating genome: hidden=123, nodes=16, k=0.968, lr=0.0044
+Evaluating genome: hidden=128, nodes=16, k=0.976, lr=0.0045
+Evaluating genome: hidden=123, nodes=16, k=0.999, lr=0.0044
+Evaluating genome: hidden=125, nodes=16, k=0.995, lr=0.0160
+Evaluating genome: hidden=117, nodes=16, k=0.999, lr=0.0043
+Evaluating genome: hidden=88, nodes=16, k=0.895, lr=0.0029
+Evaluating genome: hidden=120, nodes=16, k=0.991, lr=0.0043
+Evaluated 18 new individuals.
+Best Fitness: 17.8211 -> Genome: {'hidden_dim': 128, 'num_nodes': 16, 'k_contractive': 0.911678957238701, 'learning_rate': 0.004375226545347264}
+
+--- Generation 16 ---
+Evaluating genome: hidden=128, nodes=16, k=0.976, lr=0.0045
+Evaluating genome: hidden=128, nodes=16, k=0.912, lr=0.0037
+Evaluating genome: hidden=102, nodes=16, k=0.976, lr=0.0045
+Evaluating genome: hidden=111, nodes=16, k=0.999, lr=0.0044
+Evaluating genome: hidden=115, nodes=16, k=0.944, lr=0.0043
+Evaluating genome: hidden=124, nodes=16, k=0.804, lr=0.0132
+Evaluating genome: hidden=128, nodes=16, k=0.975, lr=0.0134
+Evaluating genome: hidden=122, nodes=16, k=0.999, lr=0.0045
+Evaluating genome: hidden=128, nodes=16, k=0.999, lr=0.0005
+Evaluating genome: hidden=128, nodes=16, k=0.921, lr=0.0044
+Evaluating genome: hidden=119, nodes=16, k=0.984, lr=0.0043
+Evaluating genome: hidden=126, nodes=16, k=0.912, lr=0.0222
+Evaluating genome: hidden=123, nodes=16, k=0.999, lr=0.0045
+Evaluating genome: hidden=128, nodes=16, k=0.912, lr=0.0044
+Evaluating genome: hidden=117, nodes=16, k=0.999, lr=0.0043
+Evaluating genome: hidden=113, nodes=16, k=0.822, lr=0.0044
+Evaluating genome: hidden=106, nodes=16, k=0.987, lr=0.0046
+Evaluating genome: hidden=126, nodes=16, k=0.578, lr=0.0044
+Evaluated 18 new individuals.
+Best Fitness: 17.7458 -> Genome: {'hidden_dim': 128, 'num_nodes': 16, 'k_contractive': 0.999, 'learning_rate': 0.004541385641055589}
+
+--- Generation 17 ---
+Evaluating genome: hidden=128, nodes=16, k=0.999, lr=0.0034
+Evaluating genome: hidden=110, nodes=16, k=0.921, lr=0.0044
+Evaluating genome: hidden=128, nodes=11, k=0.999, lr=0.0044
+Evaluating genome: hidden=128, nodes=16, k=0.980, lr=0.0045
+Evaluating genome: hidden=128, nodes=16, k=0.710, lr=0.0045
+Evaluating genome: hidden=128, nodes=16, k=0.656, lr=0.0043
+Evaluating genome: hidden=16, nodes=16, k=0.999, lr=0.0045
+Evaluating genome: hidden=124, nodes=16, k=0.989, lr=0.0220
+Evaluating genome: hidden=117, nodes=16, k=0.879, lr=0.0045
+Evaluating genome: hidden=123, nodes=16, k=0.999, lr=0.0026
+Evaluating genome: hidden=128, nodes=16, k=0.772, lr=0.0144
+Evaluating genome: hidden=128, nodes=16, k=0.906, lr=0.0045
+Evaluating genome: hidden=118, nodes=16, k=0.999, lr=0.0042
+Evaluating genome: hidden=120, nodes=16, k=0.999, lr=0.0046
+Evaluating genome: hidden=128, nodes=14, k=0.912, lr=0.0044
+Evaluating genome: hidden=123, nodes=13, k=0.999, lr=0.0045
+Evaluating genome: hidden=127, nodes=16, k=0.999, lr=0.0045
+Evaluating genome: hidden=128, nodes=16, k=0.999, lr=0.0045
+Evaluated 18 new individuals.
+Best Fitness: 17.7458 -> Genome: {'hidden_dim': 128, 'num_nodes': 16, 'k_contractive': 0.999, 'learning_rate': 0.004541385641055589}
+
+--- Generation 18 ---
+Evaluating genome: hidden=105, nodes=15, k=0.902, lr=0.0005
+Evaluating genome: hidden=128, nodes=16, k=0.999, lr=0.0045
+Evaluating genome: hidden=128, nodes=16, k=0.906, lr=0.0045
+Evaluating genome: hidden=128, nodes=6, k=0.871, lr=0.0012
+Evaluating genome: hidden=88, nodes=12, k=0.999, lr=0.0044
+Evaluating genome: hidden=128, nodes=10, k=0.999, lr=0.0044
+Evaluating genome: hidden=118, nodes=16, k=0.999, lr=0.0041
+Evaluating genome: hidden=128, nodes=14, k=0.912, lr=0.0044
+Evaluating genome: hidden=128, nodes=16, k=0.723, lr=0.0045
+Evaluating genome: hidden=128, nodes=16, k=0.999, lr=0.0041
+Evaluating genome: hidden=110, nodes=16, k=0.999, lr=0.0055
+Evaluating genome: hidden=121, nodes=16, k=0.999, lr=0.0045
+Evaluating genome: hidden=128, nodes=16, k=0.999, lr=0.0045
+Evaluating genome: hidden=128, nodes=16, k=0.879, lr=0.0045
+Evaluating genome: hidden=117, nodes=16, k=0.999, lr=0.0045
+Evaluating genome: hidden=122, nodes=16, k=0.954, lr=0.0044
+Evaluating genome: hidden=128, nodes=16, k=0.907, lr=0.0005
+Evaluating genome: hidden=128, nodes=16, k=0.999, lr=0.0045
+Evaluated 18 new individuals.
+Best Fitness: 17.6314 -> Genome: {'hidden_dim': 128, 'num_nodes': 11, 'k_contractive': 0.999, 'learning_rate': 0.00443756219871954}
+
+--- Generation 19 ---
+Evaluating genome: hidden=128, nodes=16, k=0.999, lr=0.0005
+Evaluating genome: hidden=128, nodes=16, k=0.923, lr=0.0059
+Evaluating genome: hidden=114, nodes=12, k=0.999, lr=0.0005
+Evaluating genome: hidden=128, nodes=15, k=0.999, lr=0.0005
+Evaluating genome: hidden=124, nodes=16, k=0.999, lr=0.0045
+Evaluating genome: hidden=83, nodes=16, k=0.999, lr=0.0045
+Evaluating genome: hidden=116, nodes=13, k=0.999, lr=0.0045
+Evaluating genome: hidden=128, nodes=10, k=0.907, lr=0.0044
+Evaluating genome: hidden=128, nodes=16, k=0.999, lr=0.0224
+Evaluating genome: hidden=128, nodes=16, k=0.879, lr=0.0045
+Evaluating genome: hidden=128, nodes=16, k=0.999, lr=0.0045
+Evaluating genome: hidden=102, nodes=16, k=0.999, lr=0.0044
+Evaluating genome: hidden=128, nodes=16, k=0.999, lr=0.0051
+Evaluating genome: hidden=128, nodes=16, k=0.999, lr=0.0104
+Evaluating genome: hidden=113, nodes=11, k=0.999, lr=0.0054
+Evaluating genome: hidden=109, nodes=11, k=0.999, lr=0.0043
+Evaluating genome: hidden=128, nodes=11, k=0.999, lr=0.0045
+Evaluating genome: hidden=123, nodes=11, k=0.671, lr=0.0261
+Evaluated 18 new individuals.
+Best Fitness: 17.8739 -> Genome: {'hidden_dim': 128, 'num_nodes': 11, 'k_contractive': 0.999, 'learning_rate': 0.004461375063637561}
+
+--- Generation 20 ---
+Evaluating genome: hidden=128, nodes=10, k=0.961, lr=0.0044
+Evaluating genome: hidden=102, nodes=10, k=0.999, lr=0.0005
+Evaluating genome: hidden=109, nodes=8, k=0.999, lr=0.0043
+Evaluating genome: hidden=112, nodes=16, k=0.999, lr=0.0055
+Evaluating genome: hidden=128, nodes=13, k=0.999, lr=0.0048
+Evaluating genome: hidden=128, nodes=16, k=0.999, lr=0.0112
+Evaluating genome: hidden=128, nodes=8, k=0.999, lr=0.0045
+Evaluating genome: hidden=106, nodes=11, k=0.999, lr=0.0055
+Evaluating genome: hidden=122, nodes=9, k=0.834, lr=0.0045
+Evaluating genome: hidden=128, nodes=15, k=0.999, lr=0.0046
+Evaluating genome: hidden=126, nodes=16, k=0.999, lr=0.0045
+Evaluating genome: hidden=128, nodes=11, k=0.867, lr=0.0045
+Evaluating genome: hidden=128, nodes=13, k=0.838, lr=0.0045
+Evaluating genome: hidden=107, nodes=16, k=0.999, lr=0.0050
+Evaluating genome: hidden=106, nodes=16, k=0.981, lr=0.0055
+Evaluating genome: hidden=128, nodes=12, k=0.999, lr=0.0039
+Evaluating genome: hidden=128, nodes=7, k=0.999, lr=0.0044
+Evaluating genome: hidden=128, nodes=11, k=0.999, lr=0.0005
+Evaluated 18 new individuals.
+Best Fitness: 17.8739 -> Genome: {'hidden_dim': 128, 'num_nodes': 11, 'k_contractive': 0.999, 'learning_rate': 0.004461375063637561}
+
+--- Generation 21 ---
+Evaluating genome: hidden=105, nodes=16, k=0.993, lr=0.0055
+Evaluating genome: hidden=107, nodes=16, k=0.999, lr=0.0050
+Evaluating genome: hidden=128, nodes=9, k=0.903, lr=0.0045
+Evaluating genome: hidden=107, nodes=16, k=0.999, lr=0.0050
+Evaluating genome: hidden=128, nodes=11, k=0.999, lr=0.0045
+Evaluating genome: hidden=123, nodes=12, k=0.999, lr=0.0039
+Evaluating genome: hidden=119, nodes=9, k=0.782, lr=0.0045
+Evaluating genome: hidden=128, nodes=10, k=0.999, lr=0.0012
+Evaluating genome: hidden=106, nodes=16, k=0.981, lr=0.0055
+Evaluating genome: hidden=128, nodes=11, k=0.999, lr=0.0044
+Evaluating genome: hidden=128, nodes=14, k=0.997, lr=0.0005
+Evaluating genome: hidden=115, nodes=11, k=0.908, lr=0.0052
+Evaluating genome: hidden=112, nodes=16, k=0.999, lr=0.0055
+Evaluating genome: hidden=128, nodes=11, k=0.999, lr=0.0045
+Evaluating genome: hidden=128, nodes=12, k=0.835, lr=0.0303
+Evaluating genome: hidden=128, nodes=15, k=0.844, lr=0.0047
+Evaluating genome: hidden=128, nodes=9, k=0.946, lr=0.0045
+Evaluating genome: hidden=112, nodes=16, k=0.999, lr=0.0223
+Evaluated 18 new individuals.
+Best Fitness: 17.8739 -> Genome: {'hidden_dim': 128, 'num_nodes': 11, 'k_contractive': 0.999, 'learning_rate': 0.004461375063637561}
+
+--- Generation 22 ---
+Evaluating genome: hidden=128, nodes=12, k=0.959, lr=0.0044
+Evaluating genome: hidden=126, nodes=11, k=0.987, lr=0.0151
+Evaluating genome: hidden=128, nodes=11, k=0.999, lr=0.0045
+Evaluating genome: hidden=113, nodes=7, k=0.953, lr=0.0029
+Evaluating genome: hidden=128, nodes=11, k=0.999, lr=0.0044
+Evaluating genome: hidden=112, nodes=16, k=0.999, lr=0.0043
+Evaluating genome: hidden=128, nodes=11, k=0.817, lr=0.0045
+Evaluating genome: hidden=115, nodes=11, k=0.908, lr=0.0052
+Evaluating genome: hidden=128, nodes=11, k=0.999, lr=0.0015
+Evaluating genome: hidden=109, nodes=11, k=0.891, lr=0.0041
+Evaluating genome: hidden=128, nodes=8, k=0.999, lr=0.0044
+Evaluating genome: hidden=128, nodes=11, k=0.788, lr=0.0044
+Evaluating genome: hidden=128, nodes=11, k=0.999, lr=0.0045
+Evaluating genome: hidden=104, nodes=15, k=0.999, lr=0.0051
+Evaluating genome: hidden=119, nodes=11, k=0.999, lr=0.0012
+Evaluating genome: hidden=122, nodes=9, k=0.999, lr=0.0045
+Evaluating genome: hidden=116, nodes=10, k=0.948, lr=0.0052
+Evaluating genome: hidden=128, nodes=11, k=0.999, lr=0.0045
+Evaluated 18 new individuals.
+Best Fitness: 17.4598 -> Genome: {'hidden_dim': 116, 'num_nodes': 10, 'k_contractive': 0.9476590953655163, 'learning_rate': 0.005210048719967544}
+
+--- Generation 23 ---
+Evaluating genome: hidden=86, nodes=11, k=0.999, lr=0.0045
+Evaluating genome: hidden=126, nodes=9, k=0.992, lr=0.0042
+Evaluating genome: hidden=112, nodes=16, k=0.999, lr=0.0043
+Evaluating genome: hidden=112, nodes=10, k=0.888, lr=0.0421
+Evaluating genome: hidden=115, nodes=11, k=0.930, lr=0.0052
+Evaluating genome: hidden=128, nodes=11, k=0.881, lr=0.0044
+Evaluating genome: hidden=96, nodes=10, k=0.948, lr=0.0052
+Evaluating genome: hidden=128, nodes=8, k=0.999, lr=0.0043
+Evaluating genome: hidden=128, nodes=8, k=0.999, lr=0.0044
+Evaluating genome: hidden=128, nodes=11, k=0.941, lr=0.0005
+Evaluating genome: hidden=128, nodes=11, k=0.701, lr=0.0044
+Evaluating genome: hidden=128, nodes=12, k=0.949, lr=0.0045
+Evaluating genome: hidden=116, nodes=10, k=0.999, lr=0.0052
+Evaluating genome: hidden=106, nodes=13, k=0.999, lr=0.0015
+Evaluating genome: hidden=128, nodes=11, k=0.839, lr=0.0005
+Evaluating genome: hidden=118, nodes=16, k=0.999, lr=0.0248
+Evaluating genome: hidden=128, nodes=6, k=0.999, lr=0.0044
+Evaluating genome: hidden=114, nodes=10, k=0.960, lr=0.0052
+Evaluated 18 new individuals.
+Best Fitness: 17.7791 -> Genome: {'hidden_dim': 128, 'num_nodes': 6, 'k_contractive': 0.999, 'learning_rate': 0.004437220625994161}
+
+--- Generation 24 ---
+Evaluating genome: hidden=127, nodes=6, k=0.999, lr=0.0044
+Evaluating genome: hidden=128, nodes=11, k=0.635, lr=0.0158
+Evaluating genome: hidden=111, nodes=7, k=0.989, lr=0.0051
+Evaluating genome: hidden=116, nodes=10, k=0.948, lr=0.0052
+Evaluating genome: hidden=128, nodes=7, k=0.949, lr=0.0045
+Evaluating genome: hidden=128, nodes=1, k=0.999, lr=0.0044
+Evaluating genome: hidden=128, nodes=8, k=0.908, lr=0.0042
+Evaluating genome: hidden=117, nodes=11, k=0.829, lr=0.0050
+Evaluating genome: hidden=128, nodes=10, k=0.983, lr=0.0041
+Evaluating genome: hidden=128, nodes=10, k=0.871, lr=0.0044
+Evaluating genome: hidden=128, nodes=6, k=0.999, lr=0.0044
+Evaluating genome: hidden=126, nodes=6, k=0.999, lr=0.0044
+Evaluating genome: hidden=128, nodes=16, k=0.999, lr=0.0051
+Evaluating genome: hidden=128, nodes=7, k=0.999, lr=0.0044
+Evaluating genome: hidden=128, nodes=11, k=0.944, lr=0.0044
+Evaluating genome: hidden=128, nodes=6, k=0.999, lr=0.0044
+Evaluating genome: hidden=122, nodes=4, k=0.999, lr=0.0050
+Evaluating genome: hidden=107, nodes=12, k=0.974, lr=0.0054
+Evaluated 18 new individuals.
+Best Fitness: 17.2389 -> Genome: {'hidden_dim': 128, 'num_nodes': 11, 'k_contractive': 0.9441304797695904, 'learning_rate': 0.0044367950617963765}
+
+--- Generation 25 ---
+Evaluating genome: hidden=123, nodes=4, k=0.747, lr=0.0005
+Evaluating genome: hidden=117, nodes=10, k=0.999, lr=0.0044
+Evaluating genome: hidden=128, nodes=6, k=0.994, lr=0.0044
+Evaluating genome: hidden=128, nodes=8, k=0.999, lr=0.0005
+Evaluating genome: hidden=111, nodes=8, k=0.999, lr=0.0051
+Evaluating genome: hidden=128, nodes=12, k=0.966, lr=0.0044
+Evaluating genome: hidden=128, nodes=2, k=0.999, lr=0.0045
+Evaluating genome: hidden=126, nodes=10, k=0.947, lr=0.0005
+Evaluating genome: hidden=119, nodes=9, k=0.999, lr=0.0044
+Evaluating genome: hidden=111, nodes=7, k=0.989, lr=0.0051
+Evaluating genome: hidden=128, nodes=6, k=0.917, lr=0.0044
+Evaluating genome: hidden=128, nodes=6, k=0.999, lr=0.0044
+Evaluating genome: hidden=128, nodes=12, k=0.967, lr=0.0043
+Evaluating genome: hidden=126, nodes=6, k=0.999, lr=0.0044
+Evaluating genome: hidden=49, nodes=7, k=0.989, lr=0.0051
+Evaluating genome: hidden=128, nodes=15, k=0.999, lr=0.0044
+Evaluating genome: hidden=75, nodes=6, k=0.975, lr=0.0052
+Evaluating genome: hidden=128, nodes=10, k=0.997, lr=0.0005
+Evaluated 18 new individuals.
+Best Fitness: 17.3633 -> Genome: {'hidden_dim': 128, 'num_nodes': 6, 'k_contractive': 0.9169618279112863, 'learning_rate': 0.0044366773682504605}
+
+--- Generation 26 ---
+Evaluating genome: hidden=110, nodes=7, k=0.917, lr=0.0044
+Evaluating genome: hidden=120, nodes=11, k=0.999, lr=0.0044
+Evaluating genome: hidden=128, nodes=16, k=0.999, lr=0.0168
+Evaluating genome: hidden=128, nodes=7, k=0.863, lr=0.0044
+Evaluating genome: hidden=128, nodes=12, k=0.966, lr=0.0005
+Evaluating genome: hidden=128, nodes=6, k=0.917, lr=0.0044
+Evaluating genome: hidden=128, nodes=5, k=0.987, lr=0.0129
+Evaluating genome: hidden=128, nodes=10, k=0.923, lr=0.0044
+Evaluating genome: hidden=128, nodes=12, k=0.967, lr=0.0043
+Evaluating genome: hidden=128, nodes=12, k=0.999, lr=0.0396
+Evaluating genome: hidden=126, nodes=3, k=0.999, lr=0.0044
+Evaluating genome: hidden=126, nodes=1, k=0.799, lr=0.0044
+Evaluating genome: hidden=118, nodes=10, k=0.966, lr=0.0044
+Evaluating genome: hidden=128, nodes=13, k=0.931, lr=0.0044
+Evaluating genome: hidden=128, nodes=8, k=0.992, lr=0.0005
+Evaluating genome: hidden=128, nodes=6, k=0.925, lr=0.0044
+Evaluating genome: hidden=128, nodes=9, k=0.999, lr=0.0044
+Evaluating genome: hidden=128, nodes=5, k=0.970, lr=0.0044
+Evaluated 18 new individuals.
+Best Fitness: 18.5528 -> Genome: {'hidden_dim': 128, 'num_nodes': 13, 'k_contractive': 0.931349215419451, 'learning_rate': 0.004436761758507027}
+
+--- Generation 27 ---
+Evaluating genome: hidden=118, nodes=11, k=0.951, lr=0.0056
+Evaluating genome: hidden=128, nodes=1, k=0.999, lr=0.0044
+Evaluating genome: hidden=128, nodes=12, k=0.939, lr=0.0044
+Evaluating genome: hidden=126, nodes=14, k=0.999, lr=0.0079
+Evaluating genome: hidden=128, nodes=6, k=0.917, lr=0.0044
+Evaluating genome: hidden=128, nodes=11, k=0.944, lr=0.0044
+Evaluating genome: hidden=97, nodes=6, k=0.975, lr=0.0044
+Evaluating genome: hidden=128, nodes=10, k=0.500, lr=0.0044
+Evaluating genome: hidden=128, nodes=12, k=0.936, lr=0.0044
+Evaluating genome: hidden=120, nodes=11, k=0.999, lr=0.0175
+Evaluating genome: hidden=119, nodes=11, k=0.980, lr=0.0044
+Evaluating genome: hidden=128, nodes=11, k=0.999, lr=0.0044
+Evaluating genome: hidden=128, nodes=13, k=0.931, lr=0.0005
+Evaluating genome: hidden=125, nodes=11, k=0.945, lr=0.0044
+Evaluating genome: hidden=128, nodes=13, k=0.999, lr=0.0153
+Evaluating genome: hidden=128, nodes=3, k=0.999, lr=0.0149
+Evaluating genome: hidden=61, nodes=13, k=0.942, lr=0.0044
+Evaluating genome: hidden=128, nodes=14, k=0.999, lr=0.0044
+Evaluated 18 new individuals.
+Best Fitness: 18.5528 -> Genome: {'hidden_dim': 128, 'num_nodes': 13, 'k_contractive': 0.931349215419451, 'learning_rate': 0.004436761758507027}
+
+--- Generation 28 ---
+Evaluating genome: hidden=120, nodes=4, k=0.758, lr=0.0044
+Evaluating genome: hidden=128, nodes=11, k=0.910, lr=0.0044
+Evaluating genome: hidden=128, nodes=7, k=0.898, lr=0.0058
+Evaluating genome: hidden=121, nodes=11, k=0.964, lr=0.0056
+Evaluating genome: hidden=128, nodes=13, k=0.942, lr=0.0044
+Evaluating genome: hidden=128, nodes=12, k=0.978, lr=0.0044
+Evaluating genome: hidden=128, nodes=8, k=0.996, lr=0.0044
+Evaluating genome: hidden=128, nodes=12, k=0.950, lr=0.0044
+Evaluating genome: hidden=128, nodes=15, k=0.930, lr=0.0044
+Evaluating genome: hidden=118, nodes=12, k=0.955, lr=0.0090
+Evaluating genome: hidden=128, nodes=11, k=0.987, lr=0.0044
+Evaluating genome: hidden=128, nodes=12, k=0.947, lr=0.0044
+Evaluating genome: hidden=115, nodes=5, k=0.927, lr=0.0039
+Evaluating genome: hidden=128, nodes=1, k=0.999, lr=0.0005
+Evaluating genome: hidden=127, nodes=3, k=0.999, lr=0.0044
+Evaluating genome: hidden=128, nodes=8, k=0.920, lr=0.0044
+Evaluating genome: hidden=128, nodes=12, k=0.875, lr=0.0044
+Evaluating genome: hidden=104, nodes=11, k=0.951, lr=0.0056
+Evaluated 18 new individuals.
+Best Fitness: 18.5528 -> Genome: {'hidden_dim': 128, 'num_nodes': 13, 'k_contractive': 0.931349215419451, 'learning_rate': 0.004436761758507027}
+
+--- Generation 29 ---
+Evaluating genome: hidden=81, nodes=11, k=0.964, lr=0.0005
+Evaluating genome: hidden=96, nodes=7, k=0.898, lr=0.0080
+Evaluating genome: hidden=121, nodes=11, k=0.964, lr=0.0056
+Evaluating genome: hidden=118, nodes=11, k=0.959, lr=0.0160
+Evaluating genome: hidden=122, nodes=14, k=0.944, lr=0.0054
+Evaluating genome: hidden=128, nodes=10, k=0.955, lr=0.0049
+Evaluating genome: hidden=128, nodes=5, k=0.969, lr=0.0065
+Evaluating genome: hidden=128, nodes=14, k=0.995, lr=0.0088
+Evaluating genome: hidden=104, nodes=11, k=0.951, lr=0.0121
+Evaluating genome: hidden=128, nodes=14, k=0.999, lr=0.0044
+Evaluating genome: hidden=30, nodes=11, k=0.945, lr=0.0056
+Evaluating genome: hidden=118, nodes=11, k=0.910, lr=0.0005
+Evaluating genome: hidden=98, nodes=4, k=0.956, lr=0.0005
+Evaluating genome: hidden=128, nodes=6, k=0.925, lr=0.0044
+Evaluating genome: hidden=128, nodes=11, k=0.999, lr=0.0005
+Evaluating genome: hidden=128, nodes=10, k=0.997, lr=0.0044
+Evaluating genome: hidden=128, nodes=11, k=0.954, lr=0.0057
+Evaluating genome: hidden=128, nodes=6, k=0.992, lr=0.0044
+Evaluated 18 new individuals.
+Best Fitness: 18.5528 -> Genome: {'hidden_dim': 128, 'num_nodes': 13, 'k_contractive': 0.931349215419451, 'learning_rate': 0.004436761758507027}
+
+--- Generation 30 ---
+Evaluating genome: hidden=125, nodes=12, k=0.999, lr=0.0059
+Evaluating genome: hidden=72, nodes=10, k=0.976, lr=0.0059
+Evaluating genome: hidden=128, nodes=11, k=0.999, lr=0.0044
+Evaluating genome: hidden=128, nodes=1, k=0.944, lr=0.0053
+Evaluating genome: hidden=128, nodes=13, k=0.810, lr=0.0005
+Evaluating genome: hidden=119, nodes=8, k=0.965, lr=0.0055
+Evaluating genome: hidden=122, nodes=13, k=0.944, lr=0.0054
+Evaluating genome: hidden=96, nodes=10, k=0.953, lr=0.0044
+Evaluating genome: hidden=109, nodes=16, k=0.952, lr=0.0144
+Evaluating genome: hidden=128, nodes=15, k=0.925, lr=0.0115
+Evaluating genome: hidden=128, nodes=9, k=0.937, lr=0.0054
+Evaluating genome: hidden=128, nodes=13, k=0.931, lr=0.0044
+Evaluating genome: hidden=127, nodes=4, k=0.958, lr=0.0116
+Evaluating genome: hidden=128, nodes=8, k=0.999, lr=0.0044
+Evaluating genome: hidden=128, nodes=10, k=0.999, lr=0.0195
+Evaluating genome: hidden=128, nodes=12, k=0.938, lr=0.0100
+Evaluating genome: hidden=128, nodes=5, k=0.885, lr=0.0005
+Evaluating genome: hidden=117, nodes=11, k=0.999, lr=0.0057
+Evaluated 18 new individuals.
+Best Fitness: 17.8405 -> Genome: {'hidden_dim': 122, 'num_nodes': 13, 'k_contractive': 0.944499150834728, 'learning_rate': 0.0053667079985658785}
+
+--- Generation 31 ---
+Evaluating genome: hidden=128, nodes=11, k=0.947, lr=0.0052
+Evaluating genome: hidden=127, nodes=13, k=0.945, lr=0.0056
+Evaluating genome: hidden=128, nodes=1, k=0.987, lr=0.0052
+Evaluating genome: hidden=128, nodes=12, k=0.944, lr=0.0054
+Evaluating genome: hidden=125, nodes=12, k=0.999, lr=0.0059
+Evaluating genome: hidden=121, nodes=7, k=0.695, lr=0.0054
+Evaluating genome: hidden=128, nodes=13, k=0.919, lr=0.0096
+Evaluating genome: hidden=120, nodes=12, k=0.999, lr=0.0054
+Evaluating genome: hidden=122, nodes=9, k=0.944, lr=0.0054
+Evaluating genome: hidden=122, nodes=13, k=0.866, lr=0.0048
+Evaluating genome: hidden=124, nodes=14, k=0.999, lr=0.0139
+Evaluating genome: hidden=117, nodes=11, k=0.999, lr=0.0057
+Evaluating genome: hidden=128, nodes=1, k=0.999, lr=0.0122
+Evaluating genome: hidden=128, nodes=12, k=0.937, lr=0.0039
+Evaluating genome: hidden=77, nodes=11, k=0.954, lr=0.0424
+Evaluating genome: hidden=119, nodes=10, k=0.942, lr=0.0059
+Evaluating genome: hidden=118, nodes=10, k=0.999, lr=0.0061
+Evaluating genome: hidden=128, nodes=12, k=0.934, lr=0.0053
+Evaluated 18 new individuals.
+Best Fitness: 17.8405 -> Genome: {'hidden_dim': 122, 'num_nodes': 13, 'k_contractive': 0.944499150834728, 'learning_rate': 0.0053667079985658785}
+
+--- Generation 32 ---
+Evaluating genome: hidden=119, nodes=8, k=0.944, lr=0.0054
+Evaluating genome: hidden=128, nodes=10, k=0.999, lr=0.0053
+Evaluating genome: hidden=121, nodes=10, k=0.945, lr=0.0058
+Evaluating genome: hidden=123, nodes=12, k=0.780, lr=0.0060
+Evaluating genome: hidden=124, nodes=11, k=0.885, lr=0.0054
+Evaluating genome: hidden=128, nodes=12, k=0.999, lr=0.0174
+Evaluating genome: hidden=128, nodes=13, k=0.999, lr=0.0005
+Evaluating genome: hidden=110, nodes=12, k=0.999, lr=0.0052
+Evaluating genome: hidden=125, nodes=12, k=0.847, lr=0.0059
+Evaluating genome: hidden=118, nodes=13, k=0.939, lr=0.0057
+Evaluating genome: hidden=128, nodes=12, k=0.944, lr=0.0054
+Evaluating genome: hidden=125, nodes=13, k=0.999, lr=0.0057
+Evaluating genome: hidden=125, nodes=12, k=0.999, lr=0.0059
+Evaluating genome: hidden=118, nodes=10, k=0.999, lr=0.0061
+Evaluating genome: hidden=128, nodes=12, k=0.999, lr=0.0052
+Evaluating genome: hidden=125, nodes=12, k=0.999, lr=0.0059
+Evaluating genome: hidden=128, nodes=12, k=0.999, lr=0.0054
+Evaluating genome: hidden=124, nodes=12, k=0.928, lr=0.0054
+Evaluated 18 new individuals.
+Best Fitness: 18.5990 -> Genome: {'hidden_dim': 125, 'num_nodes': 12, 'k_contractive': 0.999, 'learning_rate': 0.00588085573780286}
+
+--- Generation 33 ---
+Evaluating genome: hidden=106, nodes=12, k=0.999, lr=0.0059
+Evaluating genome: hidden=118, nodes=16, k=0.999, lr=0.0025
+Evaluating genome: hidden=118, nodes=8, k=0.999, lr=0.0057
+Evaluating genome: hidden=119, nodes=8, k=0.944, lr=0.0054
+Evaluating genome: hidden=122, nodes=15, k=0.965, lr=0.0058
+Evaluating genome: hidden=123, nodes=12, k=0.938, lr=0.0054
+Evaluating genome: hidden=121, nodes=6, k=0.929, lr=0.0054
+Evaluating genome: hidden=117, nodes=12, k=0.715, lr=0.0059
+Evaluating genome: hidden=124, nodes=12, k=0.913, lr=0.0054
+Evaluating genome: hidden=128, nodes=12, k=0.925, lr=0.0057
+Evaluating genome: hidden=126, nodes=10, k=0.963, lr=0.0054
+Evaluating genome: hidden=125, nodes=12, k=0.999, lr=0.0059
+Evaluating genome: hidden=119, nodes=8, k=0.944, lr=0.0054
+Evaluating genome: hidden=124, nodes=11, k=0.955, lr=0.0059
+Evaluating genome: hidden=127, nodes=7, k=0.999, lr=0.0055
+Evaluating genome: hidden=121, nodes=10, k=0.598, lr=0.0183
+Evaluating genome: hidden=123, nodes=5, k=0.931, lr=0.0058
+Evaluating genome: hidden=96, nodes=10, k=0.999, lr=0.0061
+Evaluated 18 new individuals.
+Best Fitness: 19.0156 -> Genome: {'hidden_dim': 122, 'num_nodes': 15, 'k_contractive': 0.9646002855166074, 'learning_rate': 0.005808349263138949}
+
+--- Generation 34 ---
+Evaluating genome: hidden=107, nodes=10, k=0.999, lr=0.0038
+Evaluating genome: hidden=81, nodes=15, k=0.965, lr=0.0058
+Evaluating genome: hidden=110, nodes=13, k=0.999, lr=0.0060
+Evaluating genome: hidden=119, nodes=7, k=0.981, lr=0.0054
+Evaluating genome: hidden=128, nodes=11, k=0.965, lr=0.0058
+Evaluating genome: hidden=128, nodes=16, k=0.955, lr=0.0047
+Evaluating genome: hidden=122, nodes=16, k=0.978, lr=0.0005
+Evaluating genome: hidden=92, nodes=6, k=0.999, lr=0.0005
+Evaluating genome: hidden=123, nodes=4, k=0.920, lr=0.0054
+Evaluating genome: hidden=128, nodes=15, k=0.985, lr=0.0058
+Evaluating genome: hidden=122, nodes=16, k=0.929, lr=0.0058
+Evaluating genome: hidden=128, nodes=6, k=0.938, lr=0.0060
+Evaluating genome: hidden=124, nodes=11, k=0.828, lr=0.0059
+Evaluating genome: hidden=121, nodes=9, k=0.999, lr=0.0057
+Evaluating genome: hidden=128, nodes=13, k=0.999, lr=0.0005
+Evaluating genome: hidden=108, nodes=16, k=0.999, lr=0.0055
+Evaluating genome: hidden=101, nodes=7, k=0.999, lr=0.0053
+Evaluating genome: hidden=125, nodes=12, k=0.999, lr=0.0059
+Evaluated 18 new individuals.
+Best Fitness: 19.0156 -> Genome: {'hidden_dim': 122, 'num_nodes': 15, 'k_contractive': 0.9646002855166074, 'learning_rate': 0.005808349263138949}
+
+--- Generation 35 ---
+Evaluating genome: hidden=128, nodes=7, k=0.979, lr=0.0055
+Evaluating genome: hidden=128, nodes=11, k=0.965, lr=0.0058
+Evaluating genome: hidden=128, nodes=6, k=0.999, lr=0.0057
+Evaluating genome: hidden=113, nodes=10, k=0.960, lr=0.0308
+Evaluating genome: hidden=128, nodes=14, k=0.965, lr=0.0058
+Evaluating genome: hidden=128, nodes=7, k=0.995, lr=0.0059
+Evaluating genome: hidden=118, nodes=9, k=0.999, lr=0.0005
+Evaluating genome: hidden=118, nodes=10, k=0.735, lr=0.0061
+Evaluating genome: hidden=121, nodes=5, k=0.999, lr=0.0005
+Evaluating genome: hidden=124, nodes=14, k=0.999, lr=0.0058
+Evaluating genome: hidden=121, nodes=9, k=0.878, lr=0.0055
+Evaluating genome: hidden=128, nodes=15, k=0.999, lr=0.0058
+Evaluating genome: hidden=128, nodes=16, k=0.678, lr=0.0283
+Evaluating genome: hidden=124, nodes=16, k=0.911, lr=0.0018
+Evaluating genome: hidden=118, nodes=10, k=0.737, lr=0.0061
+Evaluating genome: hidden=122, nodes=15, k=0.965, lr=0.0234
+Evaluating genome: hidden=120, nodes=16, k=0.944, lr=0.0231
+Evaluating genome: hidden=122, nodes=16, k=0.929, lr=0.0058
+Evaluated 18 new individuals.
+Best Fitness: 19.0156 -> Genome: {'hidden_dim': 122, 'num_nodes': 15, 'k_contractive': 0.9646002855166074, 'learning_rate': 0.005808349263138949}
+
+--- Generation 36 ---
+Evaluating genome: hidden=72, nodes=14, k=0.865, lr=0.0058
+Evaluating genome: hidden=122, nodes=16, k=0.810, lr=0.0127
+Evaluating genome: hidden=121, nodes=13, k=0.999, lr=0.0061
+Evaluating genome: hidden=128, nodes=15, k=0.964, lr=0.0059
+Evaluating genome: hidden=122, nodes=16, k=0.929, lr=0.0058
+Evaluating genome: hidden=121, nodes=15, k=0.999, lr=0.0060
+Evaluating genome: hidden=109, nodes=12, k=0.850, lr=0.0058
+Evaluating genome: hidden=120, nodes=8, k=0.991, lr=0.0092
+Evaluating genome: hidden=120, nodes=10, k=0.999, lr=0.0046
+Evaluating genome: hidden=128, nodes=16, k=0.867, lr=0.0059
+Evaluating genome: hidden=121, nodes=9, k=0.878, lr=0.0034
+Evaluating genome: hidden=122, nodes=15, k=0.972, lr=0.0005
+Evaluating genome: hidden=122, nodes=10, k=0.895, lr=0.0058
+Evaluating genome: hidden=120, nodes=7, k=0.999, lr=0.0009
+Evaluating genome: hidden=128, nodes=9, k=0.780, lr=0.0057
+Evaluating genome: hidden=128, nodes=6, k=0.982, lr=0.0055
+Evaluating genome: hidden=128, nodes=6, k=0.778, lr=0.0057
+Evaluating genome: hidden=95, nodes=10, k=0.999, lr=0.0091
+Evaluated 18 new individuals.
+Best Fitness: 19.0156 -> Genome: {'hidden_dim': 122, 'num_nodes': 15, 'k_contractive': 0.9646002855166074, 'learning_rate': 0.005808349263138949}
+
+--- Generation 37 ---
+Evaluating genome: hidden=120, nodes=10, k=0.999, lr=0.0046
+Evaluating genome: hidden=121, nodes=13, k=0.999, lr=0.0060
+Evaluating genome: hidden=121, nodes=15, k=0.999, lr=0.0066
+Evaluating genome: hidden=116, nodes=15, k=0.998, lr=0.0060
+Evaluating genome: hidden=123, nodes=16, k=0.999, lr=0.0053
+Evaluating genome: hidden=122, nodes=14, k=0.965, lr=0.0058
+Evaluating genome: hidden=122, nodes=16, k=0.965, lr=0.0058
+Evaluating genome: hidden=118, nodes=15, k=0.948, lr=0.0059
+Evaluating genome: hidden=121, nodes=9, k=0.999, lr=0.0062
+Evaluating genome: hidden=118, nodes=10, k=0.999, lr=0.0105
+Evaluating genome: hidden=121, nodes=15, k=0.992, lr=0.0059
+Evaluating genome: hidden=121, nodes=13, k=0.999, lr=0.0061
+Evaluating genome: hidden=126, nodes=6, k=0.999, lr=0.0057
+Evaluating genome: hidden=59, nodes=13, k=0.981, lr=0.0060
+Evaluating genome: hidden=124, nodes=16, k=0.860, lr=0.0061
+Evaluating genome: hidden=128, nodes=14, k=0.999, lr=0.0029
+Evaluating genome: hidden=128, nodes=13, k=0.999, lr=0.0061
+Evaluating genome: hidden=128, nodes=16, k=0.965, lr=0.0101
+Evaluated 18 new individuals.
+Best Fitness: 19.0156 -> Genome: {'hidden_dim': 122, 'num_nodes': 15, 'k_contractive': 0.9646002855166074, 'learning_rate': 0.005808349263138949}
+
+--- Generation 38 ---
+Evaluating genome: hidden=122, nodes=16, k=0.965, lr=0.0058
+Evaluating genome: hidden=103, nodes=15, k=0.999, lr=0.0060
+Evaluating genome: hidden=105, nodes=16, k=0.957, lr=0.0059
+Evaluating genome: hidden=122, nodes=16, k=0.999, lr=0.0058
+Evaluating genome: hidden=118, nodes=10, k=0.999, lr=0.0259
+Evaluating genome: hidden=124, nodes=12, k=0.995, lr=0.0058
+Evaluating genome: hidden=123, nodes=13, k=0.999, lr=0.0058
+Evaluating genome: hidden=126, nodes=15, k=0.861, lr=0.0118
+Evaluating genome: hidden=118, nodes=10, k=0.999, lr=0.0061
+Evaluating genome: hidden=128, nodes=15, k=0.965, lr=0.0058
+Evaluating genome: hidden=88, nodes=10, k=0.999, lr=0.0061
+Evaluating genome: hidden=122, nodes=16, k=0.999, lr=0.0060
+Evaluating genome: hidden=121, nodes=14, k=0.999, lr=0.0057
+Evaluating genome: hidden=120, nodes=14, k=0.999, lr=0.0057
+Evaluating genome: hidden=122, nodes=15, k=0.988, lr=0.0058
+Evaluating genome: hidden=121, nodes=13, k=0.999, lr=0.0060
+Evaluating genome: hidden=122, nodes=15, k=0.965, lr=0.0058
+Evaluating genome: hidden=121, nodes=15, k=0.974, lr=0.0060
+Evaluated 18 new individuals.
+Best Fitness: 17.8252 -> Genome: {'hidden_dim': 128, 'num_nodes': 15, 'k_contractive': 0.9646002855166074, 'learning_rate': 0.005808349263138949}
+
+--- Generation 39 ---
+Evaluating genome: hidden=116, nodes=14, k=0.815, lr=0.0255
+Evaluating genome: hidden=103, nodes=15, k=0.999, lr=0.0013
+Evaluating genome: hidden=128, nodes=11, k=0.965, lr=0.0058
+Evaluating genome: hidden=113, nodes=13, k=0.999, lr=0.0058
+Evaluating genome: hidden=122, nodes=14, k=0.999, lr=0.0154
+Evaluating genome: hidden=95, nodes=14, k=0.918, lr=0.0057
+Evaluating genome: hidden=103, nodes=15, k=0.999, lr=0.0060
+Evaluating genome: hidden=122, nodes=16, k=0.965, lr=0.0058
+Evaluating genome: hidden=122, nodes=16, k=0.999, lr=0.0058
+Evaluating genome: hidden=128, nodes=10, k=0.999, lr=0.0061
+Evaluating genome: hidden=119, nodes=12, k=0.999, lr=0.0198
+Evaluating genome: hidden=128, nodes=15, k=0.965, lr=0.0005
+Evaluating genome: hidden=128, nodes=15, k=0.965, lr=0.0259
+Evaluating genome: hidden=122, nodes=16, k=0.999, lr=0.0058
+Evaluating genome: hidden=77, nodes=16, k=0.999, lr=0.0057
+Evaluating genome: hidden=118, nodes=13, k=0.951, lr=0.0061
+Evaluating genome: hidden=118, nodes=15, k=0.972, lr=0.0059
+Evaluating genome: hidden=128, nodes=13, k=0.999, lr=0.0221
+Evaluated 18 new individuals.
+Best Fitness: 18.7330 -> Genome: {'hidden_dim': 113, 'num_nodes': 13, 'k_contractive': 0.999, 'learning_rate': 0.0058069398278607215}
+
+--- Generation 40 ---
+Evaluating genome: hidden=120, nodes=15, k=0.965, lr=0.0039
+Evaluating genome: hidden=118, nodes=13, k=0.999, lr=0.0061
+Evaluating genome: hidden=118, nodes=13, k=0.999, lr=0.0061
+Evaluating genome: hidden=77, nodes=13, k=0.999, lr=0.0058
+Evaluating genome: hidden=128, nodes=13, k=0.951, lr=0.0198
+Evaluating genome: hidden=87, nodes=16, k=0.845, lr=0.0057
+Evaluating genome: hidden=121, nodes=13, k=0.971, lr=0.0057
+Evaluating genome: hidden=118, nodes=16, k=0.919, lr=0.0060
+Evaluating genome: hidden=128, nodes=16, k=0.987, lr=0.0197
+Evaluating genome: hidden=105, nodes=15, k=0.999, lr=0.0060
+Evaluating genome: hidden=118, nodes=15, k=0.941, lr=0.0077
+Evaluating genome: hidden=118, nodes=13, k=0.951, lr=0.0024
+Evaluating genome: hidden=118, nodes=16, k=0.972, lr=0.0059
+Evaluating genome: hidden=128, nodes=15, k=0.965, lr=0.0048
+Evaluating genome: hidden=103, nodes=15, k=0.999, lr=0.0093
+Evaluating genome: hidden=122, nodes=16, k=0.999, lr=0.0061
+Evaluating genome: hidden=128, nodes=15, k=0.999, lr=0.0058
+Evaluating genome: hidden=77, nodes=11, k=0.999, lr=0.0058
+Evaluated 18 new individuals.
+Best Fitness: 18.8274 -> Genome: {'hidden_dim': 118, 'num_nodes': 16, 'k_contractive': 0.9190412692797606, 'learning_rate': 0.006003990600498804}
+
+--- Generation 41 ---
+Evaluating genome: hidden=128, nodes=13, k=0.999, lr=0.0058
+Evaluating genome: hidden=118, nodes=16, k=0.972, lr=0.0059
+Evaluating genome: hidden=128, nodes=13, k=0.699, lr=0.0058
+Evaluating genome: hidden=106, nodes=16, k=0.965, lr=0.0048
+Evaluating genome: hidden=118, nodes=13, k=0.999, lr=0.0005
+Evaluating genome: hidden=113, nodes=13, k=0.999, lr=0.0058
+Evaluating genome: hidden=119, nodes=16, k=0.999, lr=0.0075
+Evaluating genome: hidden=118, nodes=16, k=0.823, lr=0.0059
+Evaluating genome: hidden=118, nodes=13, k=0.961, lr=0.0060
+Evaluating genome: hidden=120, nodes=12, k=0.921, lr=0.0058
+Evaluating genome: hidden=125, nodes=15, k=0.951, lr=0.0049
+Evaluating genome: hidden=115, nodes=8, k=0.999, lr=0.0134
+Evaluating genome: hidden=108, nodes=13, k=0.999, lr=0.0061
+Evaluating genome: hidden=108, nodes=15, k=0.992, lr=0.0062
+Evaluating genome: hidden=128, nodes=15, k=0.897, lr=0.0066
+Evaluating genome: hidden=118, nodes=16, k=0.919, lr=0.0060
+Evaluating genome: hidden=77, nodes=14, k=0.885, lr=0.0060
+Evaluating genome: hidden=118, nodes=13, k=0.999, lr=0.0308
+Evaluated 18 new individuals.
+Best Fitness: 18.1065 -> Genome: {'hidden_dim': 125, 'num_nodes': 15, 'k_contractive': 0.9512427603225818, 'learning_rate': 0.004898515396033945}
+
+--- Generation 42 ---
+Evaluating genome: hidden=113, nodes=16, k=0.999, lr=0.0058
+Evaluating genome: hidden=113, nodes=6, k=0.999, lr=0.0058
+Evaluating genome: hidden=120, nodes=12, k=0.921, lr=0.0058
+Evaluating genome: hidden=77, nodes=14, k=0.885, lr=0.0060
+Evaluating genome: hidden=113, nodes=4, k=0.923, lr=0.0047
+Evaluating genome: hidden=119, nodes=16, k=0.985, lr=0.0005
+Evaluating genome: hidden=115, nodes=13, k=0.958, lr=0.0059
+Evaluating genome: hidden=119, nodes=16, k=0.957, lr=0.0075
+Evaluating genome: hidden=128, nodes=16, k=0.999, lr=0.0047
+Evaluating genome: hidden=128, nodes=13, k=0.991, lr=0.0005
+Evaluating genome: hidden=116, nodes=13, k=0.864, lr=0.0061
+Evaluating genome: hidden=114, nodes=16, k=0.999, lr=0.0054
+Evaluating genome: hidden=128, nodes=13, k=0.999, lr=0.0194
+Evaluating genome: hidden=78, nodes=15, k=0.951, lr=0.0005
+Evaluating genome: hidden=119, nodes=16, k=0.999, lr=0.0075
+Evaluating genome: hidden=128, nodes=13, k=0.999, lr=0.0058
+Evaluating genome: hidden=109, nodes=16, k=0.999, lr=0.0061
+Evaluating genome: hidden=117, nodes=13, k=0.936, lr=0.0044
+Evaluated 18 new individuals.
+Best Fitness: 19.8679 -> Genome: {'hidden_dim': 113, 'num_nodes': 6, 'k_contractive': 0.999, 'learning_rate': 0.0058069398278607215}
+
+--- Generation 43 ---
+Evaluating genome: hidden=121, nodes=14, k=0.999, lr=0.0047
+Evaluating genome: hidden=72, nodes=10, k=0.999, lr=0.0005
+Evaluating genome: hidden=50, nodes=6, k=0.999, lr=0.0058
+Evaluating genome: hidden=128, nodes=16, k=0.999, lr=0.0047
+Evaluating genome: hidden=113, nodes=6, k=0.999, lr=0.0273
+Evaluating genome: hidden=109, nodes=11, k=0.999, lr=0.0061
+Evaluating genome: hidden=128, nodes=16, k=0.999, lr=0.0055
+Evaluating genome: hidden=113, nodes=6, k=0.999, lr=0.0058
+Evaluating genome: hidden=109, nodes=2, k=0.943, lr=0.0047
+Evaluating genome: hidden=113, nodes=6, k=0.999, lr=0.0091
+Evaluating genome: hidden=109, nodes=16, k=0.999, lr=0.0061
+Evaluating genome: hidden=122, nodes=8, k=0.939, lr=0.0058
+Evaluating genome: hidden=107, nodes=3, k=0.999, lr=0.0063
+Evaluating genome: hidden=123, nodes=16, k=0.999, lr=0.0057
+Evaluating genome: hidden=113, nodes=14, k=0.999, lr=0.0049
+Evaluating genome: hidden=116, nodes=13, k=0.714, lr=0.0268
+Evaluating genome: hidden=128, nodes=4, k=0.987, lr=0.0056
+Evaluating genome: hidden=128, nodes=15, k=0.951, lr=0.0181
+Evaluated 18 new individuals.
+Best Fitness: 18.4260 -> Genome: {'hidden_dim': 122, 'num_nodes': 8, 'k_contractive': 0.9386224972813865, 'learning_rate': 0.00584426009731847}
+
+--- Generation 44 ---
+Evaluating genome: hidden=125, nodes=13, k=0.999, lr=0.0055
+Evaluating genome: hidden=87, nodes=16, k=0.940, lr=0.0055
+Evaluating genome: hidden=114, nodes=11, k=0.999, lr=0.0057
+Evaluating genome: hidden=77, nodes=13, k=0.999, lr=0.0060
+Evaluating genome: hidden=103, nodes=5, k=0.999, lr=0.0058
+Evaluating genome: hidden=121, nodes=9, k=0.999, lr=0.0058
+Evaluating genome: hidden=82, nodes=6, k=0.999, lr=0.0055
+Evaluating genome: hidden=128, nodes=1, k=0.987, lr=0.0056
+Evaluating genome: hidden=128, nodes=7, k=0.999, lr=0.0058
+Evaluating genome: hidden=127, nodes=8, k=0.946, lr=0.0048
+Evaluating genome: hidden=126, nodes=16, k=0.755, lr=0.0047
+Evaluating genome: hidden=128, nodes=4, k=0.999, lr=0.0056
+Evaluating genome: hidden=128, nodes=16, k=0.999, lr=0.0055
+Evaluating genome: hidden=128, nodes=16, k=0.999, lr=0.0057
+Evaluating genome: hidden=116, nodes=2, k=0.999, lr=0.0067
+Evaluating genome: hidden=128, nodes=16, k=0.999, lr=0.0057
+Evaluating genome: hidden=122, nodes=8, k=0.939, lr=0.0058
+Evaluating genome: hidden=121, nodes=2, k=0.967, lr=0.0058
+Evaluated 18 new individuals.
+Best Fitness: 18.4253 -> Genome: {'hidden_dim': 128, 'num_nodes': 4, 'k_contractive': 0.9870929884134944, 'learning_rate': 0.005562064035943344}
+
+--- Generation 45 ---
+Evaluating genome: hidden=121, nodes=9, k=0.999, lr=0.0169
+Evaluating genome: hidden=117, nodes=8, k=0.999, lr=0.0109
+Evaluating genome: hidden=68, nodes=2, k=0.953, lr=0.0005
+Evaluating genome: hidden=126, nodes=6, k=0.785, lr=0.0005
+Evaluating genome: hidden=117, nodes=1, k=0.997, lr=0.0052
+Evaluating genome: hidden=128, nodes=16, k=0.999, lr=0.0056
+Evaluating genome: hidden=128, nodes=2, k=0.996, lr=0.0057
+Evaluating genome: hidden=124, nodes=1, k=0.968, lr=0.0058
+Evaluating genome: hidden=121, nodes=16, k=0.999, lr=0.0005
+Evaluating genome: hidden=128, nodes=7, k=0.999, lr=0.0058
+Evaluating genome: hidden=90, nodes=4, k=0.812, lr=0.0267
+Evaluating genome: hidden=102, nodes=9, k=0.999, lr=0.0058
+Evaluating genome: hidden=128, nodes=10, k=0.918, lr=0.0137
+Evaluating genome: hidden=128, nodes=1, k=0.819, lr=0.0055
+Evaluating genome: hidden=128, nodes=2, k=0.967, lr=0.0058
+Evaluating genome: hidden=128, nodes=16, k=0.999, lr=0.0056
+Evaluating genome: hidden=78, nodes=6, k=0.965, lr=0.0005
+Evaluating genome: hidden=110, nodes=2, k=0.999, lr=0.0005
+Evaluated 18 new individuals.
+Best Fitness: 19.1660 -> Genome: {'hidden_dim': 128, 'num_nodes': 7, 'k_contractive': 0.999, 'learning_rate': 0.005822060457995759}
+
+--- Generation 46 ---
+Evaluating genome: hidden=128, nodes=4, k=0.995, lr=0.0058
+Evaluating genome: hidden=127, nodes=2, k=0.991, lr=0.0058
+Evaluating genome: hidden=128, nodes=14, k=0.999, lr=0.0048
+Evaluating genome: hidden=128, nodes=2, k=0.996, lr=0.0078
+Evaluating genome: hidden=124, nodes=1, k=0.968, lr=0.0058
+Evaluating genome: hidden=128, nodes=3, k=0.986, lr=0.0057
+Evaluating genome: hidden=98, nodes=4, k=0.973, lr=0.0056
+Evaluating genome: hidden=121, nodes=9, k=0.999, lr=0.0058
+Evaluating genome: hidden=128, nodes=7, k=0.999, lr=0.0005
+Evaluating genome: hidden=128, nodes=1, k=0.985, lr=0.0058
+Evaluating genome: hidden=128, nodes=9, k=0.999, lr=0.0058
+Evaluating genome: hidden=111, nodes=9, k=0.999, lr=0.0058
+Evaluating genome: hidden=121, nodes=8, k=0.937, lr=0.0005
+Evaluating genome: hidden=128, nodes=9, k=0.857, lr=0.0034
+Evaluating genome: hidden=128, nodes=5, k=0.999, lr=0.0061
+Evaluating genome: hidden=128, nodes=1, k=0.968, lr=0.0057
+Evaluating genome: hidden=128, nodes=6, k=0.999, lr=0.0059
+Evaluating genome: hidden=128, nodes=7, k=0.823, lr=0.0138
+Evaluated 18 new individuals.
+Best Fitness: 19.1660 -> Genome: {'hidden_dim': 128, 'num_nodes': 7, 'k_contractive': 0.999, 'learning_rate': 0.005822060457995759}
+
+--- Generation 47 ---
+Evaluating genome: hidden=128, nodes=7, k=0.999, lr=0.0058
+Evaluating genome: hidden=115, nodes=7, k=0.999, lr=0.0053
+Evaluating genome: hidden=128, nodes=8, k=0.990, lr=0.0059
+Evaluating genome: hidden=128, nodes=2, k=0.989, lr=0.0056
+Evaluating genome: hidden=128, nodes=9, k=0.943, lr=0.0005
+Evaluating genome: hidden=128, nodes=4, k=0.987, lr=0.0056
+Evaluating genome: hidden=128, nodes=4, k=0.987, lr=0.0056
+Evaluating genome: hidden=27, nodes=15, k=0.999, lr=0.0058
+Evaluating genome: hidden=128, nodes=1, k=0.996, lr=0.0059
+Evaluating genome: hidden=128, nodes=8, k=0.998, lr=0.0106
+Evaluating genome: hidden=128, nodes=10, k=0.773, lr=0.0058
+Evaluating genome: hidden=128, nodes=6, k=0.995, lr=0.0049
+Evaluating genome: hidden=115, nodes=2, k=0.996, lr=0.0203
+Evaluating genome: hidden=128, nodes=4, k=0.983, lr=0.0005
+Evaluating genome: hidden=128, nodes=3, k=0.999, lr=0.0058
+Evaluating genome: hidden=128, nodes=8, k=0.999, lr=0.0058
+Evaluating genome: hidden=128, nodes=4, k=0.995, lr=0.0058
+Evaluating genome: hidden=127, nodes=2, k=0.992, lr=0.0058
+Evaluated 18 new individuals.
+Best Fitness: 19.2576 -> Genome: {'hidden_dim': 128, 'num_nodes': 7, 'k_contractive': 0.999, 'learning_rate': 0.005822060457995759}
+
+--- Generation 48 ---
+Evaluating genome: hidden=62, nodes=12, k=0.913, lr=0.0058
+Evaluating genome: hidden=128, nodes=8, k=0.999, lr=0.0009
+Evaluating genome: hidden=128, nodes=7, k=0.999, lr=0.0005
+Evaluating genome: hidden=128, nodes=4, k=0.981, lr=0.0055
+Evaluating genome: hidden=95, nodes=7, k=0.999, lr=0.0059
+Evaluating genome: hidden=128, nodes=5, k=0.999, lr=0.0058
+Evaluating genome: hidden=128, nodes=7, k=0.999, lr=0.0058
+Evaluating genome: hidden=128, nodes=1, k=0.999, lr=0.0005
+Evaluating genome: hidden=128, nodes=7, k=0.999, lr=0.0005
+Evaluating genome: hidden=128, nodes=6, k=0.997, lr=0.0059
+Evaluating genome: hidden=128, nodes=1, k=0.996, lr=0.0058
+Evaluating genome: hidden=128, nodes=3, k=0.993, lr=0.0058
+Evaluating genome: hidden=128, nodes=1, k=0.832, lr=0.0059
+Evaluating genome: hidden=128, nodes=2, k=0.992, lr=0.0058
+Evaluating genome: hidden=128, nodes=2, k=0.985, lr=0.0056
+Evaluating genome: hidden=128, nodes=1, k=0.996, lr=0.0059
+Evaluating genome: hidden=128, nodes=3, k=0.999, lr=0.0056
+Evaluating genome: hidden=128, nodes=7, k=0.999, lr=0.0058
+Evaluated 18 new individuals.
+Best Fitness: 19.2576 -> Genome: {'hidden_dim': 128, 'num_nodes': 7, 'k_contractive': 0.999, 'learning_rate': 0.005822060457995759}
+
+--- Generation 49 ---
+Evaluating genome: hidden=128, nodes=1, k=0.992, lr=0.0058
+Evaluating genome: hidden=128, nodes=7, k=0.890, lr=0.0058
+Evaluating genome: hidden=128, nodes=2, k=0.992, lr=0.0249
+Evaluating genome: hidden=128, nodes=7, k=0.999, lr=0.0210
+Evaluating genome: hidden=128, nodes=11, k=0.941, lr=0.0058
+Evaluating genome: hidden=128, nodes=2, k=0.992, lr=0.0345
+Evaluating genome: hidden=128, nodes=1, k=0.996, lr=0.0059
+Evaluating genome: hidden=128, nodes=3, k=0.993, lr=0.0058
+Evaluating genome: hidden=128, nodes=4, k=0.981, lr=0.0055
+Evaluating genome: hidden=128, nodes=8, k=0.999, lr=0.0058
+Evaluating genome: hidden=128, nodes=3, k=0.866, lr=0.0058
+Evaluating genome: hidden=128, nodes=2, k=0.992, lr=0.0058
+Evaluating genome: hidden=128, nodes=3, k=0.611, lr=0.0102
+Evaluating genome: hidden=128, nodes=1, k=0.931, lr=0.0058
+Evaluating genome: hidden=94, nodes=2, k=0.992, lr=0.0005
+Evaluating genome: hidden=128, nodes=4, k=0.990, lr=0.0055
+Evaluating genome: hidden=128, nodes=7, k=0.994, lr=0.0058
+Evaluating genome: hidden=128, nodes=1, k=0.994, lr=0.0005
+Evaluated 18 new individuals.
+Best Fitness: 19.2576 -> Genome: {'hidden_dim': 128, 'num_nodes': 7, 'k_contractive': 0.999, 'learning_rate': 0.005822060457995759}
+
+--- Generation 50 ---
+Evaluating genome: hidden=128, nodes=1, k=0.869, lr=0.0005
+Evaluating genome: hidden=128, nodes=3, k=0.994, lr=0.0095
+Evaluating genome: hidden=128, nodes=1, k=0.992, lr=0.0058
+Evaluating genome: hidden=128, nodes=8, k=0.999, lr=0.0058
+Evaluating genome: hidden=105, nodes=1, k=0.999, lr=0.0059
+Evaluating genome: hidden=128, nodes=3, k=0.882, lr=0.0058
+Evaluating genome: hidden=128, nodes=6, k=0.999, lr=0.0058
+Evaluating genome: hidden=128, nodes=8, k=0.992, lr=0.0058
+Evaluating genome: hidden=128, nodes=5, k=0.999, lr=0.0055
+Evaluating genome: hidden=105, nodes=5, k=0.999, lr=0.0058
+Evaluating genome: hidden=128, nodes=2, k=0.915, lr=0.0058
+Evaluating genome: hidden=128, nodes=2, k=0.993, lr=0.0058
+Evaluating genome: hidden=118, nodes=7, k=0.999, lr=0.0005
+Evaluating genome: hidden=128, nodes=2, k=0.992, lr=0.0005
+Evaluating genome: hidden=128, nodes=4, k=0.994, lr=0.0058
+Evaluating genome: hidden=128, nodes=3, k=0.705, lr=0.0108
+Evaluating genome: hidden=128, nodes=7, k=0.999, lr=0.0058
+Evaluating genome: hidden=128, nodes=1, k=0.940, lr=0.0058
+Evaluated 18 new individuals.
+Best Fitness: 18.6853 -> Genome: {'hidden_dim': 128, 'num_nodes': 6, 'k_contractive': 0.999, 'learning_rate': 0.005820667375078748}
+
+--- Generation 51 ---
+Evaluating genome: hidden=128, nodes=6, k=0.999, lr=0.0005
+Evaluating genome: hidden=105, nodes=7, k=0.999, lr=0.0058
+Evaluating genome: hidden=126, nodes=3, k=0.993, lr=0.0058
+Evaluating genome: hidden=128, nodes=6, k=0.999, lr=0.0058
+Evaluating genome: hidden=105, nodes=1, k=0.999, lr=0.0059
+Evaluating genome: hidden=128, nodes=7, k=0.940, lr=0.0058
+Evaluating genome: hidden=105, nodes=5, k=0.999, lr=0.0005
+Evaluating genome: hidden=128, nodes=15, k=0.999, lr=0.0064
+Evaluating genome: hidden=128, nodes=7, k=0.999, lr=0.0058
+Evaluating genome: hidden=128, nodes=5, k=0.999, lr=0.0058
+Evaluating genome: hidden=120, nodes=1, k=0.940, lr=0.0058
+Evaluating genome: hidden=128, nodes=7, k=0.999, lr=0.0005
+Evaluating genome: hidden=81, nodes=5, k=0.999, lr=0.0239
+Evaluating genome: hidden=128, nodes=1, k=0.999, lr=0.0005
+Evaluating genome: hidden=128, nodes=2, k=0.698, lr=0.0058
+Evaluating genome: hidden=128, nodes=1, k=0.992, lr=0.0058
+Evaluating genome: hidden=128, nodes=11, k=0.994, lr=0.0058
+Evaluating genome: hidden=105, nodes=5, k=0.999, lr=0.0058
+Evaluated 18 new individuals.
+Best Fitness: 18.6853 -> Genome: {'hidden_dim': 128, 'num_nodes': 6, 'k_contractive': 0.999, 'learning_rate': 0.005820667375078748}
+
+--- Generation 52 ---
+Evaluating genome: hidden=128, nodes=7, k=0.991, lr=0.0058
+Evaluating genome: hidden=128, nodes=2, k=0.993, lr=0.0058
+Evaluating genome: hidden=128, nodes=7, k=0.933, lr=0.0058
+Evaluating genome: hidden=120, nodes=4, k=0.999, lr=0.0058
+Evaluating genome: hidden=128, nodes=1, k=0.992, lr=0.0058
+Evaluating genome: hidden=128, nodes=2, k=0.990, lr=0.0058
+Evaluating genome: hidden=128, nodes=3, k=0.991, lr=0.0007
+Evaluating genome: hidden=128, nodes=7, k=0.984, lr=0.0263
+Evaluating genome: hidden=128, nodes=10, k=0.999, lr=0.0058
+Evaluating genome: hidden=128, nodes=15, k=0.992, lr=0.0058
+Evaluating genome: hidden=128, nodes=1, k=0.999, lr=0.0005
+Evaluating genome: hidden=128, nodes=3, k=0.989, lr=0.0058
+Evaluating genome: hidden=125, nodes=2, k=0.993, lr=0.0058
+Evaluating genome: hidden=106, nodes=2, k=0.992, lr=0.0058
+Evaluating genome: hidden=128, nodes=6, k=0.999, lr=0.0014
+Evaluating genome: hidden=128, nodes=2, k=0.998, lr=0.0058
+Evaluating genome: hidden=101, nodes=5, k=0.994, lr=0.0193
+Evaluating genome: hidden=128, nodes=1, k=0.992, lr=0.0202
+Evaluated 18 new individuals.
+Best Fitness: 18.6853 -> Genome: {'hidden_dim': 128, 'num_nodes': 6, 'k_contractive': 0.999, 'learning_rate': 0.005820667375078748}
+
+--- Generation 53 ---
+Evaluating genome: hidden=128, nodes=1, k=0.917, lr=0.0058
+Evaluating genome: hidden=128, nodes=1, k=0.910, lr=0.0058
+Evaluating genome: hidden=125, nodes=2, k=0.993, lr=0.0058
+Evaluating genome: hidden=128, nodes=3, k=0.999, lr=0.0058
+Evaluating genome: hidden=128, nodes=1, k=0.992, lr=0.0058
+Evaluating genome: hidden=65, nodes=2, k=0.999, lr=0.0058
+Evaluating genome: hidden=128, nodes=1, k=0.992, lr=0.0058
+Evaluating genome: hidden=128, nodes=7, k=0.933, lr=0.0005
+Evaluating genome: hidden=128, nodes=2, k=0.999, lr=0.0058
+Evaluating genome: hidden=125, nodes=2, k=0.999, lr=0.0058
+Evaluating genome: hidden=128, nodes=2, k=0.990, lr=0.0058
+Evaluating genome: hidden=128, nodes=3, k=0.992, lr=0.0143
+Evaluating genome: hidden=49, nodes=7, k=0.937, lr=0.0058
+Evaluating genome: hidden=126, nodes=1, k=0.999, lr=0.0048
+Evaluating genome: hidden=128, nodes=6, k=0.999, lr=0.0058
+Evaluating genome: hidden=128, nodes=3, k=0.971, lr=0.0058
+Evaluating genome: hidden=123, nodes=6, k=0.754, lr=0.0058
+Evaluating genome: hidden=101, nodes=2, k=0.992, lr=0.0058
+Evaluated 18 new individuals.
+Best Fitness: 18.5903 -> Genome: {'hidden_dim': 128, 'num_nodes': 2, 'k_contractive': 0.9922382067036208, 'learning_rate': 0.005821155161922085}
+
+--- Generation 54 ---
+Evaluating genome: hidden=125, nodes=2, k=0.991, lr=0.0058
+Evaluating genome: hidden=128, nodes=6, k=0.998, lr=0.0014
+Evaluating genome: hidden=90, nodes=5, k=0.907, lr=0.0058
+Evaluating genome: hidden=125, nodes=8, k=0.995, lr=0.0058
+Evaluating genome: hidden=94, nodes=2, k=0.923, lr=0.0058
+Evaluating genome: hidden=78, nodes=2, k=0.992, lr=0.0005
+Evaluating genome: hidden=102, nodes=6, k=0.904, lr=0.0058
+Evaluating genome: hidden=125, nodes=2, k=0.999, lr=0.0058
+Evaluating genome: hidden=128, nodes=3, k=0.994, lr=0.0058
+Evaluating genome: hidden=128, nodes=3, k=0.999, lr=0.0058
+Evaluating genome: hidden=128, nodes=2, k=0.990, lr=0.0034
+Evaluating genome: hidden=101, nodes=1, k=0.999, lr=0.0058
+Evaluating genome: hidden=125, nodes=6, k=0.934, lr=0.0058
+Evaluating genome: hidden=128, nodes=2, k=0.923, lr=0.0026
+Evaluating genome: hidden=128, nodes=2, k=0.992, lr=0.0058
+Evaluating genome: hidden=128, nodes=1, k=0.922, lr=0.0058
+Evaluating genome: hidden=128, nodes=2, k=0.992, lr=0.0005
+Evaluating genome: hidden=113, nodes=2, k=0.999, lr=0.0058
+Evaluated 18 new individuals.
+Best Fitness: 19.3971 -> Genome: {'hidden_dim': 125, 'num_nodes': 6, 'k_contractive': 0.9337834939248305, 'learning_rate': 0.0058208591380105815}
+
+--- Generation 55 ---
+Evaluating genome: hidden=123, nodes=2, k=0.926, lr=0.0028
+Evaluating genome: hidden=110, nodes=3, k=0.999, lr=0.0175
+Evaluating genome: hidden=125, nodes=8, k=0.995, lr=0.0058
+Evaluating genome: hidden=113, nodes=7, k=0.999, lr=0.0198
+Evaluating genome: hidden=125, nodes=1, k=0.913, lr=0.0058
+Evaluating genome: hidden=128, nodes=2, k=0.900, lr=0.0058
+Evaluating genome: hidden=125, nodes=7, k=0.975, lr=0.0005
+Evaluating genome: hidden=126, nodes=1, k=0.934, lr=0.0058
+Evaluating genome: hidden=125, nodes=3, k=0.999, lr=0.0251
+Evaluating genome: hidden=128, nodes=1, k=0.812, lr=0.0058
+Evaluating genome: hidden=128, nodes=2, k=0.993, lr=0.0058
+Evaluating genome: hidden=128, nodes=6, k=0.931, lr=0.0058
+Evaluating genome: hidden=128, nodes=7, k=0.994, lr=0.0346
+Evaluating genome: hidden=124, nodes=6, k=0.993, lr=0.0058
+Evaluating genome: hidden=128, nodes=2, k=0.992, lr=0.0005
+Evaluating genome: hidden=125, nodes=2, k=0.829, lr=0.0005
+Evaluating genome: hidden=111, nodes=2, k=0.822, lr=0.0058
+Evaluating genome: hidden=125, nodes=16, k=0.993, lr=0.0058
+Evaluated 18 new individuals.
+Best Fitness: 19.3971 -> Genome: {'hidden_dim': 125, 'num_nodes': 6, 'k_contractive': 0.9337834939248305, 'learning_rate': 0.0058208591380105815}
+
+--- Generation 56 ---
+Evaluating genome: hidden=125, nodes=1, k=0.913, lr=0.0005
+Evaluating genome: hidden=124, nodes=7, k=0.999, lr=0.0058
+Evaluating genome: hidden=126, nodes=1, k=0.934, lr=0.0058
+Evaluating genome: hidden=128, nodes=2, k=0.983, lr=0.0058
+Evaluating genome: hidden=104, nodes=5, k=0.927, lr=0.0175
+Evaluating genome: hidden=125, nodes=13, k=0.992, lr=0.0288
+Evaluating genome: hidden=125, nodes=1, k=0.999, lr=0.0058
+Evaluating genome: hidden=125, nodes=9, k=0.988, lr=0.0058
+Evaluating genome: hidden=95, nodes=1, k=0.939, lr=0.0058
+Evaluating genome: hidden=100, nodes=1, k=0.993, lr=0.0058
+Evaluating genome: hidden=114, nodes=2, k=0.993, lr=0.0005
+Evaluating genome: hidden=125, nodes=6, k=0.934, lr=0.0058
+Evaluating genome: hidden=128, nodes=8, k=0.992, lr=0.0058
+Evaluating genome: hidden=84, nodes=2, k=0.993, lr=0.0058
+Evaluating genome: hidden=128, nodes=2, k=0.993, lr=0.0058
+Evaluating genome: hidden=111, nodes=6, k=0.995, lr=0.0035
+Evaluating genome: hidden=127, nodes=3, k=0.934, lr=0.0058
+Evaluating genome: hidden=120, nodes=1, k=0.650, lr=0.0058
+Evaluated 18 new individuals.
+Best Fitness: 18.6598 -> Genome: {'hidden_dim': 128, 'num_nodes': 8, 'k_contractive': 0.9919328963828203, 'learning_rate': 0.00582115440547319}
+
+--- Generation 57 ---
+Evaluating genome: hidden=74, nodes=1, k=0.999, lr=0.0058
+Evaluating genome: hidden=128, nodes=6, k=0.999, lr=0.0058
+Evaluating genome: hidden=125, nodes=9, k=0.946, lr=0.0058
+Evaluating genome: hidden=128, nodes=2, k=0.934, lr=0.0058
+Evaluating genome: hidden=125, nodes=13, k=0.895, lr=0.0061
+Evaluating genome: hidden=127, nodes=3, k=0.979, lr=0.0164
+Evaluating genome: hidden=123, nodes=5, k=0.911, lr=0.0005
+Evaluating genome: hidden=124, nodes=1, k=0.999, lr=0.0110
+Evaluating genome: hidden=93, nodes=1, k=0.999, lr=0.0059
+Evaluating genome: hidden=126, nodes=1, k=0.934, lr=0.0058
+Evaluating genome: hidden=104, nodes=2, k=0.992, lr=0.0058
+Evaluating genome: hidden=127, nodes=5, k=0.976, lr=0.0005
+Evaluating genome: hidden=109, nodes=1, k=0.939, lr=0.0143
+Evaluating genome: hidden=128, nodes=8, k=0.992, lr=0.0058
+Evaluating genome: hidden=128, nodes=1, k=0.999, lr=0.0005
+Evaluating genome: hidden=126, nodes=9, k=0.920, lr=0.0005
+Evaluating genome: hidden=128, nodes=13, k=0.990, lr=0.0058
+Evaluating genome: hidden=125, nodes=1, k=0.999, lr=0.0005
+Evaluated 18 new individuals.
+Best Fitness: 18.5411 -> Genome: {'hidden_dim': 128, 'num_nodes': 13, 'k_contractive': 0.9898384613204241, 'learning_rate': 0.005820982510818028}
+
+--- Generation 58 ---
+Evaluating genome: hidden=99, nodes=5, k=0.990, lr=0.0005
+Evaluating genome: hidden=123, nodes=6, k=0.944, lr=0.0058
+Evaluating genome: hidden=127, nodes=11, k=0.925, lr=0.0058
+Evaluating genome: hidden=128, nodes=6, k=0.892, lr=0.0058
+Evaluating genome: hidden=122, nodes=3, k=0.827, lr=0.0058
+Evaluating genome: hidden=125, nodes=1, k=0.999, lr=0.0058
+Evaluating genome: hidden=125, nodes=11, k=0.993, lr=0.0058
+Evaluating genome: hidden=128, nodes=13, k=0.999, lr=0.0058
+Evaluating genome: hidden=128, nodes=8, k=0.992, lr=0.0005
+Evaluating genome: hidden=128, nodes=3, k=0.994, lr=0.0058
+Evaluating genome: hidden=103, nodes=9, k=0.946, lr=0.0058
+Evaluating genome: hidden=128, nodes=1, k=0.631, lr=0.0058
+Evaluating genome: hidden=128, nodes=1, k=0.992, lr=0.0034
+Evaluating genome: hidden=128, nodes=9, k=0.753, lr=0.0005
+Evaluating genome: hidden=117, nodes=5, k=0.999, lr=0.0058
+Evaluating genome: hidden=128, nodes=2, k=0.992, lr=0.0058
+Evaluating genome: hidden=128, nodes=2, k=0.992, lr=0.0058
+Evaluating genome: hidden=128, nodes=2, k=0.992, lr=0.0058
+Evaluated 18 new individuals.
+Best Fitness: 18.8946 -> Genome: {'hidden_dim': 117, 'num_nodes': 5, 'k_contractive': 0.999, 'learning_rate': 0.005821132764147098}
+
+--- Generation 59 ---
+Evaluating genome: hidden=128, nodes=2, k=0.992, lr=0.0058
+Evaluating genome: hidden=117, nodes=5, k=0.999, lr=0.0058
+Evaluating genome: hidden=103, nodes=11, k=0.810, lr=0.0058
+Evaluating genome: hidden=128, nodes=5, k=0.770, lr=0.0062
+Evaluating genome: hidden=121, nodes=4, k=0.991, lr=0.0058
+Evaluating genome: hidden=128, nodes=2, k=0.992, lr=0.0058
+Evaluating genome: hidden=127, nodes=3, k=0.999, lr=0.0058
+Evaluating genome: hidden=128, nodes=3, k=0.995, lr=0.0005
+Evaluating genome: hidden=122, nodes=16, k=0.990, lr=0.0058
+Evaluating genome: hidden=128, nodes=2, k=0.995, lr=0.0005
+Evaluating genome: hidden=128, nodes=2, k=0.992, lr=0.0075
+Evaluating genome: hidden=122, nodes=3, k=0.940, lr=0.0058
+Evaluating genome: hidden=128, nodes=3, k=0.904, lr=0.0368
+Evaluating genome: hidden=122, nodes=6, k=0.989, lr=0.0139
+Evaluating genome: hidden=78, nodes=5, k=0.997, lr=0.0058
+Evaluating genome: hidden=128, nodes=3, k=0.994, lr=0.0043
+Evaluating genome: hidden=128, nodes=5, k=0.934, lr=0.0097
+Evaluating genome: hidden=117, nodes=5, k=0.999, lr=0.0058
+Evaluated 18 new individuals.
+Best Fitness: 18.7330 -> Genome: {'hidden_dim': 128, 'num_nodes': 2, 'k_contractive': 0.9922382067036208, 'learning_rate': 0.005821155161922085}
+
+--- Generation 60 ---
+Evaluating genome: hidden=121, nodes=5, k=0.992, lr=0.0058
+Evaluating genome: hidden=103, nodes=1, k=0.995, lr=0.0058
+Evaluating genome: hidden=73, nodes=5, k=0.999, lr=0.0058
+Evaluating genome: hidden=108, nodes=2, k=0.992, lr=0.0005
+Evaluating genome: hidden=117, nodes=5, k=0.852, lr=0.0058
+Evaluating genome: hidden=72, nodes=2, k=0.992, lr=0.0005
+Evaluating genome: hidden=120, nodes=7, k=0.994, lr=0.0058
+Evaluating genome: hidden=123, nodes=5, k=0.999, lr=0.0207
+Evaluating genome: hidden=127, nodes=14, k=0.993, lr=0.0333
+Evaluating genome: hidden=120, nodes=3, k=0.999, lr=0.0005
+Evaluating genome: hidden=128, nodes=2, k=0.999, lr=0.0058
+Evaluating genome: hidden=112, nodes=6, k=0.913, lr=0.0254
+Evaluating genome: hidden=122, nodes=16, k=0.999, lr=0.0058
+Evaluating genome: hidden=122, nodes=1, k=0.994, lr=0.0005
+Evaluating genome: hidden=128, nodes=2, k=0.992, lr=0.0005
+Evaluating genome: hidden=117, nodes=3, k=0.959, lr=0.0058
+Evaluating genome: hidden=123, nodes=5, k=0.986, lr=0.0058
+Evaluating genome: hidden=117, nodes=5, k=0.999, lr=0.0058
+Evaluated 18 new individuals.
+Best Fitness: 18.7330 -> Genome: {'hidden_dim': 128, 'num_nodes': 2, 'k_contractive': 0.9922382067036208, 'learning_rate': 0.005821155161922085}
+
+--- Generation 61 ---
+Evaluating genome: hidden=128, nodes=3, k=0.994, lr=0.0005
+Evaluating genome: hidden=128, nodes=2, k=0.856, lr=0.0005
+Evaluating genome: hidden=127, nodes=5, k=0.991, lr=0.0058
+Evaluating genome: hidden=119, nodes=6, k=0.971, lr=0.0058
+Evaluating genome: hidden=73, nodes=5, k=0.999, lr=0.0058
+Evaluating genome: hidden=128, nodes=1, k=0.991, lr=0.0058
+Evaluating genome: hidden=107, nodes=1, k=0.999, lr=0.0058
+Evaluating genome: hidden=87, nodes=5, k=0.942, lr=0.0058
+Evaluating genome: hidden=120, nodes=10, k=0.999, lr=0.0005
+Evaluating genome: hidden=128, nodes=3, k=0.994, lr=0.0058
+Evaluating genome: hidden=117, nodes=5, k=0.999, lr=0.0033
+Evaluating genome: hidden=128, nodes=1, k=0.992, lr=0.0058
+Evaluating genome: hidden=122, nodes=6, k=0.888, lr=0.0058
+Evaluating genome: hidden=103, nodes=6, k=0.999, lr=0.0384
+Evaluating genome: hidden=128, nodes=7, k=0.994, lr=0.0005
+Evaluating genome: hidden=120, nodes=7, k=0.999, lr=0.0058
+Evaluating genome: hidden=123, nodes=7, k=0.993, lr=0.0058
+Evaluating genome: hidden=126, nodes=5, k=0.992, lr=0.0058
+Evaluated 18 new individuals.
+Best Fitness: 18.7330 -> Genome: {'hidden_dim': 128, 'num_nodes': 2, 'k_contractive': 0.9922382067036208, 'learning_rate': 0.005821155161922085}
+
+--- Generation 62 ---
+Evaluating genome: hidden=128, nodes=7, k=0.998, lr=0.0058
+Evaluating genome: hidden=128, nodes=6, k=0.995, lr=0.0005
+Evaluating genome: hidden=128, nodes=2, k=0.992, lr=0.0058
+Evaluating genome: hidden=121, nodes=10, k=0.999, lr=0.0058
+Evaluating genome: hidden=128, nodes=5, k=0.948, lr=0.0211
+Evaluating genome: hidden=98, nodes=1, k=0.992, lr=0.0058
+Evaluating genome: hidden=128, nodes=2, k=0.992, lr=0.0005
+Evaluating genome: hidden=123, nodes=7, k=0.999, lr=0.0268
+Evaluating genome: hidden=128, nodes=2, k=0.995, lr=0.0058
+Evaluating genome: hidden=124, nodes=4, k=0.973, lr=0.0058
+Evaluating genome: hidden=122, nodes=6, k=0.847, lr=0.0058
+Evaluating genome: hidden=87, nodes=5, k=0.999, lr=0.0058
+Evaluating genome: hidden=97, nodes=5, k=0.786, lr=0.0058
+Evaluating genome: hidden=128, nodes=1, k=0.995, lr=0.0005
+Evaluating genome: hidden=128, nodes=2, k=0.992, lr=0.0005
+Evaluating genome: hidden=128, nodes=4, k=0.904, lr=0.0058
+Evaluating genome: hidden=128, nodes=2, k=0.999, lr=0.0058
+Evaluating genome: hidden=109, nodes=4, k=0.991, lr=0.0058
+Evaluated 18 new individuals.
+Best Fitness: 18.7330 -> Genome: {'hidden_dim': 128, 'num_nodes': 2, 'k_contractive': 0.9922382067036208, 'learning_rate': 0.005821155161922085}
+
+--- Generation 63 ---
+Evaluating genome: hidden=100, nodes=8, k=0.965, lr=0.0058
+Evaluating genome: hidden=128, nodes=3, k=0.999, lr=0.0280
+Evaluating genome: hidden=127, nodes=6, k=0.870, lr=0.0005
+Evaluating genome: hidden=128, nodes=1, k=0.966, lr=0.0005
+Evaluating genome: hidden=128, nodes=1, k=0.879, lr=0.0005
+Evaluating genome: hidden=128, nodes=5, k=0.999, lr=0.0058
+Evaluating genome: hidden=128, nodes=2, k=0.999, lr=0.0068
+Evaluating genome: hidden=100, nodes=6, k=0.992, lr=0.0058
+Evaluating genome: hidden=100, nodes=2, k=0.999, lr=0.0005
+Evaluating genome: hidden=115, nodes=5, k=0.999, lr=0.0311
+Evaluating genome: hidden=122, nodes=13, k=0.999, lr=0.0005
+Evaluating genome: hidden=125, nodes=4, k=0.991, lr=0.0058
+Evaluating genome: hidden=128, nodes=2, k=0.985, lr=0.0058
+Evaluating genome: hidden=109, nodes=4, k=0.999, lr=0.0058
+Evaluating genome: hidden=128, nodes=8, k=0.990, lr=0.0005
+Evaluating genome: hidden=128, nodes=2, k=0.999, lr=0.0058
+Evaluating genome: hidden=128, nodes=2, k=0.999, lr=0.0058
+Evaluating genome: hidden=128, nodes=4, k=0.991, lr=0.0058
+Evaluated 18 new individuals.
+Best Fitness: 18.7330 -> Genome: {'hidden_dim': 128, 'num_nodes': 2, 'k_contractive': 0.9922382067036208, 'learning_rate': 0.005821155161922085}
+
+--- Generation 64 ---
+Evaluating genome: hidden=128, nodes=7, k=0.984, lr=0.0058
+Evaluating genome: hidden=128, nodes=2, k=0.999, lr=0.0058
+Evaluating genome: hidden=105, nodes=5, k=0.999, lr=0.0058
+Evaluating genome: hidden=128, nodes=2, k=0.833, lr=0.0058
+Evaluating genome: hidden=128, nodes=15, k=0.999, lr=0.0066
+Evaluating genome: hidden=123, nodes=5, k=0.999, lr=0.0058
+Evaluating genome: hidden=128, nodes=1, k=0.955, lr=0.0058
+Evaluating genome: hidden=128, nodes=1, k=0.991, lr=0.0058
+Evaluating genome: hidden=112, nodes=1, k=0.999, lr=0.0005
+Evaluating genome: hidden=85, nodes=2, k=0.999, lr=0.0050
+Evaluating genome: hidden=128, nodes=3, k=0.999, lr=0.0058
+Evaluating genome: hidden=128, nodes=2, k=0.991, lr=0.0005
+Evaluating genome: hidden=125, nodes=1, k=0.996, lr=0.0072
+Evaluating genome: hidden=128, nodes=1, k=0.992, lr=0.0058
+Evaluating genome: hidden=127, nodes=2, k=0.994, lr=0.0058
+Evaluating genome: hidden=128, nodes=3, k=0.999, lr=0.0058
+Evaluating genome: hidden=109, nodes=5, k=0.999, lr=0.0058
+Evaluating genome: hidden=111, nodes=1, k=0.999, lr=0.0005
+Evaluated 18 new individuals.
+Best Fitness: 19.2182 -> Genome: {'hidden_dim': 128, 'num_nodes': 1, 'k_contractive': 0.9912201057311982, 'learning_rate': 0.005821150013246636}
+
+--- Generation 65 ---
+Evaluating genome: hidden=128, nodes=1, k=0.999, lr=0.0058
+Evaluating genome: hidden=128, nodes=15, k=0.999, lr=0.0066
+Evaluating genome: hidden=128, nodes=2, k=0.918, lr=0.0058
+Evaluating genome: hidden=128, nodes=1, k=0.991, lr=0.0297
+Evaluating genome: hidden=128, nodes=1, k=0.941, lr=0.0058
+Evaluating genome: hidden=124, nodes=2, k=0.992, lr=0.0076
+Evaluating genome: hidden=128, nodes=15, k=0.999, lr=0.0066
+Evaluating genome: hidden=128, nodes=1, k=0.999, lr=0.0063
+Evaluating genome: hidden=128, nodes=1, k=0.991, lr=0.0141
+Evaluating genome: hidden=128, nodes=9, k=0.999, lr=0.0198
+Evaluating genome: hidden=128, nodes=1, k=0.999, lr=0.0088
+Evaluating genome: hidden=128, nodes=1, k=0.992, lr=0.0058
+Evaluating genome: hidden=128, nodes=1, k=0.994, lr=0.0005
+Evaluating genome: hidden=128, nodes=3, k=0.990, lr=0.0072
+Evaluating genome: hidden=128, nodes=1, k=0.992, lr=0.0058
+Evaluating genome: hidden=128, nodes=3, k=0.991, lr=0.0005
+Evaluating genome: hidden=128, nodes=9, k=0.944, lr=0.0058
+Evaluating genome: hidden=128, nodes=6, k=0.999, lr=0.0058
+Evaluated 18 new individuals.
+Best Fitness: 19.2182 -> Genome: {'hidden_dim': 128, 'num_nodes': 1, 'k_contractive': 0.9912201057311982, 'learning_rate': 0.005821150013246636}
+
+--- Generation 66 ---
+Evaluating genome: hidden=128, nodes=3, k=0.999, lr=0.0062
+Evaluating genome: hidden=128, nodes=4, k=0.999, lr=0.0347
+Evaluating genome: hidden=128, nodes=2, k=0.936, lr=0.0058
+Evaluating genome: hidden=128, nodes=1, k=0.992, lr=0.0058
+Evaluating genome: hidden=128, nodes=16, k=0.999, lr=0.0063
+Evaluating genome: hidden=128, nodes=3, k=0.951, lr=0.0113
+Evaluating genome: hidden=52, nodes=1, k=0.991, lr=0.0046
+Evaluating genome: hidden=97, nodes=1, k=0.927, lr=0.0058
+Evaluating genome: hidden=128, nodes=7, k=0.975, lr=0.0005
+Evaluating genome: hidden=51, nodes=1, k=0.991, lr=0.0058
+Evaluating genome: hidden=128, nodes=2, k=0.992, lr=0.0058
+Evaluating genome: hidden=128, nodes=1, k=0.999, lr=0.0184
+Evaluating genome: hidden=128, nodes=16, k=0.915, lr=0.0055
+Evaluating genome: hidden=124, nodes=2, k=0.991, lr=0.0057
+Evaluating genome: hidden=128, nodes=8, k=0.908, lr=0.0064
+Evaluating genome: hidden=128, nodes=7, k=0.993, lr=0.0166
+Evaluating genome: hidden=128, nodes=13, k=0.975, lr=0.0005
+Evaluating genome: hidden=128, nodes=1, k=0.956, lr=0.0058
+Evaluated 18 new individuals.
+Best Fitness: 19.2182 -> Genome: {'hidden_dim': 128, 'num_nodes': 1, 'k_contractive': 0.9912201057311982, 'learning_rate': 0.005821150013246636}
+
+--- Generation 67 ---
+Evaluating genome: hidden=128, nodes=1, k=0.991, lr=0.0068
+Evaluating genome: hidden=124, nodes=6, k=0.951, lr=0.0057
+Evaluating genome: hidden=127, nodes=1, k=0.999, lr=0.0005
+Evaluating genome: hidden=128, nodes=1, k=0.991, lr=0.0058
+Evaluating genome: hidden=128, nodes=1, k=0.999, lr=0.0058
+Evaluating genome: hidden=128, nodes=1, k=0.892, lr=0.0056
+Evaluating genome: hidden=128, nodes=16, k=0.999, lr=0.0063
+Evaluating genome: hidden=109, nodes=9, k=0.950, lr=0.0063
+Evaluating genome: hidden=19, nodes=1, k=0.877, lr=0.0058
+Evaluating genome: hidden=128, nodes=13, k=0.999, lr=0.0063
+Evaluating genome: hidden=86, nodes=1, k=0.993, lr=0.0057
+Evaluating genome: hidden=122, nodes=1, k=0.999, lr=0.0005
+Evaluating genome: hidden=128, nodes=3, k=0.994, lr=0.0059
+Evaluating genome: hidden=124, nodes=3, k=0.991, lr=0.0057
+Evaluating genome: hidden=128, nodes=1, k=0.991, lr=0.0105
+Evaluating genome: hidden=123, nodes=2, k=0.991, lr=0.0057
+Evaluating genome: hidden=128, nodes=1, k=0.999, lr=0.0058
+Evaluating genome: hidden=128, nodes=1, k=0.999, lr=0.0058
+Evaluated 18 new individuals.
+Best Fitness: 19.0332 -> Genome: {'hidden_dim': 128, 'num_nodes': 1, 'k_contractive': 0.9912201057311982, 'learning_rate': 0.005821150013246636}
+
+--- Generation 68 ---
+Evaluating genome: hidden=128, nodes=8, k=0.994, lr=0.0060
+Evaluating genome: hidden=128, nodes=16, k=0.999, lr=0.0056
+Evaluating genome: hidden=128, nodes=1, k=0.991, lr=0.0064
+Evaluating genome: hidden=100, nodes=4, k=0.999, lr=0.0063
+Evaluating genome: hidden=124, nodes=6, k=0.951, lr=0.0057
+Evaluating genome: hidden=101, nodes=11, k=0.936, lr=0.0059
+Evaluating genome: hidden=80, nodes=1, k=0.991, lr=0.0058
+Evaluating genome: hidden=128, nodes=15, k=0.985, lr=0.0005
+Evaluating genome: hidden=128, nodes=4, k=0.997, lr=0.0189
+Evaluating genome: hidden=123, nodes=1, k=0.991, lr=0.0057
+Evaluating genome: hidden=128, nodes=1, k=0.991, lr=0.0224
+Evaluating genome: hidden=128, nodes=1, k=0.999, lr=0.0068
+Evaluating genome: hidden=128, nodes=1, k=0.991, lr=0.0058
+Evaluating genome: hidden=128, nodes=5, k=0.994, lr=0.0059
+Evaluating genome: hidden=128, nodes=5, k=0.991, lr=0.0058
+Evaluating genome: hidden=117, nodes=1, k=0.991, lr=0.0059
+Evaluating genome: hidden=128, nodes=1, k=0.999, lr=0.0058
+Evaluating genome: hidden=102, nodes=2, k=0.999, lr=0.0061
+Evaluated 18 new individuals.
+Best Fitness: 19.1446 -> Genome: {'hidden_dim': 128, 'num_nodes': 8, 'k_contractive': 0.9944906056952244, 'learning_rate': 0.005958404887262148}
+
+--- Generation 69 ---
+Evaluating genome: hidden=123, nodes=1, k=0.991, lr=0.0005
+Evaluating genome: hidden=128, nodes=5, k=0.991, lr=0.0058
+Evaluating genome: hidden=128, nodes=1, k=0.999, lr=0.0099
+Evaluating genome: hidden=128, nodes=16, k=0.999, lr=0.0056
+Evaluating genome: hidden=128, nodes=1, k=0.999, lr=0.0057
+Evaluating genome: hidden=122, nodes=14, k=0.991, lr=0.0290
+Evaluating genome: hidden=127, nodes=1, k=0.996, lr=0.0059
+Evaluating genome: hidden=128, nodes=11, k=0.999, lr=0.0060
+Evaluating genome: hidden=128, nodes=1, k=0.955, lr=0.0058
+Evaluating genome: hidden=128, nodes=1, k=0.993, lr=0.0058
+Evaluating genome: hidden=128, nodes=1, k=0.991, lr=0.0058
+Evaluating genome: hidden=123, nodes=5, k=0.999, lr=0.0057
+Evaluating genome: hidden=122, nodes=3, k=0.988, lr=0.0005
+Evaluating genome: hidden=128, nodes=1, k=0.995, lr=0.0059
+Evaluating genome: hidden=120, nodes=1, k=0.991, lr=0.0095
+Evaluating genome: hidden=98, nodes=5, k=0.994, lr=0.0059
+Evaluating genome: hidden=84, nodes=4, k=0.999, lr=0.0063
+Evaluating genome: hidden=128, nodes=1, k=0.999, lr=0.0058
+Evaluated 18 new individuals.
+Best Fitness: 19.5664 -> Genome: {'hidden_dim': 128, 'num_nodes': 1, 'k_contractive': 0.9934306217946272, 'learning_rate': 0.005830998452402318}
+
+--- Generation 70 ---
+Evaluating genome: hidden=78, nodes=1, k=0.997, lr=0.0058
+Evaluating genome: hidden=128, nodes=12, k=0.841, lr=0.0005
+Evaluating genome: hidden=128, nodes=1, k=0.952, lr=0.0058
+Evaluating genome: hidden=128, nodes=1, k=0.854, lr=0.0058
+Evaluating genome: hidden=128, nodes=6, k=0.995, lr=0.0059
+Evaluating genome: hidden=128, nodes=3, k=0.996, lr=0.0059
+Evaluating genome: hidden=124, nodes=1, k=0.998, lr=0.0058
+Evaluating genome: hidden=128, nodes=3, k=0.999, lr=0.0059
+Evaluating genome: hidden=128, nodes=1, k=0.996, lr=0.0140
+Evaluating genome: hidden=128, nodes=1, k=0.993, lr=0.0138
+Evaluating genome: hidden=128, nodes=9, k=0.999, lr=0.0059
+Evaluating genome: hidden=128, nodes=8, k=0.994, lr=0.0075
+Evaluating genome: hidden=128, nodes=1, k=0.996, lr=0.0027
+Evaluating genome: hidden=128, nodes=8, k=0.812, lr=0.0060
+Evaluating genome: hidden=128, nodes=1, k=0.808, lr=0.0058
+Evaluating genome: hidden=128, nodes=1, k=0.923, lr=0.0058
+Evaluating genome: hidden=128, nodes=15, k=0.999, lr=0.0057
+Evaluating genome: hidden=127, nodes=1, k=0.996, lr=0.0188
+Evaluated 18 new individuals.
+Best Fitness: 19.5664 -> Genome: {'hidden_dim': 128, 'num_nodes': 1, 'k_contractive': 0.9934306217946272, 'learning_rate': 0.005830998452402318}
+
+--- Generation 71 ---
+Evaluating genome: hidden=128, nodes=16, k=0.996, lr=0.0249
+Evaluating genome: hidden=128, nodes=1, k=0.993, lr=0.0058
+Evaluating genome: hidden=128, nodes=1, k=0.808, lr=0.0058
+Evaluating genome: hidden=77, nodes=2, k=0.894, lr=0.0059
+Evaluating genome: hidden=125, nodes=3, k=0.996, lr=0.0161
+Evaluating genome: hidden=128, nodes=3, k=0.950, lr=0.0261
+Evaluating genome: hidden=127, nodes=1, k=0.930, lr=0.0058
+Evaluating genome: hidden=128, nodes=5, k=0.999, lr=0.0059
+Evaluating genome: hidden=128, nodes=3, k=0.999, lr=0.0059
+Evaluating genome: hidden=128, nodes=1, k=0.993, lr=0.0005
+Evaluating genome: hidden=128, nodes=1, k=0.998, lr=0.0058
+Evaluating genome: hidden=128, nodes=1, k=0.999, lr=0.0059
+Evaluating genome: hidden=128, nodes=16, k=0.999, lr=0.0005
+Evaluating genome: hidden=128, nodes=1, k=0.999, lr=0.0246
+Evaluating genome: hidden=128, nodes=3, k=0.999, lr=0.0087
+Evaluating genome: hidden=92, nodes=1, k=0.993, lr=0.0095
+Evaluating genome: hidden=114, nodes=1, k=0.873, lr=0.0058
+Evaluating genome: hidden=128, nodes=1, k=0.993, lr=0.0058
+Evaluated 18 new individuals.
+Best Fitness: 19.1446 -> Genome: {'hidden_dim': 128, 'num_nodes': 8, 'k_contractive': 0.9944906056952244, 'learning_rate': 0.005958404887262148}
+
+--- Generation 72 ---
+Evaluating genome: hidden=127, nodes=6, k=0.993, lr=0.0058
+Evaluating genome: hidden=35, nodes=1, k=0.993, lr=0.0087
+Evaluating genome: hidden=128, nodes=8, k=0.999, lr=0.0060
+Evaluating genome: hidden=128, nodes=1, k=0.999, lr=0.0059
+Evaluating genome: hidden=126, nodes=8, k=0.999, lr=0.0005
+Evaluating genome: hidden=128, nodes=1, k=0.994, lr=0.0060
+Evaluating genome: hidden=128, nodes=6, k=0.901, lr=0.0059
+Evaluating genome: hidden=128, nodes=1, k=0.930, lr=0.0005
+Evaluating genome: hidden=68, nodes=1, k=0.873, lr=0.0058
+Evaluating genome: hidden=128, nodes=1, k=0.992, lr=0.0058
+Evaluating genome: hidden=128, nodes=1, k=0.999, lr=0.0058
+Evaluating genome: hidden=128, nodes=1, k=0.999, lr=0.0005
+Evaluating genome: hidden=128, nodes=2, k=0.993, lr=0.0059
+Evaluating genome: hidden=68, nodes=1, k=0.999, lr=0.0060
+Evaluating genome: hidden=128, nodes=8, k=0.994, lr=0.0060
+Evaluating genome: hidden=128, nodes=4, k=0.993, lr=0.0160
+Evaluating genome: hidden=128, nodes=1, k=0.818, lr=0.0058
+Evaluating genome: hidden=91, nodes=1, k=0.873, lr=0.0058
+Evaluated 18 new individuals.
+Best Fitness: 18.6600 -> Genome: {'hidden_dim': 128, 'num_nodes': 1, 'k_contractive': 0.999, 'learning_rate': 0.005862833349312364}
+
+--- Generation 73 ---
+Evaluating genome: hidden=128, nodes=1, k=0.994, lr=0.0060
+Evaluating genome: hidden=128, nodes=1, k=0.999, lr=0.0059
+Evaluating genome: hidden=128, nodes=1, k=0.993, lr=0.0059
+Evaluating genome: hidden=128, nodes=2, k=0.999, lr=0.0059
+Evaluating genome: hidden=128, nodes=9, k=0.997, lr=0.0059
+Evaluating genome: hidden=128, nodes=6, k=0.901, lr=0.0040
+Evaluating genome: hidden=118, nodes=4, k=0.993, lr=0.0058
+Evaluating genome: hidden=128, nodes=2, k=0.993, lr=0.0078
+Evaluating genome: hidden=128, nodes=3, k=0.993, lr=0.0058
+Evaluating genome: hidden=128, nodes=5, k=0.999, lr=0.0058
+Evaluating genome: hidden=128, nodes=6, k=0.901, lr=0.0059
+Evaluating genome: hidden=128, nodes=2, k=0.992, lr=0.0060
+Evaluating genome: hidden=128, nodes=6, k=0.925, lr=0.0059
+Evaluating genome: hidden=113, nodes=6, k=0.993, lr=0.0058
+Evaluating genome: hidden=128, nodes=6, k=0.994, lr=0.0059
+Evaluating genome: hidden=128, nodes=6, k=0.999, lr=0.0059
+Evaluating genome: hidden=128, nodes=1, k=0.992, lr=0.0058
+Evaluating genome: hidden=128, nodes=1, k=0.999, lr=0.0059
+Evaluated 18 new individuals.
+Best Fitness: 18.8862 -> Genome: {'hidden_dim': 128, 'num_nodes': 1, 'k_contractive': 0.999, 'learning_rate': 0.0059335301779557086}
+
+--- Generation 74 ---
+Evaluating genome: hidden=128, nodes=6, k=0.999, lr=0.0063
+Evaluating genome: hidden=128, nodes=1, k=0.999, lr=0.0196
+Evaluating genome: hidden=128, nodes=1, k=0.997, lr=0.0247
+Evaluating genome: hidden=128, nodes=3, k=0.995, lr=0.0126
+Evaluating genome: hidden=128, nodes=7, k=0.993, lr=0.0274
+Evaluating genome: hidden=128, nodes=1, k=0.995, lr=0.0199
+Evaluating genome: hidden=128, nodes=1, k=0.999, lr=0.0059
+Evaluating genome: hidden=128, nodes=6, k=0.999, lr=0.0031
+Evaluating genome: hidden=128, nodes=11, k=0.999, lr=0.0059
+Evaluating genome: hidden=128, nodes=1, k=0.999, lr=0.0059
+Evaluating genome: hidden=128, nodes=10, k=0.999, lr=0.0060
+Evaluating genome: hidden=128, nodes=1, k=0.999, lr=0.0059
+Evaluating genome: hidden=128, nodes=1, k=0.736, lr=0.0059
+Evaluating genome: hidden=113, nodes=14, k=0.993, lr=0.0058
+Evaluating genome: hidden=128, nodes=1, k=0.990, lr=0.0060
+Evaluating genome: hidden=125, nodes=1, k=0.989, lr=0.0060
+Evaluating genome: hidden=114, nodes=7, k=0.999, lr=0.0059
+Evaluating genome: hidden=128, nodes=8, k=0.995, lr=0.0059
+Evaluated 18 new individuals.
+Best Fitness: 18.9675 -> Genome: {'hidden_dim': 128, 'num_nodes': 6, 'k_contractive': 0.999, 'learning_rate': 0.006313141575219673}
+
+--- Generation 75 ---
+Evaluating genome: hidden=128, nodes=9, k=0.999, lr=0.0059
+Evaluating genome: hidden=128, nodes=6, k=0.999, lr=0.0065
+Evaluating genome: hidden=114, nodes=3, k=0.999, lr=0.0005
+Evaluating genome: hidden=128, nodes=1, k=0.999, lr=0.0059
+Evaluating genome: hidden=128, nodes=8, k=0.999, lr=0.0065
+Evaluating genome: hidden=113, nodes=16, k=0.999, lr=0.0078
+Evaluating genome: hidden=128, nodes=7, k=0.999, lr=0.0059
+Evaluating genome: hidden=80, nodes=13, k=0.999, lr=0.0183
+Evaluating genome: hidden=108, nodes=2, k=0.999, lr=0.0059
+Evaluating genome: hidden=128, nodes=11, k=0.996, lr=0.0091
+Evaluating genome: hidden=128, nodes=16, k=0.999, lr=0.0065
+Evaluating genome: hidden=128, nodes=12, k=0.999, lr=0.0059
+Evaluating genome: hidden=120, nodes=3, k=0.999, lr=0.0005
+Evaluating genome: hidden=128, nodes=6, k=0.790, lr=0.0086
+Evaluating genome: hidden=128, nodes=1, k=0.999, lr=0.0161
+Evaluating genome: hidden=125, nodes=1, k=0.999, lr=0.0059
+Evaluating genome: hidden=99, nodes=1, k=0.992, lr=0.0060
+Evaluating genome: hidden=128, nodes=2, k=0.817, lr=0.0060
+Evaluated 18 new individuals.
+Best Fitness: 18.9675 -> Genome: {'hidden_dim': 128, 'num_nodes': 6, 'k_contractive': 0.999, 'learning_rate': 0.006313141575219673}
+
+--- Generation 76 ---
+Evaluating genome: hidden=128, nodes=6, k=0.999, lr=0.0005
+Evaluating genome: hidden=128, nodes=7, k=0.999, lr=0.0059
+Evaluating genome: hidden=128, nodes=1, k=0.985, lr=0.0059
+Evaluating genome: hidden=128, nodes=8, k=0.999, lr=0.0065
+Evaluating genome: hidden=128, nodes=1, k=0.999, lr=0.0063
+Evaluating genome: hidden=128, nodes=7, k=0.999, lr=0.0059
+Evaluating genome: hidden=128, nodes=6, k=0.999, lr=0.0063
+Evaluating genome: hidden=86, nodes=10, k=0.999, lr=0.0059
+Evaluating genome: hidden=128, nodes=6, k=0.999, lr=0.0063
+Evaluating genome: hidden=118, nodes=6, k=0.999, lr=0.0059
+Evaluating genome: hidden=128, nodes=6, k=0.999, lr=0.0065
+Evaluating genome: hidden=127, nodes=9, k=0.999, lr=0.0059
+Evaluating genome: hidden=128, nodes=15, k=0.999, lr=0.0041
+Evaluating genome: hidden=128, nodes=6, k=0.999, lr=0.0121
+Evaluating genome: hidden=128, nodes=2, k=0.999, lr=0.0059
+Evaluating genome: hidden=72, nodes=6, k=0.999, lr=0.0048
+Evaluating genome: hidden=128, nodes=7, k=0.999, lr=0.0005
+Evaluating genome: hidden=128, nodes=1, k=0.999, lr=0.0059
+Evaluated 18 new individuals.
+Best Fitness: 18.8483 -> Genome: {'hidden_dim': 128, 'num_nodes': 7, 'k_contractive': 0.999, 'learning_rate': 0.005852167339221109}
+
+--- Generation 77 ---
+Evaluating genome: hidden=128, nodes=7, k=0.999, lr=0.0063
+Evaluating genome: hidden=128, nodes=1, k=0.999, lr=0.0092
+Evaluating genome: hidden=128, nodes=6, k=0.999, lr=0.0063
+Evaluating genome: hidden=128, nodes=3, k=0.999, lr=0.0061
+Evaluating genome: hidden=128, nodes=8, k=0.999, lr=0.0005
+Evaluating genome: hidden=128, nodes=1, k=0.978, lr=0.0060
+Evaluating genome: hidden=99, nodes=1, k=0.999, lr=0.0269
+Evaluating genome: hidden=128, nodes=1, k=0.999, lr=0.0063
+Evaluating genome: hidden=93, nodes=10, k=0.999, lr=0.0058
+Evaluating genome: hidden=114, nodes=1, k=0.999, lr=0.0005
+Evaluating genome: hidden=128, nodes=13, k=0.952, lr=0.0063
+Evaluating genome: hidden=128, nodes=4, k=0.999, lr=0.0083
+Evaluating genome: hidden=104, nodes=8, k=0.999, lr=0.0005
+Evaluating genome: hidden=118, nodes=6, k=0.999, lr=0.0059
+Evaluating genome: hidden=128, nodes=1, k=0.985, lr=0.0083
+Evaluating genome: hidden=121, nodes=5, k=0.991, lr=0.0059
+Evaluating genome: hidden=128, nodes=6, k=0.999, lr=0.0063
+Evaluating genome: hidden=117, nodes=7, k=0.999, lr=0.0008
+Evaluated 18 new individuals.
+Best Fitness: 18.8483 -> Genome: {'hidden_dim': 128, 'num_nodes': 7, 'k_contractive': 0.999, 'learning_rate': 0.005852167339221109}
+
+--- Generation 78 ---
+Evaluating genome: hidden=128, nodes=13, k=0.971, lr=0.0059
+Evaluating genome: hidden=111, nodes=1, k=0.999, lr=0.0063
+Evaluating genome: hidden=128, nodes=1, k=0.999, lr=0.0039
+Evaluating genome: hidden=128, nodes=7, k=0.855, lr=0.0078
+Evaluating genome: hidden=128, nodes=4, k=0.999, lr=0.0063
+Evaluating genome: hidden=128, nodes=1, k=0.846, lr=0.0063
+Evaluating genome: hidden=128, nodes=11, k=0.999, lr=0.0063
+Evaluating genome: hidden=124, nodes=6, k=0.994, lr=0.0156
+Evaluating genome: hidden=128, nodes=6, k=0.952, lr=0.0005
+Evaluating genome: hidden=128, nodes=1, k=0.999, lr=0.0057
+Evaluating genome: hidden=102, nodes=3, k=0.999, lr=0.0060
+Evaluating genome: hidden=125, nodes=7, k=0.984, lr=0.0063
+Evaluating genome: hidden=117, nodes=4, k=0.984, lr=0.0061
+Evaluating genome: hidden=128, nodes=2, k=0.999, lr=0.0064
+Evaluating genome: hidden=86, nodes=7, k=0.999, lr=0.0005
+Evaluating genome: hidden=99, nodes=12, k=0.999, lr=0.0058
+Evaluating genome: hidden=128, nodes=8, k=0.999, lr=0.0058
+Evaluating genome: hidden=128, nodes=1, k=0.999, lr=0.0063
+Evaluated 18 new individuals.
+Best Fitness: 18.8483 -> Genome: {'hidden_dim': 128, 'num_nodes': 7, 'k_contractive': 0.999, 'learning_rate': 0.005852167339221109}
+
+--- Generation 79 ---
+Evaluating genome: hidden=128, nodes=7, k=0.999, lr=0.0059
+Evaluating genome: hidden=128, nodes=1, k=0.999, lr=0.0067
+Evaluating genome: hidden=128, nodes=9, k=0.999, lr=0.0245
+Evaluating genome: hidden=118, nodes=1, k=0.879, lr=0.0061
+Evaluating genome: hidden=128, nodes=1, k=0.999, lr=0.0063
+Evaluating genome: hidden=128, nodes=1, k=0.999, lr=0.0162
+Evaluating genome: hidden=128, nodes=2, k=0.999, lr=0.0059
+Evaluating genome: hidden=127, nodes=8, k=0.987, lr=0.0061
+Evaluating genome: hidden=128, nodes=6, k=0.999, lr=0.0064
+Evaluating genome: hidden=128, nodes=6, k=0.999, lr=0.0069
+Evaluating genome: hidden=91, nodes=3, k=0.998, lr=0.0063
+Evaluating genome: hidden=128, nodes=6, k=0.999, lr=0.0182
+Evaluating genome: hidden=128, nodes=13, k=0.971, lr=0.0059
+Evaluating genome: hidden=128, nodes=3, k=0.999, lr=0.0059
+Evaluating genome: hidden=128, nodes=1, k=0.856, lr=0.0062
+Evaluating genome: hidden=128, nodes=5, k=0.999, lr=0.0063
+Evaluating genome: hidden=123, nodes=6, k=0.993, lr=0.0058
+Evaluating genome: hidden=109, nodes=8, k=0.999, lr=0.0005
+Evaluated 18 new individuals.
+Best Fitness: 18.1186 -> Genome: {'hidden_dim': 128, 'num_nodes': 7, 'k_contractive': 0.999, 'learning_rate': 0.005852167339221109}
+
+--- Generation 80 ---
+Evaluating genome: hidden=123, nodes=6, k=0.777, lr=0.0058
+Evaluating genome: hidden=128, nodes=6, k=0.796, lr=0.0064
+Evaluating genome: hidden=128, nodes=2, k=0.999, lr=0.0062
+Evaluating genome: hidden=128, nodes=11, k=0.999, lr=0.0059
+Evaluating genome: hidden=128, nodes=4, k=0.999, lr=0.0064
+Evaluating genome: hidden=128, nodes=5, k=0.999, lr=0.0005
+Evaluating genome: hidden=128, nodes=9, k=0.999, lr=0.0067
+Evaluating genome: hidden=128, nodes=6, k=0.999, lr=0.0060
+Evaluating genome: hidden=128, nodes=5, k=0.999, lr=0.0071
+Evaluating genome: hidden=123, nodes=6, k=0.993, lr=0.0058
+Evaluating genome: hidden=128, nodes=3, k=0.999, lr=0.0056
+Evaluating genome: hidden=123, nodes=6, k=0.993, lr=0.0005
+Evaluating genome: hidden=94, nodes=1, k=0.999, lr=0.0128
+Evaluating genome: hidden=128, nodes=2, k=0.999, lr=0.0166
+Evaluating genome: hidden=128, nodes=8, k=0.999, lr=0.0005
+Evaluating genome: hidden=125, nodes=1, k=0.993, lr=0.0215
+Evaluating genome: hidden=92, nodes=5, k=0.999, lr=0.0059
+Evaluating genome: hidden=127, nodes=4, k=0.998, lr=0.0058
+Evaluated 18 new individuals.
+Best Fitness: 18.1186 -> Genome: {'hidden_dim': 128, 'num_nodes': 7, 'k_contractive': 0.999, 'learning_rate': 0.005852167339221109}
+
+--- Generation 81 ---
+Evaluating genome: hidden=128, nodes=5, k=0.972, lr=0.0132
+Evaluating genome: hidden=128, nodes=3, k=0.999, lr=0.0058
+Evaluating genome: hidden=128, nodes=1, k=0.999, lr=0.0056
+Evaluating genome: hidden=128, nodes=1, k=0.884, lr=0.0087
+Evaluating genome: hidden=128, nodes=5, k=0.999, lr=0.0063
+Evaluating genome: hidden=128, nodes=7, k=0.999, lr=0.0059
+Evaluating genome: hidden=126, nodes=6, k=0.998, lr=0.0058
+Evaluating genome: hidden=128, nodes=4, k=0.999, lr=0.0064
+Evaluating genome: hidden=128, nodes=2, k=0.999, lr=0.0057
+Evaluating genome: hidden=128, nodes=5, k=0.999, lr=0.0060
+Evaluating genome: hidden=111, nodes=5, k=0.999, lr=0.0005
+Evaluating genome: hidden=128, nodes=4, k=0.999, lr=0.0362
+Evaluating genome: hidden=127, nodes=1, k=0.998, lr=0.0005
+Evaluating genome: hidden=128, nodes=4, k=0.999, lr=0.0166
+Evaluating genome: hidden=127, nodes=15, k=0.999, lr=0.0133
+Evaluating genome: hidden=128, nodes=2, k=0.999, lr=0.0006
+Evaluating genome: hidden=128, nodes=7, k=0.999, lr=0.0056
+Evaluating genome: hidden=128, nodes=3, k=0.999, lr=0.0063
+Evaluated 18 new individuals.
+Best Fitness: 18.1186 -> Genome: {'hidden_dim': 128, 'num_nodes': 7, 'k_contractive': 0.999, 'learning_rate': 0.005852167339221109}
+
+--- Generation 82 ---
+Evaluating genome: hidden=126, nodes=1, k=0.999, lr=0.0059
+Evaluating genome: hidden=128, nodes=3, k=0.999, lr=0.0184
+Evaluating genome: hidden=128, nodes=7, k=0.999, lr=0.0059
+Evaluating genome: hidden=128, nodes=1, k=0.999, lr=0.0055
+Evaluating genome: hidden=128, nodes=12, k=0.823, lr=0.0058
+Evaluating genome: hidden=65, nodes=1, k=0.999, lr=0.0046
+Evaluating genome: hidden=128, nodes=7, k=0.829, lr=0.0058
+Evaluating genome: hidden=128, nodes=1, k=0.999, lr=0.0067
+Evaluating genome: hidden=128, nodes=6, k=0.999, lr=0.0058
+Evaluating genome: hidden=128, nodes=3, k=0.999, lr=0.0169
+Evaluating genome: hidden=128, nodes=7, k=0.999, lr=0.0107
+Evaluating genome: hidden=128, nodes=6, k=0.999, lr=0.0245
+Evaluating genome: hidden=128, nodes=3, k=0.999, lr=0.0063
+Evaluating genome: hidden=128, nodes=6, k=0.999, lr=0.0057
+Evaluating genome: hidden=125, nodes=13, k=0.999, lr=0.0005
+Evaluating genome: hidden=128, nodes=1, k=0.959, lr=0.0056
+Evaluating genome: hidden=128, nodes=4, k=0.999, lr=0.0057
+Evaluating genome: hidden=128, nodes=10, k=0.999, lr=0.0058
+Evaluated 18 new individuals.
+Best Fitness: 19.9098 -> Genome: {'hidden_dim': 128, 'num_nodes': 6, 'k_contractive': 0.999, 'learning_rate': 0.005818615783195623}
+
+--- Generation 83 ---
+Evaluating genome: hidden=128, nodes=7, k=0.999, lr=0.0059
+Evaluating genome: hidden=128, nodes=3, k=0.931, lr=0.0085
+Evaluating genome: hidden=128, nodes=6, k=0.999, lr=0.0058
+Evaluating genome: hidden=128, nodes=5, k=0.999, lr=0.0128
+Evaluating genome: hidden=128, nodes=1, k=0.998, lr=0.0056
+Evaluating genome: hidden=128, nodes=4, k=0.981, lr=0.0137
+Evaluating genome: hidden=95, nodes=6, k=0.999, lr=0.0062
+Evaluating genome: hidden=128, nodes=3, k=0.909, lr=0.0063
+Evaluating genome: hidden=105, nodes=1, k=0.959, lr=0.0056
+Evaluating genome: hidden=113, nodes=6, k=0.999, lr=0.0058
+Evaluating genome: hidden=82, nodes=1, k=0.999, lr=0.0056
+Evaluating genome: hidden=128, nodes=2, k=0.965, lr=0.0053
+Evaluating genome: hidden=128, nodes=1, k=0.999, lr=0.0063
+Evaluating genome: hidden=128, nodes=6, k=0.999, lr=0.0058
+Evaluating genome: hidden=128, nodes=1, k=0.999, lr=0.0005
+Evaluating genome: hidden=128, nodes=6, k=0.999, lr=0.0186
+Evaluating genome: hidden=128, nodes=4, k=0.959, lr=0.0314
+Evaluating genome: hidden=89, nodes=6, k=0.999, lr=0.0058
+Evaluated 18 new individuals.
+Best Fitness: 19.1341 -> Genome: {'hidden_dim': 128, 'num_nodes': 7, 'k_contractive': 0.999, 'learning_rate': 0.005875362948165726}
+
+--- Generation 84 ---
+Evaluating genome: hidden=128, nodes=5, k=0.999, lr=0.0073
+Evaluating genome: hidden=128, nodes=6, k=0.999, lr=0.0058
+Evaluating genome: hidden=128, nodes=1, k=0.918, lr=0.0065
+Evaluating genome: hidden=121, nodes=8, k=0.999, lr=0.0053
+Evaluating genome: hidden=128, nodes=2, k=0.909, lr=0.0063
+Evaluating genome: hidden=128, nodes=2, k=0.903, lr=0.0063
+Evaluating genome: hidden=107, nodes=15, k=0.990, lr=0.0058
+Evaluating genome: hidden=128, nodes=13, k=0.999, lr=0.0057
+Evaluating genome: hidden=104, nodes=6, k=0.999, lr=0.0058
+Evaluating genome: hidden=128, nodes=6, k=0.999, lr=0.0057
+Evaluating genome: hidden=128, nodes=6, k=0.999, lr=0.0060
+Evaluating genome: hidden=128, nodes=5, k=0.948, lr=0.0056
+Evaluating genome: hidden=128, nodes=5, k=0.999, lr=0.0058
+Evaluating genome: hidden=128, nodes=5, k=0.930, lr=0.0059
+Evaluating genome: hidden=128, nodes=1, k=0.999, lr=0.0059
+Evaluating genome: hidden=128, nodes=9, k=0.999, lr=0.0005
+Evaluating genome: hidden=128, nodes=7, k=0.999, lr=0.0059
+Evaluating genome: hidden=128, nodes=2, k=0.999, lr=0.0057
+Evaluated 18 new individuals.
+Best Fitness: 18.3700 -> Genome: {'hidden_dim': 128, 'num_nodes': 6, 'k_contractive': 0.999, 'learning_rate': 0.005724090058501408}
+
+--- Generation 85 ---
+Evaluating genome: hidden=128, nodes=2, k=0.999, lr=0.0094
+Evaluating genome: hidden=128, nodes=1, k=0.853, lr=0.0061
+Evaluating genome: hidden=128, nodes=6, k=0.999, lr=0.0005
+Evaluating genome: hidden=111, nodes=5, k=0.992, lr=0.0005
+Evaluating genome: hidden=128, nodes=5, k=0.929, lr=0.0064
+Evaluating genome: hidden=116, nodes=5, k=0.973, lr=0.0059
+Evaluating genome: hidden=128, nodes=4, k=0.999, lr=0.0057
+Evaluating genome: hidden=128, nodes=2, k=0.999, lr=0.0057
+Evaluating genome: hidden=128, nodes=1, k=0.999, lr=0.0063
+Evaluating genome: hidden=128, nodes=6, k=0.999, lr=0.0057
+Evaluating genome: hidden=128, nodes=6, k=0.999, lr=0.0057
+Evaluating genome: hidden=63, nodes=5, k=0.999, lr=0.0073
+Evaluating genome: hidden=128, nodes=13, k=0.999, lr=0.0057
+Evaluating genome: hidden=128, nodes=6, k=0.948, lr=0.0057
+Evaluating genome: hidden=128, nodes=6, k=0.999, lr=0.0236
+Evaluating genome: hidden=128, nodes=1, k=0.903, lr=0.0063
+Evaluating genome: hidden=128, nodes=4, k=0.999, lr=0.0053
+Evaluating genome: hidden=128, nodes=6, k=0.999, lr=0.0057
+Evaluated 18 new individuals.
+Best Fitness: 18.0460 -> Genome: {'hidden_dim': 128, 'num_nodes': 5, 'k_contractive': 0.999, 'learning_rate': 0.007288665546115271}
+
+--- Generation 86 ---
+Evaluating genome: hidden=128, nodes=4, k=0.943, lr=0.0057
+Evaluating genome: hidden=128, nodes=5, k=0.999, lr=0.0057
+Evaluating genome: hidden=128, nodes=6, k=0.999, lr=0.0005
+Evaluating genome: hidden=128, nodes=11, k=0.999, lr=0.0057
+Evaluating genome: hidden=128, nodes=13, k=0.884, lr=0.0057
+Evaluating genome: hidden=128, nodes=6, k=0.896, lr=0.0064
+Evaluating genome: hidden=128, nodes=5, k=0.999, lr=0.0005
+Evaluating genome: hidden=128, nodes=7, k=0.999, lr=0.0057
+Evaluating genome: hidden=78, nodes=5, k=0.999, lr=0.0073
+Evaluating genome: hidden=128, nodes=6, k=0.999, lr=0.0057
+Evaluating genome: hidden=128, nodes=5, k=0.902, lr=0.0005
+Evaluating genome: hidden=128, nodes=4, k=0.999, lr=0.0057
+Evaluating genome: hidden=128, nodes=1, k=0.999, lr=0.0065
+Evaluating genome: hidden=128, nodes=9, k=0.999, lr=0.0157
+Evaluating genome: hidden=128, nodes=7, k=0.999, lr=0.0049
+Evaluating genome: hidden=65, nodes=13, k=0.999, lr=0.0149
+Evaluating genome: hidden=128, nodes=5, k=0.999, lr=0.0054
+Evaluating genome: hidden=128, nodes=5, k=0.999, lr=0.0073
+Evaluated 18 new individuals.
+Best Fitness: 17.8030 -> Genome: {'hidden_dim': 128, 'num_nodes': 5, 'k_contractive': 0.999, 'learning_rate': 0.005663127262887197}
+
+--- Generation 87 ---
+Evaluating genome: hidden=127, nodes=6, k=0.999, lr=0.0057
+Evaluating genome: hidden=128, nodes=1, k=0.999, lr=0.0057
+Evaluating genome: hidden=98, nodes=5, k=0.999, lr=0.0057
+Evaluating genome: hidden=128, nodes=5, k=0.999, lr=0.0057
+Evaluating genome: hidden=128, nodes=4, k=0.999, lr=0.0057
+Evaluating genome: hidden=93, nodes=1, k=0.864, lr=0.0057
+Evaluating genome: hidden=128, nodes=1, k=0.999, lr=0.0052
+Evaluating genome: hidden=90, nodes=10, k=0.902, lr=0.0005
+Evaluating genome: hidden=128, nodes=4, k=0.999, lr=0.0057
+Evaluating genome: hidden=128, nodes=6, k=0.884, lr=0.0005
+Evaluating genome: hidden=78, nodes=4, k=0.999, lr=0.0192
+Evaluating genome: hidden=82, nodes=11, k=0.943, lr=0.0057
+Evaluating genome: hidden=128, nodes=16, k=0.999, lr=0.0339
+Evaluating genome: hidden=128, nodes=4, k=0.999, lr=0.0009
+Evaluating genome: hidden=128, nodes=4, k=0.942, lr=0.0057
+Evaluating genome: hidden=128, nodes=5, k=0.999, lr=0.0053
+Evaluating genome: hidden=128, nodes=7, k=0.999, lr=0.0049
+Evaluating genome: hidden=128, nodes=6, k=0.999, lr=0.0057
+Evaluated 18 new individuals.
+Best Fitness: 19.0025 -> Genome: {'hidden_dim': 128, 'num_nodes': 4, 'k_contractive': 0.999, 'learning_rate': 0.005724090058501408}
+
+--- Generation 88 ---
+Evaluating genome: hidden=62, nodes=6, k=0.999, lr=0.0352
+Evaluating genome: hidden=128, nodes=1, k=0.999, lr=0.0005
+Evaluating genome: hidden=128, nodes=12, k=0.933, lr=0.0049
+Evaluating genome: hidden=127, nodes=1, k=0.999, lr=0.0057
+Evaluating genome: hidden=128, nodes=7, k=0.999, lr=0.0056
+Evaluating genome: hidden=128, nodes=7, k=0.999, lr=0.0005
+Evaluating genome: hidden=112, nodes=4, k=0.999, lr=0.0005
+Evaluating genome: hidden=128, nodes=4, k=0.938, lr=0.0057
+Evaluating genome: hidden=128, nodes=4, k=0.987, lr=0.0005
+Evaluating genome: hidden=128, nodes=7, k=0.883, lr=0.0049
+Evaluating genome: hidden=128, nodes=4, k=0.748, lr=0.0074
+Evaluating genome: hidden=128, nodes=4, k=0.999, lr=0.0057
+Evaluating genome: hidden=127, nodes=7, k=0.999, lr=0.0057
+Evaluating genome: hidden=128, nodes=11, k=0.999, lr=0.0247
+Evaluating genome: hidden=128, nodes=2, k=0.737, lr=0.0057
+Evaluating genome: hidden=126, nodes=3, k=0.999, lr=0.0005
+Evaluating genome: hidden=128, nodes=12, k=0.999, lr=0.0057
+Evaluating genome: hidden=128, nodes=7, k=0.999, lr=0.0099
+Evaluated 18 new individuals.
+Best Fitness: 19.0025 -> Genome: {'hidden_dim': 128, 'num_nodes': 4, 'k_contractive': 0.999, 'learning_rate': 0.005724090058501408}
+
+--- Generation 89 ---
+Evaluating genome: hidden=128, nodes=8, k=0.934, lr=0.0051
+Evaluating genome: hidden=128, nodes=11, k=0.952, lr=0.0057
+Evaluating genome: hidden=128, nodes=2, k=0.982, lr=0.0005
+Evaluating genome: hidden=128, nodes=4, k=0.999, lr=0.0057
+Evaluating genome: hidden=125, nodes=4, k=0.999, lr=0.0124
+Evaluating genome: hidden=128, nodes=9, k=0.999, lr=0.0057
+Evaluating genome: hidden=101, nodes=4, k=0.999, lr=0.0005
+Evaluating genome: hidden=128, nodes=8, k=0.999, lr=0.0057
+Evaluating genome: hidden=128, nodes=7, k=0.899, lr=0.0005
+Evaluating genome: hidden=128, nodes=6, k=0.999, lr=0.0097
+Evaluating genome: hidden=128, nodes=1, k=0.737, lr=0.0057
+Evaluating genome: hidden=111, nodes=5, k=0.989, lr=0.0005
+Evaluating genome: hidden=128, nodes=4, k=0.988, lr=0.0066
+Evaluating genome: hidden=103, nodes=4, k=0.999, lr=0.0005
+Evaluating genome: hidden=128, nodes=4, k=0.999, lr=0.0057
+Evaluating genome: hidden=90, nodes=4, k=0.923, lr=0.0005
+Evaluating genome: hidden=128, nodes=1, k=0.604, lr=0.0046
+Evaluating genome: hidden=127, nodes=6, k=0.672, lr=0.0061
+Evaluated 18 new individuals.
+Best Fitness: 18.9014 -> Genome: {'hidden_dim': 128, 'num_nodes': 4, 'k_contractive': 0.999, 'learning_rate': 0.005724090058501408}
+
+--- Generation 90 ---
+Evaluating genome: hidden=128, nodes=9, k=0.999, lr=0.0057
+Evaluating genome: hidden=120, nodes=8, k=0.999, lr=0.0344
+Evaluating genome: hidden=86, nodes=5, k=0.999, lr=0.0057
+Evaluating genome: hidden=128, nodes=3, k=0.999, lr=0.0057
+Evaluating genome: hidden=97, nodes=1, k=0.999, lr=0.0086
+Evaluating genome: hidden=128, nodes=11, k=0.942, lr=0.0057
+Evaluating genome: hidden=128, nodes=1, k=0.999, lr=0.0057
+Evaluating genome: hidden=69, nodes=1, k=0.999, lr=0.0296
+Evaluating genome: hidden=128, nodes=13, k=0.999, lr=0.0296
+Evaluating genome: hidden=128, nodes=8, k=0.999, lr=0.0005
+Evaluating genome: hidden=128, nodes=6, k=0.952, lr=0.0057
+Evaluating genome: hidden=128, nodes=7, k=0.999, lr=0.0057
+Evaluating genome: hidden=128, nodes=16, k=0.934, lr=0.0051
+Evaluating genome: hidden=128, nodes=2, k=0.999, lr=0.0080
+Evaluating genome: hidden=128, nodes=6, k=0.999, lr=0.0057
+Evaluating genome: hidden=75, nodes=11, k=0.845, lr=0.0249
+Evaluating genome: hidden=128, nodes=7, k=0.929, lr=0.0059
+Evaluating genome: hidden=128, nodes=9, k=0.999, lr=0.0057
+Evaluated 18 new individuals.
+Best Fitness: 18.9014 -> Genome: {'hidden_dim': 128, 'num_nodes': 4, 'k_contractive': 0.999, 'learning_rate': 0.005724090058501408}
+
+--- Generation 91 ---
+Evaluating genome: hidden=128, nodes=6, k=0.999, lr=0.0057
+Evaluating genome: hidden=128, nodes=7, k=0.999, lr=0.0057
+Evaluating genome: hidden=128, nodes=6, k=0.942, lr=0.0005
+Evaluating genome: hidden=128, nodes=16, k=0.952, lr=0.0005
+Evaluating genome: hidden=98, nodes=15, k=0.952, lr=0.0057
+Evaluating genome: hidden=128, nodes=11, k=0.939, lr=0.0057
+Evaluating genome: hidden=110, nodes=2, k=0.977, lr=0.0398
+Evaluating genome: hidden=128, nodes=6, k=0.999, lr=0.0057
+Evaluating genome: hidden=128, nodes=10, k=0.999, lr=0.0006
+Evaluating genome: hidden=128, nodes=9, k=0.999, lr=0.0057
+Evaluating genome: hidden=128, nodes=4, k=0.999, lr=0.0057
+Evaluating genome: hidden=128, nodes=12, k=0.999, lr=0.0057
+Evaluating genome: hidden=128, nodes=9, k=0.999, lr=0.0057
+Evaluating genome: hidden=128, nodes=4, k=0.862, lr=0.0057
+Evaluating genome: hidden=128, nodes=7, k=0.999, lr=0.0057
+Evaluating genome: hidden=128, nodes=10, k=0.949, lr=0.0057
+Evaluating genome: hidden=128, nodes=4, k=0.962, lr=0.0191
+Evaluating genome: hidden=128, nodes=13, k=0.929, lr=0.0183
+Evaluated 18 new individuals.
+Best Fitness: 18.7034 -> Genome: {'hidden_dim': 128, 'num_nodes': 11, 'k_contractive': 0.9421451764267644, 'learning_rate': 0.005724090058501408}
+
+--- Generation 92 ---
+Evaluating genome: hidden=128, nodes=9, k=0.999, lr=0.0057
+Evaluating genome: hidden=128, nodes=9, k=0.757, lr=0.0057
+Evaluating genome: hidden=128, nodes=9, k=0.858, lr=0.0141
+Evaluating genome: hidden=128, nodes=4, k=0.999, lr=0.0367
+Evaluating genome: hidden=115, nodes=9, k=0.717, lr=0.0057
+Evaluating genome: hidden=128, nodes=12, k=0.999, lr=0.0057
+Evaluating genome: hidden=128, nodes=10, k=0.949, lr=0.0057
+Evaluating genome: hidden=128, nodes=16, k=0.939, lr=0.0005
+Evaluating genome: hidden=128, nodes=13, k=0.969, lr=0.0136
+Evaluating genome: hidden=113, nodes=4, k=0.862, lr=0.0057
+Evaluating genome: hidden=128, nodes=3, k=0.925, lr=0.0057
+Evaluating genome: hidden=128, nodes=6, k=0.999, lr=0.0057
+Evaluating genome: hidden=128, nodes=12, k=0.999, lr=0.0057
+Evaluating genome: hidden=128, nodes=11, k=0.999, lr=0.0057
+Evaluating genome: hidden=128, nodes=5, k=0.999, lr=0.0111
+Evaluating genome: hidden=65, nodes=4, k=0.862, lr=0.0057
+Evaluating genome: hidden=128, nodes=7, k=0.999, lr=0.0057
+Evaluating genome: hidden=128, nodes=1, k=0.999, lr=0.0057
+Evaluated 18 new individuals.
+Best Fitness: 19.2559 -> Genome: {'hidden_dim': 128, 'num_nodes': 7, 'k_contractive': 0.999, 'learning_rate': 0.0057282393002947105}
+
+--- Generation 93 ---
+Evaluating genome: hidden=128, nodes=1, k=0.895, lr=0.0057
+Evaluating genome: hidden=128, nodes=5, k=0.993, lr=0.0083
+Evaluating genome: hidden=77, nodes=4, k=0.862, lr=0.0057
+Evaluating genome: hidden=128, nodes=5, k=0.997, lr=0.0057
+Evaluating genome: hidden=128, nodes=1, k=0.999, lr=0.0161
+Evaluating genome: hidden=128, nodes=1, k=0.999, lr=0.0123
+Evaluating genome: hidden=128, nodes=4, k=0.900, lr=0.0005
+Evaluating genome: hidden=128, nodes=4, k=0.920, lr=0.0057
+Evaluating genome: hidden=128, nodes=3, k=0.925, lr=0.0005
+Evaluating genome: hidden=94, nodes=11, k=0.967, lr=0.0280
+Evaluating genome: hidden=122, nodes=3, k=0.946, lr=0.0177
+Evaluating genome: hidden=128, nodes=1, k=0.999, lr=0.0005
+Evaluating genome: hidden=128, nodes=1, k=0.983, lr=0.0057
+Evaluating genome: hidden=80, nodes=10, k=0.962, lr=0.0057
+Evaluating genome: hidden=128, nodes=2, k=0.819, lr=0.0045
+Evaluating genome: hidden=128, nodes=5, k=0.999, lr=0.0057
+Evaluating genome: hidden=128, nodes=5, k=0.954, lr=0.0057
+Evaluating genome: hidden=128, nodes=7, k=0.999, lr=0.0057
+Evaluated 18 new individuals.
+Best Fitness: 19.0856 -> Genome: {'hidden_dim': 128, 'num_nodes': 3, 'k_contractive': 0.9247007200952316, 'learning_rate': 0.005724090058501408}
+
+--- Generation 94 ---
+Evaluating genome: hidden=128, nodes=3, k=0.925, lr=0.0057
+Evaluating genome: hidden=120, nodes=1, k=0.983, lr=0.0057
+Evaluating genome: hidden=128, nodes=1, k=0.999, lr=0.0057
+Evaluating genome: hidden=93, nodes=8, k=0.999, lr=0.0057
+Evaluating genome: hidden=62, nodes=5, k=0.999, lr=0.0005
+Evaluating genome: hidden=128, nodes=4, k=0.920, lr=0.0057
+Evaluating genome: hidden=108, nodes=1, k=0.907, lr=0.0057
+Evaluating genome: hidden=128, nodes=1, k=0.983, lr=0.0057
+Evaluating genome: hidden=128, nodes=1, k=0.995, lr=0.0057
+Evaluating genome: hidden=93, nodes=2, k=0.905, lr=0.0057
+Evaluating genome: hidden=128, nodes=6, k=0.895, lr=0.0057
+Evaluating genome: hidden=128, nodes=5, k=0.999, lr=0.0201
+Evaluating genome: hidden=128, nodes=5, k=0.999, lr=0.0082
+Evaluating genome: hidden=102, nodes=1, k=0.999, lr=0.0057
+Evaluating genome: hidden=72, nodes=1, k=0.918, lr=0.0057
+Evaluating genome: hidden=128, nodes=7, k=0.868, lr=0.0156
+Evaluating genome: hidden=128, nodes=4, k=0.999, lr=0.0025
+Evaluating genome: hidden=128, nodes=1, k=0.960, lr=0.0057
+Evaluated 18 new individuals.
+Best Fitness: 18.4287 -> Genome: {'hidden_dim': 128, 'num_nodes': 5, 'k_contractive': 0.9970249500436944, 'learning_rate': 0.005728725213861161}
+
+--- Generation 95 ---
+Evaluating genome: hidden=123, nodes=1, k=0.966, lr=0.0057
+Evaluating genome: hidden=93, nodes=2, k=0.905, lr=0.0057
+Evaluating genome: hidden=128, nodes=7, k=0.999, lr=0.0057
+Evaluating genome: hidden=121, nodes=2, k=0.999, lr=0.0005
+Evaluating genome: hidden=113, nodes=5, k=0.999, lr=0.0057
+Evaluating genome: hidden=126, nodes=1, k=0.861, lr=0.0057
+Evaluating genome: hidden=128, nodes=5, k=0.999, lr=0.0225
+Evaluating genome: hidden=127, nodes=5, k=0.903, lr=0.0057
+Evaluating genome: hidden=124, nodes=3, k=0.989, lr=0.0057
+Evaluating genome: hidden=128, nodes=1, k=0.999, lr=0.0057
+Evaluating genome: hidden=126, nodes=1, k=0.983, lr=0.0057
+Evaluating genome: hidden=128, nodes=3, k=0.983, lr=0.0057
+Evaluating genome: hidden=128, nodes=1, k=0.905, lr=0.0057
+Evaluating genome: hidden=123, nodes=5, k=0.940, lr=0.0057
+Evaluating genome: hidden=120, nodes=1, k=0.689, lr=0.0200
+Evaluating genome: hidden=128, nodes=1, k=0.889, lr=0.0057
+Evaluating genome: hidden=107, nodes=9, k=0.999, lr=0.0057
+Evaluating genome: hidden=128, nodes=5, k=0.997, lr=0.0057
+Evaluated 18 new individuals.
+Best Fitness: 17.9818 -> Genome: {'hidden_dim': 120, 'num_nodes': 1, 'k_contractive': 0.9827198792491377, 'learning_rate': 0.005730229631967281}
+
+--- Generation 96 ---
+Evaluating genome: hidden=126, nodes=1, k=0.983, lr=0.0057
+Evaluating genome: hidden=102, nodes=5, k=0.782, lr=0.0057
+Evaluating genome: hidden=128, nodes=1, k=0.999, lr=0.0057
+Evaluating genome: hidden=128, nodes=10, k=0.967, lr=0.0500
+Evaluating genome: hidden=116, nodes=9, k=0.900, lr=0.0057
+Evaluating genome: hidden=128, nodes=5, k=0.999, lr=0.0057
+Evaluating genome: hidden=128, nodes=5, k=0.999, lr=0.0082
+Evaluating genome: hidden=107, nodes=1, k=0.999, lr=0.0057
+Evaluating genome: hidden=128, nodes=1, k=0.895, lr=0.0057
+Evaluating genome: hidden=126, nodes=1, k=0.983, lr=0.0057
+Evaluating genome: hidden=128, nodes=7, k=0.999, lr=0.0005
+Evaluating genome: hidden=89, nodes=1, k=0.983, lr=0.0057
+Evaluating genome: hidden=125, nodes=1, k=0.983, lr=0.0005
+Evaluating genome: hidden=128, nodes=7, k=0.999, lr=0.0057
+Evaluating genome: hidden=93, nodes=2, k=0.905, lr=0.0057
+Evaluating genome: hidden=128, nodes=7, k=0.999, lr=0.0005
+Evaluating genome: hidden=107, nodes=9, k=0.999, lr=0.0037
+Evaluating genome: hidden=120, nodes=1, k=0.999, lr=0.0057
+Evaluated 18 new individuals.
+Best Fitness: 18.2345 -> Genome: {'hidden_dim': 128, 'num_nodes': 5, 'k_contractive': 0.999, 'learning_rate': 0.005729529811711905}
+
+--- Generation 97 ---
+Evaluating genome: hidden=128, nodes=5, k=0.999, lr=0.0057
+Evaluating genome: hidden=125, nodes=1, k=0.999, lr=0.0134
+Evaluating genome: hidden=128, nodes=5, k=0.999, lr=0.0057
+Evaluating genome: hidden=128, nodes=9, k=0.883, lr=0.0057
+Evaluating genome: hidden=128, nodes=8, k=0.999, lr=0.0057
+Evaluating genome: hidden=121, nodes=1, k=0.999, lr=0.0057
+Evaluating genome: hidden=125, nodes=1, k=0.982, lr=0.0057
+Evaluating genome: hidden=128, nodes=7, k=0.999, lr=0.0057
+Evaluating genome: hidden=126, nodes=8, k=0.938, lr=0.0057
+Evaluating genome: hidden=128, nodes=1, k=0.999, lr=0.0044
+Evaluating genome: hidden=120, nodes=1, k=0.991, lr=0.0005
+Evaluating genome: hidden=126, nodes=1, k=0.983, lr=0.0057
+Evaluating genome: hidden=123, nodes=1, k=0.995, lr=0.0005
+Evaluating genome: hidden=125, nodes=1, k=0.981, lr=0.0005
+Evaluating genome: hidden=127, nodes=1, k=0.988, lr=0.0057
+Evaluating genome: hidden=128, nodes=5, k=0.999, lr=0.0057
+Evaluating genome: hidden=128, nodes=10, k=0.999, lr=0.0057
+Evaluating genome: hidden=127, nodes=1, k=0.983, lr=0.0057
+Evaluated 18 new individuals.
+Best Fitness: 19.2067 -> Genome: {'hidden_dim': 128, 'num_nodes': 10, 'k_contractive': 0.9987044022001605, 'learning_rate': 0.005728627386435551}
+
+--- Generation 98 ---
+Evaluating genome: hidden=125, nodes=1, k=0.979, lr=0.0057
+Evaluating genome: hidden=128, nodes=5, k=0.999, lr=0.0007
+Evaluating genome: hidden=128, nodes=5, k=0.999, lr=0.0057
+Evaluating genome: hidden=128, nodes=1, k=0.983, lr=0.0005
+Evaluating genome: hidden=126, nodes=1, k=0.942, lr=0.0057
+Evaluating genome: hidden=128, nodes=11, k=0.999, lr=0.0005
+Evaluating genome: hidden=98, nodes=10, k=0.779, lr=0.0057
+Evaluating genome: hidden=125, nodes=1, k=0.984, lr=0.0005
+Evaluating genome: hidden=67, nodes=5, k=0.999, lr=0.0057
+Evaluating genome: hidden=128, nodes=5, k=0.999, lr=0.0115
+Evaluating genome: hidden=119, nodes=3, k=0.999, lr=0.0057
+Evaluating genome: hidden=122, nodes=6, k=0.999, lr=0.0218
+Evaluating genome: hidden=128, nodes=1, k=0.999, lr=0.0057
+Evaluating genome: hidden=125, nodes=1, k=0.981, lr=0.0057
+Evaluating genome: hidden=128, nodes=1, k=0.995, lr=0.0057
+Evaluating genome: hidden=128, nodes=13, k=0.999, lr=0.0216
+Evaluating genome: hidden=124, nodes=1, k=0.999, lr=0.0057
+Evaluating genome: hidden=127, nodes=1, k=0.999, lr=0.0057
+Evaluated 18 new individuals.
+Best Fitness: 19.2067 -> Genome: {'hidden_dim': 128, 'num_nodes': 10, 'k_contractive': 0.9987044022001605, 'learning_rate': 0.005728627386435551}
+
+--- Generation 99 ---
+Evaluating genome: hidden=125, nodes=1, k=0.666, lr=0.0005
+Evaluating genome: hidden=128, nodes=1, k=0.995, lr=0.0087
+Evaluating genome: hidden=125, nodes=1, k=0.981, lr=0.0005
+Evaluating genome: hidden=128, nodes=10, k=0.999, lr=0.0005
+Evaluating genome: hidden=127, nodes=4, k=0.999, lr=0.0057
+Evaluating genome: hidden=124, nodes=1, k=0.999, lr=0.0206
+Evaluating genome: hidden=110, nodes=5, k=0.999, lr=0.0017
+Evaluating genome: hidden=128, nodes=1, k=0.996, lr=0.0057
+Evaluating genome: hidden=128, nodes=1, k=0.999, lr=0.0057
+Evaluating genome: hidden=128, nodes=4, k=0.999, lr=0.0057
+Evaluating genome: hidden=128, nodes=1, k=0.999, lr=0.0005
+Evaluating genome: hidden=128, nodes=11, k=0.999, lr=0.0181
+Evaluating genome: hidden=128, nodes=1, k=0.994, lr=0.0278
+Evaluating genome: hidden=127, nodes=1, k=0.999, lr=0.0057
+Evaluating genome: hidden=103, nodes=1, k=0.904, lr=0.0057
+Evaluating genome: hidden=128, nodes=1, k=0.971, lr=0.0057
+Evaluating genome: hidden=127, nodes=1, k=0.999, lr=0.0005
+Evaluating genome: hidden=126, nodes=1, k=0.999, lr=0.0057
+Evaluated 18 new individuals.
+Best Fitness: 19.2067 -> Genome: {'hidden_dim': 128, 'num_nodes': 10, 'k_contractive': 0.9987044022001605, 'learning_rate': 0.005728627386435551}
+
+Evolution Complete!
+Optimal Hyperparameters Found:
+{
+  "hidden_dim": 128,
+  "num_nodes": 10,
+  "k_contractive": 0.9987044022001605,
+  "learning_rate": 0.005728627386435551
+}
+Fitness Score: 19.2067

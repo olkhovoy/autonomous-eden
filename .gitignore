@@ -60,3 +60,5 @@ benchmark/models/
 
 # Node
 node_modules/
+/.lake
+/.lake

@@ -1,0 +1,10 @@
+name = "my_umc_formalization"
+version = "0.1.0"
+defaultTargets = ["my_umc_formalization"]
+
+[[lean_lib]]
+name = "MyUmcFormalization"
+
+[[lean_exe]]
+name = "my_umc_formalization"
+root = "Main"
