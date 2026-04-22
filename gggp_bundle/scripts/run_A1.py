@@ -59,12 +59,27 @@ from fitness import FitnessConfig, shape_fitness  # noqa: E402
 
 BUNDLE = REPO_ROOT / "gggp_bundle"
 DEMO_DIR = BUNDLE / "demos" / "semiotic_hypercube"
-GRAMMAR_ENCODER = DEMO_DIR / "grammar_encoder.cfg"
-GRAMMAR_DECODER = DEMO_DIR / "grammar_decoder.cfg"
-T_PATH = DEMO_DIR / "T.npy"
-CLASSES_PATH = DEMO_DIR / "classes.npy"
 EA_CONFIG = BUNDLE / "config" / "ea.toml"
 FITNESS_CONFIG = BUNDLE / "config" / "fitness.toml"
+CLASSES_PATH = DEMO_DIR / "classes.npy"
+
+# Mode-specific asset paths. `raw` = A1 original, `pca` = A1.1 refinement.
+MODE_ASSETS = {
+    "raw": {
+        "T_path": DEMO_DIR / "T.npy",
+        "encoder_grammar": DEMO_DIR / "grammar_encoder.cfg",
+        "decoder_grammar": DEMO_DIR / "grammar_decoder.cfg",
+        "code_dim_default": 16,
+        "target_dim_default": 1024,
+    },
+    "pca": {
+        "T_path": DEMO_DIR / "T_pca.npy",
+        "encoder_grammar": DEMO_DIR / "grammar_encoder_pca.cfg",
+        "decoder_grammar": DEMO_DIR / "grammar_decoder_pca.cfg",
+        "code_dim_default": 8,
+        "target_dim_default": 16,
+    },
+}
 
 
 # ------------------------------------------------------------------ config --
@@ -84,12 +99,28 @@ class EaConfig:
     max_resample_attempts: int
 
     @classmethod
-    def load(cls, path: Path = EA_CONFIG) -> "EaConfig":
+    def load(cls, mode: str, path: Path = EA_CONFIG) -> "EaConfig":
+        """Load EA config. Mode-dependent defaults come from MODE_ASSETS
+        but are overridden by ea.toml [dims] if explicitly set there.
+        """
+        if mode not in MODE_ASSETS:
+            raise ValueError(
+                f"Unknown run mode '{mode}'. Valid: {list(MODE_ASSETS.keys())}"
+            )
         with path.open("rb") as f:
             data = tomllib.load(f)
         ea = data["ea"]
-        dims = data["dims"]
         chromo = data["chromosome"]
+        assets = MODE_ASSETS[mode]
+        dims = data.get("dims", {})
+        # For raw mode use ea.toml [dims] verbatim; for pca mode override
+        # with mode defaults (ea.toml's [dims] block was authored for raw).
+        if mode == "pca":
+            code_dim = assets["code_dim_default"]
+            target_dim = assets["target_dim_default"]
+        else:
+            code_dim = int(dims.get("code_dim", assets["code_dim_default"]))
+            target_dim = int(dims.get("target_dim", assets["target_dim_default"]))
         return cls(
             pop_size=int(ea["pop_size"]),
             n_generations=int(ea["n_generations"]),
@@ -99,18 +130,20 @@ class EaConfig:
             elitism=int(ea["elitism"]),
             train_fraction=float(ea["train_fraction"]),
             log_every=int(ea["log_every"]),
-            code_dim=int(dims["code_dim"]),
-            target_dim=int(dims["target_dim"]),
+            code_dim=code_dim,
+            target_dim=target_dim,
             max_gene_count=int(chromo["max_gene_count"]),
             max_resample_attempts=int(chromo["max_resample_attempts"]),
         )
 
 
 # ------------------------------------------------------------ fixtures ----
-def ensure_grammars() -> None:
-    missing = [p for p in (GRAMMAR_ENCODER, GRAMMAR_DECODER) if not p.is_file()]
+def ensure_grammars(mode: str, code_dim: int, target_dim: int) -> tuple[Path, Path]:
+    assets = MODE_ASSETS[mode]
+    g_enc, g_dec = assets["encoder_grammar"], assets["decoder_grammar"]
+    missing = [p for p in (g_enc, g_dec) if not p.is_file()]
     if not missing:
-        return
+        return g_enc, g_dec
     print(f"[run_A1] regenerating grammars: {[str(m) for m in missing]}")
     rust_dir = BUNDLE / "rust"
     subprocess.run(
@@ -118,8 +151,18 @@ def ensure_grammars() -> None:
         cwd=rust_dir, check=True,
     )
     bin_path = rust_dir / "target" / "release" / "gen_neuro_grammar"
-    subprocess.run([str(bin_path), "encoder", str(GRAMMAR_ENCODER)], check=True)
-    subprocess.run([str(bin_path), "decoder", str(GRAMMAR_DECODER)], check=True)
+    # raw mode uses role aliases; pca mode uses custom dim.
+    if mode == "raw":
+        subprocess.run([str(bin_path), "encoder", str(g_enc)], check=True)
+        subprocess.run([str(bin_path), "decoder", str(g_dec)], check=True)
+    else:
+        subprocess.run(
+            [str(bin_path), "custom", str(code_dim), str(g_enc)], check=True
+        )
+        subprocess.run(
+            [str(bin_path), "custom", str(target_dim), str(g_dec)], check=True
+        )
+    return g_enc, g_dec
 
 
 def split_train_test(
@@ -253,15 +296,25 @@ def evaluate_population(
 
 
 # -------------------------------------------------------------- runner ---
-def run(seed: int, out_jsonl: Path, out_best: Path) -> dict:
-    ensure_grammars()
-
-    cfg = EaConfig.load()
+def run(seed: int, mode: str, out_jsonl: Path, out_best: Path) -> dict:
+    cfg = EaConfig.load(mode)
     fcfg = FitnessConfig.load()
+    assets = MODE_ASSETS[mode]
+    g_enc, g_dec = ensure_grammars(mode, cfg.code_dim, cfg.target_dim)
 
-    T = np.load(T_PATH).astype(np.float64)
+    T_path = assets["T_path"]
+    if not T_path.is_file():
+        raise SystemExit(
+            f"{T_path} missing. For mode='pca' run scripts/pca_reduce.py; "
+            f"for mode='raw' run scripts/embed_corpus.py."
+        )
+    T = np.load(T_path).astype(np.float64)
     classes = np.load(CLASSES_PATH)
-    assert T.shape == (128, cfg.target_dim), f"T shape mismatch: {T.shape}"
+    assert T.shape == (128, cfg.target_dim), (
+        f"T shape mismatch for mode={mode}: got {T.shape}, expected "
+        f"(128, {cfg.target_dim}). If you changed dims, regenerate the "
+        f"grammars and the T matrix."
+    )
 
     train_idx, test_idx = split_train_test(
         T.shape[0], cfg.train_fraction, seed=seed
@@ -275,8 +328,8 @@ def run(seed: int, out_jsonl: Path, out_best: Path) -> dict:
     )
 
     from semiotic_hypercube import SemioticHypercube
-    sh = SemioticHypercube(str(GRAMMAR_ENCODER))
-    sh.attach_decoder_grammar(str(GRAMMAR_DECODER))
+    sh = SemioticHypercube(str(g_enc))
+    sh.attach_decoder_grammar(str(g_dec))
 
     py_rng = random.Random(seed)
 
@@ -439,12 +492,15 @@ def run(seed: int, out_jsonl: Path, out_best: Path) -> dict:
 def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("--seed", type=int, default=0)
+    ap.add_argument("--mode", choices=["raw", "pca"], default="raw",
+                    help="raw = A1 (T.npy, dim=1024); pca = A1.1 (T_pca.npy, dim=16)")
     args = ap.parse_args()
 
-    out_jsonl = DEMO_DIR / f"runA1_seed{args.seed}.jsonl"
-    out_best = DEMO_DIR / f"runA1_seed{args.seed}_best.json"
+    tag = "" if args.mode == "raw" else f"_{args.mode}"
+    out_jsonl = DEMO_DIR / f"runA1{tag}_seed{args.seed}.jsonl"
+    out_best = DEMO_DIR / f"runA1{tag}_seed{args.seed}_best.json"
 
-    summary = run(args.seed, out_jsonl, out_best)
+    summary = run(args.seed, args.mode, out_jsonl, out_best)
     print(f"[run_A1] summary: {summary}")
     print(f"[run_A1] wrote {out_jsonl}")
     print(f"[run_A1] wrote {out_best}")

@@ -22,11 +22,27 @@ __pycache__/
 
 # --- Generated grammar fixtures -------------------------------------
 # .cfg files are Node-format binary grammars produced by:
-#   cargo run --bin gen_grammar                          -> test_grammar.cfg
-#   cargo run --bin gen_neuro_grammar -- encoder <path>  -> grammar_encoder.cfg (dim=16)
-#   cargo run --bin gen_neuro_grammar -- decoder <path>  -> grammar_decoder.cfg (dim=1024)
+#   cargo run --bin gen_grammar                              -> test_grammar.cfg
+#   cargo run --bin gen_neuro_grammar -- encoder <path>      -> grammar_encoder.cfg (A1, dim=16)
+#   cargo run --bin gen_neuro_grammar -- decoder <path>      -> grammar_decoder.cfg (A1, dim=1024)
+#   cargo run --bin gen_neuro_grammar -- custom 8 <path>     -> grammar_encoder_pca.cfg (A1.1)
+#   cargo run --bin gen_neuro_grammar -- custom 16 <path>    -> grammar_decoder_pca.cfg (A1.1)
 # Regenerate locally; do NOT commit.
 *.cfg
+
+# --- Derived numerical fixtures (large, regeneratable) --------------
+# T.npy / T_pca.npy / classes.npy are outputs of scripts/embed_corpus.py
+# and scripts/pca_reduce.py. Commit the source (corpus_v1.jsonl) only;
+# regenerate the arrays on demand.
+demos/**/T.npy
+demos/**/T_pca.npy
+demos/**/classes.npy
+demos/**/embed_meta.json
+demos/**/pca_meta.json
+
+# --- EA run artifacts (per-seed, large) -----------------------------
+demos/**/runA1*.jsonl
+demos/**/runA1*_best.json
 
 # --- Generated demo outputs -----------------------------------------
 # HTML visualizations produced by scripts/demo_wormhole.py.

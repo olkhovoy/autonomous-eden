@@ -37,16 +37,38 @@ import numpy as np
 
 REPO_ROOT = Path(__file__).resolve().parents[2]
 DEMO_DIR = REPO_ROOT / "gggp_bundle" / "demos" / "semiotic_hypercube"
-T_PATH = DEMO_DIR / "T.npy"
 CLASSES_PATH = DEMO_DIR / "classes.npy"
-META_PATH = DEMO_DIR / "embed_meta.json"
-CHECKPOINTS_MD = (
-    REPO_ROOT / "gggp_bundle" / "docs" / "medp" / "branches" / "A1" / "checkpoints.md"
-)
 LOG_JSONL = REPO_ROOT / "gggp_bundle" / "docs" / "medp" / "log.jsonl"
 
+# Mode-specific assets. `raw` = A1 (128x1024); `pca` = A1.1 (128x16).
+MODE_PROFILES = {
+    "raw": {
+        "T_path": DEMO_DIR / "T.npy",
+        "meta_path": DEMO_DIR / "embed_meta.json",
+        "checkpoints_md": REPO_ROOT / "gggp_bundle" / "docs" / "medp"
+            / "branches" / "A1" / "checkpoints.md",
+        "expected_dim": 1024,
+        "branch": "A1",
+        "gate_g1": "G1",
+        "gate_g2": "G2",
+        "deadline_g1": "2026-04-22T17:00Z",
+        "deadline_g2": "2026-04-22T18:30Z",
+    },
+    "pca": {
+        "T_path": DEMO_DIR / "T_pca.npy",
+        "meta_path": DEMO_DIR / "pca_meta.json",
+        "checkpoints_md": REPO_ROOT / "gggp_bundle" / "docs" / "medp"
+            / "branches" / "A1.1" / "checkpoints.md",
+        "expected_dim": 16,
+        "branch": "A1.1",
+        "gate_g1": "G1.1",
+        "gate_g2": "G2.1",
+        "deadline_g1": "n/a",
+        "deadline_g2": "n/a",
+    },
+}
+
 EXPECTED_N = 128
-EXPECTED_DIM = 1024
 EXPECTED_CLASSES = 8
 
 
@@ -64,21 +86,22 @@ def git_head() -> str:
         return "unknown"
 
 
-def load_arrays() -> tuple[np.ndarray, np.ndarray, dict]:
-    T = np.load(T_PATH)
+def load_arrays(profile: dict) -> tuple[np.ndarray, np.ndarray, dict]:
+    T = np.load(profile["T_path"])
     classes = np.load(CLASSES_PATH)
-    meta = json.loads(META_PATH.read_text())
+    meta = json.loads(profile["meta_path"].read_text())
     return T, classes, meta
 
 
-def evaluate_g1(T: np.ndarray, classes: np.ndarray) -> dict:
+def evaluate_g1(T: np.ndarray, classes: np.ndarray, profile: dict) -> dict:
+    exp_dim = profile["expected_dim"]
     n_ok = T.shape[0] == EXPECTED_N
-    d_ok = T.shape[1] == EXPECTED_DIM
+    d_ok = T.shape[1] == exp_dim
     c_ok = int(classes.max()) + 1 == EXPECTED_CLASSES
     passed = n_ok and d_ok and c_ok
     return {
-        "gate": "G1",
-        "criterion": f"|M|={EXPECTED_N} AND dim(T_i)={EXPECTED_DIM} AND n_classes={EXPECTED_CLASSES}",
+        "gate": profile["gate_g1"],
+        "criterion": f"|M|={EXPECTED_N} AND dim(T_i)={exp_dim} AND n_classes={EXPECTED_CLASSES}",
         "observed": {
             "n": int(T.shape[0]),
             "dim": int(T.shape[1]),
@@ -88,19 +111,19 @@ def evaluate_g1(T: np.ndarray, classes: np.ndarray) -> dict:
     }
 
 
-def evaluate_g2(T: np.ndarray) -> dict:
+def evaluate_g2(T: np.ndarray, profile: dict) -> dict:
     """F_0 = mean_i cos(mean_T, T_i).
 
-    T is already L2-normalized (from embed_corpus.py). mean_T itself is
-    NOT unit-norm in general; we normalize it for the cosine definition
-    to be meaningful.
+    T rows are L2-normalized (in raw mode by embed_corpus.py; in pca mode
+    by pca_reduce.py). mean_T itself is NOT unit-norm in general; we
+    normalize it for the cosine definition to be meaningful.
     """
     mean_T = T.mean(axis=0)
     mean_T_unit = mean_T / (np.linalg.norm(mean_T) + 1e-12)
-    f0_per_i = T @ mean_T_unit  # since rows of T are unit-norm
+    f0_per_i = T @ mean_T_unit
     F_0 = float(f0_per_i.mean())
     return {
-        "gate": "G2",
+        "gate": profile["gate_g2"],
         "metric": "F_0 = mean_i cos(mean_T, T_i)  (unit-mean used for cos)",
         "F_0": F_0,
         "F_0_std": float(f0_per_i.std()),
@@ -158,35 +181,50 @@ def kmeans_ari(T: np.ndarray, classes: np.ndarray, k: int = 8, seed: int = 0) ->
     return float(adjusted_rand_score(classes, km.labels_))
 
 
-def update_checkpoints_md(g1: dict, g2: dict, head: str, ts: str) -> None:
-    """Replace the G1/G2 rows in checkpoints.md."""
-    md = CHECKPOINTS_MD.read_text(encoding="utf-8")
+def update_checkpoints_md(g1: dict, g2: dict, profile: dict, head: str, ts: str) -> None:
+    """Replace the G1(.1)/G2(.1) rows in the branch-specific checkpoints.md."""
+    md_path = profile["checkpoints_md"]
+    md = md_path.read_text(encoding="utf-8")
     status_g1 = "[PASS]" if g1["passed"] else "[FAIL]"
     status_g2 = "[RECORDED]"
+    g1_name = profile["gate_g1"]
+    g2_name = profile["gate_g2"]
 
     g1_observed = (
         f"n={g1['observed']['n']}, dim={g1['observed']['dim']}, "
         f"k={g1['observed']['n_classes']}"
     )
-    g1_row = (
-        f"| G1 | {status_g1} | 2026-04-22T17:00Z | {g1_observed} | "
-        f"100% match (M=128, dim=1024) | {ts} | {head} |"
-    )
-    g2_row = (
-        f"| G2 | {status_g2} | 2026-04-22T18:30Z | F_0={g2['F_0']:.4f} | "
-        f"(record) | {ts} | {head} |"
-    )
+    if profile["branch"] == "A1":
+        g1_row = (
+            f"| {g1_name} | {status_g1} | {profile['deadline_g1']} | "
+            f"{g1_observed} | 100% match (M=128, dim=1024) | {ts} | {head} |"
+        )
+        g2_row = (
+            f"| {g2_name} | {status_g2} | {profile['deadline_g2']} | "
+            f"F_0={g2['F_0']:.4f} | (record) | {ts} | {head} |"
+        )
+    else:
+        # A1.1 and other child branches use the simplified schema from
+        # branches/A1.1/checkpoints.md (no deadline column).
+        g1_row = (
+            f"| {g1_name} | {status_g1} | {g1_observed} | "
+            f"n=128 AND dim_pca={profile['expected_dim']} | {ts} | {head} |"
+        )
+        g2_row = (
+            f"| {g2_name} | {status_g2} | F_0_pca={g2['F_0']:.4f} | "
+            f"(record) | {ts} | {head} |"
+        )
 
     lines = md.splitlines()
     out_lines = []
     for line in lines:
-        if line.startswith("| G1 |"):
+        if line.startswith(f"| {g1_name} |"):
             out_lines.append(g1_row)
-        elif line.startswith("| G2 |"):
+        elif line.startswith(f"| {g2_name} |"):
             out_lines.append(g2_row)
         else:
             out_lines.append(line)
-    CHECKPOINTS_MD.write_text("\n".join(out_lines) + "\n", encoding="utf-8")
+    md_path.write_text("\n".join(out_lines) + "\n", encoding="utf-8")
 
 
 def append_log_entries(
@@ -196,30 +234,32 @@ def append_log_entries(
     spec: dict,
     kmeans_ari_val: float,
     meta: dict,
+    profile: dict,
     head: str,
     ts: str,
 ) -> None:
+    branch = profile["branch"]
     events = [
         {
             "ts": ts,
             "event": "gate_eval",
-            "branch": "A1",
-            "gate": "G1",
+            "branch": branch,
+            "gate": profile["gate_g1"],
             "status": "pass" if g1["passed"] else "fail",
             "criterion": g1["criterion"],
             "observed": g1["observed"],
             "commit": head,
             "inputs": {
-                "T_path": "gggp_bundle/demos/semiotic_hypercube/T.npy",
+                "T_path": str(profile["T_path"].relative_to(REPO_ROOT)),
                 "classes_path": "gggp_bundle/demos/semiotic_hypercube/classes.npy",
-                "corpus_sha256": meta.get("corpus_sha256"),
+                "meta": meta.get("corpus_sha256") or meta.get("pca_components_sha256_16"),
             },
         },
         {
             "ts": ts,
             "event": "gate_eval",
-            "branch": "A1",
-            "gate": "G2",
+            "branch": branch,
+            "gate": profile["gate_g2"],
             "status": "recorded",
             "F_0": g2["F_0"],
             "F_0_std": g2["F_0_std"],
@@ -227,21 +267,23 @@ def append_log_entries(
             "F_0_max": g2["F_0_max"],
             "commit": head,
             "note": (
-                "Baseline anchor for G3 which requires F > F_0 + 0.10."
+                "Baseline anchor for G3"
+                + ("" if branch == "A1" else ".1")
+                + " which requires F > F_0 + 0.10."
             ),
         },
         {
             "ts": ts,
             "event": "diagnostic",
-            "branch": "A1",
+            "branch": branch,
             "kind": "separability",
             "intra_mean": sep["intra_mean"],
             "inter_mean": sep["inter_mean"],
             "gap": sep["gap"],
             "spectral": spec,
-            "kmeans_on_raw_T_ARI_k8": kmeans_ari_val,
+            "kmeans_on_T_ARI_k8": kmeans_ari_val,
             "note": (
-                "kmeans-on-raw-T ARI is an upper bound for what G4 can hit "
+                "kmeans-on-T ARI is an upper bound for what G4 can hit "
                 "with a trivial pass-through decoder. G4 threshold is 0.30."
             ),
         },
@@ -252,10 +294,17 @@ def append_log_entries(
 
 
 def main() -> None:
-    T, classes, meta = load_arrays()
+    import argparse
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--mode", choices=list(MODE_PROFILES.keys()), default="raw",
+                    help="raw = A1 G1/G2 (1024-dim); pca = A1.1 G1.1/G2.1 (16-dim)")
+    args = ap.parse_args()
+    profile = MODE_PROFILES[args.mode]
 
-    g1 = evaluate_g1(T, classes)
-    g2 = evaluate_g2(T)
+    T, classes, meta = load_arrays(profile)
+
+    g1 = evaluate_g1(T, classes, profile)
+    g2 = evaluate_g2(T, profile)
     sep = diagnose_separability(T, classes)
     spec = spectral_ratio(T)
 
@@ -263,7 +312,7 @@ def main() -> None:
         kmeans_ari_val = kmeans_ari(T, classes)
     except ImportError:
         print(
-            "[T3/T4] sklearn not installed; kmeans ARI diagnostic skipped",
+            "[G1/G2] sklearn not installed; kmeans ARI diagnostic skipped",
             file=sys.stderr,
         )
         kmeans_ari_val = float("nan")
@@ -272,33 +321,29 @@ def main() -> None:
     ts = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
 
     print("=" * 72)
-    print(f"G1: {g1['criterion']}")
+    print(f"mode={args.mode}  branch={profile['branch']}")
+    print("-" * 72)
+    print(f"{profile['gate_g1']}: {g1['criterion']}")
     print(f"    observed: {g1['observed']}  passed={g1['passed']}")
     print()
-    print(f"G2: {g2['metric']}")
+    print(f"{profile['gate_g2']}: {g2['metric']}")
     print(
         f"    F_0 = {g2['F_0']:.4f}  std={g2['F_0_std']:.4f}  "
         f"min={g2['F_0_min']:.4f}  max={g2['F_0_max']:.4f}"
     )
     print()
     print("Diagnostics (informational):")
-    print(
-        f"  intra-class cos: {sep['intra_mean']:.4f} +/- {sep['intra_std']:.4f}"
-    )
-    print(
-        f"  inter-class cos: {sep['inter_mean']:.4f} +/- {sep['inter_std']:.4f}"
-    )
+    print(f"  intra-class cos: {sep['intra_mean']:.4f} +/- {sep['intra_std']:.4f}")
+    print(f"  inter-class cos: {sep['inter_mean']:.4f} +/- {sep['inter_std']:.4f}")
     print(f"  gap:             {sep['gap']:.4f}")
     print(f"  spectral top-k:  {spec}")
-    print(f"  k-means(k=8) ARI on raw T: {kmeans_ari_val:.4f}")
+    print(f"  k-means(k=8) ARI on T: {kmeans_ari_val:.4f}")
     print("=" * 72)
 
-    update_checkpoints_md(g1, g2, head, ts)
-    append_log_entries(
-        g1, g2, sep, spec, kmeans_ari_val, meta, head, ts
-    )
-    print(f"[T3/T4] checkpoints.md updated")
-    print(f"[T3/T4] log.jsonl appended with 3 events")
+    update_checkpoints_md(g1, g2, profile, head, ts)
+    append_log_entries(g1, g2, sep, spec, kmeans_ari_val, meta, profile, head, ts)
+    print(f"[G1/G2] {profile['checkpoints_md']} updated")
+    print(f"[G1/G2] log.jsonl appended with 3 events")
 
 
 if __name__ == "__main__":
