@@ -20,18 +20,32 @@ pre-A1 scouting (2026-04-22) и декомпозицией задач в рам�
 этих решений после start = `threshold_adjusted`-эквивалент (требует
 отдельной записи в `log.jsonl` с обоснованием) или backtrack в A2/A3/A6.
 
-### F1 = a — encoder = sentence-transformers
+### F1 = a′ — encoder = Ollama через provider-router (refinement 2026-04-22T16:45Z)
 
-- Модель: `sentence-transformers/all-MiniLM-L6-v2`.
-- Размерность: `dim = 384`.
-- Детерминировано (torch seed фиксирован, eval-mode, CPU).
-- Без Ollama-инфраструктуры.
-- Bridge: embedding считается в Python один раз per session и
-  сохраняется как `T.npy` (128 × 384). Rust-код читает из файла —
-  это избавляет от PyO3 callback overhead на каждом fitness eval
-  и делает G5 честным (одинаковый encoder между сидами).
+- Базовый провайдер: **Ollama** (`http://localhost:11434`), уже работает
+  на рабочем RTX3090 пользователя; совпадает с тем, что уже использует
+  `rust/src/bin/embedding_gggp.rs`.
+- Архитектура: абстрактный `Provider` с двумя операциями (`embed`,
+  `chat`) и pluggable backend'ами. Ollama — primary; OpenAI — stub для
+  CI/сравнений; добавление новых — один класс. Конфиг:
+  `gggp_bundle/config/providers.toml`.
+- Embedding-модель для A1: **`ryanshillington/Qwen3-Embedding-0.6B`**,
+  `dim = 1024`. Причины: 1024 dim сопоставим с MTEB-лидерами в классе,
+  0.6B параметров быстрее на batch эмбеддингах, и главное — 4096 dim
+  (8B-модель) гарантированно провалит G6 по механике (плоская алгебра
+  из ≤12 ops не реконструирует точку в R^4096). 8B-модель (4096 dim)
+  зарезервирована для A3/A4 с RGA-алгеброй.
+- Chat-модель для γ.c генерации парафраз: **`Qwen3.6-35B-A3B:latest`**
+  (MoE 35B total / 3B active), seed=42, temperature=0.
+- Детерминизм: embedding запускается **один раз** на сессию, результат
+  сохраняется как `T.npy` (128×1024) + `classes.npy`. Rust читает из
+  файлов — никакого PyO3 callback'а из fitness loop. G5 (5 сидов)
+  работает поверх зафиксированных эмбеддингов.
 
-### F2 = a — corpus = paraphrase_gen (128 = 8 × 16)
+**Замена F1=a → F1=a′**: событие `threshold_adjusted` в `log.jsonl`
+с обоснованием (pre-execution refinement, до первого gate_eval).
+
+### F2 = a (γ.c LLMOnly) — corpus = paraphrase_gen (128 = 8 × 16)
 
 - 8 seed-концептов, доменно-разнообразные:
   1. sort integers
@@ -42,10 +56,16 @@ pre-A1 scouting (2026-04-22) и декомпозицией задач в рам�
   6. summarize an article
   7. route a payment
   8. parse a configuration file
-- 16 парафраз per концепт: active/passive, formal/casual, synonym subst.
+- 16 парафраз per концепт через provider-router → Ollama chat
+  (`Qwen3.6-35B-A3B:latest`, seed=42, temperature=0). Prompt-шаблон
+  живёт в коде `scripts/build_corpus_v1.py` и коммитится вместе с
+  корпусом (детерминизм воспроизводим на уровне «тот же prompt + тот же
+  model snapshot = тот же output»).
 - Ground-truth class = seed-id (0..7) → даёт G4 ARI бесплатно.
-- Артефакт: `gggp_bundle/demos/semiotic_hypercube/corpus_v1.jsonl`
-  (commit в рамках A1, не генерируется на каждом запуске).
+- Снапшот: `gggp_bundle/demos/semiotic_hypercube/corpus_v1.jsonl`
+  коммитится в рамках T1. Downstream (T2..T10) reproducible поверх
+  зафиксированного снапшота. Пересоздание корпуса = новый commit,
+  новый `corpus_v2.jsonl`, не silent-regeneration.
 
 ### F3 = a — decoder = shared-genome co-evolution
 
@@ -64,8 +84,9 @@ pre-A1 scouting (2026-04-22) и декомпозицией задач в рам�
 
 | # | Задача | Est | Cum | Закрывает |
 |---|--------|-----|-----|-----------|
-| T1 | Python-скрипт: `scripts/build_corpus_v1.py` → `corpus_v1.jsonl` (128 × {text, class}) | 1.0 | 1.0 | вход G1 |
-| T2 | Python-скрипт: `scripts/embed_corpus.py` — sentence-transformers → `T.npy` (128×384) + `classes.npy` | 0.5 | 1.5 | вход G1/G2 |
+| T0 | `scripts/providers.py` + `config/providers.toml` — provider-router (Ollama primary, OpenAI stub) | 0.5 | 0.5 | инфра для T1/T2 |
+| T1 | `scripts/build_corpus_v1.py` → `corpus_v1.jsonl` (γ.c LLMOnly через Qwen3.6-35B-A3B, seed=42) | 0.75 | 1.25 | вход G1 |
+| T2 | `scripts/embed_corpus.py` — Ollama embed (Qwen3-Embedding-0.6B) → `T.npy` (128×1024) + `classes.npy` | 0.25 | 1.5 | вход G1/G2 |
 | T3 | **G1 eval**: размер и dim проверка, запись в `checkpoints.md` + `log.jsonl` | 0.25 | 1.75 | G1 |
 | T4 | **G2 eval**: baseline `F_0 = mean_i cos(mean_T, T_i)`, запись | 0.25 | 2.0 | G2 |
 | T5 | Rust: `GpIndividual::render_dual(dim) → (V_enc, V_dec)` и обновление fitness-коллбэка в `python_api.rs` | 1.5 | 3.5 | G3 |
@@ -84,7 +105,7 @@ Compute: ≤ 12k fitness evals × 5 сидов ≈ 3.5 h CPU (есть запа�
 
 | id | deadline (UTC) | metric | threshold |
 |----|----------------|--------|-----------|
-| G1 | 17:00 | `|M|=128` ∧ `dim(T_i)=384` | 100% |
+| G1 | 17:00 | `|M|=128` ∧ `dim(T_i)=1024` | 100% |
 | G2 | 18:30 | `F_0` record | — |
 | G3 | 20:30 | `F_train` > `F_0 + 0.10` | gt |
 | G4 | 2026-04-23 00:30 | `ARI({c_i}, y)` > 0.30 | gt |
@@ -114,7 +135,8 @@ Compute: ≤ 12k fitness evals × 5 сидов ≈ 3.5 h CPU (есть запа�
 
 ## Следующее действие
 
-**T1**: создать `gggp_bundle/scripts/build_corpus_v1.py`, запустить,
-закоммитить результат. Коммит-префикс обычный (не `medp(A1):`) —
-`medp(A1):` зарезервирован только для событий протокола (start /
-gate / backtrack / promote / budget_extended).
+**T0**: создать provider-router (`scripts/providers.py` +
+`config/providers.toml`) — инфраструктура для T1/T2. Затем T1 → T2 →
+T3/T4. Коммит-префикс для инфры обычный (`feat(A1): ...`);
+`medp(A1):` зарезервирован только для событий протокола (start / gate /
+backtrack / promote / budget_extended / threshold_adjusted).

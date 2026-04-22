@@ -4,7 +4,7 @@
 
 | id | status | deadline (UTC) | value | threshold | ts | commit |
 |----|--------|----------------|-------|-----------|----|--------|
-| G1 | pending | 2026-04-22T17:00Z | — | 100% match | — | — |
+| G1 | pending | 2026-04-22T17:00Z | — | 100% match (M=128, dim=1024) | — | — |
 | G2 | pending | 2026-04-22T18:30Z | — | (record) | — | — |
 | G3 | pending | 2026-04-22T20:30Z | — | > F_0 + 0.10 | — | — |
 | G4 | pending | 2026-04-23T00:30Z | — | ARI > 0.30 | — | — |
