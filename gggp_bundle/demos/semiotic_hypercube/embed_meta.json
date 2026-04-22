@@ -1,0 +1,13 @@
+{
+  "provider": "ollama",
+  "embed_model": "ryanshillington/Qwen3-Embedding-0.6B:latest",
+  "embed_dim": 1024,
+  "n_rows": 128,
+  "n_classes": 8,
+  "corpus_path": "gggp_bundle/demos/semiotic_hypercube/corpus_v1.jsonl",
+  "corpus_sha256": "e69a767729803d4d42fb1be364d2e8feef2850c9f6daab2de0b90310261b280c",
+  "t_path": "gggp_bundle/demos/semiotic_hypercube/T.npy",
+  "classes_path": "gggp_bundle/demos/semiotic_hypercube/classes.npy",
+  "ts_utc": "2026-04-22T14:31:38Z",
+  "l2_normalized": true
+}
