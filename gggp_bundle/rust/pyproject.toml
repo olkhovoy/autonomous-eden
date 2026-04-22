@@ -1,0 +1,21 @@
+[build-system]
+requires = ["maturin>=1.0,<2.0"]
+build-backend = "maturin"
+
+[project]
+name = "semiotic_hypercube"
+version = "0.1.0"
+description = "Neuro-symbolic GGGP: grammar-guided evolution over latent spaces (research layer on top of gggp)."
+requires-python = ">=3.8"
+classifiers = [
+    "Programming Language :: Rust",
+    "Programming Language :: Python :: Implementation :: CPython",
+    "Programming Language :: Python :: Implementation :: PyPy",
+]
+
+[tool.maturin]
+# Gate PyO3 code behind the `python` cargo feature so that
+# `cargo check --all-targets` inside the Rust workspace does not
+# require PyO3 linkage. Maturin turns the feature on explicitly here.
+features = ["pyo3/extension-module", "python"]
+module-name = "semiotic_hypercube"

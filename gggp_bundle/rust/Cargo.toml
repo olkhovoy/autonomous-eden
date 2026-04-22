@@ -3,6 +3,18 @@ name = "semiotic_hypercube"
 version = "0.1.0"
 edition = "2021"
 
+[lib]
+# rlib keeps normal Rust consumers (bins, tests, other crates) working.
+# cdylib is what PyO3/maturin needs to produce an importable Python module.
+name = "semiotic_hypercube"
+crate-type = ["rlib", "cdylib"]
+
+[features]
+default = []
+# Enable only when building the Python extension (maturin / pyproject.toml).
+# Keeps default `cargo check --all-targets` free of PyO3 linkage requirements.
+python = ["pyo3", "numpy"]
+
 [dependencies]
 chrono = "0.4"
 nalgebra = "0.34.1"
@@ -10,3 +22,5 @@ rand = "0.8"
 reqwest = { version = "0.12", features = ["blocking", "json"] }
 serde_json = "1.0"
 cmaes = { version = "0.2.2", default-features = false }
+pyo3 = { version = "0.20", features = ["extension-module"], optional = true }
+numpy = { version = "0.20", optional = true }
