@@ -1,0 +1,3 @@
+# Branch working dirs live here (A1/, A2/, ... one per active MEDP fork).
+# Created on demand by prompts/03_fork.md. Keep this file so the empty
+# directory survives in git.
