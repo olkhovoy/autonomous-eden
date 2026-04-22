@@ -4,7 +4,7 @@ use std::io::{self, Write};
 use std::path::Path;
 
 use chrono::{Duration, NaiveDate, NaiveDateTime};
-use gor_data_storage::{DataType, Node, Value};
+use semiotic_hypercube::{DataType, Node, Value};
 
 const ARRAY_PREVIEW_LIMIT: usize = 32;
 const BIN_PREVIEW_BYTES: usize = 32;

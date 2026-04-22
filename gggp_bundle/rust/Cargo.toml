@@ -1,5 +1,5 @@
 [package]
-name = "gor-data-storage"
+name = "semiotic_hypercube"
 version = "0.1.0"
 edition = "2021"
 

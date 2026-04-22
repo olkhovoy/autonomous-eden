@@ -2,7 +2,7 @@ use std::env;
 use std::fs::File;
 use std::io::{self, Write};
 
-use gor_data_storage::gggp::{
+use semiotic_hypercube::gggp::{
     crossover_individuals,
     gp_data_from_config,
     grammar_config_replace_group_tags,
@@ -13,7 +13,7 @@ use gor_data_storage::gggp::{
     GpConfig,
     GpIndividual,
 };
-use gor_data_storage::Node;
+use semiotic_hypercube::Node;
 use rand::rngs::StdRng;
 use rand::SeedableRng;
 

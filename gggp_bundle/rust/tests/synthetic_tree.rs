@@ -1,4 +1,4 @@
-use gor_data_storage::Node;
+use semiotic_hypercube::Node;
 
 #[test]
 fn roundtrip_synthetic_tree() {

@@ -1,7 +1,7 @@
 use std::fs;
 use std::path::Path;
 
-use gor_data_storage::Node;
+use semiotic_hypercube::Node;
 
 #[test]
 fn roundtrip_sample_config() {

@@ -54,13 +54,13 @@ Use as a path dependency in another Rust project:
 ```
 # Cargo.toml
 [dependencies]
-gor-data-storage = { path = "../gggp_bundle/rust" }
+semiotic_hypercube = { path = "../gggp_bundle/rust" }
 ```
 
 Minimal example (load cfg and parse a GGGP output):
 ```rust
-use gor_data_storage::{Node};
-use gor_data_storage::gggp::{parse_text, Gggp};
+use semiotic_hypercube::{Node};
+use semiotic_hypercube::gggp::{parse_text, Gggp};
 
 fn main() -> Result<(), Box<dyn std::error::Error>> {
     let cfg = Node::from_file("./some.cfg")?;

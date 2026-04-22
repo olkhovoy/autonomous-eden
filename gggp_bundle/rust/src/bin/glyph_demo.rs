@@ -1,8 +1,8 @@
 use std::fs::File;
 use std::io::{self, Write};
 
-use gor_data_storage::gggp::{calc_lengths, parse_text, Gggp, GpIndividual};
-use gor_data_storage::Node;
+use semiotic_hypercube::gggp::{calc_lengths, parse_text, Gggp, GpIndividual};
+use semiotic_hypercube::Node;
 
 #[derive(Clone, Copy)]
 struct Segment {

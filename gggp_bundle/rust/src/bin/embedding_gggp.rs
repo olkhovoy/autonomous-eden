@@ -6,8 +6,8 @@ use std::env;
 use std::fs::OpenOptions;
 use std::io::Write;
 
-use gor_data_storage::gggp::{calc_lengths, parse_text, Gggp, GpIndividual};
-use gor_data_storage::Node;
+use semiotic_hypercube::gggp::{calc_lengths, parse_text, Gggp, GpIndividual};
+use semiotic_hypercube::Node;
 
 struct Config {
     model: String,
