@@ -1,3 +1,37 @@
+# =====================================================================
+# gggp_bundle/.gitignore
+#
+# Bundle-local ignores. Root .gitignore also covers this subtree
+# (see /.gitignore: gggp_bundle/rust/target/, .venv/, etc.).
+# Patterns here are duplicated deliberately so `gggp_bundle/` can be
+# extracted into its own repo without re-deriving them.
+# =====================================================================
+
+# --- Build artifacts ---
 target/
+*.whl
+dist/
+build/
+*.egg-info/
+
+# --- Python ---
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+
+# --- Generated grammar fixtures -------------------------------------
+# .cfg files are Node-format binary grammars produced by:
+#   cargo run --bin gen_grammar         -> test_grammar.cfg
+#   cargo run --bin gen_neuro_grammar   -> neuro_grammar.cfg
+# Regenerate locally; do NOT commit.
+*.cfg
+
+# --- Generated demo outputs -----------------------------------------
+# HTML visualizations produced by scripts/demo_wormhole.py.
+wormhole_demo.html
+*.html
+
+# --- Demo intermediates ---
 demos/**/out/
 demos/**/c1/
