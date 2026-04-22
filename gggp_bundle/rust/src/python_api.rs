@@ -2,12 +2,16 @@ use pyo3::prelude::*;
 use pyo3::exceptions::{PyValueError, PyRuntimeError};
 use numpy::{PyArray1, ToPyArray};
 use nalgebra::DVector;
+use rand::{SeedableRng, rngs::StdRng};
 use std::rc::Rc;
 use std::cell::RefCell;
 
 use crate::storage::Node;
 use crate::gggp::{GpConfig, Gggp, GpIndividual, calc_lengths, parse_text};
-use crate::gggp::vector::{compile_tree_to_vector, FractalDecoderConfig, cosine_similarity};
+use crate::gggp::vector::{
+    compile_tree_to_vector, compile_tree_to_vector_with_input,
+    FractalDecoderConfig, cosine_similarity,
+};
 use crate::gggp::hybrid::{HybridEvolutionConfig, run_cmaes_optimization};
 
 fn finalize_grammar(cfg: &mut Node) {
@@ -102,9 +106,230 @@ impl SemioticHypercube {
         };
 
         let result_vector = compile_tree_to_vector(&tree, dim, Some(&fractal_config));
-        
+
         let vec_data = result_vector.as_slice().to_vec();
         Ok(vec_data.to_pyarray(py))
+    }
+
+    /// Draw a grammar-valid random chromosome using a seeded RNG.
+    ///
+    /// Used by A1 T7 runner to initialize the EA population. The
+    /// chromosome is guaranteed to parse back into a tree (as long as
+    /// the grammar and seed don't produce pathological deep recursions
+    /// that hit MaxDepth). Output is a Vec<i32> in the `a-b-c-...`
+    /// format the Rust parser expects after re-joining.
+    ///
+    /// Implementation: builds a random tree via the grammar's
+    /// `random_trees(&[cfg], &mut rng)` path (same call the GGGP engine
+    /// uses internally for initial populations), then extracts the
+    /// tree's chromosome string and splits it into ints.
+    fn random_chromosome(&self, seed: u64) -> PyResult<Vec<i32>> {
+        let mut rng = StdRng::seed_from_u64(seed);
+        let mut ind = GpIndividual::new();
+        ind.random_trees(&[self.cfg.clone()], &mut rng);
+        if ind.trees().is_empty() {
+            return Err(PyRuntimeError::new_err(
+                "random_chromosome: no trees generated. Hint: grammar may \
+                 be empty or malformed.",
+            ));
+        }
+        let chromo_str = ind.trees()[0].chromosome();
+        let parts: Result<Vec<i32>, _> = chromo_str
+            .split('-')
+            .filter(|s| !s.is_empty())
+            .map(|s| s.parse::<i32>())
+            .collect();
+        parts.map_err(|e| {
+            PyRuntimeError::new_err(format!(
+                "random_chromosome: non-integer token in chromosome \
+                 '{}': {}. This is a bug in the grammar or encoding.",
+                chromo_str, e
+            ))
+        })
+    }
+
+    /// Render a chromosome tree over a seeded starting state.
+    ///
+    /// Used by MEDP A1 SCL PoC:
+    ///   c_i = render_tree_with_input(G_chromosome, code_dim=16,  input=T_i)
+    ///   r_i = render_tree_with_input(D_chromosome, state_dim=1024, input=c_i)
+    ///
+    /// Arguments:
+    ///   chromosome -- genotype integer-array (e.g. [0, 1, 3, 2, ...]).
+    ///   dim        -- size of the working state (output length).
+    ///   input      -- optional seed vector. If provided, the first
+    ///                 min(len(input), dim) components of the state are
+    ///                 initialized from input; rest stay zero.
+    ///                 If None, state starts at zero (classic path).
+    ///
+    /// Returns: 1-D numpy array of length `dim` (float64).
+    ///
+    /// Errors: PyValueError if the chromosome is ill-formed for the
+    /// loaded grammar.
+    #[pyo3(signature = (chromosome, dim, input=None))]
+    fn render_tree_with_input<'py>(
+        &self,
+        py: Python<'py>,
+        chromosome: Vec<i32>,
+        dim: usize,
+        input: Option<&'py PyArray1<f64>>,
+    ) -> PyResult<&'py PyArray1<f64>> {
+        let chromo_str = chromosome
+            .iter()
+            .map(|x| x.to_string())
+            .collect::<Vec<String>>()
+            .join("-");
+
+        let tree = self.cfg.tree_from_chromosome(&chromo_str).map_err(|e| {
+            PyValueError::new_err(format!(
+                "Failed to parse chromosome '{}': {:?}. Hint: verify the \
+                 chromosome matches the grammar (.cfg) loaded by this \
+                 SemioticHypercube instance -- genome integers must be \
+                 valid choice-indices at each grammar rule.",
+                chromo_str, e
+            ))
+        })?;
+
+        let seed_opt: Option<DVector<f64>> = match input {
+            None => None,
+            Some(arr) => {
+                let ro = arr.readonly();
+                let sl = ro.as_slice().map_err(|_| {
+                    PyValueError::new_err(
+                        "input numpy array must be contiguous 1-D float64",
+                    )
+                })?;
+                Some(DVector::from_vec(sl.to_vec()))
+            }
+        };
+
+        let result_vector = compile_tree_to_vector_with_input(
+            &tree,
+            dim,
+            seed_opt.as_ref(),
+            None,
+        );
+
+        Ok(result_vector.as_slice().to_vec().to_pyarray(py))
+    }
+
+    /// Batch-render the dual (G, D) tree pair over a T matrix.
+    ///
+    /// This is the core A1 fitness primitive: one call produces the
+    /// full (c_matrix, reconstruction_matrix) for the whole 128-row
+    /// corpus, amortizing Python-Rust FFI overhead and GIL acquisition.
+    ///
+    /// Arguments:
+    ///   chromosome_g -- genotype for encoder-grammar G.
+    ///   chromosome_d -- genotype for decoder-interpreter D.
+    ///   t_matrix     -- numpy (N, target_dim) float64 input embeddings.
+    ///   code_dim     -- output dim for c_i = G(T_i).
+    ///   target_dim   -- output dim for r_i = D(c_i); typically the
+    ///                   same as t_matrix.shape[1].
+    ///
+    /// Returns: dict with keys
+    ///   "c"             -- numpy (N, code_dim)    G(T_i) for each i.
+    ///   "reconstruction"-- numpy (N, target_dim)  D(G(T_i)) for each i.
+    ///   "per_i_cos"     -- numpy (N,)             cos(r_i, T_i).
+    ///   "F"             -- float                  mean_i cos(r_i, T_i).
+    ///
+    /// Penalties (length / entropy) are NOT applied here -- caller
+    /// computes them in Python from `c` and from `len(chromosome_g)`,
+    /// `len(chromosome_d)`. This keeps fitness shaping flexible.
+    fn batch_render_dual<'py>(
+        &self,
+        py: Python<'py>,
+        chromosome_g: Vec<i32>,
+        chromosome_d: Vec<i32>,
+        t_matrix: &'py numpy::PyArray2<f64>,
+        code_dim: usize,
+        target_dim: usize,
+    ) -> PyResult<&'py pyo3::types::PyDict> {
+        use numpy::{PyArray2, ToPyArray};
+        use pyo3::types::PyDict;
+
+        let to_str = |c: &[i32]| {
+            c.iter().map(|x| x.to_string()).collect::<Vec<_>>().join("-")
+        };
+        let g_str = to_str(&chromosome_g);
+        let d_str = to_str(&chromosome_d);
+
+        let g_tree = self.cfg.tree_from_chromosome(&g_str).map_err(|e| {
+            PyValueError::new_err(format!(
+                "encoder chromosome parse failed: {:?}", e
+            ))
+        })?;
+        let d_tree = self.cfg.tree_from_chromosome(&d_str).map_err(|e| {
+            PyValueError::new_err(format!(
+                "decoder chromosome parse failed: {:?}", e
+            ))
+        })?;
+
+        let t_ro = t_matrix.readonly();
+        let t_shape = t_ro.shape().to_vec();
+        if t_shape.len() != 2 {
+            return Err(PyValueError::new_err(format!(
+                "t_matrix must be 2-D, got shape {:?}",
+                t_shape
+            )));
+        }
+        if t_shape[1] != target_dim {
+            return Err(PyValueError::new_err(format!(
+                "t_matrix.shape[1] = {} but target_dim = {}. \
+                 Hint: pass target_dim = T.shape[1].",
+                t_shape[1], target_dim
+            )));
+        }
+        let n = t_shape[0];
+        let t_slice = t_ro.as_slice().map_err(|_| {
+            PyValueError::new_err("t_matrix must be contiguous float64")
+        })?;
+
+        let mut c_buf: Vec<f64> = vec![0.0; n * code_dim];
+        let mut r_buf: Vec<f64> = vec![0.0; n * target_dim];
+        let mut per_i: Vec<f64> = vec![0.0; n];
+
+        for i in 0..n {
+            let t_i = DVector::from_row_slice(
+                &t_slice[i * target_dim..(i + 1) * target_dim],
+            );
+            let c_i = compile_tree_to_vector_with_input(
+                &g_tree, code_dim, Some(&t_i), None,
+            );
+            let r_i = compile_tree_to_vector_with_input(
+                &d_tree, target_dim, Some(&c_i), None,
+            );
+            per_i[i] = cosine_similarity(&r_i, &t_i);
+            for j in 0..code_dim {
+                c_buf[i * code_dim + j] = c_i[j];
+            }
+            for j in 0..target_dim {
+                r_buf[i * target_dim + j] = r_i[j];
+            }
+        }
+
+        let f_mean: f64 = if n > 0 {
+            per_i.iter().sum::<f64>() / n as f64
+        } else {
+            0.0
+        };
+
+        let c_np = PyArray2::from_vec2(
+            py,
+            &(0..n).map(|i| c_buf[i * code_dim..(i + 1) * code_dim].to_vec()).collect::<Vec<_>>(),
+        ).map_err(|e| PyRuntimeError::new_err(format!("c np build: {:?}", e)))?;
+        let r_np = PyArray2::from_vec2(
+            py,
+            &(0..n).map(|i| r_buf[i * target_dim..(i + 1) * target_dim].to_vec()).collect::<Vec<_>>(),
+        ).map_err(|e| PyRuntimeError::new_err(format!("r np build: {:?}", e)))?;
+        let per_i_np = per_i.to_pyarray(py);
+
+        let out = PyDict::new(py);
+        out.set_item("c", c_np)?;
+        out.set_item("reconstruction", r_np)?;
+        out.set_item("per_i_cos", per_i_np)?;
+        out.set_item("F", f_mean)?;
+        Ok(out)
     }
 
     fn evolve_target<'py>(

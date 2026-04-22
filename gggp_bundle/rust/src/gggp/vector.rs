@@ -89,7 +89,36 @@ pub fn compile_tree_to_vector(
     dim: usize,
     fractal_config: Option<&FractalDecoderConfig>,
 ) -> DVector<f64> {
+    compile_tree_to_vector_with_input(tree, dim, None, fractal_config)
+}
+
+/// Like `compile_tree_to_vector` but seeds the working buffer with
+/// an optional input vector instead of zeros. Used by A1 SCL PoC:
+/// G(T_i) seeds with T_i (truncated/padded to `dim`), applies grammar
+/// ops, returns the resulting code c_i; D(c_i) seeds with c_i and
+/// renders a reconstruction.
+///
+/// Truncation / zero-pad semantics:
+///   - If `input.len() >= dim`: copy first `dim` components into state.
+///   - If `input.len() <  dim`: copy all `input.len()` components,
+///     remaining state stays zero.
+///   - If `input = None`: state stays zero (classic behavior).
+///
+/// This is intentionally naive (no PCA / no learned projection) so the
+/// A1 PoC stays readable. Higher-fidelity projections live in A3/A4.
+pub fn compile_tree_to_vector_with_input(
+    tree: &GpTree,
+    dim: usize,
+    input: Option<&DVector<f64>>,
+    fractal_config: Option<&FractalDecoderConfig>,
+) -> DVector<f64> {
     let mut out = DVector::zeros(dim);
+    if let Some(seed) = input {
+        let take = seed.len().min(dim);
+        for i in 0..take {
+            out[i] = seed[i];
+        }
+    }
     let mut ops = Vec::new();
     collect_ops(tree, dim, 0, 0, fractal_config, &mut ops);
     
