@@ -223,6 +223,15 @@ Append-only. Одна JSON-запись на строку. Источник ис
 - Основание: ближе к коду SCL; мигрирует вместе с bundle при
   `SDK_REPO_SPLIT_PLAN.md`; минимальное связывание.
 - F0.b, F0.c — зафиксированы как отвергнутые альтернативы для аудита.
+- **F0.d** — MEDP-ветки реализованы как **commit-prefix + tag** на `main`,
+  а не как реальные git-ветки, пока `gggp_bundle/` живёт внутри
+  родительского репозитория `/home/user/mcs`. **Принято.**
+  Формат: `medp(<branch>): <event> ...` для коммитов,
+  `gggp_bundle-medp/<branch>-<tag>` для тегов (пример:
+  `gggp_bundle-medp/root`, `gggp_bundle-medp/A1-start`,
+  `gggp_bundle-medp/A1-fail-G4`).
+  Переход на реальные ветки `medp/<branch>` — автоматически после
+  исполнения `SDK_REPO_SPLIT_PLAN.md`.
 
 ---
 
@@ -282,10 +291,13 @@ Append-only. Одна JSON-запись на строку. Источник ис
 
 ## 9. Протокол на git + markdown (без MCP)
 
-1. **Старт ветки.** `git checkout -b medp/<id> medp/<parent>`. Создать
-   `branches/<id>/plan.md` по шаблону из §6.2. Append
-   `{event:"branch_start",...}` в `log.jsonl`. Коммит:
-   `medp: start <id>`.
+См. §6.6 / F0.d: пока bundle живёт внутри родительского репо,
+«ветка» = commit-prefix `medp(<id>):` + теги `gggp_bundle-medp/<id>-*`
+на `main`. Инструкции ниже применяются с этой подстановкой.
+
+1. **Старт ветки.** Создать `branches/<id>/plan.md` по шаблону из §6.2.
+   Append `{event:"branch_start",...}` в `log.jsonl`. Коммит:
+   `medp(<id>): start`. Тег: `git tag gggp_bundle-medp/<id>-start`.
 2. **Работа до гейта.** Обычные коммиты по сути задачи (не MEDP-префикс).
 3. **Оценка гейта.** Открыть `prompts/01_evaluate_gate.md`, подставить
    контекст, выполнить (руками/моделью/скриптом). Результат →
@@ -295,11 +307,12 @@ Append-only. Одна JSON-запись на строку. Источник ис
    §6-promote.
 5. **Fail.** Открыть `prompts/02_backtrack.md`. Сгенерировать
    `branches/<id>/postmortem.md`. Коммит:
-   `medp: backtrack <id> reason=<gate_id>-fail next=<next_id>`.
-   Тег: `git tag medp/archive/<id>-fail-<gate_id>`.
+   `medp(<id>): backtrack reason=<gate_id>-fail next=<next_id>`.
+   Тег: `git tag gggp_bundle-medp/<id>-fail-<gate_id>`.
    Старт следующей ветки по §9.1.
-6. **Promote.** `git checkout medp/<parent>` + `git merge medp/<id>`.
-   Тег: `git tag medp/promote/<id>`. Append `{event:"promote",...}`.
+6. **Promote.** Merge-коммит в `main` не требуется (работа уже на main).
+   Тег: `git tag gggp_bundle-medp/<id>-promote`. Append
+   `{event:"promote",...}`.
 
 Запрет на rebase веток `medp/*` и на force-push в `medp/archive/*`.
 `medp/archive/*` — неизменяемый слой истории.
