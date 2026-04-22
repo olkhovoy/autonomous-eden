@@ -18,6 +18,11 @@ pub enum OutputType {
     GlyphMap(Vec<Vec<u8>>),
 }
 
+pub trait VectorPhenotype {
+    fn render_vector(&self, dim: usize) -> DVector<f64>;
+    fn to_vector_symbol(&self, gene_index: usize, depth: i32, parent_hash: u64) -> Option<VectorSymbol>;
+}
+
 /// A node in the vector space.
 /// Instead of a string literal, a grammar node holds a semantic "direction".
 #[derive(Debug, Clone)]
@@ -26,10 +31,17 @@ pub struct VectorSymbol {
     pub operation: VectorOp,
 }
 
-#[derive(Debug, Clone)]
+#[derive(Debug, Clone, PartialEq)]
 pub enum VectorOp {
-    Add,       // Compose concepts (King + Man)
-    Subtract,  // Remove concepts (King - Man)
-    Cross,     // Orthogonalize (Create new dimension)
-    Fractal,   // Recursive scaling (Zoom in)
+    Add,                       // Compose concepts (v1 + v2)
+    Subtract,                  // Remove concepts (v1 - v2)
+    Cross,                     // Orthogonalize
+    Fractal(f64),              // Recursive scaling: sign(v) * |v|^exp
+    Scale(f64),                // v * scalar
+    Norm,                      // v / ||v||
+    Mix(usize, usize, f64),    // (1-w)*v1 + w*v2 on two axes
+    Rotate(usize, usize, f64), // 2D rotation in axis plane
+    AxisAdd(usize, f64),       // Add scalar to axis: v[axis] += val
+    Seq,                       // Sequence of ops
+    Zero,                      // Reset
 }

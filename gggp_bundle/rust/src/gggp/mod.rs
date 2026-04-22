@@ -5,7 +5,10 @@ use std::io::{self, Read, Write};
 use std::rc::{Rc, Weak};
 
 pub mod phenotype;
-use phenotype::{Phenotype, OutputType};
+use phenotype::{Phenotype, OutputType, VectorPhenotype, VectorSymbol};
+
+pub mod vector;
+use vector::compile_tree_to_vector;
 
 use crate::storage::Node;
 
@@ -352,6 +355,10 @@ impl GpTree {
 
     pub fn max_depth(&self) -> i32 {
         self.max_depth
+    }
+
+    pub fn children(&self) -> &[GpTree] {
+        &self.children
     }
 
     pub fn tree_depth(&self) -> i32 {
@@ -4150,6 +4157,16 @@ impl Phenotype for GpTree {
 
     fn dimension(&self) -> usize {
         1
+    }
+}
+
+impl VectorPhenotype for GpTree {
+    fn render_vector(&self, dim: usize) -> nalgebra::DVector<f64> {
+        compile_tree_to_vector(self, dim, None)
+    }
+
+    fn to_vector_symbol(&self, _gene_index: usize, _depth: i32, _parent_hash: u64) -> Option<VectorSymbol> {
+        None
     }
 }
 
