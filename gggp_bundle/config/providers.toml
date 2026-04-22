@@ -1,0 +1,58 @@
+# =====================================================================
+# gggp_bundle/config/providers.toml
+#
+# Configuration for the LLM/embedding provider router.
+# Consumed by gggp_bundle/scripts/providers.py.
+#
+# The router has one purpose: decouple "which Python script needs an
+# embedding or a chat completion" from "which backend actually serves
+# it". Swapping Ollama -> OpenAI -> Cohere is a single config change.
+#
+# For MEDP branch A1, primary = "ollama" is locked (see
+# docs/medp/branches/A1/plan.md, F1 = a'). Everything in this file is
+# read at script start; no hot-reload, no env-var overrides mid-run.
+# =====================================================================
+
+[providers]
+# Which backend to use by default. Must match one of the sections
+# below. A1 locks this to "ollama".
+primary = "ollama"
+
+# ---------------------------------------------------------------------
+# Ollama backend (local or remote Ollama daemon).
+# REST API docs: https://github.com/ollama/ollama/blob/main/docs/api.md
+# ---------------------------------------------------------------------
+[providers.ollama]
+url = "http://localhost:11434"
+
+# Embedding model used by scripts/embed_corpus.py to produce T_i.
+# For A1: Qwen3-Embedding-0.6B @ dim 1024. 8B @ 4096 dim is reserved
+# for A3/A4 where RGA algebra can reconstruct high-dim targets.
+embed_model = "ryanshillington/Qwen3-Embedding-0.6B:latest"
+embed_dim = 1024
+
+# Chat model used by scripts/build_corpus_v1.py to generate paraphrases
+# under gamma.c LLMOnly. seed + temperature below make this reproducible
+# up to model-weights identity.
+chat_model = "Qwen3.6-35B-A3B:latest"
+chat_seed = 42
+chat_temperature = 0.0
+
+# HTTP timeout. First call cold-loads the model into VRAM and can take
+# 30-60s on RTX3090 for 35B MoE. Subsequent calls are ~100ms.
+request_timeout_s = 300
+
+# ---------------------------------------------------------------------
+# OpenAI backend (stub, not used in A1, kept for CI + SOTA comparisons).
+# Activate by setting primary = "openai" above and exporting
+# OPENAI_API_KEY in the environment.
+# ---------------------------------------------------------------------
+[providers.openai]
+base_url = "https://api.openai.com/v1"
+embed_model = "text-embedding-3-small"
+embed_dim = 1536
+chat_model = "gpt-4o-mini"
+chat_seed = 42
+chat_temperature = 0.0
+request_timeout_s = 120
+# API key is read from env var OPENAI_API_KEY at runtime, never stored here.
