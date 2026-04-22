@@ -135,8 +135,28 @@ Compute: ≤ 12k fitness evals × 5 сидов ≈ 3.5 h CPU (есть запа�
 
 ## Следующее действие
 
-**T0**: создать provider-router (`scripts/providers.py` +
-`config/providers.toml`) — инфраструктура для T1/T2. Затем T1 → T2 →
-T3/T4. Коммит-префикс для инфры обычный (`feat(A1): ...`);
-`medp(A1):` зарезервирован только для событий протокола (start / gate /
-backtrack / promote / budget_extended / threshold_adjusted).
+**T7**: собрать `scripts/run_A1.py` — 80/20 split, EA-цикл
+(selection + crossover + mutation над парой (G, D)), fitness через
+`SemioticHypercube.batch_render_dual` + `scripts/fitness.shape_fitness`.
+Коммит-префикс обычный (`feat(A1): ...`).
+
+### Artifact paths locked in T6
+
+- `gggp_bundle/demos/semiotic_hypercube/grammar_encoder.cfg`
+  (dim=16, gitignored; регенерируется
+  `cargo run --release --bin gen_neuro_grammar -- encoder <path>`).
+- `gggp_bundle/demos/semiotic_hypercube/grammar_decoder.cfg`
+  (dim=1024, gitignored).
+- `gggp_bundle/config/fitness.toml` — веса fitness-shaper'а с
+  задекларированными evolutionary ranges (alpha_len, L_max,
+  beta_class, gamma_seed).
+
+### Backtrack triggers for A1
+
+Эти события автоматически запускают `medp(A1): backtrack`:
+
+| событие | действие |
+|---|---|
+| G3 fail (F <= F_0 + 0.10 после полного бюджета T7) | fork → A1.1 с CMA-ES hook |
+| G6 fail при G3 pass (длина > 12) | fork → A1.2 с усиленным alpha_len |
+| grammar coverage < 3 уникальных op типов на топ-5 индивидах | fork → A1.3 с пересмотренной грамматикой |

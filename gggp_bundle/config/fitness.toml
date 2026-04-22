@@ -1,0 +1,49 @@
+# =====================================================================
+# gggp_bundle/config/fitness.toml
+#
+# Fitness-shaping parameters for the A1 SCL PoC.
+# Consumed by gggp_bundle/scripts/fitness.py.
+#
+# Each numeric value is the CURRENT starting point; the [*_range] section
+# records the allowed search range, so a future meta-run can optimize
+# these via GGGP (per user rule: "constants that influence long
+# computations are evolutionarily-optimizable inside declared ranges").
+#
+# Shaped fitness formula (all terms are cosines in [-1, 1] except penalties):
+#   F_shaped = F_raw
+#            - alpha_len   * (len_g + len_d) / L_max         # compactness
+#            - beta_class  * class_incoherence(c, classes)    # class-var
+#            - gamma_seed  * seed_std(F_across_seeds)         # stability
+# =====================================================================
+
+[fitness]
+# --- Compactness penalty (targets G6: avg_len < 12) ------------------
+# alpha_len scales the length penalty relative to F_raw. A value of
+# 0.02 means a combined chromosome length of L_max subtracts 0.02 from
+# fitness, i.e. ~3% of F_0=0.6132.
+alpha_len = 0.02
+alpha_len_range = [0.0, 0.1]
+
+# L_max normalizes combined length (len_g + len_d). Setting this to
+# 2 * MaxDepth (from neuro_grammar) = 48 keeps penalties bounded.
+L_max = 48
+L_max_range = [16, 96]
+
+# --- Class-coherence reward (targets G4: ARI > 0.30) ------------------
+# Incentivizes the encoder to put samples from the same ground-truth
+# class close to each other in code-space. We compute
+#   class_incoherence = 1 - silhouette(c, classes)
+# and penalize it with beta_class. Bounded in [0, 2].
+beta_class = 0.3
+beta_class_range = [0.0, 1.0]
+
+# --- Seed-stability penalty (targets G5: sigma(F) < 0.05) ------------
+# Applied only when multiple seeds have been evaluated for the same
+# individual (T9). For T7 single-seed runs this term is zero.
+gamma_seed = 0.5
+gamma_seed_range = [0.0, 2.0]
+
+# --- Graceful degradation on NaN / empty ops --------------------------
+# If a chromosome renders to all zeros or NaN, return this fixed
+# fitness instead of NaN. Keeps sort-by-fitness deterministic.
+fallback_fitness = -1.0

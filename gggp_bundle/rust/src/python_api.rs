@@ -29,7 +29,15 @@ fn finalize_grammar(cfg: &mut Node) {
 
 #[pyclass(unsendable)]
 pub struct SemioticHypercube {
+    /// Primary grammar config. In the A1 SCL PoC this is the encoder-side
+    /// grammar (G, dim=CODE_DIM). `evolve_target` and `fractal_expand` use
+    /// it unconditionally.
     cfg: Rc<GpConfig>,
+    /// Optional decoder-side grammar config. When set via
+    /// `attach_decoder_grammar`, `batch_render_dual` parses `chromosome_d`
+    /// against this instead of `cfg`. Unset = old single-grammar behavior
+    /// (both G and D parsed against `cfg`).
+    decoder_cfg: RefCell<Option<Rc<GpConfig>>>,
     engine: RefCell<Gggp>,
     target_vec: Rc<RefCell<DVector<f64>>>,
 }
@@ -78,9 +86,41 @@ impl SemioticHypercube {
 
         Ok(SemioticHypercube {
             cfg,
+            decoder_cfg: RefCell::new(None),
             engine: RefCell::new(engine),
             target_vec,
         })
+    }
+
+    /// Attach a second grammar used exclusively for parsing the decoder
+    /// chromosome in `batch_render_dual`. A1 uses this to give G and D
+    /// role-specific search spaces:
+    ///   encoder grammar dim=16   (CODE_DIM;   AX axis range 0..15)
+    ///   decoder grammar dim=1024 (TARGET_DIM; AX axis range 0..1023)
+    ///
+    /// Idempotent: calling it twice replaces the previously attached
+    /// grammar. Passing an empty string resets to the single-grammar
+    /// fallback (decoder_cfg = None).
+    fn attach_decoder_grammar(&self, grammar_cfg_path: &str) -> PyResult<()> {
+        if grammar_cfg_path.is_empty() {
+            *self.decoder_cfg.borrow_mut() = None;
+            return Ok(());
+        }
+        let mut grammar_node = Node::from_file(grammar_cfg_path).map_err(|e| {
+            PyValueError::new_err(format!(
+                "attach_decoder_grammar: failed to load {}: {}. \
+                 Hint: run gen_neuro_grammar decoder <path> first.",
+                grammar_cfg_path, e
+            ))
+        })?;
+        finalize_grammar(&mut grammar_node);
+        let dec = GpConfig::from_node(&grammar_node).map_err(|e| {
+            PyValueError::new_err(format!(
+                "attach_decoder_grammar: GpConfig init failed: {:?}", e
+            ))
+        })?;
+        *self.decoder_cfg.borrow_mut() = Some(dec);
+        Ok(())
     }
 
     fn fractal_expand<'py>(
@@ -113,20 +153,42 @@ impl SemioticHypercube {
 
     /// Draw a grammar-valid random chromosome using a seeded RNG.
     ///
+    /// `role` selects which grammar to sample against:
+    ///   "encoder" (default): self.cfg
+    ///   "decoder": self.decoder_cfg (must be attached first)
+    ///
     /// Used by A1 T7 runner to initialize the EA population. The
     /// chromosome is guaranteed to parse back into a tree (as long as
     /// the grammar and seed don't produce pathological deep recursions
-    /// that hit MaxDepth). Output is a Vec<i32> in the `a-b-c-...`
-    /// format the Rust parser expects after re-joining.
-    ///
-    /// Implementation: builds a random tree via the grammar's
-    /// `random_trees(&[cfg], &mut rng)` path (same call the GGGP engine
-    /// uses internally for initial populations), then extracts the
-    /// tree's chromosome string and splits it into ints.
-    fn random_chromosome(&self, seed: u64) -> PyResult<Vec<i32>> {
+    /// that hit MaxDepth). Output is a Vec<i32>.
+    #[pyo3(signature = (seed, role="encoder"))]
+    fn random_chromosome(&self, seed: u64, role: &str) -> PyResult<Vec<i32>> {
+        let cfg = match role {
+            "encoder" => self.cfg.clone(),
+            "decoder" => {
+                let dec = self.decoder_cfg.borrow();
+                match dec.as_ref() {
+                    Some(c) => c.clone(),
+                    None => {
+                        return Err(PyRuntimeError::new_err(
+                            "random_chromosome(role='decoder'): no decoder \
+                             grammar attached. Call \
+                             attach_decoder_grammar(path) first.",
+                        ))
+                    }
+                }
+            }
+            other => {
+                return Err(PyValueError::new_err(format!(
+                    "random_chromosome: unknown role '{}'. Valid: \
+                     'encoder' | 'decoder'.",
+                    other
+                )))
+            }
+        };
         let mut rng = StdRng::seed_from_u64(seed);
         let mut ind = GpIndividual::new();
-        ind.random_trees(&[self.cfg.clone()], &mut rng);
+        ind.random_trees(&[cfg], &mut rng);
         if ind.trees().is_empty() {
             return Err(PyRuntimeError::new_err(
                 "random_chromosome: no trees generated. Hint: grammar may \
@@ -256,12 +318,19 @@ impl SemioticHypercube {
 
         let g_tree = self.cfg.tree_from_chromosome(&g_str).map_err(|e| {
             PyValueError::new_err(format!(
-                "encoder chromosome parse failed: {:?}", e
+                "encoder chromosome parse failed against encoder grammar: \
+                 {:?}", e
             ))
         })?;
-        let d_tree = self.cfg.tree_from_chromosome(&d_str).map_err(|e| {
+        // If a decoder grammar is attached, parse chromosome_d against it.
+        // Otherwise fall back to self.cfg (single-grammar path).
+        let dec_borrow = self.decoder_cfg.borrow();
+        let d_cfg = dec_borrow.as_ref().unwrap_or(&self.cfg);
+        let d_tree = d_cfg.tree_from_chromosome(&d_str).map_err(|e| {
             PyValueError::new_err(format!(
-                "decoder chromosome parse failed: {:?}", e
+                "decoder chromosome parse failed against {} grammar: {:?}",
+                if dec_borrow.is_some() { "decoder" } else { "encoder (single-grammar fallback)" },
+                e
             ))
         })?;
 

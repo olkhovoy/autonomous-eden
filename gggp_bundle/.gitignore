@@ -22,8 +22,9 @@ __pycache__/
 
 # --- Generated grammar fixtures -------------------------------------
 # .cfg files are Node-format binary grammars produced by:
-#   cargo run --bin gen_grammar         -> test_grammar.cfg
-#   cargo run --bin gen_neuro_grammar   -> neuro_grammar.cfg
+#   cargo run --bin gen_grammar                          -> test_grammar.cfg
+#   cargo run --bin gen_neuro_grammar -- encoder <path>  -> grammar_encoder.cfg (dim=16)
+#   cargo run --bin gen_neuro_grammar -- decoder <path>  -> grammar_decoder.cfg (dim=1024)
 # Regenerate locally; do NOT commit.
 *.cfg
 

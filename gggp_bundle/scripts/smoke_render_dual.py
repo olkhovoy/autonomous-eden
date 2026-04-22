@@ -34,34 +34,40 @@ import numpy as np
 
 REPO_ROOT = Path(__file__).resolve().parents[2]
 BUNDLE = REPO_ROOT / "gggp_bundle"
-GRAMMAR_CFG = BUNDLE / "neuro_grammar.cfg"
-T_NPY = BUNDLE / "demos" / "semiotic_hypercube" / "T.npy"
+DEMO_DIR = BUNDLE / "demos" / "semiotic_hypercube"
+GRAMMAR_ENCODER = DEMO_DIR / "grammar_encoder.cfg"
+GRAMMAR_DECODER = DEMO_DIR / "grammar_decoder.cfg"
+T_NPY = DEMO_DIR / "T.npy"
 
 CODE_DIM = 16
 TARGET_DIM = 1024
 
 
-def ensure_grammar() -> Path:
-    """Regenerate neuro_grammar.cfg if missing (it's gitignored)."""
-    if GRAMMAR_CFG.is_file():
-        return GRAMMAR_CFG
-    print(f"[smoke] grammar .cfg missing, regenerating...")
+def ensure_grammars() -> tuple[Path, Path]:
+    """Regenerate both grammar .cfg files if missing (they're gitignored)."""
+    missing = [p for p in (GRAMMAR_ENCODER, GRAMMAR_DECODER) if not p.is_file()]
+    if not missing:
+        return GRAMMAR_ENCODER, GRAMMAR_DECODER
+    print(f"[smoke] grammars missing: {[str(m) for m in missing]}; regenerating")
+    rust_dir = BUNDLE / "rust"
     subprocess.run(
-        ["cargo", "run", "--release", "--bin", "gen_neuro_grammar"],
-        cwd=BUNDLE / "rust",
+        ["cargo", "build", "--release", "--bin", "gen_neuro_grammar"],
+        cwd=rust_dir,
         check=True,
     )
-    if not GRAMMAR_CFG.is_file():
-        raise SystemExit(
-            f"gen_neuro_grammar ran but {GRAMMAR_CFG} still missing. "
-            f"Check cargo output and working directory behavior."
-        )
-    return GRAMMAR_CFG
+    bin_path = rust_dir / "target" / "release" / "gen_neuro_grammar"
+    subprocess.run([str(bin_path), "encoder", str(GRAMMAR_ENCODER)], check=True)
+    subprocess.run([str(bin_path), "decoder", str(GRAMMAR_DECODER)], check=True)
+    for p in (GRAMMAR_ENCODER, GRAMMAR_DECODER):
+        if not p.is_file():
+            raise SystemExit(f"gen_neuro_grammar ran but {p} still missing.")
+    return GRAMMAR_ENCODER, GRAMMAR_DECODER
 
 
 def main() -> None:
-    cfg = ensure_grammar()
-    print(f"[smoke] grammar: {cfg}")
+    g_enc, g_dec = ensure_grammars()
+    print(f"[smoke] encoder grammar: {g_enc}")
+    print(f"[smoke] decoder grammar: {g_dec}")
 
     if not T_NPY.is_file():
         raise SystemExit(
@@ -73,12 +79,13 @@ def main() -> None:
 
     from semiotic_hypercube import SemioticHypercube
 
-    sh = SemioticHypercube(str(cfg))
-    print(f"[smoke] SemioticHypercube loaded grammar from {cfg}")
+    sh = SemioticHypercube(str(g_enc))
+    sh.attach_decoder_grammar(str(g_dec))
+    print(f"[smoke] SemioticHypercube: encoder + decoder grammars attached")
 
     # ---- Test 1: render_tree_with_input on a single T_i -----------
-    chromo_g = sh.random_chromosome(0)
-    chromo_d = sh.random_chromosome(1)
+    chromo_g = sh.random_chromosome(0, "encoder")
+    chromo_d = sh.random_chromosome(1, "decoder")
     print(
         f"[smoke] chromosome_g = {chromo_g}  len={len(chromo_g)}\n"
         f"[smoke] chromosome_d = {chromo_d}  len={len(chromo_d)}"
@@ -105,8 +112,8 @@ def main() -> None:
     sweep: list[tuple[int, int, float, int, int]] = []
     t_start = time.time()
     for seed in range(20):
-        cg = sh.random_chromosome(seed * 2)
-        cd = sh.random_chromosome(seed * 2 + 1)
+        cg = sh.random_chromosome(seed * 2, "encoder")
+        cd = sh.random_chromosome(seed * 2 + 1, "decoder")
         res = sh.batch_render_dual(cg, cd, T, CODE_DIM, TARGET_DIM)
         sweep.append(
             (seed, len(cg) + len(cd), float(res["F"]), len(cg), len(cd))
@@ -141,14 +148,6 @@ def main() -> None:
     )
 
     print(f"\n[smoke] ALL CHECKS PASSED. Rust bridge is live.")
-    print(f"[smoke] Notes for T6/T7 (fitness + runner):")
-    print(f"  - Current grammar (gen_neuro_grammar, dim=5) is too narrow")
-    print(f"    for TARGET_DIM=1024 -- AX ops only touch axes 0..4, so")
-    print(f"    decoder cannot reconstruct most of the embedding manifold.")
-    print(f"  - ZERO op collapses signal to zero when sampled; consider")
-    print(f"    removing it and adding MIX/ROT/FRAC (already in VectorOp).")
-    print(f"  - Grammar needs regeneration with dim=1024 for A1 production")
-    print(f"    runs. Tracked in log.jsonl as a T7 prerequisite.")
 
 
 if __name__ == "__main__":
