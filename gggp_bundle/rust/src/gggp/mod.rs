@@ -10,6 +10,8 @@ use phenotype::{Phenotype, OutputType, VectorPhenotype, VectorSymbol};
 pub mod vector;
 use vector::compile_tree_to_vector;
 
+pub mod hybrid;
+
 use crate::storage::Node;
 
 #[derive(Debug)]
@@ -508,6 +510,7 @@ pub struct GpIndividual {
     has_fitness: bool,
     success: bool,
     fitness: f64,
+    pub continuous_weights: Vec<f64>,
 }
 
 impl GpIndividual {
@@ -517,6 +520,7 @@ impl GpIndividual {
             has_fitness: false,
             success: false,
             fitness: -1.0,
+            continuous_weights: Vec::new(),
         }
     }
 
@@ -649,6 +653,7 @@ impl GpIndividual {
             has_fitness,
             success,
             fitness,
+            continuous_weights: Vec::new(),
         })
     }
 }
