@@ -1,0 +1,8 @@
+cand_85eccf762be6 bootstrap_f0.50 trace_block_bootstrap orig_np=+155.00 p05_np=-885.91 p95_dd=10.63 profit_rate=0.504
+cand_85eccf762be6 bootstrap_f1.00 trace_block_bootstrap orig_np=+286.18 p05_np=-1713.33 p95_dd=20.24 profit_rate=0.496
+cand_a3b25e7ef71e bootstrap_f0.50 trace_block_bootstrap orig_np=+136.92 p05_np=-250.10 p95_dd=4.56 profit_rate=0.672
+cand_a3b25e7ef71e bootstrap_f1.00 trace_block_bootstrap orig_np=+267.44 p05_np=-500.60 p95_dd=8.96 profit_rate=0.668
+cand_e87c75ab98f9 bootstrap_f0.50 trace_block_bootstrap orig_np=+19.50 p05_np=-214.74 p95_dd=3.58 profit_rate=0.531
+cand_e87c75ab98f9 bootstrap_f1.00 trace_block_bootstrap orig_np=+33.36 p05_np=-426.46 p95_dd=7.06 profit_rate=0.527
+cand_fa28da9331f2 bootstrap_f0.50 trace_block_bootstrap orig_np=+119.92 p05_np=-261.23 p95_dd=4.74 profit_rate=0.672
+cand_fa28da9331f2 bootstrap_f1.00 trace_block_bootstrap orig_np=+232.95 p05_np=-522.76 p95_dd=9.30 profit_rate=0.664

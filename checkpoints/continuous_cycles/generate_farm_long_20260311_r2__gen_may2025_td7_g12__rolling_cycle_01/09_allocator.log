@@ -1,0 +1,11 @@
+Saved allocator workbench to /home/user/mcs/candidate_registry/allocations/generate_farm_long_20260311_r2__gen_may2025_td7_g12__rolling_cycle_01_allocator.json
+Chosen scenario: risk_0.25
+risk_0.25 | objective=-0.5843 risk=0.25 reserve=0.75 orig_pnl=-101.96 p05_pnl=-196.97 p95_dd=2.11
+  wf_01_20250417_run01 capital=0.199 share=0.797 raw=5.435
+  wf_02_20250424_run01 capital=0.051 share=0.203 raw=1.389
+risk_0.50 | objective=-0.6321 risk=0.50 reserve=0.50 orig_pnl=-240.94 p05_pnl=-392.04 p95_dd=4.03
+  wf_01_20250417_run01 capital=0.350 share=0.700 raw=5.435
+  wf_02_20250424_run01 capital=0.150 share=0.300 raw=1.389
+risk_0.75 | objective=-0.6691 risk=0.70 reserve=0.30 orig_pnl=-443.90 p05_pnl=-581.22 p95_dd=5.92
+  wf_01_20250417_run01 capital=0.350 share=0.500 raw=5.435
+  wf_02_20250424_run01 capital=0.350 share=0.500 raw=1.389

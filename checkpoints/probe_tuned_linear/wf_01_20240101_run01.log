@@ -1,0 +1,55 @@
+Importing PyTorch...
+Imported torch successfully.
+Importing Rust Module...
+Imported rust module successfully.
+Script started.
+Initializing SemanticHypercube with neuro_grammar.cfg...
+Loading SemanticHypercube...
+SemanticHypercube loaded.
+
+================================================
+      THE MONOLITHIC RUN INITIATED              
+================================================
+Device:          cuda
+Architecture:    linear_score
+Input Mode:      Neurobars (Feature Dim 32)
+Data File:       /home/user/mcs/data/BTCUSDT_parquet_neurobars_autoresearch.npz
+Dimensions:      99 (Weights & Biases)
+Engine Config:   {'family': 'linear_score', 'hidden_dim': 16, 'alpha': 0.5, 'action_head_mode': 'confidence_gate', 'action_threshold': 0.57}
+Generations:     4
+Population Size: 6
+Evaluation:      11520-step deterministic loop from start_step=1982117
+Econ Model:      10000 USD | binance | taker | fraction_of_equity
+Positioning:     notional_fraction=1.00 | leverage=1.00 | fixed_qty=1.0000
+Slippage:        0.00000
+Fitness:         profit_active
+Trade Floor:     min_trades=6 | activity_target=16
+Trade Band:      low=8 | high=64 | floor=0.25
+Selection:       min_trades enforced across all generations
+================================================
+
+Filtering Generation 0 for minimum viability...
+Starting hypercube.evolve_with_fitness...
+
+  [Filtering Phase] SURVIVOR FOUND (1/6) after 2 deaths: trades= 137, PnL=-911.6, win= 19.7%, Fit=-1022.1510
+
+  [Filtering Phase] SURVIVOR FOUND (2/6) after 0 deaths: trades=  47, PnL=-1143.6, win= 46.8%, Fit=-747.4064
+
+  [Filtering Phase] SURVIVOR FOUND (3/6) after 0 deaths: trades=  77, PnL=-1043.6, win= 35.1%, Fit=-766.5789
+
+  [Filtering Phase] SURVIVOR FOUND (4/6) after 0 deaths: trades=  40, PnL= 186.8, win= 52.5%, Fit=138.6865
+
+  [Filtering Phase] SURVIVOR FOUND (5/6) after 0 deaths: trades=  18, PnL= 183.0, win= 44.4%, Fit=129.3183
+
+  [Filtering Phase] SURVIVOR FOUND (6/6) after 0 deaths: trades= 212, PnL=-1772.8, win= 26.4%, Fit=-3025.5844
+
+=== FILTERING PHASE COMPLETE. INITIAL POPULATION READY. ===
+
+  Eval 1/6                      Eval 2/6                      Eval 3/6                      Eval 4/6                      Eval 5/6                      Eval 6/6                    Gen 000 | Fit: -1390.23 (Best: -273.85) | PnL: -622.3 | DD: 12.9% | Trades:  109 | Win: 27.0% | Time: 10.1s
+  Eval 7/6                      Eval 8/6                      Eval 9/6                      Eval 10/6                      Eval 11/6                      Eval 12/6                    Gen 001 | Fit: -1006.66 (Best:  59.18) | PnL: -1042.1 | DD: 12.3% | Trades:   71 | Win: 26.4% | Time: 27.7s
+  Eval 13/6                      Eval 14/6                      Eval 15/6                      Eval 16/6                      Eval 17/6                      Eval 18/6                    Gen 002 | Fit: -1270.30 (Best: 138.69) | PnL: -919.7 | DD: 10.9% | Trades:   95 | Win: 34.9% | Time: 21.4s
+Evolution loop finished.
+
+--- Evolution Complete ---
+Final Fitness (Balance): 138.6865
+Saved optimized genome to /home/user/mcs/checkpoints/probe_tuned_linear/wf_01_20240101_run01.npy

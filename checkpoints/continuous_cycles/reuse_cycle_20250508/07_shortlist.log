@@ -1,0 +1,6 @@
+Saved shortlist report to /home/user/mcs/candidate_registry/shortlists/reuse_cycle_20250508_shortlist.json
+Selected candidates:
+  rank=1 wf_03_20250501_run02 base=+1.983 marginal=+1.983 brightness=1.00 flags=oos_positive_vs_fragile_train
+  rank=2 wf_02_20240601_run02 base=-0.102 marginal=+1.241 brightness=0.92 flags=diversifier_outlier
+Selected pair compatibility:
+  cand_a1becdcb5dba <-> cand_d8959d02a5e6 compat=+1.343 downside=+0.104 sim_loss=0.166

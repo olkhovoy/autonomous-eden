@@ -1,0 +1,13 @@
+Saved combination search to /home/user/mcs/candidate_registry/combinations/generate_farm_long_20260311_r2__gen_may2025_td7_g8__rolling_cycle_01_combinations.json
+Pool=4 combinations=14 scenarios=42
+Best scenario: subset_1_cand_466a1b215460_risk_0.25
+wf_02_20250424_run02 | size=1 requested=0.25 risk=0.25 objective=-0.5445 p05_pnl=-212.70 p95_dd=2.53
+wf_02_20250424_run02 | size=1 requested=0.50 risk=0.35 objective=-0.5471 p05_pnl=-296.75 p95_dd=3.53
+wf_02_20250424_run02 | size=1 requested=0.75 risk=0.35 objective=-0.5471 p05_pnl=-296.75 p95_dd=3.53
+wf_02_20250424_run02,wf_02_20250424_run01 | size=2 requested=0.25 risk=0.25 objective=-0.6447 p05_pnl=-255.43 p95_dd=2.88
+wf_01_20250417_run02,wf_02_20250424_run02 | size=2 requested=0.25 risk=0.25 objective=-0.6556 p05_pnl=-267.50 p95_dd=2.92
+wf_02_20250424_run02,wf_02_20250424_run01 | size=2 requested=0.50 risk=0.50 objective=-0.6562 p05_pnl=-504.90 p95_dd=5.67
+wf_01_20250417_run02,wf_02_20250424_run02,wf_02_20250424_run01 | size=3 requested=0.25 risk=0.25 objective=-0.6610 p05_pnl=-269.17 p95_dd=3.04
+wf_02_20250424_run02,wf_02_20250424_run01 | size=2 requested=0.75 risk=0.70 objective=-0.6653 p05_pnl=-700.25 p95_dd=7.86
+wf_01_20250417_run02,wf_02_20250424_run02 | size=2 requested=0.50 risk=0.50 objective=-0.6673 p05_pnl=-528.48 p95_dd=5.75
+wf_01_20250417_run02,wf_02_20250424_run02,wf_02_20250424_run01 | size=3 requested=0.50 risk=0.50 objective=-0.6740 p05_pnl=-531.75 p95_dd=5.99

@@ -1,0 +1,4 @@
+Saved cluster report to /home/user/mcs/candidate_registry/clusters/family_sweep_20260318_6h__fam_smallrec32_active_jan2024__rolling_cycle_01_clusters.json
+cluster_000 | size=2 members=wf_01_20231215_run02,wf_01_20231215_run01 sim=0.677 downside=0.765 sim_loss=0.456
+cluster_002 | size=1 members=wf_02_20231222_run01 sim=0.000 downside=0.000 sim_loss=0.000
+cluster_001 | size=1 members=wf_02_20231222_run02 sim=0.000 downside=0.000 sim_loss=0.000

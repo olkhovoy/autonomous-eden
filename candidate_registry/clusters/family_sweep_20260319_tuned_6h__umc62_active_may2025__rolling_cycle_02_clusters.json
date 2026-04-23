@@ -1,0 +1,75 @@
+{
+  "assignments": [
+    {
+      "candidate_id": "cand_f853b503b4ce",
+      "cluster_id": "cluster_000",
+      "display_name": "wf_01_20250421_run01"
+    },
+    {
+      "candidate_id": "cand_13895d567a8a",
+      "cluster_id": "cluster_000",
+      "display_name": "wf_01_20250421_run02"
+    },
+    {
+      "candidate_id": "cand_64f370523d50",
+      "cluster_id": "cluster_000",
+      "display_name": "wf_02_20250428_run01"
+    },
+    {
+      "candidate_id": "cand_99830b2c8d78",
+      "cluster_id": "cluster_001",
+      "display_name": "wf_02_20250428_run02"
+    }
+  ],
+  "candidate_ids": [
+    "cand_13895d567a8a",
+    "cand_64f370523d50",
+    "cand_99830b2c8d78",
+    "cand_f853b503b4ce"
+  ],
+  "clusters": [
+    {
+      "candidate_ids": [
+        "cand_13895d567a8a",
+        "cand_64f370523d50",
+        "cand_f853b503b4ce"
+      ],
+      "cluster_id": "cluster_000",
+      "cluster_size": 3,
+      "display_names": [
+        "wf_01_20250421_run02",
+        "wf_02_20250428_run01",
+        "wf_01_20250421_run01"
+      ],
+      "mean_downside_corr": 0.5932430541620506,
+      "mean_return_corr": 0.6119748391939149,
+      "mean_similarity_score": 0.4554388013102111,
+      "mean_simultaneous_loss_rate": 0.1650462962962963
+    },
+    {
+      "candidate_ids": [
+        "cand_99830b2c8d78"
+      ],
+      "cluster_id": "cluster_001",
+      "cluster_size": 1,
+      "display_names": [
+        "wf_02_20250428_run02"
+      ],
+      "mean_downside_corr": 0.0,
+      "mean_return_corr": 0.0,
+      "mean_similarity_score": 0.0,
+      "mean_simultaneous_loss_rate": 0.0
+    }
+  ],
+  "created_at_utc": "2026-03-19T14:22:06Z",
+  "data_path": "/home/user/mcs/data/BTCUSDT_parquet_neurobars_autoresearch.npz",
+  "end_utc": "2025-05-15 00:00:00",
+  "max_steps": 10080,
+  "name": "family_sweep_20260319_tuned_6h__umc62_active_may2025__rolling_cycle_02_clusters",
+  "notes": null,
+  "schema_version": "1",
+  "similarity_threshold": 0.4,
+  "source_diversification_report": "family_sweep_20260319_tuned_6h__umc62_active_may2025__rolling_cycle_02_div",
+  "start_step": 2692037,
+  "start_utc": "2025-05-08 00:00:00"
+}

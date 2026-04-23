@@ -1,0 +1,7 @@
+Saved diversification report to /home/user/mcs/candidate_registry/diversification/family_sweep_20260318_6h__fam_umc32_hunter_may2025__rolling_cycle_01_div.json
+wf_01_20250414_run02 <-> wf_02_20250421_run02 | corr=+0.758 downside=+0.742 sim_loss=0.390 combo_dd=8.06 dd_improve=+1.65
+wf_01_20250414_run02 <-> wf_02_20250421_run01 | corr=+0.732 downside=+0.728 sim_loss=0.384 combo_dd=9.97 dd_improve=+1.48
+wf_01_20250414_run01 <-> wf_02_20250421_run01 | corr=+0.603 downside=+0.677 sim_loss=0.367 combo_dd=8.73 dd_improve=+1.28
+wf_01_20250414_run01 <-> wf_02_20250421_run02 | corr=+0.673 downside=+0.753 sim_loss=0.389 combo_dd=7.18 dd_improve=+1.08
+wf_01_20250414_run01 <-> wf_01_20250414_run02 | corr=+0.478 downside=+0.550 sim_loss=0.317 combo_dd=12.85 dd_improve=+0.62
+wf_02_20250421_run02 <-> wf_02_20250421_run01 | corr=+0.912 downside=+0.900 sim_loss=0.443 combo_dd=6.05 dd_improve=+0.19

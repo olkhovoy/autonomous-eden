@@ -1,0 +1,4 @@
+Saved tradeforward plan to /home/user/mcs/candidate_registry/tradeforward/family_sweep_20260319_tuned_6h__lin57_active_jun2024__rolling_cycle_01_tradeforward.json
+combination:subset_2_cand_6ffb0878fb63+cand_8356bdf9334f_risk_0.50 risk=0.50 reserve=0.50 forward=2024-06-08 00:00:00 -> 2024-06-15 00:00:00
+  wf_01_20240515_run01 capital=0.350 share=0.700 cluster=cluster_000
+  wf_02_20240522_run01 capital=0.150 share=0.300 cluster=cluster_001

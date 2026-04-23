@@ -1,0 +1,241 @@
+{
+  "applied_status_updates": false,
+  "candidate_ids": [
+    "cand_6caa94014fa0",
+    "cand_a1becdcb5dba",
+    "cand_d8959d02a5e6",
+    "cand_eb598e21812d",
+    "cand_f0baa9d04549",
+    "cand_fe4fbb8096b0"
+  ],
+  "candidate_summaries": [
+    {
+      "candidate_id": "cand_eb598e21812d",
+      "display_name": "wf_01_20240101_run01",
+      "failed_forward_cycles": 0,
+      "final_status": "approved",
+      "idle_cycles": 0,
+      "initial_status": "research",
+      "last_selected_cycle_index": 1,
+      "last_transition_cycle_index": 1,
+      "no_trade_cycles": 0,
+      "selected_cycles": 1,
+      "successful_forward_cycles": 1,
+      "total_cycles_seen": 1,
+      "transition_count": 1
+    },
+    {
+      "candidate_id": "cand_6caa94014fa0",
+      "display_name": "wf_02_20240601_run01",
+      "failed_forward_cycles": 0,
+      "final_status": "research",
+      "idle_cycles": 1,
+      "initial_status": "research",
+      "last_selected_cycle_index": null,
+      "last_transition_cycle_index": null,
+      "no_trade_cycles": 0,
+      "selected_cycles": 0,
+      "successful_forward_cycles": 0,
+      "total_cycles_seen": 1,
+      "transition_count": 0
+    },
+    {
+      "candidate_id": "cand_a1becdcb5dba",
+      "display_name": "wf_02_20240601_run02",
+      "failed_forward_cycles": 0,
+      "final_status": "research",
+      "idle_cycles": 1,
+      "initial_status": "research",
+      "last_selected_cycle_index": null,
+      "last_transition_cycle_index": null,
+      "no_trade_cycles": 0,
+      "selected_cycles": 0,
+      "successful_forward_cycles": 0,
+      "total_cycles_seen": 1,
+      "transition_count": 0
+    },
+    {
+      "candidate_id": "cand_d8959d02a5e6",
+      "display_name": "wf_03_20250501_run02",
+      "failed_forward_cycles": 0,
+      "final_status": "research",
+      "idle_cycles": 1,
+      "initial_status": "research",
+      "last_selected_cycle_index": null,
+      "last_transition_cycle_index": null,
+      "no_trade_cycles": 0,
+      "selected_cycles": 0,
+      "successful_forward_cycles": 0,
+      "total_cycles_seen": 1,
+      "transition_count": 0
+    },
+    {
+      "candidate_id": "cand_f0baa9d04549",
+      "display_name": "wf_01_20240101_run02",
+      "failed_forward_cycles": 0,
+      "final_status": "research",
+      "idle_cycles": 1,
+      "initial_status": "research",
+      "last_selected_cycle_index": null,
+      "last_transition_cycle_index": null,
+      "no_trade_cycles": 0,
+      "selected_cycles": 0,
+      "successful_forward_cycles": 0,
+      "total_cycles_seen": 1,
+      "transition_count": 0
+    },
+    {
+      "candidate_id": "cand_fe4fbb8096b0",
+      "display_name": "wf_03_20250501_run01",
+      "failed_forward_cycles": 0,
+      "final_status": "research",
+      "idle_cycles": 1,
+      "initial_status": "research",
+      "last_selected_cycle_index": null,
+      "last_transition_cycle_index": null,
+      "no_trade_cycles": 0,
+      "selected_cycles": 0,
+      "successful_forward_cycles": 0,
+      "total_cycles_seen": 1,
+      "transition_count": 0
+    }
+  ],
+  "config": {
+    "idle_cycles_to_drain": 1,
+    "idle_cycles_to_retire": 2,
+    "max_forward_drawdown_pct": 8.0,
+    "min_forward_pnl": 0.0,
+    "min_selected_trades": 1,
+    "successful_selected_cycles_to_activate": 2,
+    "successful_selected_cycles_to_recover": 1
+  },
+  "created_at_utc": "2026-03-10T15:23:16Z",
+  "decisions": [
+    {
+      "action": "hold",
+      "candidate_id": "cand_6caa94014fa0",
+      "consecutive_failures": 0,
+      "consecutive_idle_cycles": 1,
+      "consecutive_successes": 0,
+      "cycle_index": 1,
+      "cycle_name": "reuse_farm_smoke_light_202505__reuse_may08_light__rolling_cycle_01",
+      "display_name": "wf_02_20240601_run01",
+      "max_drawdown_pct": null,
+      "next_status": "research",
+      "pnl": null,
+      "previous_status": "research",
+      "reason_codes": [
+        "idle_hold"
+      ],
+      "selected": false,
+      "trades": null
+    },
+    {
+      "action": "hold",
+      "candidate_id": "cand_a1becdcb5dba",
+      "consecutive_failures": 0,
+      "consecutive_idle_cycles": 1,
+      "consecutive_successes": 0,
+      "cycle_index": 1,
+      "cycle_name": "reuse_farm_smoke_light_202505__reuse_may08_light__rolling_cycle_01",
+      "display_name": "wf_02_20240601_run02",
+      "max_drawdown_pct": null,
+      "next_status": "research",
+      "pnl": null,
+      "previous_status": "research",
+      "reason_codes": [
+        "idle_hold"
+      ],
+      "selected": false,
+      "trades": null
+    },
+    {
+      "action": "hold",
+      "candidate_id": "cand_d8959d02a5e6",
+      "consecutive_failures": 0,
+      "consecutive_idle_cycles": 1,
+      "consecutive_successes": 0,
+      "cycle_index": 1,
+      "cycle_name": "reuse_farm_smoke_light_202505__reuse_may08_light__rolling_cycle_01",
+      "display_name": "wf_03_20250501_run02",
+      "max_drawdown_pct": null,
+      "next_status": "research",
+      "pnl": null,
+      "previous_status": "research",
+      "reason_codes": [
+        "idle_hold"
+      ],
+      "selected": false,
+      "trades": null
+    },
+    {
+      "action": "promote",
+      "candidate_id": "cand_eb598e21812d",
+      "consecutive_failures": 0,
+      "consecutive_idle_cycles": 0,
+      "consecutive_successes": 1,
+      "cycle_index": 1,
+      "cycle_name": "reuse_farm_smoke_light_202505__reuse_may08_light__rolling_cycle_01",
+      "display_name": "wf_01_20240101_run01",
+      "max_drawdown_pct": 4.675145645255111,
+      "next_status": "approved",
+      "pnl": 562.4177741626809,
+      "previous_status": "research",
+      "reason_codes": [
+        "forward_success",
+        "promote_to_approved"
+      ],
+      "selected": true,
+      "trades": 4
+    },
+    {
+      "action": "hold",
+      "candidate_id": "cand_f0baa9d04549",
+      "consecutive_failures": 0,
+      "consecutive_idle_cycles": 1,
+      "consecutive_successes": 0,
+      "cycle_index": 1,
+      "cycle_name": "reuse_farm_smoke_light_202505__reuse_may08_light__rolling_cycle_01",
+      "display_name": "wf_01_20240101_run02",
+      "max_drawdown_pct": null,
+      "next_status": "research",
+      "pnl": null,
+      "previous_status": "research",
+      "reason_codes": [
+        "idle_hold"
+      ],
+      "selected": false,
+      "trades": null
+    },
+    {
+      "action": "hold",
+      "candidate_id": "cand_fe4fbb8096b0",
+      "consecutive_failures": 0,
+      "consecutive_idle_cycles": 1,
+      "consecutive_successes": 0,
+      "cycle_index": 1,
+      "cycle_name": "reuse_farm_smoke_light_202505__reuse_may08_light__rolling_cycle_01",
+      "display_name": "wf_03_20250501_run01",
+      "max_drawdown_pct": null,
+      "next_status": "research",
+      "pnl": null,
+      "previous_status": "research",
+      "reason_codes": [
+        "idle_hold"
+      ],
+      "selected": false,
+      "trades": null
+    }
+  ],
+  "final_status_counts": {
+    "approved": 1,
+    "research": 5
+  },
+  "name": "reuse_farm_smoke_light_202505__reuse_may08_light__lifecycle",
+  "notes": "light reuse smoke farm over existing fused32 walkforward pool",
+  "schema_version": "1",
+  "source_rolling_report": "reuse_farm_smoke_light_202505__reuse_may08_light__rolling",
+  "source_tradeforward_evaluations": [
+    "reuse_farm_smoke_light_202505__reuse_may08_light__rolling_cycle_01_tradeforward_eval"
+  ]
+}

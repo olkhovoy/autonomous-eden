@@ -1,0 +1,4 @@
+Saved tradeforward evaluation to /home/user/mcs/candidate_registry/tradeforward_eval/generate_farm_long_20260311_r2__gen_jun2024_td7_g8__rolling_cycle_01_tradeforward_eval.json
+combination:subset_2_cand_d5e7c38d9fa2+cand_00056e1f8ed8_risk_0.25 actual_pnl=-4.27 expected_orig=-80.52 delta=+76.25
+  wf_02_20240525_run01 capital=0.125 pnl=+28.93 dd=5.26 trades=36
+  wf_02_20240525_run02 capital=0.125 pnl=-75.87 dd=0.76 trades=8

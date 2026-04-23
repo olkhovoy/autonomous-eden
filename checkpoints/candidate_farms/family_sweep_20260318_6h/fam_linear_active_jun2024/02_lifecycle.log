@@ -1,0 +1,4 @@
+Saved lifecycle report to /home/user/mcs/candidate_registry/lifecycle/family_sweep_20260318_6h__fam_linear_active_jun2024__lifecycle.json
+rolling=family_sweep_20260318_6h__fam_linear_active_jun2024__rolling candidates=8 applied=False
+final_status_counts {'research': 7, 'approved': 1}
+  wf_01_20240522_run02 research->approved selected=1 success=1 fail=0 idle=1 transitions=1

@@ -1,0 +1,19 @@
+{
+  "created_at_utc": "2026-03-10T06:58:01Z",
+  "description": "Adjacent OOS positive and active",
+  "name": "adjacent_oos_positive",
+  "require_all": true,
+  "rules": [
+    {
+      "field": "selection_flags.oos_positive",
+      "op": "eq",
+      "value": true
+    },
+    {
+      "field": "periods.oos.trades",
+      "op": "gte",
+      "value": 10
+    }
+  ],
+  "schema_version": "1"
+}

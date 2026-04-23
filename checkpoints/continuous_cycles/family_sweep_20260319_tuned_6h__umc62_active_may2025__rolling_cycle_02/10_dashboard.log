@@ -1,0 +1,4 @@
+Saved dashboard feed to /home/user/mcs/candidate_registry/dashboard/family_sweep_20260319_tuned_6h__umc62_active_may2025__rolling_cycle_02_dashboard.json
+summary: candidates=258 visible=258 selected=1 exceptions=2 clusters=2
+allocator chosen=risk_0.50
+combination best=subset_2_cand_f853b503b4ce+cand_99830b2c8d78_risk_0.75

@@ -1,0 +1,16 @@
+Saved diversification report to /home/user/mcs/candidate_registry/diversification/reuse_farm_smoke_202505__reuse_may01__rolling_cycle_01_div.json
+wf_01_20240101_run02 <-> wf_03_20250501_run01 | corr=-0.150 downside=+0.171 sim_loss=0.173 combo_dd=5.72 dd_improve=+2.25
+wf_03_20250501_run02 <-> wf_01_20240101_run02 | corr=-0.131 downside=+0.243 sim_loss=0.181 combo_dd=5.33 dd_improve=+2.21
+wf_01_20240101_run01 <-> wf_01_20240101_run02 | corr=-0.118 downside=+0.203 sim_loss=0.182 combo_dd=5.22 dd_improve=+2.15
+wf_02_20240601_run02 <-> wf_01_20240101_run01 | corr=-0.181 downside=+0.166 sim_loss=0.182 combo_dd=7.48 dd_improve=+1.90
+wf_02_20240601_run02 <-> wf_03_20250501_run01 | corr=+0.057 downside=+0.303 sim_loss=0.219 combo_dd=8.11 dd_improve=+1.87
+wf_02_20240601_run02 <-> wf_03_20250501_run02 | corr=-0.065 downside=+0.196 sim_loss=0.178 combo_dd=7.71 dd_improve=+1.84
+wf_02_20240601_run01 <-> wf_01_20240101_run02 | corr=-0.316 downside=+0.036 sim_loss=0.096 combo_dd=12.55 dd_improve=+1.14
+wf_02_20240601_run01 <-> wf_03_20250501_run02 | corr=+0.466 downside=+0.494 sim_loss=0.228 combo_dd=10.87 dd_improve=+0.91
+wf_02_20240601_run01 <-> wf_01_20240101_run01 | corr=+0.420 downside=+0.441 sim_loss=0.228 combo_dd=10.71 dd_improve=+0.90
+wf_02_20240601_run01 <-> wf_03_20250501_run01 | corr=+0.453 downside=+0.475 sim_loss=0.231 combo_dd=11.31 dd_improve=+0.90
+wf_02_20240601_run02 <-> wf_01_20240101_run02 | corr=+0.317 downside=+0.409 sim_loss=0.218 combo_dd=10.90 dd_improve=+0.56
+wf_02_20240601_run01 <-> wf_02_20240601_run02 | corr=+0.079 downside=+0.181 sim_loss=0.147 combo_dd=15.42 dd_improve=+0.27
+wf_01_20240101_run01 <-> wf_03_20250501_run01 | corr=+0.703 downside=+0.779 sim_loss=0.412 combo_dd=5.88 dd_improve=+0.01
+wf_03_20250501_run02 <-> wf_01_20240101_run01 | corr=+0.923 downside=+0.893 sim_loss=0.423 combo_dd=5.46 dd_improve=+0.00
+wf_03_20250501_run02 <-> wf_03_20250501_run01 | corr=+0.889 downside=+0.865 sim_loss=0.413 combo_dd=6.05 dd_improve=+0.00

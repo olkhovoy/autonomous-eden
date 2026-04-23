@@ -1,0 +1,7 @@
+Saved diversification report to /home/user/mcs/candidate_registry/diversification/family_sweep_20260319_tuned_6h__lin57_active_jun2024__rolling_cycle_01_div.json
+wf_01_20240515_run01 <-> wf_02_20240522_run01 | corr=-0.998 downside=-0.272 sim_loss=0.001 combo_dd=0.43 dd_improve=+5.40
+wf_02_20240522_run01 <-> wf_01_20240515_run02 | corr=-0.994 downside=-0.268 sim_loss=0.002 combo_dd=0.97 dd_improve=+5.06
+wf_01_20240515_run01 <-> wf_02_20240522_run02 | corr=-0.918 downside=-0.237 sim_loss=0.009 combo_dd=3.58 dd_improve=+4.96
+wf_01_20240515_run02 <-> wf_02_20240522_run02 | corr=-0.913 downside=-0.232 sim_loss=0.010 combo_dd=4.08 dd_improve=+4.65
+wf_01_20240515_run01 <-> wf_01_20240515_run02 | corr=+0.997 downside=+0.996 sim_loss=0.490 combo_dd=4.88 dd_improve=-0.00
+wf_02_20240522_run01 <-> wf_02_20240522_run02 | corr=+0.918 downside=+0.883 sim_loss=0.390 combo_dd=9.72 dd_improve=-0.04

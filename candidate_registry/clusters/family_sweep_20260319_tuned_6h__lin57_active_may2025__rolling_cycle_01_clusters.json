@@ -1,0 +1,75 @@
+{
+  "assignments": [
+    {
+      "candidate_id": "cand_b4d4f585763f",
+      "cluster_id": "cluster_000",
+      "display_name": "wf_01_20250414_run02"
+    },
+    {
+      "candidate_id": "cand_c3cedbf426e6",
+      "cluster_id": "cluster_000",
+      "display_name": "wf_02_20250421_run01"
+    },
+    {
+      "candidate_id": "cand_b5393b94deef",
+      "cluster_id": "cluster_000",
+      "display_name": "wf_02_20250421_run02"
+    },
+    {
+      "candidate_id": "cand_c5c0d59bb709",
+      "cluster_id": "cluster_001",
+      "display_name": "wf_01_20250414_run01"
+    }
+  ],
+  "candidate_ids": [
+    "cand_b4d4f585763f",
+    "cand_b5393b94deef",
+    "cand_c3cedbf426e6",
+    "cand_c5c0d59bb709"
+  ],
+  "clusters": [
+    {
+      "candidate_ids": [
+        "cand_b4d4f585763f",
+        "cand_b5393b94deef",
+        "cand_c3cedbf426e6"
+      ],
+      "cluster_id": "cluster_000",
+      "cluster_size": 3,
+      "display_names": [
+        "wf_01_20250414_run02",
+        "wf_02_20250421_run02",
+        "wf_02_20250421_run01"
+      ],
+      "mean_downside_corr": 0.8003569353643477,
+      "mean_return_corr": 0.812291871854257,
+      "mean_similarity_score": 0.6775831053957987,
+      "mean_simultaneous_loss_rate": 0.37979497354497355
+    },
+    {
+      "candidate_ids": [
+        "cand_c5c0d59bb709"
+      ],
+      "cluster_id": "cluster_001",
+      "cluster_size": 1,
+      "display_names": [
+        "wf_01_20250414_run01"
+      ],
+      "mean_downside_corr": 0.0,
+      "mean_return_corr": 0.0,
+      "mean_similarity_score": 0.0,
+      "mean_simultaneous_loss_rate": 0.0
+    }
+  ],
+  "created_at_utc": "2026-03-19T12:20:01Z",
+  "data_path": "/home/user/mcs/data/BTCUSDT_parquet_neurobars_autoresearch.npz",
+  "end_utc": "2025-05-08 00:00:00",
+  "max_steps": 10080,
+  "name": "family_sweep_20260319_tuned_6h__lin57_active_may2025__rolling_cycle_01_clusters",
+  "notes": null,
+  "schema_version": "1",
+  "similarity_threshold": 0.4,
+  "source_diversification_report": "family_sweep_20260319_tuned_6h__lin57_active_may2025__rolling_cycle_01_div",
+  "start_step": 2681957,
+  "start_utc": "2025-05-01 00:00:00"
+}

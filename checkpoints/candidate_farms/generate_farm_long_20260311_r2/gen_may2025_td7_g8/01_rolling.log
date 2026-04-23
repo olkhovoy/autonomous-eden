@@ -1,0 +1,4 @@
+Saved rolling conveyor report to /home/user/mcs/candidate_registry/rolling/generate_farm_long_20260311_r2__gen_may2025_td7_g8__rolling.json
+cycles=2/2 balance=10150.94 pnl=+150.94 return=+1.51% max_dd=1.33%
+  cycle_01 2025-05-08 00:00:00->2025-05-15 00:00:00 pnl=+32.88 dd=1.18% selected=1
+  cycle_02 2025-05-15 00:00:00->2025-05-22 00:00:00 pnl=+118.06 dd=1.61% selected=1

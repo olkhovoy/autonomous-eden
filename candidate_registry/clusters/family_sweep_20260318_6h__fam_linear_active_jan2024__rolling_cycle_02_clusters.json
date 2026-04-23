@@ -1,0 +1,99 @@
+{
+  "assignments": [
+    {
+      "candidate_id": "cand_5311b7f33565",
+      "cluster_id": "cluster_000",
+      "display_name": "wf_01_20231222_run01"
+    },
+    {
+      "candidate_id": "cand_662dbcce55ad",
+      "cluster_id": "cluster_001",
+      "display_name": "wf_01_20231222_run02"
+    },
+    {
+      "candidate_id": "cand_795466f13279",
+      "cluster_id": "cluster_002",
+      "display_name": "wf_02_20231229_run01"
+    },
+    {
+      "candidate_id": "cand_868e230a6a6d",
+      "cluster_id": "cluster_003",
+      "display_name": "wf_02_20231229_run02"
+    }
+  ],
+  "candidate_ids": [
+    "cand_5311b7f33565",
+    "cand_662dbcce55ad",
+    "cand_795466f13279",
+    "cand_868e230a6a6d"
+  ],
+  "clusters": [
+    {
+      "candidate_ids": [
+        "cand_868e230a6a6d"
+      ],
+      "cluster_id": "cluster_003",
+      "cluster_size": 1,
+      "display_names": [
+        "wf_02_20231229_run02"
+      ],
+      "mean_downside_corr": 0.0,
+      "mean_return_corr": 0.0,
+      "mean_similarity_score": 0.0,
+      "mean_simultaneous_loss_rate": 0.0
+    },
+    {
+      "candidate_ids": [
+        "cand_795466f13279"
+      ],
+      "cluster_id": "cluster_002",
+      "cluster_size": 1,
+      "display_names": [
+        "wf_02_20231229_run01"
+      ],
+      "mean_downside_corr": 0.0,
+      "mean_return_corr": 0.0,
+      "mean_similarity_score": 0.0,
+      "mean_simultaneous_loss_rate": 0.0
+    },
+    {
+      "candidate_ids": [
+        "cand_662dbcce55ad"
+      ],
+      "cluster_id": "cluster_001",
+      "cluster_size": 1,
+      "display_names": [
+        "wf_01_20231222_run02"
+      ],
+      "mean_downside_corr": 0.0,
+      "mean_return_corr": 0.0,
+      "mean_similarity_score": 0.0,
+      "mean_simultaneous_loss_rate": 0.0
+    },
+    {
+      "candidate_ids": [
+        "cand_5311b7f33565"
+      ],
+      "cluster_id": "cluster_000",
+      "cluster_size": 1,
+      "display_names": [
+        "wf_01_20231222_run01"
+      ],
+      "mean_downside_corr": 0.0,
+      "mean_return_corr": 0.0,
+      "mean_similarity_score": 0.0,
+      "mean_simultaneous_loss_rate": 0.0
+    }
+  ],
+  "created_at_utc": "2026-03-18T00:46:11Z",
+  "data_path": "/home/user/mcs/data/BTCUSDT_parquet_neurobars_autoresearch.npz",
+  "end_utc": "2024-01-15 00:00:00",
+  "max_steps": 10080,
+  "name": "family_sweep_20260318_6h__fam_linear_active_jan2024__rolling_cycle_02_clusters",
+  "notes": null,
+  "schema_version": "1",
+  "similarity_threshold": 0.4,
+  "source_diversification_report": "family_sweep_20260318_6h__fam_linear_active_jan2024__rolling_cycle_02_div",
+  "start_step": 1992197,
+  "start_utc": "2024-01-08 00:00:00"
+}

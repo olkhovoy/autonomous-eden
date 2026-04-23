@@ -1,0 +1,6 @@
+Saved shortlist report to /home/user/mcs/candidate_registry/shortlists/family_sweep_20260318_6h__fam_umc32_hunter_jan2024__rolling_cycle_01_shortlist.json
+Selected candidates:
+  rank=1 wf_02_20231222_run01 base=-0.575 marginal=-0.575 brightness=0.69 flags=near_miss_quality
+  rank=2 wf_01_20231215_run02 base=-2.271 marginal=+1.592 brightness=1.00 flags=diversifier_outlier
+Selected pair compatibility:
+  cand_9f42fc284d5c <-> cand_ca82186545ae compat=+3.863 downside=-0.170 sim_loss=0.001

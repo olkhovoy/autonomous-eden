@@ -1,0 +1,774 @@
+{
+  "broom": {
+    "line_count": 9,
+    "lines": [
+      {
+        "brightness_hint": 1.0,
+        "final_balance": 10006.955477340258,
+        "gate_pass": true,
+        "max_drawdown_pct": 1.0468054639048385,
+        "mode": "generate",
+        "normalized_balance_history": [
+          1.0,
+          0.9997916611460363,
+          1.0006955477340258
+        ],
+        "progress_stage": "completed",
+        "sample_indices": [
+          0,
+          1,
+          2
+        ],
+        "scenario_name": "fam_smallrec32_active_jan2024",
+        "status": "completed",
+        "total_pnl": 6.955477340257858
+      },
+      {
+        "brightness_hint": 0.88,
+        "final_balance": 10626.07647035457,
+        "gate_pass": false,
+        "max_drawdown_pct": 2.6437492847613147,
+        "mode": "generate",
+        "normalized_balance_history": [
+          1.0,
+          1.020191588396495,
+          1.062607647035457
+        ],
+        "progress_stage": "completed",
+        "sample_indices": [
+          0,
+          1,
+          2
+        ],
+        "scenario_name": "fam_umc32_hunter_may2025",
+        "status": "completed",
+        "total_pnl": 626.0764703545701
+      },
+      {
+        "brightness_hint": 0.76,
+        "final_balance": 10119.156269296473,
+        "gate_pass": false,
+        "max_drawdown_pct": 1.4107905594949492,
+        "mode": "generate",
+        "normalized_balance_history": [
+          1.0,
+          1.0136430688396159,
+          1.0119156269296472
+        ],
+        "progress_stage": "completed",
+        "sample_indices": [
+          0,
+          1,
+          2
+        ],
+        "scenario_name": "fam_smallrec32_active_may2025",
+        "status": "completed",
+        "total_pnl": 119.1562692964726
+      },
+      {
+        "brightness_hint": 0.64,
+        "final_balance": 9996.334889776645,
+        "gate_pass": false,
+        "max_drawdown_pct": 1.264577482399476,
+        "mode": "generate",
+        "normalized_balance_history": [
+          1.0,
+          0.992277940339277,
+          0.9996334889776645
+        ],
+        "progress_stage": "completed",
+        "sample_indices": [
+          0,
+          1,
+          2
+        ],
+        "scenario_name": "fam_linear_active_may2025",
+        "status": "completed",
+        "total_pnl": -3.665110223355441
+      },
+      {
+        "brightness_hint": 0.52,
+        "final_balance": 9988.353324595104,
+        "gate_pass": false,
+        "max_drawdown_pct": 1.6920525709932372,
+        "mode": "generate",
+        "normalized_balance_history": [
+          1.0,
+          0.9889697919163234,
+          0.9988353324595104
+        ],
+        "progress_stage": "completed",
+        "sample_indices": [
+          0,
+          1,
+          2
+        ],
+        "scenario_name": "fam_umc32_hunter_jun2024",
+        "status": "completed",
+        "total_pnl": -11.646675404896087
+      },
+      {
+        "brightness_hint": 0.4,
+        "final_balance": 9757.936454040002,
+        "gate_pass": false,
+        "max_drawdown_pct": 3.809440493219917,
+        "mode": "generate",
+        "normalized_balance_history": [
+          1.0,
+          0.9695778184581213,
+          0.9757936454040002
+        ],
+        "progress_stage": "completed",
+        "sample_indices": [
+          0,
+          1,
+          2
+        ],
+        "scenario_name": "fam_linear_active_jun2024",
+        "status": "completed",
+        "total_pnl": -242.063545959998
+      },
+      {
+        "brightness_hint": 0.28,
+        "final_balance": 9738.217071225026,
+        "gate_pass": false,
+        "max_drawdown_pct": 4.4042791291797165,
+        "mode": "generate",
+        "normalized_balance_history": [
+          1.0,
+          0.98662798174568,
+          0.9738217071225026
+        ],
+        "progress_stage": "completed",
+        "sample_indices": [
+          0,
+          1,
+          2
+        ],
+        "scenario_name": "fam_umc32_hunter_jan2024",
+        "status": "completed",
+        "total_pnl": -261.7829287749737
+      },
+      {
+        "brightness_hint": 0.16000000000000003,
+        "final_balance": 9693.045655965114,
+        "gate_pass": false,
+        "max_drawdown_pct": 5.172641595372706,
+        "mode": "generate",
+        "normalized_balance_history": [
+          1.0,
+          0.9819112330455193,
+          0.9693045655965113
+        ],
+        "progress_stage": "completed",
+        "sample_indices": [
+          0,
+          1,
+          2
+        ],
+        "scenario_name": "fam_linear_active_jan2024",
+        "status": "completed",
+        "total_pnl": -306.95434403488616
+      },
+      {
+        "brightness_hint": 0.16,
+        "final_balance": 9099.547361036246,
+        "gate_pass": false,
+        "max_drawdown_pct": 9.052697688658657,
+        "mode": "generate",
+        "normalized_balance_history": [
+          1.0,
+          0.990328384421746,
+          0.9099547361036247
+        ],
+        "progress_stage": "completed",
+        "sample_indices": [
+          0,
+          1,
+          2
+        ],
+        "scenario_name": "fam_smallrec32_active_jun2024",
+        "status": "completed",
+        "total_pnl": -900.452638963754
+      }
+    ],
+    "source_report": "family_sweep_20260318_6h",
+    "source_reports": [
+      "family_sweep_20260318_6h__fam_smallrec32_active_jan2024__portfolio",
+      "family_sweep_20260318_6h__fam_umc32_hunter_may2025__portfolio",
+      "family_sweep_20260318_6h__fam_smallrec32_active_may2025__portfolio",
+      "family_sweep_20260318_6h__fam_linear_active_may2025__portfolio",
+      "family_sweep_20260318_6h__fam_umc32_hunter_jun2024__portfolio",
+      "family_sweep_20260318_6h__fam_linear_active_jun2024__portfolio",
+      "family_sweep_20260318_6h__fam_umc32_hunter_jan2024__portfolio",
+      "family_sweep_20260318_6h__fam_linear_active_jan2024__portfolio",
+      "family_sweep_20260318_6h__fam_smallrec32_active_jun2024__portfolio"
+    ],
+    "total_line_count": 9
+  },
+  "created_at_utc": "2026-03-18T01:12:38Z",
+  "monitoring": {
+    "completion_event_count": 9,
+    "completion_events_last_15m": 2,
+    "completion_events_per_hour": 3.2354703415218693,
+    "event_count": 547,
+    "events_last_15m": 52,
+    "events_per_hour": 196.64469742360694,
+    "gate_pass_completion_count": 1,
+    "gate_pass_events_last_15m": 0,
+    "gate_pass_events_per_hour": 0.35949670461354105,
+    "heartbeat_state": "fresh",
+    "last_completion_at": "2026-03-18T01:12:38Z",
+    "last_event_at": "2026-03-18T01:12:38Z",
+    "last_gate_pass_at": "2026-03-17T23:55:45Z",
+    "latest_updated_at": "2026-03-18T01:12:38Z",
+    "median_completion_gap_seconds": 1168.5,
+    "median_event_gap_seconds": 20.0,
+    "planned_scenarios": [],
+    "progress_stage_counts": {
+      "completed": 9
+    },
+    "recent_events": [
+      {
+        "created_at_utc": "2026-03-18T01:09:38Z",
+        "event_kind": "heartbeat",
+        "gate_pass": null,
+        "note": null,
+        "progress_stage": "rolling",
+        "scenario_name": "fam_linear_active_may2025",
+        "sequence": 536,
+        "status": "running",
+        "total_pnl": null
+      },
+      {
+        "created_at_utc": "2026-03-18T01:09:58Z",
+        "event_kind": "heartbeat",
+        "gate_pass": null,
+        "note": null,
+        "progress_stage": "rolling",
+        "scenario_name": "fam_linear_active_may2025",
+        "sequence": 537,
+        "status": "running",
+        "total_pnl": null
+      },
+      {
+        "created_at_utc": "2026-03-18T01:10:18Z",
+        "event_kind": "heartbeat",
+        "gate_pass": null,
+        "note": null,
+        "progress_stage": "rolling",
+        "scenario_name": "fam_linear_active_may2025",
+        "sequence": 538,
+        "status": "running",
+        "total_pnl": null
+      },
+      {
+        "created_at_utc": "2026-03-18T01:10:38Z",
+        "event_kind": "heartbeat",
+        "gate_pass": null,
+        "note": null,
+        "progress_stage": "rolling",
+        "scenario_name": "fam_linear_active_may2025",
+        "sequence": 539,
+        "status": "running",
+        "total_pnl": null
+      },
+      {
+        "created_at_utc": "2026-03-18T01:10:58Z",
+        "event_kind": "heartbeat",
+        "gate_pass": null,
+        "note": null,
+        "progress_stage": "rolling",
+        "scenario_name": "fam_linear_active_may2025",
+        "sequence": 540,
+        "status": "running",
+        "total_pnl": null
+      },
+      {
+        "created_at_utc": "2026-03-18T01:11:18Z",
+        "event_kind": "heartbeat",
+        "gate_pass": null,
+        "note": null,
+        "progress_stage": "rolling",
+        "scenario_name": "fam_linear_active_may2025",
+        "sequence": 541,
+        "status": "running",
+        "total_pnl": null
+      },
+      {
+        "created_at_utc": "2026-03-18T01:11:38Z",
+        "event_kind": "heartbeat",
+        "gate_pass": null,
+        "note": null,
+        "progress_stage": "rolling",
+        "scenario_name": "fam_linear_active_may2025",
+        "sequence": 542,
+        "status": "running",
+        "total_pnl": null
+      },
+      {
+        "created_at_utc": "2026-03-18T01:11:58Z",
+        "event_kind": "heartbeat",
+        "gate_pass": null,
+        "note": null,
+        "progress_stage": "rolling",
+        "scenario_name": "fam_linear_active_may2025",
+        "sequence": 543,
+        "status": "running",
+        "total_pnl": null
+      },
+      {
+        "created_at_utc": "2026-03-18T01:12:17Z",
+        "event_kind": "stage",
+        "gate_pass": null,
+        "note": null,
+        "progress_stage": "lifecycle",
+        "scenario_name": "fam_linear_active_may2025",
+        "sequence": 544,
+        "status": "running",
+        "total_pnl": null
+      },
+      {
+        "created_at_utc": "2026-03-18T01:12:18Z",
+        "event_kind": "stage",
+        "gate_pass": null,
+        "note": null,
+        "progress_stage": "portfolio_ledger",
+        "scenario_name": "fam_linear_active_may2025",
+        "sequence": 545,
+        "status": "running",
+        "total_pnl": null
+      },
+      {
+        "created_at_utc": "2026-03-18T01:12:20Z",
+        "event_kind": "stage",
+        "gate_pass": null,
+        "note": null,
+        "progress_stage": "portfolio_baselines",
+        "scenario_name": "fam_linear_active_may2025",
+        "sequence": 546,
+        "status": "running",
+        "total_pnl": null
+      },
+      {
+        "created_at_utc": "2026-03-18T01:12:38Z",
+        "event_kind": "completed",
+        "gate_pass": false,
+        "note": null,
+        "progress_stage": "completed",
+        "scenario_name": "fam_linear_active_may2025",
+        "sequence": 547,
+        "status": "completed",
+        "total_pnl": -3.665110223355441
+      }
+    ],
+    "recent_failed_scenarios": [],
+    "recent_gate_pass_scenarios": [
+      "fam_smallrec32_active_jan2024"
+    ],
+    "running_scenarios": [],
+    "seconds_since_last_completion": 0.725577,
+    "seconds_since_last_event": 0.725577,
+    "seconds_since_last_gate_pass": 4613.725577,
+    "stagnation_state": "healthy"
+  },
+  "name": "family_sweep_20260318_6h_feed",
+  "notes": "5-6h profit-first family sweep over fused32 neurobars. Parallel engine families with shared rolling gates and live farm feed sync.",
+  "scenarios": [
+    {
+      "beaten_baselines": [
+        "flat",
+        "long",
+        "equal_weight_selected_subset",
+        "single_best_candidate",
+        "naive_top_oos_rotation"
+      ],
+      "candidate_pool_count": 8,
+      "error_message": null,
+      "evaluated_cycle_count": 2,
+      "failed_required_baselines": [],
+      "final_status_counts": {
+        "research": 8
+      },
+      "gate_pass": true,
+      "lifecycle_report_name": "family_sweep_20260318_6h__fam_smallrec32_active_jan2024__lifecycle",
+      "log_paths": {
+        "lifecycle": "/home/user/mcs/checkpoints/candidate_farms/family_sweep_20260318_6h/fam_smallrec32_active_jan2024/02_lifecycle.log",
+        "portfolio_baselines": "/home/user/mcs/checkpoints/candidate_farms/family_sweep_20260318_6h/fam_smallrec32_active_jan2024/04_portfolio_baselines.log",
+        "portfolio_ledger": "/home/user/mcs/checkpoints/candidate_farms/family_sweep_20260318_6h/fam_smallrec32_active_jan2024/03_portfolio_ledger.log",
+        "rolling": "/home/user/mcs/checkpoints/candidate_farms/family_sweep_20260318_6h/fam_smallrec32_active_jan2024/01_rolling.log"
+      },
+      "max_drawdown_pct": 1.0468054639048385,
+      "mode": "generate",
+      "num_cycles": 2,
+      "output_dir": "/home/user/mcs/checkpoints/candidate_farms/family_sweep_20260318_6h/fam_smallrec32_active_jan2024",
+      "portfolio_baselines_report_name": "family_sweep_20260318_6h__fam_smallrec32_active_jan2024__baselines",
+      "portfolio_ledger_report_name": "family_sweep_20260318_6h__fam_smallrec32_active_jan2024__portfolio",
+      "positive_cycle_count": 1,
+      "progress_stage": "completed",
+      "rolling_report_name": "family_sweep_20260318_6h__fam_smallrec32_active_jan2024__rolling",
+      "scenario_name": "fam_smallrec32_active_jan2024",
+      "selected_candidate_count": 2,
+      "selection_days": 7,
+      "selection_start_utc": "2024-01-01 00:00:00",
+      "status": "completed",
+      "total_pnl": 6.955477340257858,
+      "total_return_pct": 0.06955477340258032,
+      "updated_at_utc": "2026-03-17T23:55:45Z"
+    },
+    {
+      "beaten_baselines": [
+        "flat"
+      ],
+      "candidate_pool_count": 8,
+      "error_message": null,
+      "evaluated_cycle_count": 2,
+      "failed_required_baselines": [
+        "equal_weight_selected_subset"
+      ],
+      "final_status_counts": {
+        "approved": 1,
+        "research": 7
+      },
+      "gate_pass": false,
+      "lifecycle_report_name": "family_sweep_20260318_6h__fam_umc32_hunter_may2025__lifecycle",
+      "log_paths": {
+        "lifecycle": "/home/user/mcs/checkpoints/candidate_farms/family_sweep_20260318_6h/fam_umc32_hunter_may2025/02_lifecycle.log",
+        "portfolio_baselines": "/home/user/mcs/checkpoints/candidate_farms/family_sweep_20260318_6h/fam_umc32_hunter_may2025/04_portfolio_baselines.log",
+        "portfolio_ledger": "/home/user/mcs/checkpoints/candidate_farms/family_sweep_20260318_6h/fam_umc32_hunter_may2025/03_portfolio_ledger.log",
+        "rolling": "/home/user/mcs/checkpoints/candidate_farms/family_sweep_20260318_6h/fam_umc32_hunter_may2025/01_rolling.log"
+      },
+      "max_drawdown_pct": 2.6437492847613147,
+      "mode": "generate",
+      "num_cycles": 2,
+      "output_dir": "/home/user/mcs/checkpoints/candidate_farms/family_sweep_20260318_6h/fam_umc32_hunter_may2025",
+      "portfolio_baselines_report_name": "family_sweep_20260318_6h__fam_umc32_hunter_may2025__baselines",
+      "portfolio_ledger_report_name": "family_sweep_20260318_6h__fam_umc32_hunter_may2025__portfolio",
+      "positive_cycle_count": 2,
+      "progress_stage": "completed",
+      "rolling_report_name": "family_sweep_20260318_6h__fam_umc32_hunter_may2025__rolling",
+      "scenario_name": "fam_umc32_hunter_may2025",
+      "selected_candidate_count": 3,
+      "selection_days": 7,
+      "selection_start_utc": "2025-05-01 00:00:00",
+      "status": "completed",
+      "total_pnl": 626.0764703545701,
+      "total_return_pct": 6.260764703545707,
+      "updated_at_utc": "2026-03-17T23:36:16Z"
+    },
+    {
+      "beaten_baselines": [
+        "flat",
+        "single_best_candidate",
+        "naive_top_oos_rotation"
+      ],
+      "candidate_pool_count": 8,
+      "error_message": null,
+      "evaluated_cycle_count": 2,
+      "failed_required_baselines": [
+        "equal_weight_selected_subset"
+      ],
+      "final_status_counts": {
+        "approved": 2,
+        "research": 6
+      },
+      "gate_pass": false,
+      "lifecycle_report_name": "family_sweep_20260318_6h__fam_smallrec32_active_may2025__lifecycle",
+      "log_paths": {
+        "lifecycle": "/home/user/mcs/checkpoints/candidate_farms/family_sweep_20260318_6h/fam_smallrec32_active_may2025/02_lifecycle.log",
+        "portfolio_baselines": "/home/user/mcs/checkpoints/candidate_farms/family_sweep_20260318_6h/fam_smallrec32_active_may2025/04_portfolio_baselines.log",
+        "portfolio_ledger": "/home/user/mcs/checkpoints/candidate_farms/family_sweep_20260318_6h/fam_smallrec32_active_may2025/03_portfolio_ledger.log",
+        "rolling": "/home/user/mcs/checkpoints/candidate_farms/family_sweep_20260318_6h/fam_smallrec32_active_may2025/01_rolling.log"
+      },
+      "max_drawdown_pct": 1.4107905594949492,
+      "mode": "generate",
+      "num_cycles": 2,
+      "output_dir": "/home/user/mcs/checkpoints/candidate_farms/family_sweep_20260318_6h/fam_smallrec32_active_may2025",
+      "portfolio_baselines_report_name": "family_sweep_20260318_6h__fam_smallrec32_active_may2025__baselines",
+      "portfolio_ledger_report_name": "family_sweep_20260318_6h__fam_smallrec32_active_may2025__portfolio",
+      "positive_cycle_count": 1,
+      "progress_stage": "completed",
+      "rolling_report_name": "family_sweep_20260318_6h__fam_smallrec32_active_may2025__rolling",
+      "scenario_name": "fam_smallrec32_active_may2025",
+      "selected_candidate_count": 3,
+      "selection_days": 7,
+      "selection_start_utc": "2025-05-01 00:00:00",
+      "status": "completed",
+      "total_pnl": 119.1562692964726,
+      "total_return_pct": 1.1915626929647205,
+      "updated_at_utc": "2026-03-18T00:34:45Z"
+    },
+    {
+      "beaten_baselines": [
+        "equal_weight_selected_subset",
+        "single_best_candidate",
+        "naive_top_oos_rotation"
+      ],
+      "candidate_pool_count": 8,
+      "error_message": null,
+      "evaluated_cycle_count": 2,
+      "failed_required_baselines": [
+        "flat"
+      ],
+      "final_status_counts": {
+        "approved": 1,
+        "research": 7
+      },
+      "gate_pass": false,
+      "lifecycle_report_name": "family_sweep_20260318_6h__fam_linear_active_may2025__lifecycle",
+      "log_paths": {
+        "lifecycle": "/home/user/mcs/checkpoints/candidate_farms/family_sweep_20260318_6h/fam_linear_active_may2025/02_lifecycle.log",
+        "portfolio_baselines": "/home/user/mcs/checkpoints/candidate_farms/family_sweep_20260318_6h/fam_linear_active_may2025/04_portfolio_baselines.log",
+        "portfolio_ledger": "/home/user/mcs/checkpoints/candidate_farms/family_sweep_20260318_6h/fam_linear_active_may2025/03_portfolio_ledger.log",
+        "rolling": "/home/user/mcs/checkpoints/candidate_farms/family_sweep_20260318_6h/fam_linear_active_may2025/01_rolling.log"
+      },
+      "max_drawdown_pct": 1.264577482399476,
+      "mode": "generate",
+      "num_cycles": 2,
+      "output_dir": "/home/user/mcs/checkpoints/candidate_farms/family_sweep_20260318_6h/fam_linear_active_may2025",
+      "portfolio_baselines_report_name": "family_sweep_20260318_6h__fam_linear_active_may2025__baselines",
+      "portfolio_ledger_report_name": "family_sweep_20260318_6h__fam_linear_active_may2025__portfolio",
+      "positive_cycle_count": 1,
+      "progress_stage": "completed",
+      "rolling_report_name": "family_sweep_20260318_6h__fam_linear_active_may2025__rolling",
+      "scenario_name": "fam_linear_active_may2025",
+      "selected_candidate_count": 2,
+      "selection_days": 7,
+      "selection_start_utc": "2025-05-01 00:00:00",
+      "status": "completed",
+      "total_pnl": -3.665110223355441,
+      "total_return_pct": -0.03665110223355361,
+      "updated_at_utc": "2026-03-18T01:12:38Z"
+    },
+    {
+      "beaten_baselines": [
+        "long",
+        "naive_top_oos_rotation"
+      ],
+      "candidate_pool_count": 8,
+      "error_message": null,
+      "evaluated_cycle_count": 2,
+      "failed_required_baselines": [
+        "flat",
+        "equal_weight_selected_subset"
+      ],
+      "final_status_counts": {
+        "research": 8
+      },
+      "gate_pass": false,
+      "lifecycle_report_name": "family_sweep_20260318_6h__fam_umc32_hunter_jun2024__lifecycle",
+      "log_paths": {
+        "lifecycle": "/home/user/mcs/checkpoints/candidate_farms/family_sweep_20260318_6h/fam_umc32_hunter_jun2024/02_lifecycle.log",
+        "portfolio_baselines": "/home/user/mcs/checkpoints/candidate_farms/family_sweep_20260318_6h/fam_umc32_hunter_jun2024/04_portfolio_baselines.log",
+        "portfolio_ledger": "/home/user/mcs/checkpoints/candidate_farms/family_sweep_20260318_6h/fam_umc32_hunter_jun2024/03_portfolio_ledger.log",
+        "rolling": "/home/user/mcs/checkpoints/candidate_farms/family_sweep_20260318_6h/fam_umc32_hunter_jun2024/01_rolling.log"
+      },
+      "max_drawdown_pct": 1.6920525709932372,
+      "mode": "generate",
+      "num_cycles": 2,
+      "output_dir": "/home/user/mcs/checkpoints/candidate_farms/family_sweep_20260318_6h/fam_umc32_hunter_jun2024",
+      "portfolio_baselines_report_name": "family_sweep_20260318_6h__fam_umc32_hunter_jun2024__baselines",
+      "portfolio_ledger_report_name": "family_sweep_20260318_6h__fam_umc32_hunter_jun2024__portfolio",
+      "positive_cycle_count": 1,
+      "progress_stage": "completed",
+      "rolling_report_name": "family_sweep_20260318_6h__fam_umc32_hunter_jun2024__rolling",
+      "scenario_name": "fam_umc32_hunter_jun2024",
+      "selected_candidate_count": 4,
+      "selection_days": 7,
+      "selection_start_utc": "2024-06-01 00:00:00",
+      "status": "completed",
+      "total_pnl": -11.646675404896087,
+      "total_return_pct": -0.11646675404896056,
+      "updated_at_utc": "2026-03-17T23:12:58Z"
+    },
+    {
+      "beaten_baselines": [
+        "long"
+      ],
+      "candidate_pool_count": 8,
+      "error_message": null,
+      "evaluated_cycle_count": 2,
+      "failed_required_baselines": [
+        "flat",
+        "equal_weight_selected_subset"
+      ],
+      "final_status_counts": {
+        "approved": 1,
+        "research": 7
+      },
+      "gate_pass": false,
+      "lifecycle_report_name": "family_sweep_20260318_6h__fam_linear_active_jun2024__lifecycle",
+      "log_paths": {
+        "lifecycle": "/home/user/mcs/checkpoints/candidate_farms/family_sweep_20260318_6h/fam_linear_active_jun2024/02_lifecycle.log",
+        "portfolio_baselines": "/home/user/mcs/checkpoints/candidate_farms/family_sweep_20260318_6h/fam_linear_active_jun2024/04_portfolio_baselines.log",
+        "portfolio_ledger": "/home/user/mcs/checkpoints/candidate_farms/family_sweep_20260318_6h/fam_linear_active_jun2024/03_portfolio_ledger.log",
+        "rolling": "/home/user/mcs/checkpoints/candidate_farms/family_sweep_20260318_6h/fam_linear_active_jun2024/01_rolling.log"
+      },
+      "max_drawdown_pct": 3.809440493219917,
+      "mode": "generate",
+      "num_cycles": 2,
+      "output_dir": "/home/user/mcs/checkpoints/candidate_farms/family_sweep_20260318_6h/fam_linear_active_jun2024",
+      "portfolio_baselines_report_name": "family_sweep_20260318_6h__fam_linear_active_jun2024__baselines",
+      "portfolio_ledger_report_name": "family_sweep_20260318_6h__fam_linear_active_jun2024__portfolio",
+      "positive_cycle_count": 1,
+      "progress_stage": "completed",
+      "rolling_report_name": "family_sweep_20260318_6h__fam_linear_active_jun2024__rolling",
+      "scenario_name": "fam_linear_active_jun2024",
+      "selected_candidate_count": 3,
+      "selection_days": 7,
+      "selection_start_utc": "2024-06-01 00:00:00",
+      "status": "completed",
+      "total_pnl": -242.063545959998,
+      "total_return_pct": -2.4206354595999846,
+      "updated_at_utc": "2026-03-18T00:59:58Z"
+    },
+    {
+      "beaten_baselines": [],
+      "candidate_pool_count": 8,
+      "error_message": null,
+      "evaluated_cycle_count": 2,
+      "failed_required_baselines": [
+        "flat",
+        "equal_weight_selected_subset"
+      ],
+      "final_status_counts": {
+        "research": 8
+      },
+      "gate_pass": false,
+      "lifecycle_report_name": "family_sweep_20260318_6h__fam_umc32_hunter_jan2024__lifecycle",
+      "log_paths": {
+        "lifecycle": "/home/user/mcs/checkpoints/candidate_farms/family_sweep_20260318_6h/fam_umc32_hunter_jan2024/02_lifecycle.log",
+        "portfolio_baselines": "/home/user/mcs/checkpoints/candidate_farms/family_sweep_20260318_6h/fam_umc32_hunter_jan2024/04_portfolio_baselines.log",
+        "portfolio_ledger": "/home/user/mcs/checkpoints/candidate_farms/family_sweep_20260318_6h/fam_umc32_hunter_jan2024/03_portfolio_ledger.log",
+        "rolling": "/home/user/mcs/checkpoints/candidate_farms/family_sweep_20260318_6h/fam_umc32_hunter_jan2024/01_rolling.log"
+      },
+      "max_drawdown_pct": 4.4042791291797165,
+      "mode": "generate",
+      "num_cycles": 2,
+      "output_dir": "/home/user/mcs/checkpoints/candidate_farms/family_sweep_20260318_6h/fam_umc32_hunter_jan2024",
+      "portfolio_baselines_report_name": "family_sweep_20260318_6h__fam_umc32_hunter_jan2024__baselines",
+      "portfolio_ledger_report_name": "family_sweep_20260318_6h__fam_umc32_hunter_jan2024__portfolio",
+      "positive_cycle_count": 0,
+      "progress_stage": "completed",
+      "rolling_report_name": "family_sweep_20260318_6h__fam_umc32_hunter_jan2024__rolling",
+      "scenario_name": "fam_umc32_hunter_jan2024",
+      "selected_candidate_count": 3,
+      "selection_days": 7,
+      "selection_start_utc": "2024-01-01 00:00:00",
+      "status": "completed",
+      "total_pnl": -261.7829287749737,
+      "total_return_pct": -2.61782928774974,
+      "updated_at_utc": "2026-03-17T22:49:41Z"
+    },
+    {
+      "beaten_baselines": [
+        "naive_top_oos_rotation"
+      ],
+      "candidate_pool_count": 8,
+      "error_message": null,
+      "evaluated_cycle_count": 2,
+      "failed_required_baselines": [
+        "flat",
+        "equal_weight_selected_subset"
+      ],
+      "final_status_counts": {
+        "research": 8
+      },
+      "gate_pass": false,
+      "lifecycle_report_name": "family_sweep_20260318_6h__fam_linear_active_jan2024__lifecycle",
+      "log_paths": {
+        "lifecycle": "/home/user/mcs/checkpoints/candidate_farms/family_sweep_20260318_6h/fam_linear_active_jan2024/02_lifecycle.log",
+        "portfolio_baselines": "/home/user/mcs/checkpoints/candidate_farms/family_sweep_20260318_6h/fam_linear_active_jan2024/04_portfolio_baselines.log",
+        "portfolio_ledger": "/home/user/mcs/checkpoints/candidate_farms/family_sweep_20260318_6h/fam_linear_active_jan2024/03_portfolio_ledger.log",
+        "rolling": "/home/user/mcs/checkpoints/candidate_farms/family_sweep_20260318_6h/fam_linear_active_jan2024/01_rolling.log"
+      },
+      "max_drawdown_pct": 5.172641595372706,
+      "mode": "generate",
+      "num_cycles": 2,
+      "output_dir": "/home/user/mcs/checkpoints/candidate_farms/family_sweep_20260318_6h/fam_linear_active_jan2024",
+      "portfolio_baselines_report_name": "family_sweep_20260318_6h__fam_linear_active_jan2024__baselines",
+      "portfolio_ledger_report_name": "family_sweep_20260318_6h__fam_linear_active_jan2024__portfolio",
+      "positive_cycle_count": 0,
+      "progress_stage": "completed",
+      "rolling_report_name": "family_sweep_20260318_6h__fam_linear_active_jan2024__rolling",
+      "scenario_name": "fam_linear_active_jan2024",
+      "selected_candidate_count": 3,
+      "selection_days": 7,
+      "selection_start_utc": "2024-01-01 00:00:00",
+      "status": "completed",
+      "total_pnl": -306.95434403488616,
+      "total_return_pct": -3.0695434403488653,
+      "updated_at_utc": "2026-03-18T00:47:18Z"
+    },
+    {
+      "beaten_baselines": [
+        "equal_weight_selected_subset"
+      ],
+      "candidate_pool_count": 8,
+      "error_message": null,
+      "evaluated_cycle_count": 2,
+      "failed_required_baselines": [
+        "flat"
+      ],
+      "final_status_counts": {
+        "research": 8
+      },
+      "gate_pass": false,
+      "lifecycle_report_name": "family_sweep_20260318_6h__fam_smallrec32_active_jun2024__lifecycle",
+      "log_paths": {
+        "lifecycle": "/home/user/mcs/checkpoints/candidate_farms/family_sweep_20260318_6h/fam_smallrec32_active_jun2024/02_lifecycle.log",
+        "portfolio_baselines": "/home/user/mcs/checkpoints/candidate_farms/family_sweep_20260318_6h/fam_smallrec32_active_jun2024/04_portfolio_baselines.log",
+        "portfolio_ledger": "/home/user/mcs/checkpoints/candidate_farms/family_sweep_20260318_6h/fam_smallrec32_active_jun2024/03_portfolio_ledger.log",
+        "rolling": "/home/user/mcs/checkpoints/candidate_farms/family_sweep_20260318_6h/fam_smallrec32_active_jun2024/01_rolling.log"
+      },
+      "max_drawdown_pct": 9.052697688658657,
+      "mode": "generate",
+      "num_cycles": 2,
+      "output_dir": "/home/user/mcs/checkpoints/candidate_farms/family_sweep_20260318_6h/fam_smallrec32_active_jun2024",
+      "portfolio_baselines_report_name": "family_sweep_20260318_6h__fam_smallrec32_active_jun2024__baselines",
+      "portfolio_ledger_report_name": "family_sweep_20260318_6h__fam_smallrec32_active_jun2024__portfolio",
+      "positive_cycle_count": 0,
+      "progress_stage": "completed",
+      "rolling_report_name": "family_sweep_20260318_6h__fam_smallrec32_active_jun2024__rolling",
+      "scenario_name": "fam_smallrec32_active_jun2024",
+      "selected_candidate_count": 3,
+      "selection_days": 7,
+      "selection_start_utc": "2024-06-01 00:00:00",
+      "status": "completed",
+      "total_pnl": -900.452638963754,
+      "total_return_pct": -9.004526389637535,
+      "updated_at_utc": "2026-03-18T00:15:17Z"
+    }
+  ],
+  "schema_version": "1",
+  "source_farm_report": "family_sweep_20260318_6h",
+  "summary": {
+    "best_gate_scenario_by_pnl": "fam_smallrec32_active_jan2024",
+    "best_scenario_by_pnl": "fam_umc32_hunter_may2025",
+    "completed_or_reused_scenarios": 9,
+    "completed_scenarios": 9,
+    "failed_scenarios": 0,
+    "gate_pass_count": 1,
+    "gate_pass_rate": 0.1111111111111111,
+    "lowest_drawdown_scenario": "fam_smallrec32_active_jan2024",
+    "planned_scenarios": 0,
+    "ranked_scenarios": [
+      "fam_smallrec32_active_jan2024",
+      "fam_umc32_hunter_may2025",
+      "fam_smallrec32_active_may2025",
+      "fam_linear_active_may2025",
+      "fam_umc32_hunter_jun2024",
+      "fam_linear_active_jun2024",
+      "fam_umc32_hunter_jan2024",
+      "fam_linear_active_jan2024",
+      "fam_smallrec32_active_jun2024"
+    ],
+    "running_scenarios": 0,
+    "scenario_count": 9,
+    "status_counts": {
+      "completed": 9
+    },
+    "total_unique_candidate_pool_ids": 72,
+    "total_unique_selected_candidate_ids": 26
+  }
+}

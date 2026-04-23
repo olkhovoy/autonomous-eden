@@ -1,0 +1,87 @@
+{
+  "assignments": [
+    {
+      "candidate_id": "cand_5619aace7a82",
+      "cluster_id": "cluster_000",
+      "display_name": "wf_02_20240522_run01"
+    },
+    {
+      "candidate_id": "cand_e6dc88162733",
+      "cluster_id": "cluster_000",
+      "display_name": "wf_02_20240522_run02"
+    },
+    {
+      "candidate_id": "cand_a5e37da4bcc7",
+      "cluster_id": "cluster_001",
+      "display_name": "wf_01_20240515_run01"
+    },
+    {
+      "candidate_id": "cand_e1e35247824c",
+      "cluster_id": "cluster_002",
+      "display_name": "wf_01_20240515_run02"
+    }
+  ],
+  "candidate_ids": [
+    "cand_5619aace7a82",
+    "cand_a5e37da4bcc7",
+    "cand_e1e35247824c",
+    "cand_e6dc88162733"
+  ],
+  "clusters": [
+    {
+      "candidate_ids": [
+        "cand_5619aace7a82",
+        "cand_e6dc88162733"
+      ],
+      "cluster_id": "cluster_000",
+      "cluster_size": 2,
+      "display_names": [
+        "wf_02_20240522_run01",
+        "wf_02_20240522_run02"
+      ],
+      "mean_downside_corr": 0.925538230345714,
+      "mean_return_corr": 0.9320474316913958,
+      "mean_similarity_score": 0.7952874136473759,
+      "mean_simultaneous_loss_rate": 0.473015873015873
+    },
+    {
+      "candidate_ids": [
+        "cand_e1e35247824c"
+      ],
+      "cluster_id": "cluster_002",
+      "cluster_size": 1,
+      "display_names": [
+        "wf_01_20240515_run02"
+      ],
+      "mean_downside_corr": 0.0,
+      "mean_return_corr": 0.0,
+      "mean_similarity_score": 0.0,
+      "mean_simultaneous_loss_rate": 0.0
+    },
+    {
+      "candidate_ids": [
+        "cand_a5e37da4bcc7"
+      ],
+      "cluster_id": "cluster_001",
+      "cluster_size": 1,
+      "display_names": [
+        "wf_01_20240515_run01"
+      ],
+      "mean_downside_corr": 0.0,
+      "mean_return_corr": 0.0,
+      "mean_similarity_score": 0.0,
+      "mean_simultaneous_loss_rate": 0.0
+    }
+  ],
+  "created_at_utc": "2026-03-18T00:52:43Z",
+  "data_path": "/home/user/mcs/data/BTCUSDT_parquet_neurobars_autoresearch.npz",
+  "end_utc": "2024-06-08 00:00:00",
+  "max_steps": 10080,
+  "name": "family_sweep_20260318_6h__fam_linear_active_jun2024__rolling_cycle_01_clusters",
+  "notes": null,
+  "schema_version": "1",
+  "similarity_threshold": 0.4,
+  "source_diversification_report": "family_sweep_20260318_6h__fam_linear_active_jun2024__rolling_cycle_01_div",
+  "start_step": 2200997,
+  "start_utc": "2024-06-01 00:00:00"
+}

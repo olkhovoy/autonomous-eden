@@ -1,0 +1,28 @@
+
+[wf_01_20231218] train=2023-12-18 00:00:00 -> 2023-12-25 00:00:00 (start_step=1961957, steps=10080) | oos=2023-12-25 00:00:00 -> 2024-01-01 00:00:00 (start_step=1972037, steps=10080)
+  run 1/2: evolving candidate -> wf_01_20231218_run01.npy
+    train pnl=+295.60 oos pnl=-251.34 oos trades=8 flags={'train_positive': True, 'train_beats_flat': True, 'train_beats_best_baseline': False, 'train_full_window': True, 'oos_positive': False, 'oos_beats_flat': False, 'oos_beats_best_baseline': False, 'oos_full_window': True, 'oos_has_trades': True, 'oos_profitable_and_active': False}
+  run 2/2: evolving candidate -> wf_01_20231218_run02.npy
+    train pnl=+321.02 oos pnl=-159.64 oos trades=1 flags={'train_positive': True, 'train_beats_flat': True, 'train_beats_best_baseline': False, 'train_full_window': True, 'oos_positive': False, 'oos_beats_flat': False, 'oos_beats_best_baseline': False, 'oos_full_window': True, 'oos_has_trades': True, 'oos_profitable_and_active': False}
+
+[wf_02_20231225] train=2023-12-25 00:00:00 -> 2024-01-01 00:00:00 (start_step=1972037, steps=10080) | oos=2024-01-01 00:00:00 -> 2024-01-08 00:00:00 (start_step=1982117, steps=10080)
+  run 1/2: evolving candidate -> wf_02_20231225_run01.npy
+    train pnl=+337.51 oos pnl=-1832.31 oos trades=150 flags={'train_positive': True, 'train_beats_flat': True, 'train_beats_best_baseline': True, 'train_full_window': True, 'oos_positive': False, 'oos_beats_flat': False, 'oos_beats_best_baseline': False, 'oos_full_window': True, 'oos_has_trades': True, 'oos_profitable_and_active': False}
+  run 2/2: evolving candidate -> wf_02_20231225_run02.npy
+    train pnl=+129.13 oos pnl=-687.43 oos trades=28 flags={'train_positive': True, 'train_beats_flat': True, 'train_beats_best_baseline': False, 'train_full_window': True, 'oos_positive': False, 'oos_beats_flat': False, 'oos_beats_best_baseline': False, 'oos_full_window': True, 'oos_has_trades': True, 'oos_profitable_and_active': False}
+
+Saved walk-forward summary to /home/user/mcs/checkpoints/continuous_cycles/generate_farm_long_20260311_r2__gen_jan2024_td7_g12__rolling_cycle_01/summary.json
+{
+  "runs": 4,
+  "train_positive_runs": 4,
+  "train_beats_best_baseline_runs": 1,
+  "oos_positive_runs": 0,
+  "oos_beats_flat_runs": 0,
+  "oos_beats_best_baseline_runs": 0,
+  "oos_profitable_and_active_runs": 0,
+  "median_train_pnl": 308.31084746074976,
+  "median_oos_pnl": -469.3885233971787,
+  "median_oos_trades": 18.0,
+  "best_oos_run": "/home/user/mcs/checkpoints/continuous_cycles/generate_farm_long_20260311_r2__gen_jan2024_td7_g12__rolling_cycle_01/wf_01_20231218_run02.npy",
+  "worst_oos_run": "/home/user/mcs/checkpoints/continuous_cycles/generate_farm_long_20260311_r2__gen_jan2024_td7_g12__rolling_cycle_01/wf_02_20231225_run01.npy"
+}

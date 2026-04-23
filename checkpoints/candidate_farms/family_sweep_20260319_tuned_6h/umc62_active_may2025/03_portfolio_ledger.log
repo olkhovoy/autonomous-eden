@@ -1,0 +1,6 @@
+Saved portfolio ledger to /home/user/mcs/candidate_registry/portfolio_ledger/family_sweep_20260319_tuned_6h__umc62_active_may2025__portfolio.json
+rolling=family_sweep_20260319_tuned_6h__umc62_active_may2025__rolling lifecycle=family_sweep_20260319_tuned_6h__umc62_active_may2025__lifecycle cycles=2 balance=10232.88 pnl=+232.88 return=+2.33% max_dd=1.33%
+turnover gross=1.200 buy=0.950 sell=0.250 cost=0.00
+reserve_avg=0.525 peak_cluster=0.350 non_tradable_selected=3
+  cycle_01 gross=+133.61 net=+133.61 turnover=0.250 reserve=0.750 active=1
+  cycle_02 gross=+99.27 net=+99.27 turnover=0.950 reserve=0.300 active=2

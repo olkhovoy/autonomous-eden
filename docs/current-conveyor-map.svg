@@ -1,0 +1,162 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1680" height="1080" viewBox="0 0 1680 1080">
+  <style>
+    .bg { fill: #f7f4ed; }
+    .title { font: 700 28px 'DejaVu Sans', sans-serif; fill: #182026; }
+    .subtitle { font: 400 15px 'DejaVu Sans', sans-serif; fill: #4d5b66; }
+    .box { rx: 18; ry: 18; stroke-width: 2; }
+    .implemented { fill: #e7f5ec; stroke: #2f7d4a; }
+    .partial { fill: #fff2df; stroke: #bb7a14; }
+    .input { fill: #e8f0ff; stroke: #3d6dcc; }
+    .alert { fill: #fde9e7; stroke: #c55246; }
+    .h { font: 700 18px 'DejaVu Sans', sans-serif; fill: #182026; }
+    .t { font: 400 13px 'DejaVu Sans', sans-serif; fill: #23313a; }
+    .small { font: 400 12px 'DejaVu Sans', sans-serif; fill: #4d5b66; }
+    .arrow { stroke: #50616d; stroke-width: 3; fill: none; marker-end: url(#arrow); }
+    .dashed { stroke-dasharray: 8 6; }
+  </style>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L9,3 z" fill="#50616d"/>
+    </marker>
+  </defs>
+
+  <rect class="bg" x="0" y="0" width="1680" height="1080"/>
+  <text class="title" x="40" y="52">Current Trading Conveyor: Inputs, Search Freedom, And Audit State</text>
+  <text class="subtitle" x="40" y="82">Green = implemented and real. Amber = partial / simplified. Red = key gap or risk.</text>
+
+  <rect class="box input" x="40" y="120" width="260" height="170"/>
+  <text class="h" x="60" y="150">1. Inputs</text>
+  <text class="t" x="60" y="178">Anchor market frame</text>
+  <text class="t" x="60" y="198">OHLCV + turnover</text>
+  <text class="t" x="60" y="226">CoinGlass slow-context v1</text>
+  <text class="t" x="60" y="246">derivatives / sentiment / ETF</text>
+  <text class="small" x="60" y="274">Missing: multi-symbol, cross-asset,</text>
+  <text class="small" x="60" y="292">FRED live join, news/events, options</text>
+
+  <rect class="box partial" x="360" y="120" width="290" height="170"/>
+  <text class="h" x="380" y="150">2. Feature Factory</text>
+  <text class="t" x="380" y="178">prepare.py + join_asof + cache</text>
+  <text class="t" x="380" y="198">as-of available_at joins</text>
+  <text class="t" x="380" y="226">train-only normalization</text>
+  <text class="small" x="380" y="254">Still partial: minimal contracts,</text>
+  <text class="small" x="380" y="272">fixed availability lags, single provider</text>
+
+  <rect class="box partial" x="710" y="120" width="300" height="170"/>
+  <text class="h" x="730" y="150">3. Representation</text>
+  <text class="t" x="730" y="178">multi-scale neurobars</text>
+  <text class="t" x="730" y="198">fused 32d or base+multiscale</text>
+  <text class="t" x="730" y="226">search freedom: data branch, budget</text>
+  <text class="small" x="730" y="254">Missing: architecture family search,</text>
+  <text class="small" x="730" y="272">trading-aware objectives</text>
+
+  <rect class="box alert" x="1070" y="120" width="310" height="170"/>
+  <text class="h" x="1090" y="150">4. Candidate Engine</text>
+  <text class="t" x="1090" y="178">UMCTradingCell + evolve_monolith.py</text>
+  <text class="t" x="1090" y="198">searches weights only</text>
+  <text class="t" x="1090" y="226">freedom: windows, gens, pop, econ</text>
+  <text class="small" x="1090" y="254">Main bottleneck: fixed topology,</text>
+  <text class="small" x="1090" y="272">hardcoded fitness, argmax policy</text>
+
+  <rect class="box implemented" x="1440" y="120" width="200" height="170"/>
+  <text class="h" x="1460" y="150">5. Probe</text>
+  <text class="t" x="1460" y="178">walk-forward</text>
+  <text class="t" x="1460" y="198">train / OOS</text>
+  <text class="t" x="1460" y="226">flat / long / short</text>
+  <text class="small" x="1460" y="254">Real, reproducible</text>
+
+  <path class="arrow" d="M300 205 H360"/>
+  <path class="arrow" d="M650 205 H710"/>
+  <path class="arrow" d="M1010 205 H1070"/>
+  <path class="arrow" d="M1380 205 H1440"/>
+
+  <rect class="box implemented" x="60" y="390" width="270" height="180"/>
+  <text class="h" x="80" y="420">6. Candidate Registry</text>
+  <text class="t" x="80" y="448">immutable JSON artifacts</text>
+  <text class="t" x="80" y="468">manifest + periods + flags</text>
+  <text class="small" x="80" y="496">Gap: records still mostly have</text>
+  <text class="small" x="80" y="514">train / oos, not valid / total</text>
+
+  <rect class="box alert" x="390" y="390" width="300" height="180"/>
+  <text class="h" x="410" y="420">7. Trade Resampling</text>
+  <text class="t" x="410" y="448">bootstrap of trade returns</text>
+  <text class="t" x="410" y="468">fraction scans supported</text>
+  <text class="small" x="410" y="496">Biggest legacy gap:</text>
+  <text class="small" x="410" y="514">not overlap-aware equity replay</text>
+
+  <rect class="box implemented" x="750" y="390" width="300" height="180"/>
+  <text class="h" x="770" y="420">8. Diversification Layer</text>
+  <text class="t" x="770" y="448">pair stats + clusters</text>
+  <text class="t" x="770" y="468">shortlist + overrides</text>
+  <text class="small" x="770" y="496">Good freedom here:</text>
+  <text class="small" x="770" y="514">thresholds, caps, exception handling</text>
+
+  <rect class="box partial" x="1110" y="390" width="300" height="180"/>
+  <text class="h" x="1130" y="420">9. Allocator + Combination</text>
+  <text class="t" x="1130" y="448">risk dial, caps, subset search</text>
+  <text class="t" x="1130" y="468">block-bootstrap portfolio resampling</text>
+  <text class="small" x="1130" y="496">Real but bounded:</text>
+  <text class="small" x="1130" y="514">small pools, not smart large-pool search</text>
+
+  <rect class="box implemented" x="1470" y="390" width="170" height="180"/>
+  <text class="h" x="1490" y="420">10. Tradeforward</text>
+  <text class="t" x="1490" y="448">plan</text>
+  <text class="t" x="1490" y="468">evaluation</text>
+  <text class="t" x="1490" y="488">forward drift</text>
+
+  <path class="arrow" d="M330 480 H390"/>
+  <path class="arrow" d="M690 480 H750"/>
+  <path class="arrow" d="M1050 480 H1110"/>
+  <path class="arrow" d="M1410 480 H1470"/>
+
+  <rect class="box implemented" x="90" y="670" width="270" height="180"/>
+  <text class="h" x="110" y="700">11. Rolling Conveyor</text>
+  <text class="t" x="110" y="728">cycle stitching through history</text>
+  <text class="t" x="110" y="748">selection -&gt; forward -&gt; next cycle</text>
+  <text class="small" x="110" y="776">This is where the whole machine</text>
+  <text class="small" x="110" y="794">is judged</text>
+
+  <rect class="box partial" x="420" y="670" width="280" height="180"/>
+  <text class="h" x="440" y="700">12. Lifecycle</text>
+  <text class="t" x="440" y="728">research / approved / paper / active</text>
+  <text class="t" x="440" y="748">draining / retired</text>
+  <text class="small" x="440" y="776">Real, but still based on simple</text>
+  <text class="small" x="440" y="794">forward pnl / dd / trades rules</text>
+
+  <rect class="box implemented" x="760" y="670" width="280" height="180"/>
+  <text class="h" x="780" y="700">13. Portfolio Ledger</text>
+  <text class="t" x="780" y="728">equity, reserve, turnover, churn</text>
+  <text class="t" x="780" y="748">cluster exposure</text>
+  <text class="small" x="780" y="776">Rebalance logic is here</text>
+
+  <rect class="box implemented" x="1100" y="670" width="280" height="180"/>
+  <text class="h" x="1120" y="700">14. Baselines And Gates</text>
+  <text class="t" x="1120" y="728">flat / long / equal-weight / best</text>
+  <text class="t" x="1120" y="748">naive rotation</text>
+  <text class="small" x="1120" y="776">Strong reality check layer</text>
+
+  <rect class="box partial" x="1440" y="670" width="180" height="180"/>
+  <text class="h" x="1460" y="700">15. Farm</text>
+  <text class="t" x="1460" y="728">manifest sweeps</text>
+  <text class="t" x="1460" y="748">heartbeat</text>
+  <text class="small" x="1460" y="776">Scale exists, but</text>
+  <text class="small" x="1460" y="794">candidate quality still lags</text>
+
+  <path class="arrow" d="M360 760 H420"/>
+  <path class="arrow" d="M700 760 H760"/>
+  <path class="arrow" d="M1040 760 H1100"/>
+  <path class="arrow" d="M1380 760 H1440"/>
+
+  <rect class="box implemented" x="500" y="920" width="320" height="120"/>
+  <text class="h" x="520" y="950">16. Dashboard Feeds + UI</text>
+  <text class="t" x="520" y="978">candidate view, farm view, broom visualization</text>
+  <text class="small" x="520" y="1006">Real monitoring console, still more read than write</text>
+
+  <rect class="box alert" x="880" y="920" width="420" height="120"/>
+  <text class="h" x="900" y="950">Main Current Gaps</text>
+  <text class="t" x="900" y="978">1) candidate engine too narrow  2) resampling too simple</text>
+  <text class="t" x="900" y="998">3) candidate periods incomplete  4) multi-stream still shallow</text>
+  <text class="small" x="900" y="1026">The meta-layer is currently richer than the engine and the resampling beneath it.</text>
+
+  <path class="arrow" d="M1530 850 V905 H1300"/>
+  <path class="arrow dashed" d="M660 850 V920"/>
+</svg>

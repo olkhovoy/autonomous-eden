@@ -245,3 +245,48 @@ The "Code" looks like a complex, fractally generated mandala. Scanning it with t
 - **Continuous Genes** (Evolutionary Strategies / CMA-ES) control the Vector Weights inside the nodes.
 
 Proceed with the refactor of `GpTree` first. That is the keystone.
+
+---
+
+## [PRIOR ART] — Alfred Tóth's "Semiotic Hypercube" (2009)
+
+Термин **"semiotic hypercube"** впервые зафиксирован на обложке книги
+Prof. Dr. Alfred Tóth *"Transformations in a semiotic hypercube"* (2009,
+Semiotic Technical Laboratory, Tucson, AZ). Книга 2020 года *"Die
+kategorialen Transformationen der kybernetischen Semiotik"* разворачивает
+эту идею в полный каталог из **270 Metaobjektivation-переходов** (27
+Wahrnehmungsrelationen × 10 Erkenntnisrelationen), построенных на базе
+Пирс-Бензе-семиотики.
+
+**Наш проект НЕ претендует на авторство термина.** Мы используем одно
+имя, но:
+
+- **Тоt** — классификационная онтология знаковых отношений.
+  Символическая, enumerative, неалгоритмическая по замыслу.
+- **Мы** — вычислительная реализация emergent семиотики: GGGP эволюционно
+  находит пары `(G, D)` грамматик, операционализирующих UMC neural
+  constraints (NC1-NC4) над непрерывным эмбеддинг-пространством.
+
+Детальный разбор применимости — [docs/medp/research/toth-semiotics.md](medp/research/toth-semiotics.md).
+
+Конкретно из Тотa нам полезны (в порядке важности):
+
+1. **9-операторная таксономия Σ* = {ε, λ, σ, δ, ω, υ, ζ, ς, ρ}** как
+   метафизически обоснованный каталог операций грамматики (наши
+   ad-hoc ops AX/ADD/MIX/ROT/FRAC/CTRL ложатся 1-в-1).
+2. **Eigenrealität ZZ ≡ UMC NC1 Recursive Closure**: диагональная
+   клетка в 3×3 epistemic matrix Тотa — в точности фиксированная точка
+   `c ≈ G(D(c))`, вокруг которой строится A2.
+3. **Subjektale Transitionen `[α°β°→...]`** — готовые формальные
+   схемы для `CTRL(axis, code_idx)` операции NC3 Downward Causation.
+4. **Пре-семиотическая цепь `Ω → O° → M° → M → O → I`** Бензе —
+   изоморфна нашему пайплайну `latent_truth → LLM_embedding → code →
+   reconstruction → class → interpretant`.
+
+Ссылки:
+- PDF: `theory/Strukturelle Realitaeten mit variabler Ordnung.pdf`
+- PDF: `theory/Die kategorialen Transformationen der kybernetischen Semiotik.pdf`
+- Разбор: `gggp_bundle/docs/medp/research/toth-semiotics.md`
+
+Precursor line: Peirce (1903) → Bense (1967, 1975) → Walther (1979) →
+Günther (polyvalent logic, 1978) → Tóth (2009+).

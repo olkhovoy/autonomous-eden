@@ -1,0 +1,47 @@
+{
+  "candidate_id": "cand_1f2feccf4c5d",
+  "created_at_utc": "2026-03-18T00:58:05Z",
+  "trade_count": 2,
+  "trades": [
+    {
+      "direction": "long",
+      "duration_steps": 1,
+      "entry_balance": 9995.0,
+      "entry_price": 69400.796875,
+      "entry_step": 2195296,
+      "entry_timestamp_utc": "2024-05-28 00:59:00",
+      "exit_balance": 9994.235453776084,
+      "exit_price": 69408.8984375,
+      "exit_step": 2195297,
+      "exit_timestamp_utc": "2024-05-28 01:00:00",
+      "fees_paid": 10.000583679357067,
+      "gross_pnl": 9.236037455440954,
+      "net_pnl": -0.7645462239161134,
+      "period_name": "train",
+      "quantity": 0.14409056452206623,
+      "return_on_equity": -7.649286882602435e-05,
+      "source": "evaluate_policy_trace_path",
+      "trade_id": "train_monolith_0001"
+    },
+    {
+      "direction": "long",
+      "duration_steps": 1,
+      "entry_balance": 9989.238336049197,
+      "entry_price": 68538.1015625,
+      "entry_step": 2196736,
+      "entry_timestamp_utc": "2024-05-29 00:59:00",
+      "exit_balance": 9981.218197679658,
+      "exit_price": 68609.796875,
+      "exit_step": 2196737,
+      "exit_timestamp_utc": "2024-05-29 01:00:00",
+      "fees_paid": 9.999462763970865,
+      "gross_pnl": 1.9793243944323926,
+      "net_pnl": -8.020138369538472,
+      "period_name": "train",
+      "quantity": 0.1458201383745992,
+      "return_on_equity": -0.0008028778671338104,
+      "source": "evaluate_policy_trace_path",
+      "trade_id": "train_monolith_0002"
+    }
+  ]
+}

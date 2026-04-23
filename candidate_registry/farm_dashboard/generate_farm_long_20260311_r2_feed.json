@@ -1,0 +1,964 @@
+{
+  "broom": {
+    "line_count": 12,
+    "lines": [
+      {
+        "brightness_hint": 1.0,
+        "final_balance": 10190.80143707374,
+        "gate_pass": true,
+        "max_drawdown_pct": 1.827562924389951,
+        "mode": "generate",
+        "normalized_balance_history": [
+          1.0,
+          1.015338186244516,
+          1.019080143707374
+        ],
+        "progress_stage": "completed",
+        "sample_indices": [
+          0,
+          1,
+          2
+        ],
+        "scenario_name": "gen_may2025_td10_g12",
+        "status": "completed",
+        "total_pnl": 190.8014370737401
+      },
+      {
+        "brightness_hint": 0.88,
+        "final_balance": 10150.939642120871,
+        "gate_pass": true,
+        "max_drawdown_pct": 1.3290991523397084,
+        "mode": "generate",
+        "normalized_balance_history": [
+          1.0,
+          1.0032884455977993,
+          1.015093964212087
+        ],
+        "progress_stage": "completed",
+        "sample_indices": [
+          0,
+          1,
+          2
+        ],
+        "scenario_name": "gen_may2025_td7_g8",
+        "status": "completed",
+        "total_pnl": 150.9396421208712
+      },
+      {
+        "brightness_hint": 0.76,
+        "final_balance": 10087.334415405445,
+        "gate_pass": true,
+        "max_drawdown_pct": 0.7584068414409616,
+        "mode": "generate",
+        "normalized_balance_history": [
+          1.0,
+          1.0102806888204583,
+          1.0087334415405445
+        ],
+        "progress_stage": "completed",
+        "sample_indices": [
+          0,
+          1,
+          2
+        ],
+        "scenario_name": "gen_may2025_td7_g12",
+        "status": "completed",
+        "total_pnl": 87.33441540544482
+      },
+      {
+        "brightness_hint": 0.64,
+        "final_balance": 10176.76780358393,
+        "gate_pass": false,
+        "max_drawdown_pct": 0.35400287385417817,
+        "mode": "generate",
+        "normalized_balance_history": [
+          1.0,
+          1.0177716753048498,
+          1.017676780358393
+        ],
+        "progress_stage": "completed",
+        "sample_indices": [
+          0,
+          1,
+          2
+        ],
+        "scenario_name": "gen_may2025_td10_g8",
+        "status": "completed",
+        "total_pnl": 176.7678035839308
+      },
+      {
+        "brightness_hint": 0.52,
+        "final_balance": 9953.096295170724,
+        "gate_pass": false,
+        "max_drawdown_pct": 0.6879240829524134,
+        "mode": "generate",
+        "normalized_balance_history": [
+          1.0,
+          0.9995733267289374,
+          0.9953096295170725
+        ],
+        "progress_stage": "completed",
+        "sample_indices": [
+          0,
+          1,
+          2
+        ],
+        "scenario_name": "gen_jun2024_td7_g8",
+        "status": "completed",
+        "total_pnl": -46.90370482927574
+      },
+      {
+        "brightness_hint": 0.4,
+        "final_balance": 9905.553211608421,
+        "gate_pass": false,
+        "max_drawdown_pct": 1.216784457066624,
+        "mode": "generate",
+        "normalized_balance_history": [
+          1.0,
+          0.9961827751962903,
+          0.9905553211608421
+        ],
+        "progress_stage": "completed",
+        "sample_indices": [
+          0,
+          1,
+          2
+        ],
+        "scenario_name": "gen_jan2024_td10_g8",
+        "status": "completed",
+        "total_pnl": -94.4467883915786
+      },
+      {
+        "brightness_hint": 0.28,
+        "final_balance": 9896.111096111892,
+        "gate_pass": false,
+        "max_drawdown_pct": 5.367017379881997,
+        "mode": "generate",
+        "normalized_balance_history": [
+          1.0,
+          0.9898574186823685,
+          0.9896111096111893
+        ],
+        "progress_stage": "completed",
+        "sample_indices": [
+          0,
+          1,
+          2
+        ],
+        "scenario_name": "gen_jan2024_td7_g8",
+        "status": "completed",
+        "total_pnl": -103.88890388810796
+      },
+      {
+        "brightness_hint": 0.16000000000000003,
+        "final_balance": 9787.963984921644,
+        "gate_pass": false,
+        "max_drawdown_pct": 2.61461380395961,
+        "mode": "generate",
+        "normalized_balance_history": [
+          1.0,
+          0.9770578630715456,
+          0.9787963984921644
+        ],
+        "progress_stage": "completed",
+        "sample_indices": [
+          0,
+          1,
+          2
+        ],
+        "scenario_name": "gen_jun2024_td10_g12",
+        "status": "completed",
+        "total_pnl": -212.0360150783563
+      },
+      {
+        "brightness_hint": 0.16,
+        "final_balance": 9727.232406425303,
+        "gate_pass": false,
+        "max_drawdown_pct": 4.760783701194847,
+        "mode": "generate",
+        "normalized_balance_history": [
+          1.0,
+          0.993681988967909,
+          0.9727232406425302
+        ],
+        "progress_stage": "completed",
+        "sample_indices": [
+          0,
+          1,
+          2
+        ],
+        "scenario_name": "gen_jan2024_td7_g12",
+        "status": "completed",
+        "total_pnl": -272.76759357469746
+      },
+      {
+        "brightness_hint": 0.16,
+        "final_balance": 9635.682254689807,
+        "gate_pass": false,
+        "max_drawdown_pct": 4.25851086977496,
+        "mode": "generate",
+        "normalized_balance_history": [
+          1.0,
+          0.9697641607330834,
+          0.9635682254689808
+        ],
+        "progress_stage": "completed",
+        "sample_indices": [
+          0,
+          1,
+          2
+        ],
+        "scenario_name": "gen_jun2024_td10_g8",
+        "status": "completed",
+        "total_pnl": -364.31774531019255
+      },
+      {
+        "brightness_hint": 0.16,
+        "final_balance": 9390.890254345928,
+        "gate_pass": false,
+        "max_drawdown_pct": 6.994286922321531,
+        "mode": "generate",
+        "normalized_balance_history": [
+          1.0,
+          0.9904275784021678,
+          0.9390890254345928
+        ],
+        "progress_stage": "completed",
+        "sample_indices": [
+          0,
+          1,
+          2
+        ],
+        "scenario_name": "gen_jun2024_td7_g12",
+        "status": "completed",
+        "total_pnl": -609.109745654072
+      },
+      {
+        "brightness_hint": 0.16,
+        "final_balance": 9155.785615312585,
+        "gate_pass": false,
+        "max_drawdown_pct": 8.486993840081396,
+        "mode": "generate",
+        "normalized_balance_history": [
+          1.0,
+          0.9422054608852483,
+          0.9155785615312585
+        ],
+        "progress_stage": "completed",
+        "sample_indices": [
+          0,
+          1,
+          2
+        ],
+        "scenario_name": "gen_jan2024_td10_g12",
+        "status": "completed",
+        "total_pnl": -844.2143846874151
+      }
+    ],
+    "source_report": "generate_farm_long_20260311_r2",
+    "source_reports": [
+      "generate_farm_long_20260311_r2__gen_may2025_td10_g12__portfolio",
+      "generate_farm_long_20260311_r2__gen_may2025_td7_g8__portfolio",
+      "generate_farm_long_20260311_r2__gen_may2025_td7_g12__portfolio",
+      "generate_farm_long_20260311_r2__gen_may2025_td10_g8__portfolio",
+      "generate_farm_long_20260311_r2__gen_jun2024_td7_g8__portfolio",
+      "generate_farm_long_20260311_r2__gen_jan2024_td10_g8__portfolio",
+      "generate_farm_long_20260311_r2__gen_jan2024_td7_g8__portfolio",
+      "generate_farm_long_20260311_r2__gen_jun2024_td10_g12__portfolio",
+      "generate_farm_long_20260311_r2__gen_jan2024_td7_g12__portfolio",
+      "generate_farm_long_20260311_r2__gen_jun2024_td10_g8__portfolio",
+      "generate_farm_long_20260311_r2__gen_jun2024_td7_g12__portfolio",
+      "generate_farm_long_20260311_r2__gen_jan2024_td10_g12__portfolio"
+    ],
+    "total_line_count": 12
+  },
+  "created_at_utc": "2026-03-11T08:49:57Z",
+  "monitoring": {
+    "completion_event_count": 12,
+    "completion_events_last_15m": 1,
+    "completion_events_per_hour": 1.02913500250137,
+    "event_count": 2158,
+    "events_last_15m": 49,
+    "events_per_hour": 185.07277794982969,
+    "gate_pass_completion_count": 3,
+    "gate_pass_events_last_15m": 1,
+    "gate_pass_events_per_hour": 0.2572837506253425,
+    "heartbeat_state": "fresh",
+    "last_completion_at": "2026-03-11T08:49:57Z",
+    "last_event_at": "2026-03-11T08:49:57Z",
+    "last_gate_pass_at": "2026-03-11T08:49:57Z",
+    "latest_updated_at": "2026-03-11T08:49:57Z",
+    "median_completion_gap_seconds": 3917.0,
+    "median_event_gap_seconds": 20.0,
+    "planned_scenarios": [],
+    "progress_stage_counts": {
+      "completed": 12
+    },
+    "recent_events": [
+      {
+        "created_at_utc": "2026-03-11T08:47:26Z",
+        "event_kind": "heartbeat",
+        "gate_pass": null,
+        "note": null,
+        "progress_stage": "rolling",
+        "scenario_name": "gen_may2025_td10_g12",
+        "sequence": 2147,
+        "status": "running",
+        "total_pnl": null
+      },
+      {
+        "created_at_utc": "2026-03-11T08:47:46Z",
+        "event_kind": "heartbeat",
+        "gate_pass": null,
+        "note": null,
+        "progress_stage": "rolling",
+        "scenario_name": "gen_may2025_td10_g12",
+        "sequence": 2148,
+        "status": "running",
+        "total_pnl": null
+      },
+      {
+        "created_at_utc": "2026-03-11T08:48:06Z",
+        "event_kind": "heartbeat",
+        "gate_pass": null,
+        "note": null,
+        "progress_stage": "rolling",
+        "scenario_name": "gen_may2025_td10_g12",
+        "sequence": 2149,
+        "status": "running",
+        "total_pnl": null
+      },
+      {
+        "created_at_utc": "2026-03-11T08:48:26Z",
+        "event_kind": "heartbeat",
+        "gate_pass": null,
+        "note": null,
+        "progress_stage": "rolling",
+        "scenario_name": "gen_may2025_td10_g12",
+        "sequence": 2150,
+        "status": "running",
+        "total_pnl": null
+      },
+      {
+        "created_at_utc": "2026-03-11T08:48:46Z",
+        "event_kind": "heartbeat",
+        "gate_pass": null,
+        "note": null,
+        "progress_stage": "rolling",
+        "scenario_name": "gen_may2025_td10_g12",
+        "sequence": 2151,
+        "status": "running",
+        "total_pnl": null
+      },
+      {
+        "created_at_utc": "2026-03-11T08:49:06Z",
+        "event_kind": "heartbeat",
+        "gate_pass": null,
+        "note": null,
+        "progress_stage": "rolling",
+        "scenario_name": "gen_may2025_td10_g12",
+        "sequence": 2152,
+        "status": "running",
+        "total_pnl": null
+      },
+      {
+        "created_at_utc": "2026-03-11T08:49:26Z",
+        "event_kind": "heartbeat",
+        "gate_pass": null,
+        "note": null,
+        "progress_stage": "rolling",
+        "scenario_name": "gen_may2025_td10_g12",
+        "sequence": 2153,
+        "status": "running",
+        "total_pnl": null
+      },
+      {
+        "created_at_utc": "2026-03-11T08:49:32Z",
+        "event_kind": "stage",
+        "gate_pass": null,
+        "note": null,
+        "progress_stage": "lifecycle",
+        "scenario_name": "gen_may2025_td10_g12",
+        "sequence": 2154,
+        "status": "running",
+        "total_pnl": null
+      },
+      {
+        "created_at_utc": "2026-03-11T08:49:33Z",
+        "event_kind": "stage",
+        "gate_pass": null,
+        "note": null,
+        "progress_stage": "portfolio_ledger",
+        "scenario_name": "gen_may2025_td10_g12",
+        "sequence": 2155,
+        "status": "running",
+        "total_pnl": null
+      },
+      {
+        "created_at_utc": "2026-03-11T08:49:34Z",
+        "event_kind": "stage",
+        "gate_pass": null,
+        "note": null,
+        "progress_stage": "portfolio_baselines",
+        "scenario_name": "gen_may2025_td10_g12",
+        "sequence": 2156,
+        "status": "running",
+        "total_pnl": null
+      },
+      {
+        "created_at_utc": "2026-03-11T08:49:54Z",
+        "event_kind": "heartbeat",
+        "gate_pass": null,
+        "note": null,
+        "progress_stage": "portfolio_baselines",
+        "scenario_name": "gen_may2025_td10_g12",
+        "sequence": 2157,
+        "status": "running",
+        "total_pnl": null
+      },
+      {
+        "created_at_utc": "2026-03-11T08:49:57Z",
+        "event_kind": "completed",
+        "gate_pass": true,
+        "note": null,
+        "progress_stage": "completed",
+        "scenario_name": "gen_may2025_td10_g12",
+        "sequence": 2158,
+        "status": "completed",
+        "total_pnl": 190.8014370737401
+      }
+    ],
+    "recent_failed_scenarios": [],
+    "recent_gate_pass_scenarios": [
+      "gen_may2025_td10_g12",
+      "gen_may2025_td7_g8",
+      "gen_may2025_td7_g12"
+    ],
+    "running_scenarios": [],
+    "seconds_since_last_completion": 0.355405,
+    "seconds_since_last_event": 0.355405,
+    "seconds_since_last_gate_pass": 0.355405,
+    "stagnation_state": "healthy"
+  },
+  "name": "generate_farm_long_20260311_r2_feed",
+  "notes": "Long generate-mode candidate farm over fused32 neurobars with realistic binance economics and live farm feed sync.",
+  "scenarios": [
+    {
+      "beaten_baselines": [
+        "flat",
+        "equal_weight_selected_subset",
+        "single_best_candidate"
+      ],
+      "candidate_pool_count": 8,
+      "error_message": null,
+      "evaluated_cycle_count": 2,
+      "failed_required_baselines": [],
+      "final_status_counts": {
+        "approved": 2,
+        "research": 6
+      },
+      "gate_pass": true,
+      "lifecycle_report_name": "generate_farm_long_20260311_r2__gen_may2025_td10_g12__lifecycle",
+      "log_paths": {
+        "lifecycle": "/home/user/mcs/checkpoints/candidate_farms/generate_farm_long_20260311_r2/gen_may2025_td10_g12/02_lifecycle.log",
+        "portfolio_baselines": "/home/user/mcs/checkpoints/candidate_farms/generate_farm_long_20260311_r2/gen_may2025_td10_g12/04_portfolio_baselines.log",
+        "portfolio_ledger": "/home/user/mcs/checkpoints/candidate_farms/generate_farm_long_20260311_r2/gen_may2025_td10_g12/03_portfolio_ledger.log",
+        "rolling": "/home/user/mcs/checkpoints/candidate_farms/generate_farm_long_20260311_r2/gen_may2025_td10_g12/01_rolling.log"
+      },
+      "max_drawdown_pct": 1.827562924389951,
+      "mode": "generate",
+      "num_cycles": 2,
+      "output_dir": "/home/user/mcs/checkpoints/candidate_farms/generate_farm_long_20260311_r2/gen_may2025_td10_g12",
+      "portfolio_baselines_report_name": "generate_farm_long_20260311_r2__gen_may2025_td10_g12__baselines",
+      "portfolio_ledger_report_name": "generate_farm_long_20260311_r2__gen_may2025_td10_g12__portfolio",
+      "positive_cycle_count": 2,
+      "progress_stage": "completed",
+      "rolling_report_name": "generate_farm_long_20260311_r2__gen_may2025_td10_g12__rolling",
+      "scenario_name": "gen_may2025_td10_g12",
+      "selected_candidate_count": 2,
+      "selection_days": 7,
+      "selection_start_utc": "2025-05-01 00:00:00",
+      "status": "completed",
+      "total_pnl": 190.8014370737401,
+      "total_return_pct": 1.9080143707373987,
+      "updated_at_utc": "2026-03-11T08:49:57Z"
+    },
+    {
+      "beaten_baselines": [
+        "flat",
+        "equal_weight_selected_subset"
+      ],
+      "candidate_pool_count": 8,
+      "error_message": null,
+      "evaluated_cycle_count": 2,
+      "failed_required_baselines": [],
+      "final_status_counts": {
+        "approved": 2,
+        "research": 6
+      },
+      "gate_pass": true,
+      "lifecycle_report_name": "generate_farm_long_20260311_r2__gen_may2025_td7_g8__lifecycle",
+      "log_paths": {
+        "lifecycle": "/home/user/mcs/checkpoints/candidate_farms/generate_farm_long_20260311_r2/gen_may2025_td7_g8/02_lifecycle.log",
+        "portfolio_baselines": "/home/user/mcs/checkpoints/candidate_farms/generate_farm_long_20260311_r2/gen_may2025_td7_g8/04_portfolio_baselines.log",
+        "portfolio_ledger": "/home/user/mcs/checkpoints/candidate_farms/generate_farm_long_20260311_r2/gen_may2025_td7_g8/03_portfolio_ledger.log",
+        "rolling": "/home/user/mcs/checkpoints/candidate_farms/generate_farm_long_20260311_r2/gen_may2025_td7_g8/01_rolling.log"
+      },
+      "max_drawdown_pct": 1.3290991523397084,
+      "mode": "generate",
+      "num_cycles": 2,
+      "output_dir": "/home/user/mcs/checkpoints/candidate_farms/generate_farm_long_20260311_r2/gen_may2025_td7_g8",
+      "portfolio_baselines_report_name": "generate_farm_long_20260311_r2__gen_may2025_td7_g8__baselines",
+      "portfolio_ledger_report_name": "generate_farm_long_20260311_r2__gen_may2025_td7_g8__portfolio",
+      "positive_cycle_count": 2,
+      "progress_stage": "completed",
+      "rolling_report_name": "generate_farm_long_20260311_r2__gen_may2025_td7_g8__rolling",
+      "scenario_name": "gen_may2025_td7_g8",
+      "selected_candidate_count": 2,
+      "selection_days": 7,
+      "selection_start_utc": "2025-05-01 00:00:00",
+      "status": "completed",
+      "total_pnl": 150.9396421208712,
+      "total_return_pct": 1.5093964212087085,
+      "updated_at_utc": "2026-03-11T05:42:33Z"
+    },
+    {
+      "beaten_baselines": [
+        "flat",
+        "equal_weight_selected_subset",
+        "naive_top_oos_rotation"
+      ],
+      "candidate_pool_count": 8,
+      "error_message": null,
+      "evaluated_cycle_count": 2,
+      "failed_required_baselines": [],
+      "final_status_counts": {
+        "approved": 1,
+        "research": 7
+      },
+      "gate_pass": true,
+      "lifecycle_report_name": "generate_farm_long_20260311_r2__gen_may2025_td7_g12__lifecycle",
+      "log_paths": {
+        "lifecycle": "/home/user/mcs/checkpoints/candidate_farms/generate_farm_long_20260311_r2/gen_may2025_td7_g12/02_lifecycle.log",
+        "portfolio_baselines": "/home/user/mcs/checkpoints/candidate_farms/generate_farm_long_20260311_r2/gen_may2025_td7_g12/04_portfolio_baselines.log",
+        "portfolio_ledger": "/home/user/mcs/checkpoints/candidate_farms/generate_farm_long_20260311_r2/gen_may2025_td7_g12/03_portfolio_ledger.log",
+        "rolling": "/home/user/mcs/checkpoints/candidate_farms/generate_farm_long_20260311_r2/gen_may2025_td7_g12/01_rolling.log"
+      },
+      "max_drawdown_pct": 0.7584068414409616,
+      "mode": "generate",
+      "num_cycles": 2,
+      "output_dir": "/home/user/mcs/checkpoints/candidate_farms/generate_farm_long_20260311_r2/gen_may2025_td7_g12",
+      "portfolio_baselines_report_name": "generate_farm_long_20260311_r2__gen_may2025_td7_g12__baselines",
+      "portfolio_ledger_report_name": "generate_farm_long_20260311_r2__gen_may2025_td7_g12__portfolio",
+      "positive_cycle_count": 1,
+      "progress_stage": "completed",
+      "rolling_report_name": "generate_farm_long_20260311_r2__gen_may2025_td7_g12__rolling",
+      "scenario_name": "gen_may2025_td7_g12",
+      "selected_candidate_count": 2,
+      "selection_days": 7,
+      "selection_start_utc": "2025-05-01 00:00:00",
+      "status": "completed",
+      "total_pnl": 87.33441540544482,
+      "total_return_pct": 0.8733441540544451,
+      "updated_at_utc": "2026-03-11T06:47:58Z"
+    },
+    {
+      "beaten_baselines": [
+        "flat",
+        "naive_top_oos_rotation"
+      ],
+      "candidate_pool_count": 8,
+      "error_message": null,
+      "evaluated_cycle_count": 2,
+      "failed_required_baselines": [
+        "equal_weight_selected_subset"
+      ],
+      "final_status_counts": {
+        "approved": 1,
+        "research": 7
+      },
+      "gate_pass": false,
+      "lifecycle_report_name": "generate_farm_long_20260311_r2__gen_may2025_td10_g8__lifecycle",
+      "log_paths": {
+        "lifecycle": "/home/user/mcs/checkpoints/candidate_farms/generate_farm_long_20260311_r2/gen_may2025_td10_g8/02_lifecycle.log",
+        "portfolio_baselines": "/home/user/mcs/checkpoints/candidate_farms/generate_farm_long_20260311_r2/gen_may2025_td10_g8/04_portfolio_baselines.log",
+        "portfolio_ledger": "/home/user/mcs/checkpoints/candidate_farms/generate_farm_long_20260311_r2/gen_may2025_td10_g8/03_portfolio_ledger.log",
+        "rolling": "/home/user/mcs/checkpoints/candidate_farms/generate_farm_long_20260311_r2/gen_may2025_td10_g8/01_rolling.log"
+      },
+      "max_drawdown_pct": 0.35400287385417817,
+      "mode": "generate",
+      "num_cycles": 2,
+      "output_dir": "/home/user/mcs/checkpoints/candidate_farms/generate_farm_long_20260311_r2/gen_may2025_td10_g8",
+      "portfolio_baselines_report_name": "generate_farm_long_20260311_r2__gen_may2025_td10_g8__baselines",
+      "portfolio_ledger_report_name": "generate_farm_long_20260311_r2__gen_may2025_td10_g8__portfolio",
+      "positive_cycle_count": 1,
+      "progress_stage": "completed",
+      "rolling_report_name": "generate_farm_long_20260311_r2__gen_may2025_td10_g8__rolling",
+      "scenario_name": "gen_may2025_td10_g8",
+      "selected_candidate_count": 2,
+      "selection_days": 7,
+      "selection_start_utc": "2025-05-01 00:00:00",
+      "status": "completed",
+      "total_pnl": 176.7678035839308,
+      "total_return_pct": 1.767678035839304,
+      "updated_at_utc": "2026-03-11T07:38:41Z"
+    },
+    {
+      "beaten_baselines": [
+        "long",
+        "equal_weight_selected_subset",
+        "single_best_candidate",
+        "naive_top_oos_rotation"
+      ],
+      "candidate_pool_count": 8,
+      "error_message": null,
+      "evaluated_cycle_count": 2,
+      "failed_required_baselines": [
+        "flat"
+      ],
+      "final_status_counts": {
+        "approved": 1,
+        "research": 7
+      },
+      "gate_pass": false,
+      "lifecycle_report_name": "generate_farm_long_20260311_r2__gen_jun2024_td7_g8__lifecycle",
+      "log_paths": {
+        "lifecycle": "/home/user/mcs/checkpoints/candidate_farms/generate_farm_long_20260311_r2/gen_jun2024_td7_g8/02_lifecycle.log",
+        "portfolio_baselines": "/home/user/mcs/checkpoints/candidate_farms/generate_farm_long_20260311_r2/gen_jun2024_td7_g8/04_portfolio_baselines.log",
+        "portfolio_ledger": "/home/user/mcs/checkpoints/candidate_farms/generate_farm_long_20260311_r2/gen_jun2024_td7_g8/03_portfolio_ledger.log",
+        "rolling": "/home/user/mcs/checkpoints/candidate_farms/generate_farm_long_20260311_r2/gen_jun2024_td7_g8/01_rolling.log"
+      },
+      "max_drawdown_pct": 0.6879240829524134,
+      "mode": "generate",
+      "num_cycles": 2,
+      "output_dir": "/home/user/mcs/checkpoints/candidate_farms/generate_farm_long_20260311_r2/gen_jun2024_td7_g8",
+      "portfolio_baselines_report_name": "generate_farm_long_20260311_r2__gen_jun2024_td7_g8__baselines",
+      "portfolio_ledger_report_name": "generate_farm_long_20260311_r2__gen_jun2024_td7_g8__portfolio",
+      "positive_cycle_count": 0,
+      "progress_stage": "completed",
+      "rolling_report_name": "generate_farm_long_20260311_r2__gen_jun2024_td7_g8__rolling",
+      "scenario_name": "gen_jun2024_td7_g8",
+      "selected_candidate_count": 3,
+      "selection_days": 7,
+      "selection_start_utc": "2024-06-01 00:00:00",
+      "status": "completed",
+      "total_pnl": -46.90370482927574,
+      "total_return_pct": -0.46903704829275306,
+      "updated_at_utc": "2026-03-11T01:50:37Z"
+    },
+    {
+      "beaten_baselines": [
+        "long",
+        "equal_weight_selected_subset",
+        "naive_top_oos_rotation"
+      ],
+      "candidate_pool_count": 8,
+      "error_message": null,
+      "evaluated_cycle_count": 2,
+      "failed_required_baselines": [
+        "flat"
+      ],
+      "final_status_counts": {
+        "research": 8
+      },
+      "gate_pass": false,
+      "lifecycle_report_name": "generate_farm_long_20260311_r2__gen_jan2024_td10_g8__lifecycle",
+      "log_paths": {
+        "lifecycle": "/home/user/mcs/checkpoints/candidate_farms/generate_farm_long_20260311_r2/gen_jan2024_td10_g8/02_lifecycle.log",
+        "portfolio_baselines": "/home/user/mcs/checkpoints/candidate_farms/generate_farm_long_20260311_r2/gen_jan2024_td10_g8/04_portfolio_baselines.log",
+        "portfolio_ledger": "/home/user/mcs/checkpoints/candidate_farms/generate_farm_long_20260311_r2/gen_jan2024_td10_g8/03_portfolio_ledger.log",
+        "rolling": "/home/user/mcs/checkpoints/candidate_farms/generate_farm_long_20260311_r2/gen_jan2024_td10_g8/01_rolling.log"
+      },
+      "max_drawdown_pct": 1.216784457066624,
+      "mode": "generate",
+      "num_cycles": 2,
+      "output_dir": "/home/user/mcs/checkpoints/candidate_farms/generate_farm_long_20260311_r2/gen_jan2024_td10_g8",
+      "portfolio_baselines_report_name": "generate_farm_long_20260311_r2__gen_jan2024_td10_g8__baselines",
+      "portfolio_ledger_report_name": "generate_farm_long_20260311_r2__gen_jan2024_td10_g8__portfolio",
+      "positive_cycle_count": 0,
+      "progress_stage": "completed",
+      "rolling_report_name": "generate_farm_long_20260311_r2__gen_jan2024_td10_g8__rolling",
+      "scenario_name": "gen_jan2024_td10_g8",
+      "selected_candidate_count": 3,
+      "selection_days": 7,
+      "selection_start_utc": "2024-01-01 00:00:00",
+      "status": "completed",
+      "total_pnl": -94.4467883915786,
+      "total_return_pct": -0.9444678839157894,
+      "updated_at_utc": "2026-03-10T23:53:45Z"
+    },
+    {
+      "beaten_baselines": [
+        "long",
+        "equal_weight_selected_subset"
+      ],
+      "candidate_pool_count": 8,
+      "error_message": null,
+      "evaluated_cycle_count": 2,
+      "failed_required_baselines": [
+        "flat"
+      ],
+      "final_status_counts": {
+        "research": 8
+      },
+      "gate_pass": false,
+      "lifecycle_report_name": "generate_farm_long_20260311_r2__gen_jan2024_td7_g8__lifecycle",
+      "log_paths": {
+        "lifecycle": "/home/user/mcs/checkpoints/candidate_farms/generate_farm_long_20260311_r2/gen_jan2024_td7_g8/02_lifecycle.log",
+        "portfolio_baselines": "/home/user/mcs/checkpoints/candidate_farms/generate_farm_long_20260311_r2/gen_jan2024_td7_g8/04_portfolio_baselines.log",
+        "portfolio_ledger": "/home/user/mcs/checkpoints/candidate_farms/generate_farm_long_20260311_r2/gen_jan2024_td7_g8/03_portfolio_ledger.log",
+        "rolling": "/home/user/mcs/checkpoints/candidate_farms/generate_farm_long_20260311_r2/gen_jan2024_td7_g8/01_rolling.log"
+      },
+      "max_drawdown_pct": 5.367017379881997,
+      "mode": "generate",
+      "num_cycles": 2,
+      "output_dir": "/home/user/mcs/checkpoints/candidate_farms/generate_farm_long_20260311_r2/gen_jan2024_td7_g8",
+      "portfolio_baselines_report_name": "generate_farm_long_20260311_r2__gen_jan2024_td7_g8__baselines",
+      "portfolio_ledger_report_name": "generate_farm_long_20260311_r2__gen_jan2024_td7_g8__portfolio",
+      "positive_cycle_count": 0,
+      "progress_stage": "completed",
+      "rolling_report_name": "generate_farm_long_20260311_r2__gen_jan2024_td7_g8__rolling",
+      "scenario_name": "gen_jan2024_td7_g8",
+      "selected_candidate_count": 3,
+      "selection_days": 7,
+      "selection_start_utc": "2024-01-01 00:00:00",
+      "status": "completed",
+      "total_pnl": -103.88890388810796,
+      "total_return_pct": -1.0388890388810745,
+      "updated_at_utc": "2026-03-10T21:57:42Z"
+    },
+    {
+      "beaten_baselines": [
+        "long",
+        "naive_top_oos_rotation"
+      ],
+      "candidate_pool_count": 8,
+      "error_message": null,
+      "evaluated_cycle_count": 2,
+      "failed_required_baselines": [
+        "flat",
+        "equal_weight_selected_subset"
+      ],
+      "final_status_counts": {
+        "research": 8
+      },
+      "gate_pass": false,
+      "lifecycle_report_name": "generate_farm_long_20260311_r2__gen_jun2024_td10_g12__lifecycle",
+      "log_paths": {
+        "lifecycle": "/home/user/mcs/checkpoints/candidate_farms/generate_farm_long_20260311_r2/gen_jun2024_td10_g12/02_lifecycle.log",
+        "portfolio_baselines": "/home/user/mcs/checkpoints/candidate_farms/generate_farm_long_20260311_r2/gen_jun2024_td10_g12/04_portfolio_baselines.log",
+        "portfolio_ledger": "/home/user/mcs/checkpoints/candidate_farms/generate_farm_long_20260311_r2/gen_jun2024_td10_g12/03_portfolio_ledger.log",
+        "rolling": "/home/user/mcs/checkpoints/candidate_farms/generate_farm_long_20260311_r2/gen_jun2024_td10_g12/01_rolling.log"
+      },
+      "max_drawdown_pct": 2.61461380395961,
+      "mode": "generate",
+      "num_cycles": 2,
+      "output_dir": "/home/user/mcs/checkpoints/candidate_farms/generate_farm_long_20260311_r2/gen_jun2024_td10_g12",
+      "portfolio_baselines_report_name": "generate_farm_long_20260311_r2__gen_jun2024_td10_g12__baselines",
+      "portfolio_ledger_report_name": "generate_farm_long_20260311_r2__gen_jun2024_td10_g12__portfolio",
+      "positive_cycle_count": 1,
+      "progress_stage": "completed",
+      "rolling_report_name": "generate_farm_long_20260311_r2__gen_jun2024_td10_g12__rolling",
+      "scenario_name": "gen_jun2024_td10_g12",
+      "selected_candidate_count": 4,
+      "selection_days": 7,
+      "selection_start_utc": "2024-06-01 00:00:00",
+      "status": "completed",
+      "total_pnl": -212.0360150783563,
+      "total_return_pct": -2.1203601507835623,
+      "updated_at_utc": "2026-03-11T04:56:25Z"
+    },
+    {
+      "beaten_baselines": [
+        "naive_top_oos_rotation"
+      ],
+      "candidate_pool_count": 8,
+      "error_message": null,
+      "evaluated_cycle_count": 2,
+      "failed_required_baselines": [
+        "flat",
+        "equal_weight_selected_subset"
+      ],
+      "final_status_counts": {
+        "research": 8
+      },
+      "gate_pass": false,
+      "lifecycle_report_name": "generate_farm_long_20260311_r2__gen_jan2024_td7_g12__lifecycle",
+      "log_paths": {
+        "lifecycle": "/home/user/mcs/checkpoints/candidate_farms/generate_farm_long_20260311_r2/gen_jan2024_td7_g12/02_lifecycle.log",
+        "portfolio_baselines": "/home/user/mcs/checkpoints/candidate_farms/generate_farm_long_20260311_r2/gen_jan2024_td7_g12/04_portfolio_baselines.log",
+        "portfolio_ledger": "/home/user/mcs/checkpoints/candidate_farms/generate_farm_long_20260311_r2/gen_jan2024_td7_g12/03_portfolio_ledger.log",
+        "rolling": "/home/user/mcs/checkpoints/candidate_farms/generate_farm_long_20260311_r2/gen_jan2024_td7_g12/01_rolling.log"
+      },
+      "max_drawdown_pct": 4.760783701194847,
+      "mode": "generate",
+      "num_cycles": 2,
+      "output_dir": "/home/user/mcs/checkpoints/candidate_farms/generate_farm_long_20260311_r2/gen_jan2024_td7_g12",
+      "portfolio_baselines_report_name": "generate_farm_long_20260311_r2__gen_jan2024_td7_g12__baselines",
+      "portfolio_ledger_report_name": "generate_farm_long_20260311_r2__gen_jan2024_td7_g12__portfolio",
+      "positive_cycle_count": 0,
+      "progress_stage": "completed",
+      "rolling_report_name": "generate_farm_long_20260311_r2__gen_jan2024_td7_g12__rolling",
+      "scenario_name": "gen_jan2024_td7_g12",
+      "selected_candidate_count": 4,
+      "selection_days": 7,
+      "selection_start_utc": "2024-01-01 00:00:00",
+      "status": "completed",
+      "total_pnl": -272.76759357469746,
+      "total_return_pct": -2.727675935746976,
+      "updated_at_utc": "2026-03-10T23:03:18Z"
+    },
+    {
+      "beaten_baselines": [
+        "long",
+        "equal_weight_selected_subset"
+      ],
+      "candidate_pool_count": 8,
+      "error_message": null,
+      "evaluated_cycle_count": 2,
+      "failed_required_baselines": [
+        "flat"
+      ],
+      "final_status_counts": {
+        "research": 8
+      },
+      "gate_pass": false,
+      "lifecycle_report_name": "generate_farm_long_20260311_r2__gen_jun2024_td10_g8__lifecycle",
+      "log_paths": {
+        "lifecycle": "/home/user/mcs/checkpoints/candidate_farms/generate_farm_long_20260311_r2/gen_jun2024_td10_g8/02_lifecycle.log",
+        "portfolio_baselines": "/home/user/mcs/checkpoints/candidate_farms/generate_farm_long_20260311_r2/gen_jun2024_td10_g8/04_portfolio_baselines.log",
+        "portfolio_ledger": "/home/user/mcs/checkpoints/candidate_farms/generate_farm_long_20260311_r2/gen_jun2024_td10_g8/03_portfolio_ledger.log",
+        "rolling": "/home/user/mcs/checkpoints/candidate_farms/generate_farm_long_20260311_r2/gen_jun2024_td10_g8/01_rolling.log"
+      },
+      "max_drawdown_pct": 4.25851086977496,
+      "mode": "generate",
+      "num_cycles": 2,
+      "output_dir": "/home/user/mcs/checkpoints/candidate_farms/generate_farm_long_20260311_r2/gen_jun2024_td10_g8",
+      "portfolio_baselines_report_name": "generate_farm_long_20260311_r2__gen_jun2024_td10_g8__baselines",
+      "portfolio_ledger_report_name": "generate_farm_long_20260311_r2__gen_jun2024_td10_g8__portfolio",
+      "positive_cycle_count": 0,
+      "progress_stage": "completed",
+      "rolling_report_name": "generate_farm_long_20260311_r2__gen_jun2024_td10_g8__rolling",
+      "scenario_name": "gen_jun2024_td10_g8",
+      "selected_candidate_count": 4,
+      "selection_days": 7,
+      "selection_start_utc": "2024-06-01 00:00:00",
+      "status": "completed",
+      "total_pnl": -364.31774531019255,
+      "total_return_pct": -3.64317745310192,
+      "updated_at_utc": "2026-03-11T03:45:52Z"
+    },
+    {
+      "beaten_baselines": [
+        "equal_weight_selected_subset"
+      ],
+      "candidate_pool_count": 8,
+      "error_message": null,
+      "evaluated_cycle_count": 2,
+      "failed_required_baselines": [
+        "flat"
+      ],
+      "final_status_counts": {
+        "research": 8
+      },
+      "gate_pass": false,
+      "lifecycle_report_name": "generate_farm_long_20260311_r2__gen_jun2024_td7_g12__lifecycle",
+      "log_paths": {
+        "lifecycle": "/home/user/mcs/checkpoints/candidate_farms/generate_farm_long_20260311_r2/gen_jun2024_td7_g12/02_lifecycle.log",
+        "portfolio_baselines": "/home/user/mcs/checkpoints/candidate_farms/generate_farm_long_20260311_r2/gen_jun2024_td7_g12/04_portfolio_baselines.log",
+        "portfolio_ledger": "/home/user/mcs/checkpoints/candidate_farms/generate_farm_long_20260311_r2/gen_jun2024_td7_g12/03_portfolio_ledger.log",
+        "rolling": "/home/user/mcs/checkpoints/candidate_farms/generate_farm_long_20260311_r2/gen_jun2024_td7_g12/01_rolling.log"
+      },
+      "max_drawdown_pct": 6.994286922321531,
+      "mode": "generate",
+      "num_cycles": 2,
+      "output_dir": "/home/user/mcs/checkpoints/candidate_farms/generate_farm_long_20260311_r2/gen_jun2024_td7_g12",
+      "portfolio_baselines_report_name": "generate_farm_long_20260311_r2__gen_jun2024_td7_g12__baselines",
+      "portfolio_ledger_report_name": "generate_farm_long_20260311_r2__gen_jun2024_td7_g12__portfolio",
+      "positive_cycle_count": 0,
+      "progress_stage": "completed",
+      "rolling_report_name": "generate_farm_long_20260311_r2__gen_jun2024_td7_g12__rolling",
+      "scenario_name": "gen_jun2024_td7_g12",
+      "selected_candidate_count": 4,
+      "selection_days": 7,
+      "selection_start_utc": "2024-06-01 00:00:00",
+      "status": "completed",
+      "total_pnl": -609.109745654072,
+      "total_return_pct": -6.091097456540718,
+      "updated_at_utc": "2026-03-11T02:55:54Z"
+    },
+    {
+      "beaten_baselines": [
+        "equal_weight_selected_subset"
+      ],
+      "candidate_pool_count": 8,
+      "error_message": null,
+      "evaluated_cycle_count": 2,
+      "failed_required_baselines": [
+        "flat"
+      ],
+      "final_status_counts": {
+        "research": 8
+      },
+      "gate_pass": false,
+      "lifecycle_report_name": "generate_farm_long_20260311_r2__gen_jan2024_td10_g12__lifecycle",
+      "log_paths": {
+        "lifecycle": "/home/user/mcs/checkpoints/candidate_farms/generate_farm_long_20260311_r2/gen_jan2024_td10_g12/02_lifecycle.log",
+        "portfolio_baselines": "/home/user/mcs/checkpoints/candidate_farms/generate_farm_long_20260311_r2/gen_jan2024_td10_g12/04_portfolio_baselines.log",
+        "portfolio_ledger": "/home/user/mcs/checkpoints/candidate_farms/generate_farm_long_20260311_r2/gen_jan2024_td10_g12/03_portfolio_ledger.log",
+        "rolling": "/home/user/mcs/checkpoints/candidate_farms/generate_farm_long_20260311_r2/gen_jan2024_td10_g12/01_rolling.log"
+      },
+      "max_drawdown_pct": 8.486993840081396,
+      "mode": "generate",
+      "num_cycles": 2,
+      "output_dir": "/home/user/mcs/checkpoints/candidate_farms/generate_farm_long_20260311_r2/gen_jan2024_td10_g12",
+      "portfolio_baselines_report_name": "generate_farm_long_20260311_r2__gen_jan2024_td10_g12__baselines",
+      "portfolio_ledger_report_name": "generate_farm_long_20260311_r2__gen_jan2024_td10_g12__portfolio",
+      "positive_cycle_count": 0,
+      "progress_stage": "completed",
+      "rolling_report_name": "generate_farm_long_20260311_r2__gen_jan2024_td10_g12__rolling",
+      "scenario_name": "gen_jan2024_td10_g12",
+      "selected_candidate_count": 3,
+      "selection_days": 7,
+      "selection_start_utc": "2024-01-01 00:00:00",
+      "status": "completed",
+      "total_pnl": -844.2143846874151,
+      "total_return_pct": -8.442143846874151,
+      "updated_at_utc": "2026-03-11T01:04:58Z"
+    }
+  ],
+  "schema_version": "1",
+  "source_farm_report": "generate_farm_long_20260311_r2",
+  "summary": {
+    "best_gate_scenario_by_pnl": "gen_may2025_td10_g12",
+    "best_scenario_by_pnl": "gen_may2025_td10_g12",
+    "completed_or_reused_scenarios": 12,
+    "completed_scenarios": 12,
+    "failed_scenarios": 0,
+    "gate_pass_count": 3,
+    "gate_pass_rate": 0.25,
+    "lowest_drawdown_scenario": "gen_may2025_td10_g8",
+    "planned_scenarios": 0,
+    "ranked_scenarios": [
+      "gen_may2025_td10_g12",
+      "gen_may2025_td7_g8",
+      "gen_may2025_td7_g12",
+      "gen_may2025_td10_g8",
+      "gen_jun2024_td7_g8",
+      "gen_jan2024_td10_g8",
+      "gen_jan2024_td7_g8",
+      "gen_jun2024_td10_g12",
+      "gen_jan2024_td7_g12",
+      "gen_jun2024_td10_g8",
+      "gen_jun2024_td7_g12",
+      "gen_jan2024_td10_g12"
+    ],
+    "running_scenarios": 0,
+    "scenario_count": 12,
+    "status_counts": {
+      "completed": 12
+    },
+    "total_unique_candidate_pool_ids": 96,
+    "total_unique_selected_candidate_ids": 36
+  }
+}

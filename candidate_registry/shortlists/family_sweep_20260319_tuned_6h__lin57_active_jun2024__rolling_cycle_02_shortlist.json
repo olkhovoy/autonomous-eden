@@ -1,0 +1,126 @@
+{
+  "candidate_ids": [
+    "cand_0d171854a096",
+    "cand_61dbcd582a90",
+    "cand_c958a884dfc9",
+    "cand_f6023b3d5133"
+  ],
+  "candidate_scores": [
+    {
+      "base_score": -2.576498173797314,
+      "brightness_hint": 1.0,
+      "candidate_id": "cand_61dbcd582a90",
+      "display_name": "wf_02_20240529_run01",
+      "exception_flags": [
+        "near_miss_quality"
+      ],
+      "marginal_score": -2.576498173797314,
+      "score_components": {
+        "diversifier_potential_score": 0.052222925600428544,
+        "flat_collapse_penalty": 0.0,
+        "oos_activity_score": 0.13124999999999998,
+        "oos_beats_flat_score": 0.0,
+        "oos_full_window_bonus": 0.25,
+        "oos_return_score": -0.744889916674688,
+        "resampling_drawdown_penalty": -0.08386440585808397,
+        "resampling_pessimistic_score": -0.6812167768649703,
+        "resampling_profitability_score": -1.5,
+        "resampling_ruin_penalty": -0.0
+      },
+      "selected": true,
+      "selected_rank": 1
+    },
+    {
+      "base_score": -3.5594011576004982,
+      "brightness_hint": 0.6103271254631573,
+      "candidate_id": "cand_0d171854a096",
+      "display_name": "wf_02_20240529_run02",
+      "exception_flags": [
+        "near_miss_quality"
+      ],
+      "marginal_score": null,
+      "score_components": {
+        "diversifier_potential_score": 0.5039607998691706,
+        "flat_collapse_penalty": 0.0,
+        "oos_activity_score": 0.6375,
+        "oos_beats_flat_score": 0.0,
+        "oos_full_window_bonus": 0.25,
+        "oos_return_score": -2.7428041974624096,
+        "resampling_drawdown_penalty": -0.07735432862669245,
+        "resampling_pessimistic_score": -0.630703431380567,
+        "resampling_profitability_score": -1.5,
+        "resampling_ruin_penalty": -0.0
+      },
+      "selected": false,
+      "selected_rank": null
+    },
+    {
+      "base_score": -4.240544835711584,
+      "brightness_hint": 0.3402870305647445,
+      "candidate_id": "cand_c958a884dfc9",
+      "display_name": "wf_01_20240522_run01",
+      "exception_flags": [
+        "diversifier_outlier"
+      ],
+      "marginal_score": null,
+      "score_components": {
+        "diversifier_potential_score": 0.2985755883521722,
+        "flat_collapse_penalty": 0.0,
+        "oos_activity_score": 0.20625000000000002,
+        "oos_beats_flat_score": 0.0,
+        "oos_full_window_bonus": 0.25,
+        "oos_return_score": -2.427036740572457,
+        "resampling_drawdown_penalty": -0.8146619531294816,
+        "resampling_pessimistic_score": -2.3161717303618183,
+        "resampling_profitability_score": 0.5625,
+        "resampling_ruin_penalty": -0.0
+      },
+      "selected": false,
+      "selected_rank": null
+    },
+    {
+      "base_score": -4.594402006536901,
+      "brightness_hint": 0.2,
+      "candidate_id": "cand_f6023b3d5133",
+      "display_name": "wf_01_20240522_run02",
+      "exception_flags": [],
+      "marginal_score": null,
+      "score_components": {
+        "diversifier_potential_score": 0.25760813711742697,
+        "flat_collapse_penalty": 0.0,
+        "oos_activity_score": 0.6187499999999999,
+        "oos_beats_flat_score": 0.0,
+        "oos_full_window_bonus": 0.25,
+        "oos_return_score": -2.9908142656520282,
+        "resampling_drawdown_penalty": -0.8468203997523267,
+        "resampling_pessimistic_score": -2.363594228249973,
+        "resampling_profitability_score": 0.48046875,
+        "resampling_ruin_penalty": -0.0
+      },
+      "selected": false,
+      "selected_rank": null
+    }
+  ],
+  "created_at_utc": "2026-03-19T12:13:16Z",
+  "data_path": "/home/user/mcs/data/BTCUSDT_parquet_neurobars_autoresearch.npz",
+  "end_utc": "2024-06-15 00:00:00",
+  "max_steps": 10080,
+  "name": "family_sweep_20260319_tuned_6h__lin57_active_jun2024__rolling_cycle_02_shortlist",
+  "notes": null,
+  "resampling_name": "bootstrap_f0.50",
+  "schema_version": "1",
+  "selected_candidate_ids": [
+    "cand_61dbcd582a90"
+  ],
+  "selected_pair_scores": [],
+  "selection_config": {
+    "max_candidates": 5,
+    "max_pair_downside_corr": 0.65,
+    "max_pair_simultaneous_loss_rate": 0.7,
+    "min_marginal_score": 0.2,
+    "resampling_name": "bootstrap_f0.50"
+  },
+  "source_diversification_report": "family_sweep_20260319_tuned_6h__lin57_active_jun2024__rolling_cycle_02_div",
+  "start_step": 2211077,
+  "start_utc": "2024-06-08 00:00:00"
+}

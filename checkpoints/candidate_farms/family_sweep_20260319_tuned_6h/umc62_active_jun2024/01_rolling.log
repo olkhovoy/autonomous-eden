@@ -1,0 +1,4 @@
+Saved rolling conveyor report to /home/user/mcs/candidate_registry/rolling/family_sweep_20260319_tuned_6h__umc62_active_jun2024__rolling.json
+cycles=2/2 balance=9608.92 pnl=-391.08 return=-3.91% max_dd=4.81%
+  cycle_01 2024-06-08 00:00:00->2024-06-15 00:00:00 pnl=-248.03 dd=3.35% selected=1
+  cycle_02 2024-06-15 00:00:00->2024-06-22 00:00:00 pnl=-143.05 dd=2.22% selected=1

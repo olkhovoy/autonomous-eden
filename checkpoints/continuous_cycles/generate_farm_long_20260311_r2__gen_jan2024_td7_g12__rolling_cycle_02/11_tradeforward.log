@@ -1,0 +1,4 @@
+Saved tradeforward plan to /home/user/mcs/candidate_registry/tradeforward/generate_farm_long_20260311_r2__gen_jan2024_td7_g12__rolling_cycle_02_tradeforward.json
+combination:subset_2_cand_4c100cf399c4+cand_727b87f14599_risk_0.25 risk=0.25 reserve=0.75 forward=2024-01-15 00:00:00 -> 2024-01-22 00:00:00
+  wf_01_20231225_run02 capital=0.013 share=0.051 cluster=cluster_000
+  wf_02_20240101_run01 capital=0.237 share=0.949 cluster=cluster_001

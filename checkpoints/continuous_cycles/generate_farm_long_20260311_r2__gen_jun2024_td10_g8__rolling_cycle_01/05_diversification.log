@@ -1,0 +1,7 @@
+Saved diversification report to /home/user/mcs/candidate_registry/diversification/generate_farm_long_20260311_r2__gen_jun2024_td10_g8__rolling_cycle_01_div.json
+wf_01_20240515_run01 <-> wf_02_20240522_run01 | corr=-0.653 downside=+0.009 sim_loss=0.035 combo_dd=5.92 dd_improve=+2.66
+wf_01_20240515_run01 <-> wf_02_20240522_run02 | corr=-0.086 downside=-0.003 sim_loss=0.002 combo_dd=2.51 dd_improve=+0.75
+wf_01_20240515_run01 <-> wf_01_20240515_run02 | corr=+0.036 downside=+0.033 sim_loss=0.001 combo_dd=2.45 dd_improve=+0.26
+wf_01_20240515_run02 <-> wf_02_20240522_run02 | corr=-0.081 downside=+0.020 sim_loss=0.000 combo_dd=1.16 dd_improve=+0.01
+wf_02_20240522_run01 <-> wf_02_20240522_run02 | corr=+0.095 downside=+0.108 sim_loss=0.003 combo_dd=7.12 dd_improve=-0.07
+wf_01_20240515_run02 <-> wf_02_20240522_run01 | corr=-0.036 downside=-0.013 sim_loss=0.000 combo_dd=6.61 dd_improve=-0.11

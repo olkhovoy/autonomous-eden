@@ -1,0 +1,4 @@
+Saved tradeforward evaluation to /home/user/mcs/candidate_registry/tradeforward_eval/family_sweep_20260318_6h__fam_smallrec32_active_may2025__rolling_cycle_02_tradeforward_eval.json
+combination:subset_2_cand_54ada34d3fef+cand_1788c8ebcd07_risk_0.25 actual_pnl=-17.04 expected_orig=-60.60 delta=+43.55
+  wf_01_20250421_run01 capital=0.125 pnl=+518.16 dd=4.68 trades=8
+  wf_01_20250421_run02 capital=0.125 pnl=-634.96 dd=6.35 trades=77

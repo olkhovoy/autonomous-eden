@@ -1,0 +1,5 @@
+Saved portfolio ledger to /home/user/mcs/candidate_registry/portfolio_ledger/reuse_farm_smoke_light_202505__reuse_may08_light__portfolio.json
+rolling=reuse_farm_smoke_light_202505__reuse_may08_light__rolling lifecycle=reuse_farm_smoke_light_202505__reuse_may08_light__lifecycle cycles=1 balance=10196.95 pnl=+196.95 return=+1.97% max_dd=1.11%
+turnover gross=0.350 buy=0.350 sell=0.000 cost=0.00
+reserve_avg=0.650 peak_cluster=0.350 non_tradable_selected=1
+  cycle_01 gross=+196.95 net=+196.95 turnover=0.350 reserve=0.650 active=1

@@ -1,0 +1,466 @@
+{
+  "applied_status_updates": false,
+  "candidate_ids": [
+    "cand_0ed378908884",
+    "cand_3b0a33ab288e",
+    "cand_7e68c9a7be02",
+    "cand_a657f9d06d88",
+    "cand_b4d4f585763f",
+    "cand_b5393b94deef",
+    "cand_c3cedbf426e6",
+    "cand_c5c0d59bb709"
+  ],
+  "candidate_summaries": [
+    {
+      "candidate_id": "cand_c3cedbf426e6",
+      "display_name": "wf_02_20250421_run01",
+      "failed_forward_cycles": 0,
+      "final_status": "approved",
+      "idle_cycles": 1,
+      "initial_status": "research",
+      "last_selected_cycle_index": 1,
+      "last_transition_cycle_index": 1,
+      "no_trade_cycles": 0,
+      "selected_cycles": 1,
+      "successful_forward_cycles": 1,
+      "total_cycles_seen": 2,
+      "transition_count": 1
+    },
+    {
+      "candidate_id": "cand_0ed378908884",
+      "display_name": "wf_01_20250421_run02",
+      "failed_forward_cycles": 0,
+      "final_status": "research",
+      "idle_cycles": 2,
+      "initial_status": "research",
+      "last_selected_cycle_index": null,
+      "last_transition_cycle_index": null,
+      "no_trade_cycles": 0,
+      "selected_cycles": 0,
+      "successful_forward_cycles": 0,
+      "total_cycles_seen": 2,
+      "transition_count": 0
+    },
+    {
+      "candidate_id": "cand_3b0a33ab288e",
+      "display_name": "wf_02_20250428_run01",
+      "failed_forward_cycles": 0,
+      "final_status": "research",
+      "idle_cycles": 2,
+      "initial_status": "research",
+      "last_selected_cycle_index": null,
+      "last_transition_cycle_index": null,
+      "no_trade_cycles": 0,
+      "selected_cycles": 0,
+      "successful_forward_cycles": 0,
+      "total_cycles_seen": 2,
+      "transition_count": 0
+    },
+    {
+      "candidate_id": "cand_7e68c9a7be02",
+      "display_name": "wf_02_20250428_run02",
+      "failed_forward_cycles": 1,
+      "final_status": "research",
+      "idle_cycles": 1,
+      "initial_status": "research",
+      "last_selected_cycle_index": 2,
+      "last_transition_cycle_index": null,
+      "no_trade_cycles": 1,
+      "selected_cycles": 1,
+      "successful_forward_cycles": 0,
+      "total_cycles_seen": 2,
+      "transition_count": 0
+    },
+    {
+      "candidate_id": "cand_a657f9d06d88",
+      "display_name": "wf_01_20250421_run01",
+      "failed_forward_cycles": 0,
+      "final_status": "research",
+      "idle_cycles": 2,
+      "initial_status": "research",
+      "last_selected_cycle_index": null,
+      "last_transition_cycle_index": null,
+      "no_trade_cycles": 0,
+      "selected_cycles": 0,
+      "successful_forward_cycles": 0,
+      "total_cycles_seen": 2,
+      "transition_count": 0
+    },
+    {
+      "candidate_id": "cand_b4d4f585763f",
+      "display_name": "wf_01_20250414_run02",
+      "failed_forward_cycles": 0,
+      "final_status": "research",
+      "idle_cycles": 2,
+      "initial_status": "research",
+      "last_selected_cycle_index": null,
+      "last_transition_cycle_index": null,
+      "no_trade_cycles": 0,
+      "selected_cycles": 0,
+      "successful_forward_cycles": 0,
+      "total_cycles_seen": 2,
+      "transition_count": 0
+    },
+    {
+      "candidate_id": "cand_b5393b94deef",
+      "display_name": "wf_02_20250421_run02",
+      "failed_forward_cycles": 0,
+      "final_status": "research",
+      "idle_cycles": 2,
+      "initial_status": "research",
+      "last_selected_cycle_index": null,
+      "last_transition_cycle_index": null,
+      "no_trade_cycles": 0,
+      "selected_cycles": 0,
+      "successful_forward_cycles": 0,
+      "total_cycles_seen": 2,
+      "transition_count": 0
+    },
+    {
+      "candidate_id": "cand_c5c0d59bb709",
+      "display_name": "wf_01_20250414_run01",
+      "failed_forward_cycles": 1,
+      "final_status": "research",
+      "idle_cycles": 1,
+      "initial_status": "research",
+      "last_selected_cycle_index": 1,
+      "last_transition_cycle_index": null,
+      "no_trade_cycles": 0,
+      "selected_cycles": 1,
+      "successful_forward_cycles": 0,
+      "total_cycles_seen": 2,
+      "transition_count": 0
+    }
+  ],
+  "config": {
+    "idle_cycles_to_drain": 1,
+    "idle_cycles_to_retire": 2,
+    "max_forward_drawdown_pct": 8.0,
+    "min_forward_pnl": 0.0,
+    "min_selected_trades": 1,
+    "successful_selected_cycles_to_activate": 2,
+    "successful_selected_cycles_to_recover": 1
+  },
+  "created_at_utc": "2026-03-19T12:27:05Z",
+  "decisions": [
+    {
+      "action": "hold",
+      "candidate_id": "cand_0ed378908884",
+      "consecutive_failures": 0,
+      "consecutive_idle_cycles": 1,
+      "consecutive_successes": 0,
+      "cycle_index": 1,
+      "cycle_name": "family_sweep_20260319_tuned_6h__lin57_active_may2025__rolling_cycle_01",
+      "display_name": "wf_01_20250421_run02",
+      "max_drawdown_pct": null,
+      "next_status": "research",
+      "pnl": null,
+      "previous_status": "research",
+      "reason_codes": [
+        "idle_hold"
+      ],
+      "selected": false,
+      "trades": null
+    },
+    {
+      "action": "hold",
+      "candidate_id": "cand_3b0a33ab288e",
+      "consecutive_failures": 0,
+      "consecutive_idle_cycles": 1,
+      "consecutive_successes": 0,
+      "cycle_index": 1,
+      "cycle_name": "family_sweep_20260319_tuned_6h__lin57_active_may2025__rolling_cycle_01",
+      "display_name": "wf_02_20250428_run01",
+      "max_drawdown_pct": null,
+      "next_status": "research",
+      "pnl": null,
+      "previous_status": "research",
+      "reason_codes": [
+        "idle_hold"
+      ],
+      "selected": false,
+      "trades": null
+    },
+    {
+      "action": "hold",
+      "candidate_id": "cand_7e68c9a7be02",
+      "consecutive_failures": 0,
+      "consecutive_idle_cycles": 1,
+      "consecutive_successes": 0,
+      "cycle_index": 1,
+      "cycle_name": "family_sweep_20260319_tuned_6h__lin57_active_may2025__rolling_cycle_01",
+      "display_name": "wf_02_20250428_run02",
+      "max_drawdown_pct": null,
+      "next_status": "research",
+      "pnl": null,
+      "previous_status": "research",
+      "reason_codes": [
+        "idle_hold"
+      ],
+      "selected": false,
+      "trades": null
+    },
+    {
+      "action": "hold",
+      "candidate_id": "cand_a657f9d06d88",
+      "consecutive_failures": 0,
+      "consecutive_idle_cycles": 1,
+      "consecutive_successes": 0,
+      "cycle_index": 1,
+      "cycle_name": "family_sweep_20260319_tuned_6h__lin57_active_may2025__rolling_cycle_01",
+      "display_name": "wf_01_20250421_run01",
+      "max_drawdown_pct": null,
+      "next_status": "research",
+      "pnl": null,
+      "previous_status": "research",
+      "reason_codes": [
+        "idle_hold"
+      ],
+      "selected": false,
+      "trades": null
+    },
+    {
+      "action": "hold",
+      "candidate_id": "cand_b4d4f585763f",
+      "consecutive_failures": 0,
+      "consecutive_idle_cycles": 1,
+      "consecutive_successes": 0,
+      "cycle_index": 1,
+      "cycle_name": "family_sweep_20260319_tuned_6h__lin57_active_may2025__rolling_cycle_01",
+      "display_name": "wf_01_20250414_run02",
+      "max_drawdown_pct": null,
+      "next_status": "research",
+      "pnl": null,
+      "previous_status": "research",
+      "reason_codes": [
+        "idle_hold"
+      ],
+      "selected": false,
+      "trades": null
+    },
+    {
+      "action": "hold",
+      "candidate_id": "cand_b5393b94deef",
+      "consecutive_failures": 0,
+      "consecutive_idle_cycles": 1,
+      "consecutive_successes": 0,
+      "cycle_index": 1,
+      "cycle_name": "family_sweep_20260319_tuned_6h__lin57_active_may2025__rolling_cycle_01",
+      "display_name": "wf_02_20250421_run02",
+      "max_drawdown_pct": null,
+      "next_status": "research",
+      "pnl": null,
+      "previous_status": "research",
+      "reason_codes": [
+        "idle_hold"
+      ],
+      "selected": false,
+      "trades": null
+    },
+    {
+      "action": "promote",
+      "candidate_id": "cand_c3cedbf426e6",
+      "consecutive_failures": 0,
+      "consecutive_idle_cycles": 0,
+      "consecutive_successes": 1,
+      "cycle_index": 1,
+      "cycle_name": "family_sweep_20260319_tuned_6h__lin57_active_may2025__rolling_cycle_01",
+      "display_name": "wf_02_20250421_run01",
+      "max_drawdown_pct": 4.646151214279209,
+      "next_status": "approved",
+      "pnl": 604.7823207166675,
+      "previous_status": "research",
+      "reason_codes": [
+        "forward_success",
+        "promote_to_approved"
+      ],
+      "selected": true,
+      "trades": 7
+    },
+    {
+      "action": "hold",
+      "candidate_id": "cand_c5c0d59bb709",
+      "consecutive_failures": 1,
+      "consecutive_idle_cycles": 0,
+      "consecutive_successes": 0,
+      "cycle_index": 1,
+      "cycle_name": "family_sweep_20260319_tuned_6h__lin57_active_may2025__rolling_cycle_01",
+      "display_name": "wf_01_20250414_run01",
+      "max_drawdown_pct": 0.8855523912054923,
+      "next_status": "research",
+      "pnl": -88.55523912054923,
+      "previous_status": "research",
+      "reason_codes": [
+        "negative_pnl",
+        "research_failure"
+      ],
+      "selected": true,
+      "trades": 7
+    },
+    {
+      "action": "hold",
+      "candidate_id": "cand_0ed378908884",
+      "consecutive_failures": 0,
+      "consecutive_idle_cycles": 2,
+      "consecutive_successes": 0,
+      "cycle_index": 2,
+      "cycle_name": "family_sweep_20260319_tuned_6h__lin57_active_may2025__rolling_cycle_02",
+      "display_name": "wf_01_20250421_run02",
+      "max_drawdown_pct": null,
+      "next_status": "research",
+      "pnl": null,
+      "previous_status": "research",
+      "reason_codes": [
+        "idle_hold"
+      ],
+      "selected": false,
+      "trades": null
+    },
+    {
+      "action": "hold",
+      "candidate_id": "cand_3b0a33ab288e",
+      "consecutive_failures": 0,
+      "consecutive_idle_cycles": 2,
+      "consecutive_successes": 0,
+      "cycle_index": 2,
+      "cycle_name": "family_sweep_20260319_tuned_6h__lin57_active_may2025__rolling_cycle_02",
+      "display_name": "wf_02_20250428_run01",
+      "max_drawdown_pct": null,
+      "next_status": "research",
+      "pnl": null,
+      "previous_status": "research",
+      "reason_codes": [
+        "idle_hold"
+      ],
+      "selected": false,
+      "trades": null
+    },
+    {
+      "action": "hold",
+      "candidate_id": "cand_7e68c9a7be02",
+      "consecutive_failures": 1,
+      "consecutive_idle_cycles": 0,
+      "consecutive_successes": 0,
+      "cycle_index": 2,
+      "cycle_name": "family_sweep_20260319_tuned_6h__lin57_active_may2025__rolling_cycle_02",
+      "display_name": "wf_02_20250428_run02",
+      "max_drawdown_pct": 4.675145645255111,
+      "next_status": "research",
+      "pnl": 594.2671845095756,
+      "previous_status": "research",
+      "reason_codes": [
+        "no_trades",
+        "research_failure"
+      ],
+      "selected": true,
+      "trades": 0
+    },
+    {
+      "action": "hold",
+      "candidate_id": "cand_a657f9d06d88",
+      "consecutive_failures": 0,
+      "consecutive_idle_cycles": 2,
+      "consecutive_successes": 0,
+      "cycle_index": 2,
+      "cycle_name": "family_sweep_20260319_tuned_6h__lin57_active_may2025__rolling_cycle_02",
+      "display_name": "wf_01_20250421_run01",
+      "max_drawdown_pct": null,
+      "next_status": "research",
+      "pnl": null,
+      "previous_status": "research",
+      "reason_codes": [
+        "idle_hold"
+      ],
+      "selected": false,
+      "trades": null
+    },
+    {
+      "action": "hold",
+      "candidate_id": "cand_b4d4f585763f",
+      "consecutive_failures": 0,
+      "consecutive_idle_cycles": 2,
+      "consecutive_successes": 0,
+      "cycle_index": 2,
+      "cycle_name": "family_sweep_20260319_tuned_6h__lin57_active_may2025__rolling_cycle_02",
+      "display_name": "wf_01_20250414_run02",
+      "max_drawdown_pct": null,
+      "next_status": "research",
+      "pnl": null,
+      "previous_status": "research",
+      "reason_codes": [
+        "idle_hold"
+      ],
+      "selected": false,
+      "trades": null
+    },
+    {
+      "action": "hold",
+      "candidate_id": "cand_b5393b94deef",
+      "consecutive_failures": 0,
+      "consecutive_idle_cycles": 2,
+      "consecutive_successes": 0,
+      "cycle_index": 2,
+      "cycle_name": "family_sweep_20260319_tuned_6h__lin57_active_may2025__rolling_cycle_02",
+      "display_name": "wf_02_20250421_run02",
+      "max_drawdown_pct": null,
+      "next_status": "research",
+      "pnl": null,
+      "previous_status": "research",
+      "reason_codes": [
+        "idle_hold"
+      ],
+      "selected": false,
+      "trades": null
+    },
+    {
+      "action": "hold",
+      "candidate_id": "cand_c3cedbf426e6",
+      "consecutive_failures": 0,
+      "consecutive_idle_cycles": 1,
+      "consecutive_successes": 0,
+      "cycle_index": 2,
+      "cycle_name": "family_sweep_20260319_tuned_6h__lin57_active_may2025__rolling_cycle_02",
+      "display_name": "wf_02_20250421_run01",
+      "max_drawdown_pct": null,
+      "next_status": "approved",
+      "pnl": null,
+      "previous_status": "approved",
+      "reason_codes": [
+        "idle_hold"
+      ],
+      "selected": false,
+      "trades": null
+    },
+    {
+      "action": "hold",
+      "candidate_id": "cand_c5c0d59bb709",
+      "consecutive_failures": 0,
+      "consecutive_idle_cycles": 1,
+      "consecutive_successes": 0,
+      "cycle_index": 2,
+      "cycle_name": "family_sweep_20260319_tuned_6h__lin57_active_may2025__rolling_cycle_02",
+      "display_name": "wf_01_20250414_run01",
+      "max_drawdown_pct": null,
+      "next_status": "research",
+      "pnl": null,
+      "previous_status": "research",
+      "reason_codes": [
+        "idle_hold"
+      ],
+      "selected": false,
+      "trades": null
+    }
+  ],
+  "final_status_counts": {
+    "approved": 1,
+    "research": 7
+  },
+  "name": "family_sweep_20260319_tuned_6h__lin57_active_may2025__lifecycle",
+  "notes": "Tuned 5-6h family sweep after trade-floor/trade-band quick probes. Focus on linear_score and gated UMC under shared rolling gates. | family=linear_score threshold=0.57 fitness=profit_active selection=may2025",
+  "schema_version": "1",
+  "source_rolling_report": "family_sweep_20260319_tuned_6h__lin57_active_may2025__rolling",
+  "source_tradeforward_evaluations": [
+    "family_sweep_20260319_tuned_6h__lin57_active_may2025__rolling_cycle_01_tradeforward_eval",
+    "family_sweep_20260319_tuned_6h__lin57_active_may2025__rolling_cycle_02_tradeforward_eval"
+  ]
+}

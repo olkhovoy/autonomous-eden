@@ -1,0 +1,6 @@
+Saved portfolio ledger to /home/user/mcs/candidate_registry/portfolio_ledger/family_sweep_20260318_6h__fam_umc32_hunter_jun2024__portfolio.json
+rolling=family_sweep_20260318_6h__fam_umc32_hunter_jun2024__rolling lifecycle=family_sweep_20260318_6h__fam_umc32_hunter_jun2024__lifecycle cycles=2 balance=9988.35 pnl=-11.65 return=-0.12% max_dd=1.69%
+turnover gross=1.700 buy=1.200 sell=0.500 cost=0.00
+reserve_avg=0.400 peak_cluster=0.350 non_tradable_selected=4
+  cycle_01 gross=-110.30 net=-110.30 turnover=0.500 reserve=0.500 active=2
+  cycle_02 gross=+98.66 net=+98.66 turnover=1.200 reserve=0.300 active=2

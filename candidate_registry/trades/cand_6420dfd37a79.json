@@ -1,0 +1,27 @@
+{
+  "candidate_id": "cand_6420dfd37a79",
+  "created_at_utc": "2026-03-18T01:10:49Z",
+  "trade_count": 1,
+  "trades": [
+    {
+      "direction": "short",
+      "duration_steps": 10110,
+      "entry_balance": 9995.0,
+      "entry_price": 93670.0,
+      "entry_step": 2677637,
+      "entry_timestamp_utc": "2025-04-28 00:00:00",
+      "exit_balance": 9875.64059205524,
+      "exit_price": 94672.8984375,
+      "exit_step": 2687747,
+      "exit_timestamp_utc": "2025-05-05 00:30:00",
+      "fees_paid": 10.053533598670867,
+      "gross_pnl": -109.3058743460885,
+      "net_pnl": -119.35940794475937,
+      "period_name": "train",
+      "quantity": 0.10675776662752215,
+      "return_on_equity": -0.011941911750351112,
+      "source": "evaluate_policy_trace_path",
+      "trade_id": "train_monolith_0001"
+    }
+  ]
+}

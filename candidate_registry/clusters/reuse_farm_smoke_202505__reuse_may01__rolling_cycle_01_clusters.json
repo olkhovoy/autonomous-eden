@@ -1,0 +1,103 @@
+{
+  "assignments": [
+    {
+      "candidate_id": "cand_eb598e21812d",
+      "cluster_id": "cluster_000",
+      "display_name": "wf_01_20240101_run01"
+    },
+    {
+      "candidate_id": "cand_6caa94014fa0",
+      "cluster_id": "cluster_000",
+      "display_name": "wf_02_20240601_run01"
+    },
+    {
+      "candidate_id": "cand_fe4fbb8096b0",
+      "cluster_id": "cluster_000",
+      "display_name": "wf_03_20250501_run01"
+    },
+    {
+      "candidate_id": "cand_d8959d02a5e6",
+      "cluster_id": "cluster_000",
+      "display_name": "wf_03_20250501_run02"
+    },
+    {
+      "candidate_id": "cand_a1becdcb5dba",
+      "cluster_id": "cluster_001",
+      "display_name": "wf_02_20240601_run02"
+    },
+    {
+      "candidate_id": "cand_f0baa9d04549",
+      "cluster_id": "cluster_002",
+      "display_name": "wf_01_20240101_run02"
+    }
+  ],
+  "candidate_ids": [
+    "cand_6caa94014fa0",
+    "cand_a1becdcb5dba",
+    "cand_d8959d02a5e6",
+    "cand_eb598e21812d",
+    "cand_f0baa9d04549",
+    "cand_fe4fbb8096b0"
+  ],
+  "clusters": [
+    {
+      "candidate_ids": [
+        "cand_6caa94014fa0",
+        "cand_d8959d02a5e6",
+        "cand_eb598e21812d",
+        "cand_fe4fbb8096b0"
+      ],
+      "cluster_id": "cluster_000",
+      "cluster_size": 4,
+      "display_names": [
+        "wf_02_20240601_run01",
+        "wf_03_20250501_run02",
+        "wf_01_20240101_run01",
+        "wf_03_20250501_run01"
+      ],
+      "mean_downside_corr": 0.6575154991127127,
+      "mean_return_corr": 0.6424545075357325,
+      "mean_similarity_score": 0.5579346745406043,
+      "mean_simultaneous_loss_rate": 0.32242063492063494
+    },
+    {
+      "candidate_ids": [
+        "cand_f0baa9d04549"
+      ],
+      "cluster_id": "cluster_002",
+      "cluster_size": 1,
+      "display_names": [
+        "wf_01_20240101_run02"
+      ],
+      "mean_downside_corr": 0.0,
+      "mean_return_corr": 0.0,
+      "mean_similarity_score": 0.0,
+      "mean_simultaneous_loss_rate": 0.0
+    },
+    {
+      "candidate_ids": [
+        "cand_a1becdcb5dba"
+      ],
+      "cluster_id": "cluster_001",
+      "cluster_size": 1,
+      "display_names": [
+        "wf_02_20240601_run02"
+      ],
+      "mean_downside_corr": 0.0,
+      "mean_return_corr": 0.0,
+      "mean_similarity_score": 0.0,
+      "mean_simultaneous_loss_rate": 0.0
+    }
+  ],
+  "created_at_utc": "2026-03-10T15:16:58Z",
+  "data_path": "/home/user/mcs/data/BTCUSDT_parquet_neurobars_autoresearch.npz",
+  "end_utc": "2025-05-08 00:00:00",
+  "max_steps": 10080,
+  "name": "reuse_farm_smoke_202505__reuse_may01__rolling_cycle_01_clusters",
+  "notes": null,
+  "schema_version": "1",
+  "similarity_threshold": 0.4,
+  "source_diversification_report": "reuse_farm_smoke_202505__reuse_may01__rolling_cycle_01_div",
+  "start_step": 2681957,
+  "start_utc": "2025-05-01 00:00:00"
+}

@@ -1,0 +1,4 @@
+Saved tradeforward plan to /home/user/mcs/candidate_registry/tradeforward/reuse_farm_smoke_light_202505__reuse_may01_light__rolling_cycle_01_tradeforward.json
+combination:subset_2_cand_d8959d02a5e6+cand_eb598e21812d_risk_0.75 risk=0.70 reserve=0.30 forward=2025-05-08 00:00:00 -> 2025-05-15 00:00:00
+  wf_03_20250501_run02 capital=0.350 share=0.500 cluster=cluster_000
+  wf_01_20240101_run01 capital=0.350 share=0.500 cluster=cluster_000

@@ -1,0 +1,4 @@
+Saved tradeforward evaluation to /home/user/mcs/candidate_registry/tradeforward_eval/family_sweep_20260319_tuned_6h__lin57_active_jun2024__rolling_cycle_02_tradeforward_eval.json
+combination:subset_2_cand_61dbcd582a90+cand_f6023b3d5133_risk_0.75 actual_pnl=+45.06 expected_orig=+80.10 delta=-35.04
+  wf_02_20240529_run01 capital=0.350 pnl=-66.80 dd=0.67 trades=7
+  wf_01_20240522_run02 capital=0.350 pnl=+188.51 dd=4.12 trades=18

@@ -1,0 +1,63 @@
+{
+  "assignments": [
+    {
+      "candidate_id": "cand_a657f9d06d88",
+      "cluster_id": "cluster_000",
+      "display_name": "wf_01_20250421_run01"
+    },
+    {
+      "candidate_id": "cand_0ed378908884",
+      "cluster_id": "cluster_000",
+      "display_name": "wf_01_20250421_run02"
+    },
+    {
+      "candidate_id": "cand_3b0a33ab288e",
+      "cluster_id": "cluster_000",
+      "display_name": "wf_02_20250428_run01"
+    },
+    {
+      "candidate_id": "cand_7e68c9a7be02",
+      "cluster_id": "cluster_000",
+      "display_name": "wf_02_20250428_run02"
+    }
+  ],
+  "candidate_ids": [
+    "cand_0ed378908884",
+    "cand_3b0a33ab288e",
+    "cand_7e68c9a7be02",
+    "cand_a657f9d06d88"
+  ],
+  "clusters": [
+    {
+      "candidate_ids": [
+        "cand_0ed378908884",
+        "cand_3b0a33ab288e",
+        "cand_7e68c9a7be02",
+        "cand_a657f9d06d88"
+      ],
+      "cluster_id": "cluster_000",
+      "cluster_size": 4,
+      "display_names": [
+        "wf_01_20250421_run02",
+        "wf_02_20250428_run01",
+        "wf_02_20250428_run02",
+        "wf_01_20250421_run01"
+      ],
+      "mean_downside_corr": 0.9061438122172006,
+      "mean_return_corr": 0.90922087168529,
+      "mean_similarity_score": 0.7646868674145549,
+      "mean_simultaneous_loss_rate": 0.4363095238095238
+    }
+  ],
+  "created_at_utc": "2026-03-19T12:26:18Z",
+  "data_path": "/home/user/mcs/data/BTCUSDT_parquet_neurobars_autoresearch.npz",
+  "end_utc": "2025-05-15 00:00:00",
+  "max_steps": 10080,
+  "name": "family_sweep_20260319_tuned_6h__lin57_active_may2025__rolling_cycle_02_clusters",
+  "notes": null,
+  "schema_version": "1",
+  "similarity_threshold": 0.4,
+  "source_diversification_report": "family_sweep_20260319_tuned_6h__lin57_active_may2025__rolling_cycle_02_div",
+  "start_step": 2692037,
+  "start_utc": "2025-05-08 00:00:00"
+}

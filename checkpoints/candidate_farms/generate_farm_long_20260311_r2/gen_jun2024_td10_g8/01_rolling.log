@@ -1,0 +1,4 @@
+Saved rolling conveyor report to /home/user/mcs/candidate_registry/rolling/generate_farm_long_20260311_r2__gen_jun2024_td10_g8__rolling.json
+cycles=2/2 balance=9635.68 pnl=-364.32 return=-3.64% max_dd=4.26%
+  cycle_01 2024-06-08 00:00:00->2024-06-15 00:00:00 pnl=-302.36 dd=3.66% selected=2
+  cycle_02 2024-06-15 00:00:00->2024-06-22 00:00:00 pnl=-61.96 dd=1.34% selected=2

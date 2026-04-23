@@ -1,0 +1,143 @@
+{
+  "last_updated": "2026-03-15",
+  "status_vocab": [
+    "candidate",
+    "approved",
+    "access_requested",
+    "access_granted",
+    "rejected",
+    "deferred"
+  ],
+  "sources": [
+    {
+      "source_id": "fred",
+      "source_name": "FRED",
+      "source_family": "macro_revision_aware",
+      "tier": "accessible_baseline",
+      "access_model": "self_service_key",
+      "status": "access_granted",
+      "subscription_state": "active",
+      "notes": "User reported active access/subscription on 2026-03-15."
+    },
+    {
+      "source_id": "bybit",
+      "source_name": "Bybit",
+      "source_family": "crypto_venue_native",
+      "tier": "accessible_baseline",
+      "access_model": "account_plus_key",
+      "status": "access_granted",
+      "subscription_state": "active",
+      "notes": "User reported active access/subscription on 2026-03-15."
+    },
+    {
+      "source_id": "coinglass",
+      "source_name": "CoinGlass",
+      "source_family": "crypto_aggregate_context",
+      "tier": "accessible_baseline",
+      "access_model": "paid_self_service",
+      "status": "access_granted",
+      "subscription_state": "active",
+      "notes": "User reported active access/subscription on 2026-03-15."
+    },
+    {
+      "source_id": "binance",
+      "source_name": "Binance",
+      "source_family": "crypto_venue_native",
+      "tier": "accessible_baseline",
+      "access_model": "public_no_key",
+      "status": "approved",
+      "subscription_state": "not_required_for_public_market_data",
+      "notes": "Public market-data path should be inventoried next."
+    },
+    {
+      "source_id": "deribit",
+      "source_name": "Deribit",
+      "source_family": "crypto_options_context",
+      "tier": "accessible_baseline",
+      "access_model": "public_no_key",
+      "status": "approved",
+      "subscription_state": "not_required_for_public_market_data",
+      "notes": "Public options/volatility path should be inventoried next."
+    },
+    {
+      "source_id": "polygon",
+      "source_name": "Polygon",
+      "source_family": "cross_asset_proxy",
+      "tier": "accessible_baseline",
+      "access_model": "paid_self_service",
+      "status": "candidate",
+      "subscription_state": "not_started",
+      "notes": "Primary candidate for cross-asset proxy layer."
+    },
+    {
+      "source_id": "glassnode",
+      "source_name": "Glassnode",
+      "source_family": "on_chain_context",
+      "tier": "accessible_baseline",
+      "access_model": "paid_self_service",
+      "status": "candidate",
+      "subscription_state": "not_started",
+      "notes": "Evaluate only after CoinGlass coverage gap review."
+    },
+    {
+      "source_id": "cryptoquant",
+      "source_name": "CryptoQuant",
+      "source_family": "on_chain_context",
+      "tier": "accessible_baseline",
+      "access_model": "paid_self_service",
+      "status": "candidate",
+      "subscription_state": "not_started",
+      "notes": "Evaluate only after CoinGlass coverage gap review."
+    },
+    {
+      "source_id": "freightos_fbx",
+      "source_name": "Freightos FBX",
+      "source_family": "logistics_stress",
+      "tier": "accessible_baseline",
+      "access_model": "paid_self_service",
+      "status": "candidate",
+      "subscription_state": "not_started",
+      "notes": "Candidate slow-context logistics series."
+    },
+    {
+      "source_id": "truflation",
+      "source_name": "Truflation",
+      "source_family": "inflation_proxy",
+      "tier": "accessible_baseline",
+      "access_model": "paid_self_service",
+      "status": "candidate",
+      "subscription_state": "not_started",
+      "notes": "Candidate alternative inflation context series."
+    },
+    {
+      "source_id": "newsapi",
+      "source_name": "NewsAPI",
+      "source_family": "generic_news_prototype",
+      "tier": "prototype_fallback",
+      "access_model": "paid_self_service",
+      "status": "deferred",
+      "subscription_state": "not_required",
+      "notes": "Not part of the required core event backbone."
+    },
+    {
+      "source_id": "lseg_mrn",
+      "source_name": "LSEG Machine Readable News",
+      "source_family": "premium_structured_events",
+      "tier": "premium_optional",
+      "access_model": "sales_contact",
+      "status": "deferred",
+      "subscription_state": "not_started",
+      "notes": "Enterprise optional."
+    },
+    {
+      "source_id": "ravenpack",
+      "source_name": "RavenPack",
+      "source_family": "premium_structured_events",
+      "tier": "premium_optional",
+      "access_model": "sales_contact",
+      "status": "deferred",
+      "subscription_state": "not_started",
+      "notes": "Enterprise optional."
+    }
+  ]
+}

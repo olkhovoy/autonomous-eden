@@ -1,0 +1,466 @@
+{
+  "applied_status_updates": false,
+  "candidate_ids": [
+    "cand_1788c8ebcd07",
+    "cand_221d55b16b69",
+    "cand_36b31759e4cd",
+    "cand_54ada34d3fef",
+    "cand_83c0922c6adb",
+    "cand_8b15ea89e42a",
+    "cand_8fb88284c0ec",
+    "cand_b828a1e24112"
+  ],
+  "candidate_summaries": [
+    {
+      "candidate_id": "cand_54ada34d3fef",
+      "display_name": "wf_01_20250421_run01",
+      "failed_forward_cycles": 0,
+      "final_status": "approved",
+      "idle_cycles": 1,
+      "initial_status": "research",
+      "last_selected_cycle_index": 2,
+      "last_transition_cycle_index": 2,
+      "no_trade_cycles": 0,
+      "selected_cycles": 1,
+      "successful_forward_cycles": 1,
+      "total_cycles_seen": 2,
+      "transition_count": 1
+    },
+    {
+      "candidate_id": "cand_8fb88284c0ec",
+      "display_name": "wf_02_20250421_run01",
+      "failed_forward_cycles": 0,
+      "final_status": "approved",
+      "idle_cycles": 1,
+      "initial_status": "research",
+      "last_selected_cycle_index": 1,
+      "last_transition_cycle_index": 1,
+      "no_trade_cycles": 0,
+      "selected_cycles": 1,
+      "successful_forward_cycles": 1,
+      "total_cycles_seen": 2,
+      "transition_count": 1
+    },
+    {
+      "candidate_id": "cand_1788c8ebcd07",
+      "display_name": "wf_01_20250421_run02",
+      "failed_forward_cycles": 1,
+      "final_status": "research",
+      "idle_cycles": 1,
+      "initial_status": "research",
+      "last_selected_cycle_index": 2,
+      "last_transition_cycle_index": null,
+      "no_trade_cycles": 0,
+      "selected_cycles": 1,
+      "successful_forward_cycles": 0,
+      "total_cycles_seen": 2,
+      "transition_count": 0
+    },
+    {
+      "candidate_id": "cand_221d55b16b69",
+      "display_name": "wf_02_20250421_run02",
+      "failed_forward_cycles": 0,
+      "final_status": "research",
+      "idle_cycles": 2,
+      "initial_status": "research",
+      "last_selected_cycle_index": null,
+      "last_transition_cycle_index": null,
+      "no_trade_cycles": 0,
+      "selected_cycles": 0,
+      "successful_forward_cycles": 0,
+      "total_cycles_seen": 2,
+      "transition_count": 0
+    },
+    {
+      "candidate_id": "cand_36b31759e4cd",
+      "display_name": "wf_01_20250414_run01",
+      "failed_forward_cycles": 0,
+      "final_status": "research",
+      "idle_cycles": 2,
+      "initial_status": "research",
+      "last_selected_cycle_index": null,
+      "last_transition_cycle_index": null,
+      "no_trade_cycles": 0,
+      "selected_cycles": 0,
+      "successful_forward_cycles": 0,
+      "total_cycles_seen": 2,
+      "transition_count": 0
+    },
+    {
+      "candidate_id": "cand_83c0922c6adb",
+      "display_name": "wf_02_20250428_run01",
+      "failed_forward_cycles": 0,
+      "final_status": "research",
+      "idle_cycles": 2,
+      "initial_status": "research",
+      "last_selected_cycle_index": null,
+      "last_transition_cycle_index": null,
+      "no_trade_cycles": 0,
+      "selected_cycles": 0,
+      "successful_forward_cycles": 0,
+      "total_cycles_seen": 2,
+      "transition_count": 0
+    },
+    {
+      "candidate_id": "cand_8b15ea89e42a",
+      "display_name": "wf_01_20250414_run02",
+      "failed_forward_cycles": 0,
+      "final_status": "research",
+      "idle_cycles": 2,
+      "initial_status": "research",
+      "last_selected_cycle_index": null,
+      "last_transition_cycle_index": null,
+      "no_trade_cycles": 0,
+      "selected_cycles": 0,
+      "successful_forward_cycles": 0,
+      "total_cycles_seen": 2,
+      "transition_count": 0
+    },
+    {
+      "candidate_id": "cand_b828a1e24112",
+      "display_name": "wf_02_20250428_run02",
+      "failed_forward_cycles": 0,
+      "final_status": "research",
+      "idle_cycles": 2,
+      "initial_status": "research",
+      "last_selected_cycle_index": null,
+      "last_transition_cycle_index": null,
+      "no_trade_cycles": 0,
+      "selected_cycles": 0,
+      "successful_forward_cycles": 0,
+      "total_cycles_seen": 2,
+      "transition_count": 0
+    }
+  ],
+  "config": {
+    "idle_cycles_to_drain": 1,
+    "idle_cycles_to_retire": 2,
+    "max_forward_drawdown_pct": 8.0,
+    "min_forward_pnl": 0.0,
+    "min_selected_trades": 1,
+    "successful_selected_cycles_to_activate": 2,
+    "successful_selected_cycles_to_recover": 1
+  },
+  "created_at_utc": "2026-03-18T00:34:21Z",
+  "decisions": [
+    {
+      "action": "hold",
+      "candidate_id": "cand_1788c8ebcd07",
+      "consecutive_failures": 0,
+      "consecutive_idle_cycles": 1,
+      "consecutive_successes": 0,
+      "cycle_index": 1,
+      "cycle_name": "family_sweep_20260318_6h__fam_smallrec32_active_may2025__rolling_cycle_01",
+      "display_name": "wf_01_20250421_run02",
+      "max_drawdown_pct": null,
+      "next_status": "research",
+      "pnl": null,
+      "previous_status": "research",
+      "reason_codes": [
+        "idle_hold"
+      ],
+      "selected": false,
+      "trades": null
+    },
+    {
+      "action": "hold",
+      "candidate_id": "cand_221d55b16b69",
+      "consecutive_failures": 0,
+      "consecutive_idle_cycles": 1,
+      "consecutive_successes": 0,
+      "cycle_index": 1,
+      "cycle_name": "family_sweep_20260318_6h__fam_smallrec32_active_may2025__rolling_cycle_01",
+      "display_name": "wf_02_20250421_run02",
+      "max_drawdown_pct": null,
+      "next_status": "research",
+      "pnl": null,
+      "previous_status": "research",
+      "reason_codes": [
+        "idle_hold"
+      ],
+      "selected": false,
+      "trades": null
+    },
+    {
+      "action": "hold",
+      "candidate_id": "cand_36b31759e4cd",
+      "consecutive_failures": 0,
+      "consecutive_idle_cycles": 1,
+      "consecutive_successes": 0,
+      "cycle_index": 1,
+      "cycle_name": "family_sweep_20260318_6h__fam_smallrec32_active_may2025__rolling_cycle_01",
+      "display_name": "wf_01_20250414_run01",
+      "max_drawdown_pct": null,
+      "next_status": "research",
+      "pnl": null,
+      "previous_status": "research",
+      "reason_codes": [
+        "idle_hold"
+      ],
+      "selected": false,
+      "trades": null
+    },
+    {
+      "action": "hold",
+      "candidate_id": "cand_54ada34d3fef",
+      "consecutive_failures": 0,
+      "consecutive_idle_cycles": 1,
+      "consecutive_successes": 0,
+      "cycle_index": 1,
+      "cycle_name": "family_sweep_20260318_6h__fam_smallrec32_active_may2025__rolling_cycle_01",
+      "display_name": "wf_01_20250421_run01",
+      "max_drawdown_pct": null,
+      "next_status": "research",
+      "pnl": null,
+      "previous_status": "research",
+      "reason_codes": [
+        "idle_hold"
+      ],
+      "selected": false,
+      "trades": null
+    },
+    {
+      "action": "hold",
+      "candidate_id": "cand_83c0922c6adb",
+      "consecutive_failures": 0,
+      "consecutive_idle_cycles": 1,
+      "consecutive_successes": 0,
+      "cycle_index": 1,
+      "cycle_name": "family_sweep_20260318_6h__fam_smallrec32_active_may2025__rolling_cycle_01",
+      "display_name": "wf_02_20250428_run01",
+      "max_drawdown_pct": null,
+      "next_status": "research",
+      "pnl": null,
+      "previous_status": "research",
+      "reason_codes": [
+        "idle_hold"
+      ],
+      "selected": false,
+      "trades": null
+    },
+    {
+      "action": "hold",
+      "candidate_id": "cand_8b15ea89e42a",
+      "consecutive_failures": 0,
+      "consecutive_idle_cycles": 1,
+      "consecutive_successes": 0,
+      "cycle_index": 1,
+      "cycle_name": "family_sweep_20260318_6h__fam_smallrec32_active_may2025__rolling_cycle_01",
+      "display_name": "wf_01_20250414_run02",
+      "max_drawdown_pct": null,
+      "next_status": "research",
+      "pnl": null,
+      "previous_status": "research",
+      "reason_codes": [
+        "idle_hold"
+      ],
+      "selected": false,
+      "trades": null
+    },
+    {
+      "action": "promote",
+      "candidate_id": "cand_8fb88284c0ec",
+      "consecutive_failures": 0,
+      "consecutive_idle_cycles": 0,
+      "consecutive_successes": 1,
+      "cycle_index": 1,
+      "cycle_name": "family_sweep_20260318_6h__fam_smallrec32_active_may2025__rolling_cycle_01",
+      "display_name": "wf_02_20250421_run01",
+      "max_drawdown_pct": 4.640418121767772,
+      "next_status": "approved",
+      "pnl": 544.9400654731271,
+      "previous_status": "research",
+      "reason_codes": [
+        "forward_success",
+        "promote_to_approved"
+      ],
+      "selected": true,
+      "trades": 15
+    },
+    {
+      "action": "hold",
+      "candidate_id": "cand_b828a1e24112",
+      "consecutive_failures": 0,
+      "consecutive_idle_cycles": 1,
+      "consecutive_successes": 0,
+      "cycle_index": 1,
+      "cycle_name": "family_sweep_20260318_6h__fam_smallrec32_active_may2025__rolling_cycle_01",
+      "display_name": "wf_02_20250428_run02",
+      "max_drawdown_pct": null,
+      "next_status": "research",
+      "pnl": null,
+      "previous_status": "research",
+      "reason_codes": [
+        "idle_hold"
+      ],
+      "selected": false,
+      "trades": null
+    },
+    {
+      "action": "hold",
+      "candidate_id": "cand_1788c8ebcd07",
+      "consecutive_failures": 1,
+      "consecutive_idle_cycles": 0,
+      "consecutive_successes": 0,
+      "cycle_index": 2,
+      "cycle_name": "family_sweep_20260318_6h__fam_smallrec32_active_may2025__rolling_cycle_02",
+      "display_name": "wf_01_20250421_run02",
+      "max_drawdown_pct": 6.349634401977637,
+      "next_status": "research",
+      "pnl": -634.9634401977637,
+      "previous_status": "research",
+      "reason_codes": [
+        "negative_pnl",
+        "research_failure"
+      ],
+      "selected": true,
+      "trades": 77
+    },
+    {
+      "action": "hold",
+      "candidate_id": "cand_221d55b16b69",
+      "consecutive_failures": 0,
+      "consecutive_idle_cycles": 2,
+      "consecutive_successes": 0,
+      "cycle_index": 2,
+      "cycle_name": "family_sweep_20260318_6h__fam_smallrec32_active_may2025__rolling_cycle_02",
+      "display_name": "wf_02_20250421_run02",
+      "max_drawdown_pct": null,
+      "next_status": "research",
+      "pnl": null,
+      "previous_status": "research",
+      "reason_codes": [
+        "idle_hold"
+      ],
+      "selected": false,
+      "trades": null
+    },
+    {
+      "action": "hold",
+      "candidate_id": "cand_36b31759e4cd",
+      "consecutive_failures": 0,
+      "consecutive_idle_cycles": 2,
+      "consecutive_successes": 0,
+      "cycle_index": 2,
+      "cycle_name": "family_sweep_20260318_6h__fam_smallrec32_active_may2025__rolling_cycle_02",
+      "display_name": "wf_01_20250414_run01",
+      "max_drawdown_pct": null,
+      "next_status": "research",
+      "pnl": null,
+      "previous_status": "research",
+      "reason_codes": [
+        "idle_hold"
+      ],
+      "selected": false,
+      "trades": null
+    },
+    {
+      "action": "promote",
+      "candidate_id": "cand_54ada34d3fef",
+      "consecutive_failures": 0,
+      "consecutive_idle_cycles": 0,
+      "consecutive_successes": 1,
+      "cycle_index": 2,
+      "cycle_name": "family_sweep_20260318_6h__fam_smallrec32_active_may2025__rolling_cycle_02",
+      "display_name": "wf_01_20250421_run01",
+      "max_drawdown_pct": 4.676236157905057,
+      "next_status": "approved",
+      "pnl": 518.1610176904942,
+      "previous_status": "research",
+      "reason_codes": [
+        "forward_success",
+        "promote_to_approved"
+      ],
+      "selected": true,
+      "trades": 8
+    },
+    {
+      "action": "hold",
+      "candidate_id": "cand_83c0922c6adb",
+      "consecutive_failures": 0,
+      "consecutive_idle_cycles": 2,
+      "consecutive_successes": 0,
+      "cycle_index": 2,
+      "cycle_name": "family_sweep_20260318_6h__fam_smallrec32_active_may2025__rolling_cycle_02",
+      "display_name": "wf_02_20250428_run01",
+      "max_drawdown_pct": null,
+      "next_status": "research",
+      "pnl": null,
+      "previous_status": "research",
+      "reason_codes": [
+        "idle_hold"
+      ],
+      "selected": false,
+      "trades": null
+    },
+    {
+      "action": "hold",
+      "candidate_id": "cand_8b15ea89e42a",
+      "consecutive_failures": 0,
+      "consecutive_idle_cycles": 2,
+      "consecutive_successes": 0,
+      "cycle_index": 2,
+      "cycle_name": "family_sweep_20260318_6h__fam_smallrec32_active_may2025__rolling_cycle_02",
+      "display_name": "wf_01_20250414_run02",
+      "max_drawdown_pct": null,
+      "next_status": "research",
+      "pnl": null,
+      "previous_status": "research",
+      "reason_codes": [
+        "idle_hold"
+      ],
+      "selected": false,
+      "trades": null
+    },
+    {
+      "action": "hold",
+      "candidate_id": "cand_8fb88284c0ec",
+      "consecutive_failures": 0,
+      "consecutive_idle_cycles": 1,
+      "consecutive_successes": 0,
+      "cycle_index": 2,
+      "cycle_name": "family_sweep_20260318_6h__fam_smallrec32_active_may2025__rolling_cycle_02",
+      "display_name": "wf_02_20250421_run01",
+      "max_drawdown_pct": null,
+      "next_status": "approved",
+      "pnl": null,
+      "previous_status": "approved",
+      "reason_codes": [
+        "idle_hold"
+      ],
+      "selected": false,
+      "trades": null
+    },
+    {
+      "action": "hold",
+      "candidate_id": "cand_b828a1e24112",
+      "consecutive_failures": 0,
+      "consecutive_idle_cycles": 2,
+      "consecutive_successes": 0,
+      "cycle_index": 2,
+      "cycle_name": "family_sweep_20260318_6h__fam_smallrec32_active_may2025__rolling_cycle_02",
+      "display_name": "wf_02_20250428_run02",
+      "max_drawdown_pct": null,
+      "next_status": "research",
+      "pnl": null,
+      "previous_status": "research",
+      "reason_codes": [
+        "idle_hold"
+      ],
+      "selected": false,
+      "trades": null
+    }
+  ],
+  "final_status_counts": {
+    "approved": 2,
+    "research": 6
+  },
+  "name": "family_sweep_20260318_6h__fam_smallrec32_active_may2025__lifecycle",
+  "notes": "5-6h profit-first family sweep over fused32 neurobars. Parallel engine families with shared rolling gates and live farm feed sync. | family=small_recurrent hidden=32 mode=confidence_gate fitness=profit_active selection=may2025",
+  "schema_version": "1",
+  "source_rolling_report": "family_sweep_20260318_6h__fam_smallrec32_active_may2025__rolling",
+  "source_tradeforward_evaluations": [
+    "family_sweep_20260318_6h__fam_smallrec32_active_may2025__rolling_cycle_01_tradeforward_eval",
+    "family_sweep_20260318_6h__fam_smallrec32_active_may2025__rolling_cycle_02_tradeforward_eval"
+  ]
+}

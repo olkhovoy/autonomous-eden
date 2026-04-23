@@ -1,0 +1,8 @@
+Saved portfolio baselines to /home/user/mcs/candidate_registry/portfolio_baselines/reuse_farm_smoke_light_202505__reuse_may08_light__baselines.json
+conveyor pnl=+196.95 return=+1.97% max_dd=1.11%
+  flat                           beat delta_pnl=+196.95 delta_return=+1.97% dd_adv=-1.11pp
+  long                           lag delta_pnl=-10.75 delta_return=-0.11% dd_adv=+0.55pp
+  equal_weight_selected_subset   lag delta_pnl=-3.45 delta_return=-0.03% dd_adv=+0.55pp
+  single_best_candidate          beat delta_pnl=+36.39 delta_return=+0.36% dd_adv=+0.60pp
+  naive_top_oos_rotation         beat delta_pnl=+36.39 delta_return=+0.36% dd_adv=+0.60pp
+gate overall_pass=False checks={'positive_total_pnl': True, 'max_drawdown_within_limit': True, 'required_baselines_beaten': False, 'minimum_baselines_beaten': True}

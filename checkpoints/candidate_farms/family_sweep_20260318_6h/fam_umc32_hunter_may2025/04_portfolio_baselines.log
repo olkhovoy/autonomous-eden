@@ -1,0 +1,8 @@
+Saved portfolio baselines to /home/user/mcs/candidate_registry/portfolio_baselines/family_sweep_20260318_6h__fam_umc32_hunter_may2025__baselines.json
+conveyor pnl=+626.08 return=+6.26% max_dd=2.64%
+  flat                           beat delta_pnl=+626.08 delta_return=+6.26% dd_adv=-2.64pp
+  long                           lag delta_pnl=-28.59 delta_return=-0.29% dd_adv=+0.65pp
+  equal_weight_selected_subset   lag delta_pnl=-0.00 delta_return=-0.00% dd_adv=+0.65pp
+  single_best_candidate          lag delta_pnl=-21.64 delta_return=-0.22% dd_adv=+0.65pp
+  naive_top_oos_rotation         lag delta_pnl=-0.00 delta_return=-0.00% dd_adv=+0.65pp
+gate overall_pass=False checks={'positive_total_pnl': True, 'max_drawdown_within_limit': True, 'required_baselines_beaten': False, 'minimum_baselines_beaten': False}

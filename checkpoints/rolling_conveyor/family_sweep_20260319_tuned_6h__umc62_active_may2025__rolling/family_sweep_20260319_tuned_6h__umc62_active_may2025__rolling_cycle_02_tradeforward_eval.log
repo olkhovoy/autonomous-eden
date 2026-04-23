@@ -1,0 +1,4 @@
+Saved tradeforward evaluation to /home/user/mcs/candidate_registry/tradeforward_eval/family_sweep_20260319_tuned_6h__umc62_active_may2025__rolling_cycle_02_tradeforward_eval.json
+combination:subset_2_cand_f853b503b4ce+cand_99830b2c8d78_risk_0.75 actual_pnl=+97.96 expected_orig=+197.59 delta=-99.63
+  wf_01_20250421_run01 capital=0.350 pnl=+272.17 dd=4.68 trades=24
+  wf_02_20250428_run02 capital=0.350 pnl=+0.00 dd=0.00 trades=0

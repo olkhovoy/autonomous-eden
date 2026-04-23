@@ -1,0 +1,14 @@
+Saved cycle report to /home/user/mcs/candidate_registry/cycles/generate_farm_long_20260311_r2__gen_jun2024_td10_g12__rolling_cycle_01.json
+mode=generate steps=11 dry_run=False
+candidates=4
+completed probe_walkforward 01_probe.log
+completed register_candidates 02_register.log
+completed export_trades    03_export_trades.log
+completed train_resampling 04_resampling.log
+completed diversification  05_diversification.log
+completed clusters         06_clusters.log
+completed shortlist        07_shortlist.log
+completed combinations     08_combinations.log
+completed allocator        09_allocator.log
+completed dashboard        10_dashboard.log
+completed tradeforward     11_tradeforward.log

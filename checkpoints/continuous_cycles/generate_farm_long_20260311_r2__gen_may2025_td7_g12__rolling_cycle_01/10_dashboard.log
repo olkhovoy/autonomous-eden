@@ -1,0 +1,4 @@
+Saved dashboard feed to /home/user/mcs/candidate_registry/dashboard/generate_farm_long_20260311_r2__gen_may2025_td7_g12__rolling_cycle_01_dashboard.json
+summary: candidates=82 visible=82 selected=2 exceptions=2 clusters=3
+allocator chosen=risk_0.25
+combination best=subset_1_cand_e1a46b18c9fa_risk_0.25

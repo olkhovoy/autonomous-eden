@@ -1,0 +1,158 @@
+{
+  "name": "family_sweep_20260319_tuned_6h",
+  "notes": "Tuned 5-6h family sweep after trade-floor/trade-band quick probes. Focus on linear_score and gated UMC under shared rolling gates.",
+  "defaults": {
+    "rolling_args": {
+      "mode": "generate",
+      "selection_days": 7,
+      "forward_days": 7,
+      "step_days": 7,
+      "num_cycles": 2,
+      "initial_balance": 10000.0,
+      "curve_points": 192
+    },
+    "forwarded_cycle_args": [
+      "--tag", "generated",
+      "--tag", "walkforward",
+      "--tag", "fused32",
+      "--tag", "family_sweep",
+      "--tag", "tuned_20260319",
+      "--generator-window-mode", "selection_anchored",
+      "--generator-window-offset-days", "0",
+      "--generator-window-offset-days", "-7",
+      "--runs-per-window", "2",
+      "--train-days", "10",
+      "--valid-days", "2",
+      "--oos-days", "7",
+      "--generations", "8",
+      "--population-size", "8",
+      "--skip-filtering-phase",
+      "--min-trades", "6",
+      "--activity-target-trades", "16",
+      "--trade-band-low", "8",
+      "--trade-band-high", "64",
+      "--trade-band-floor", "0.25",
+      "--resampling-fraction", "0.5",
+      "--resampling-fraction", "1.0",
+      "--resampling-iterations", "256",
+      "--portfolio-iterations", "160",
+      "--portfolio-block-size", "64",
+      "--shortlist-max-candidates", "5",
+      "--shortlist-min-marginal-score", "0.20",
+      "--combination-max-pool-size", "8",
+      "--combination-max-subset-size", "3",
+      "--risk-fraction", "0.25",
+      "--risk-fraction", "0.50",
+      "--risk-fraction", "0.75",
+      "--default-cluster-cap", "0.50",
+      "--per-system-cap", "0.35",
+      "--data-path", "data/BTCUSDT_parquet_neurobars_autoresearch.npz",
+      "--exchange", "binance",
+      "--position-sizing-mode", "fraction_of_equity",
+      "--position-notional-fraction", "1.0",
+      "--execution-fee-mode", "taker",
+      "--representation-name", "neurobars_autoresearch_fused32",
+      "--engine-name", "family_sweep_engine",
+      "--engine-role", "candidate_engine"
+    ]
+  },
+  "scenario_templates": [
+    {
+      "name": "lin57_active_{selection_label}",
+      "notes": "family=linear_score threshold=0.57 fitness=profit_active selection={selection_label}",
+      "rolling_args": {
+        "selection_start_utc": "{selection_start_utc}"
+      },
+      "forwarded_cycle_args": [
+        "--engine-family", "linear_score",
+        "--engine-hidden-dim", "16",
+        "--engine-alpha", "0.5",
+        "--action-head-mode", "confidence_gate",
+        "--action-threshold", "0.57",
+        "--fitness-profile", "profit_active",
+        "--tag", "family:linear_score",
+        "--tag", "config:lin57_active"
+      ],
+      "cases": [
+        {
+          "selection_label": "jan2024",
+          "selection_start_utc": "2024-01-01 00:00:00"
+        },
+        {
+          "selection_label": "jun2024",
+          "selection_start_utc": "2024-06-01 00:00:00"
+        },
+        {
+          "selection_label": "may2025",
+          "selection_start_utc": "2025-05-01 00:00:00"
+        }
+      ]
+    },
+    {
+      "name": "lin62_active_{selection_label}",
+      "notes": "family=linear_score threshold=0.62 fitness=profit_active selection={selection_label}",
+      "rolling_args": {
+        "selection_start_utc": "{selection_start_utc}"
+      },
+      "forwarded_cycle_args": [
+        "--engine-family", "linear_score",
+        "--engine-hidden-dim", "16",
+        "--engine-alpha", "0.5",
+        "--action-head-mode", "confidence_gate",
+        "--action-threshold", "0.62",
+        "--fitness-profile", "profit_active",
+        "--trade-band-low", "6",
+        "--trade-band-high", "48",
+        "--tag", "family:linear_score",
+        "--tag", "config:lin62_active"
+      ],
+      "cases": [
+        {
+          "selection_label": "jan2024",
+          "selection_start_utc": "2024-01-01 00:00:00"
+        },
+        {
+          "selection_label": "jun2024",
+          "selection_start_utc": "2024-06-01 00:00:00"
+        },
+        {
+          "selection_label": "may2025",
+          "selection_start_utc": "2025-05-01 00:00:00"
+        }
+      ]
+    },
+    {
+      "name": "umc62_active_{selection_label}",
+      "notes": "family=umc threshold=0.62 fitness=profit_active selection={selection_label}",
+      "rolling_args": {
+        "selection_start_utc": "{selection_start_utc}"
+      },
+      "forwarded_cycle_args": [
+        "--engine-family", "umc",
+        "--engine-hidden-dim", "32",
+        "--engine-alpha", "0.5",
+        "--action-head-mode", "confidence_gate",
+        "--action-threshold", "0.62",
+        "--fitness-profile", "profit_active",
+        "--trade-band-low", "6",
+        "--trade-band-high", "48",
+        "--tag", "family:umc",
+        "--tag", "config:umc62_active"
+      ],
+      "cases": [
+        {
+          "selection_label": "jan2024",
+          "selection_start_utc": "2024-01-01 00:00:00"
+        },
+        {
+          "selection_label": "jun2024",
+          "selection_start_utc": "2024-06-01 00:00:00"
+        },
+        {
+          "selection_label": "may2025",
+          "selection_start_utc": "2025-05-01 00:00:00"
+        }
+      ]
+    }
+  ]
+}

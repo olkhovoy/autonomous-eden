@@ -1,0 +1,147 @@
+{
+  "name": "family_sweep_20260318_6h",
+  "notes": "5-6h profit-first family sweep over fused32 neurobars. Parallel engine families with shared rolling gates and live farm feed sync.",
+  "defaults": {
+    "rolling_args": {
+      "mode": "generate",
+      "selection_days": 7,
+      "forward_days": 7,
+      "step_days": 7,
+      "num_cycles": 2,
+      "initial_balance": 10000.0,
+      "curve_points": 192
+    },
+    "forwarded_cycle_args": [
+      "--tag", "generated",
+      "--tag", "walkforward",
+      "--tag", "fused32",
+      "--tag", "family_sweep",
+      "--generator-window-mode", "selection_anchored",
+      "--generator-window-offset-days", "0",
+      "--generator-window-offset-days", "-7",
+      "--runs-per-window", "2",
+      "--train-days", "10",
+      "--valid-days", "2",
+      "--oos-days", "7",
+      "--generations", "8",
+      "--population-size", "8",
+      "--resampling-fraction", "0.5",
+      "--resampling-fraction", "1.0",
+      "--resampling-iterations", "256",
+      "--portfolio-iterations", "160",
+      "--portfolio-block-size", "64",
+      "--shortlist-max-candidates", "5",
+      "--shortlist-min-marginal-score", "0.20",
+      "--combination-max-pool-size", "8",
+      "--combination-max-subset-size", "3",
+      "--risk-fraction", "0.25",
+      "--risk-fraction", "0.50",
+      "--risk-fraction", "0.75",
+      "--default-cluster-cap", "0.50",
+      "--per-system-cap", "0.35",
+      "--data-path", "data/BTCUSDT_parquet_neurobars_autoresearch.npz",
+      "--exchange", "binance",
+      "--position-sizing-mode", "fraction_of_equity",
+      "--position-notional-fraction", "1.0",
+      "--execution-fee-mode", "taker",
+      "--representation-name", "neurobars_autoresearch_fused32",
+      "--engine-name", "family_sweep_engine",
+      "--engine-role", "candidate_engine"
+    ]
+  },
+  "scenario_templates": [
+    {
+      "name": "fam_umc32_hunter_{selection_label}",
+      "notes": "family=umc hidden=32 mode=argmax fitness=hunter selection={selection_label}",
+      "rolling_args": {
+        "selection_start_utc": "{selection_start_utc}"
+      },
+      "forwarded_cycle_args": [
+        "--engine-family", "umc",
+        "--engine-hidden-dim", "32",
+        "--engine-alpha", "0.5",
+        "--action-head-mode", "argmax",
+        "--action-threshold", "0.55",
+        "--fitness-profile", "hunter",
+        "--tag", "family:umc",
+        "--tag", "config:umc32_hunter_argmax"
+      ],
+      "cases": [
+        {
+          "selection_label": "jan2024",
+          "selection_start_utc": "2024-01-01 00:00:00"
+        },
+        {
+          "selection_label": "jun2024",
+          "selection_start_utc": "2024-06-01 00:00:00"
+        },
+        {
+          "selection_label": "may2025",
+          "selection_start_utc": "2025-05-01 00:00:00"
+        }
+      ]
+    },
+    {
+      "name": "fam_smallrec32_active_{selection_label}",
+      "notes": "family=small_recurrent hidden=32 mode=confidence_gate fitness=profit_active selection={selection_label}",
+      "rolling_args": {
+        "selection_start_utc": "{selection_start_utc}"
+      },
+      "forwarded_cycle_args": [
+        "--engine-family", "small_recurrent",
+        "--engine-hidden-dim", "32",
+        "--engine-alpha", "0.5",
+        "--action-head-mode", "confidence_gate",
+        "--action-threshold", "0.58",
+        "--fitness-profile", "profit_active",
+        "--tag", "family:small_recurrent",
+        "--tag", "config:smallrec32_active_gate"
+      ],
+      "cases": [
+        {
+          "selection_label": "jan2024",
+          "selection_start_utc": "2024-01-01 00:00:00"
+        },
+        {
+          "selection_label": "jun2024",
+          "selection_start_utc": "2024-06-01 00:00:00"
+        },
+        {
+          "selection_label": "may2025",
+          "selection_start_utc": "2025-05-01 00:00:00"
+        }
+      ]
+    },
+    {
+      "name": "fam_linear_active_{selection_label}",
+      "notes": "family=linear_score mode=confidence_gate fitness=profit_active selection={selection_label}",
+      "rolling_args": {
+        "selection_start_utc": "{selection_start_utc}"
+      },
+      "forwarded_cycle_args": [
+        "--engine-family", "linear_score",
+        "--engine-hidden-dim", "16",
+        "--engine-alpha", "0.5",
+        "--action-head-mode", "confidence_gate",
+        "--action-threshold", "0.57",
+        "--fitness-profile", "profit_active",
+        "--tag", "family:linear_score",
+        "--tag", "config:linear_active_gate"
+      ],
+      "cases": [
+        {
+          "selection_label": "jan2024",
+          "selection_start_utc": "2024-01-01 00:00:00"
+        },
+        {
+          "selection_label": "jun2024",
+          "selection_start_utc": "2024-06-01 00:00:00"
+        },
+        {
+          "selection_label": "may2025",
+          "selection_start_utc": "2025-05-01 00:00:00"
+        }
+      ]
+    }
+  ]
+}

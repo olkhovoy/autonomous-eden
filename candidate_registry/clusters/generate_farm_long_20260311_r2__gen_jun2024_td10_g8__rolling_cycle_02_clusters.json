@@ -1,0 +1,75 @@
+{
+  "assignments": [
+    {
+      "candidate_id": "cand_13c4bd54cf24",
+      "cluster_id": "cluster_000",
+      "display_name": "wf_02_20240529_run01"
+    },
+    {
+      "candidate_id": "cand_c21652d6e4d0",
+      "cluster_id": "cluster_000",
+      "display_name": "wf_02_20240529_run02"
+    },
+    {
+      "candidate_id": "cand_89d58547327c",
+      "cluster_id": "cluster_001",
+      "display_name": "wf_01_20240522_run01"
+    },
+    {
+      "candidate_id": "cand_560a68537d50",
+      "cluster_id": "cluster_001",
+      "display_name": "wf_01_20240522_run02"
+    }
+  ],
+  "candidate_ids": [
+    "cand_13c4bd54cf24",
+    "cand_560a68537d50",
+    "cand_89d58547327c",
+    "cand_c21652d6e4d0"
+  ],
+  "clusters": [
+    {
+      "candidate_ids": [
+        "cand_13c4bd54cf24",
+        "cand_c21652d6e4d0"
+      ],
+      "cluster_id": "cluster_000",
+      "cluster_size": 2,
+      "display_names": [
+        "wf_02_20240529_run01",
+        "wf_02_20240529_run02"
+      ],
+      "mean_downside_corr": 0.8264288557947317,
+      "mean_return_corr": 0.8308045039433035,
+      "mean_similarity_score": 0.7052636606991248,
+      "mean_simultaneous_loss_rate": 0.41220238095238093
+    },
+    {
+      "candidate_ids": [
+        "cand_560a68537d50",
+        "cand_89d58547327c"
+      ],
+      "cluster_id": "cluster_001",
+      "cluster_size": 2,
+      "display_names": [
+        "wf_01_20240522_run02",
+        "wf_01_20240522_run01"
+      ],
+      "mean_downside_corr": 0.7838667473094414,
+      "mean_return_corr": 0.6855638713082941,
+      "mean_similarity_score": 0.6574992201600959,
+      "mean_simultaneous_loss_rate": 0.4009920634920635
+    }
+  ],
+  "created_at_utc": "2026-03-11T03:44:25Z",
+  "data_path": "/home/user/mcs/data/BTCUSDT_parquet_neurobars_autoresearch.npz",
+  "end_utc": "2024-06-15 00:00:00",
+  "max_steps": 10080,
+  "name": "generate_farm_long_20260311_r2__gen_jun2024_td10_g8__rolling_cycle_02_clusters",
+  "notes": null,
+  "schema_version": "1",
+  "similarity_threshold": 0.4,
+  "source_diversification_report": "generate_farm_long_20260311_r2__gen_jun2024_td10_g8__rolling_cycle_02_div",
+  "start_step": 2211077,
+  "start_utc": "2024-06-08 00:00:00"
+}

@@ -1,0 +1,75 @@
+{
+  "assignments": [
+    {
+      "candidate_id": "cand_14d2767a5b5c",
+      "cluster_id": "cluster_000",
+      "display_name": "wf_01_20250414_run01"
+    },
+    {
+      "candidate_id": "cand_403d75577327",
+      "cluster_id": "cluster_001",
+      "display_name": "wf_01_20250414_run02"
+    },
+    {
+      "candidate_id": "cand_ae779102af5a",
+      "cluster_id": "cluster_001",
+      "display_name": "wf_02_20250421_run01"
+    },
+    {
+      "candidate_id": "cand_dca73094a238",
+      "cluster_id": "cluster_001",
+      "display_name": "wf_02_20250421_run02"
+    }
+  ],
+  "candidate_ids": [
+    "cand_14d2767a5b5c",
+    "cand_403d75577327",
+    "cand_ae779102af5a",
+    "cand_dca73094a238"
+  ],
+  "clusters": [
+    {
+      "candidate_ids": [
+        "cand_403d75577327",
+        "cand_ae779102af5a",
+        "cand_dca73094a238"
+      ],
+      "cluster_id": "cluster_001",
+      "cluster_size": 3,
+      "display_names": [
+        "wf_01_20250414_run02",
+        "wf_02_20250421_run01",
+        "wf_02_20250421_run02"
+      ],
+      "mean_downside_corr": 0.7791374708578435,
+      "mean_return_corr": 0.7713578573032045,
+      "mean_similarity_score": 0.6586237415397114,
+      "mean_simultaneous_loss_rate": 0.37695105820105823
+    },
+    {
+      "candidate_ids": [
+        "cand_14d2767a5b5c"
+      ],
+      "cluster_id": "cluster_000",
+      "cluster_size": 1,
+      "display_names": [
+        "wf_01_20250414_run01"
+      ],
+      "mean_downside_corr": 0.0,
+      "mean_return_corr": 0.0,
+      "mean_similarity_score": 0.0,
+      "mean_simultaneous_loss_rate": 0.0
+    }
+  ],
+  "created_at_utc": "2026-03-11T08:13:05Z",
+  "data_path": "/home/user/mcs/data/BTCUSDT_parquet_neurobars_autoresearch.npz",
+  "end_utc": "2025-05-08 00:00:00",
+  "max_steps": 10080,
+  "name": "generate_farm_long_20260311_r2__gen_may2025_td10_g12__rolling_cycle_01_clusters",
+  "notes": null,
+  "schema_version": "1",
+  "similarity_threshold": 0.4,
+  "source_diversification_report": "generate_farm_long_20260311_r2__gen_may2025_td10_g12__rolling_cycle_01_div",
+  "start_step": 2681957,
+  "start_utc": "2025-05-01 00:00:00"
+}

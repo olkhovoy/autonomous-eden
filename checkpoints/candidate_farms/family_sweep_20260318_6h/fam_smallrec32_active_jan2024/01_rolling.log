@@ -1,0 +1,4 @@
+Saved rolling conveyor report to /home/user/mcs/candidate_registry/rolling/family_sweep_20260318_6h__fam_smallrec32_active_jan2024__rolling.json
+cycles=2/2 balance=10006.96 pnl=+6.96 return=+0.07% max_dd=1.05%
+  cycle_01 2024-01-08 00:00:00->2024-01-15 00:00:00 pnl=-2.08 dd=0.02% selected=1
+  cycle_02 2024-01-15 00:00:00->2024-01-22 00:00:00 pnl=+9.04 dd=1.12% selected=1

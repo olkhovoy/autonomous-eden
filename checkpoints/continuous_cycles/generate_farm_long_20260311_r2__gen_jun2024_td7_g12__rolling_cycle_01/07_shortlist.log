@@ -1,0 +1,6 @@
+Saved shortlist report to /home/user/mcs/candidate_registry/shortlists/generate_farm_long_20260311_r2__gen_jun2024_td7_g12__rolling_cycle_01_shortlist.json
+Selected candidates:
+  rank=1 wf_02_20240525_run02 base=+0.690 marginal=+0.690 brightness=0.90 flags=near_miss_quality
+  rank=2 wf_01_20240518_run01 base=+0.291 marginal=+1.251 brightness=1.00 flags=near_miss_quality
+Selected pair compatibility:
+  cand_241d4ed53649 <-> cand_4797dff952ad compat=+0.960 downside=-0.059 sim_loss=0.003

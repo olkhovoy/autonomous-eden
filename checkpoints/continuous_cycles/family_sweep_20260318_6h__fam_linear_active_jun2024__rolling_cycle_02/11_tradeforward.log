@@ -1,0 +1,4 @@
+Saved tradeforward plan to /home/user/mcs/candidate_registry/tradeforward/family_sweep_20260318_6h__fam_linear_active_jun2024__rolling_cycle_02_tradeforward.json
+combination:subset_2_cand_6faef50a0fc7+cand_a0e05fd0faa9_risk_0.75 risk=0.70 reserve=0.30 forward=2024-06-15 00:00:00 -> 2024-06-22 00:00:00
+  wf_02_20240529_run01 capital=0.350 share=0.500 cluster=cluster_001
+  wf_01_20240522_run02 capital=0.350 share=0.500 cluster=cluster_002

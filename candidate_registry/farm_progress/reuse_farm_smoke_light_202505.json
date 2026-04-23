@@ -1,0 +1,53 @@
+{
+  "created_at_utc": "2026-03-10T20:54:30Z",
+  "events": [
+    {
+      "created_at_utc": "2026-03-10T20:54:30Z",
+      "event_kind": "queued",
+      "gate_pass": null,
+      "note": null,
+      "progress_stage": "queued",
+      "scenario_name": "reuse_may01_light",
+      "sequence": 1,
+      "status": "planned",
+      "total_pnl": null
+    },
+    {
+      "created_at_utc": "2026-03-10T20:54:30Z",
+      "event_kind": "queued",
+      "gate_pass": null,
+      "note": null,
+      "progress_stage": "queued",
+      "scenario_name": "reuse_may08_light",
+      "sequence": 2,
+      "status": "planned",
+      "total_pnl": null
+    },
+    {
+      "created_at_utc": "2026-03-10T20:54:30Z",
+      "event_kind": "reused",
+      "gate_pass": true,
+      "note": null,
+      "progress_stage": "completed",
+      "scenario_name": "reuse_may01_light",
+      "sequence": 3,
+      "status": "reused",
+      "total_pnl": 231.9954834397704
+    },
+    {
+      "created_at_utc": "2026-03-10T20:54:30Z",
+      "event_kind": "reused",
+      "gate_pass": false,
+      "note": null,
+      "progress_stage": "completed",
+      "scenario_name": "reuse_may08_light",
+      "sequence": 4,
+      "status": "reused",
+      "total_pnl": 196.95392170502055
+    }
+  ],
+  "farm_name": "reuse_farm_smoke_light_202505",
+  "notes": "light reuse smoke farm over existing fused32 walkforward pool",
+  "schema_version": "1",
+  "updated_at_utc": "2026-03-10T20:54:30Z"
+}

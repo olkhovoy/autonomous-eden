@@ -1,0 +1,52 @@
+{
+  "allocated_risk_fraction": 0.7,
+  "allocations": [
+    {
+      "candidate_id": "cand_2d1a8164da71",
+      "cap_reason": "candidate_cap",
+      "capital_fraction": 0.35,
+      "capped": true,
+      "checkpoint_path": "/home/user/mcs/checkpoints/continuous_cycles/family_sweep_20260319_tuned_6h__lin62_active_jun2024__rolling_cycle_01/wf_01_20240515_run02.npy",
+      "cluster_id": "cluster_000",
+      "display_name": "wf_01_20240515_run02",
+      "engine_name": "family_sweep_engine",
+      "normalized_share": 0.5,
+      "representation_name": "neurobars_autoresearch_fused32",
+      "status": "research"
+    },
+    {
+      "candidate_id": "cand_efc33d83e7dc",
+      "cap_reason": "candidate_cap",
+      "capital_fraction": 0.35,
+      "capped": true,
+      "checkpoint_path": "/home/user/mcs/checkpoints/continuous_cycles/family_sweep_20260319_tuned_6h__lin62_active_jun2024__rolling_cycle_01/wf_02_20240522_run02.npy",
+      "cluster_id": "cluster_003",
+      "display_name": "wf_02_20240522_run02",
+      "engine_name": "family_sweep_engine",
+      "normalized_share": 0.5,
+      "representation_name": "neurobars_autoresearch_fused32",
+      "status": "research"
+    }
+  ],
+  "candidate_ids": [
+    "cand_2d1a8164da71",
+    "cand_efc33d83e7dc"
+  ],
+  "created_at_utc": "2026-03-19T12:46:16Z",
+  "data_path": "/home/user/mcs/data/BTCUSDT_parquet_neurobars_autoresearch.npz",
+  "forward_end_utc": "2024-06-15 00:00:00",
+  "forward_max_steps": 10080,
+  "forward_start_step": 2211077,
+  "forward_start_utc": "2024-06-08 00:00:00",
+  "name": "family_sweep_20260319_tuned_6h__lin62_active_jun2024__rolling_cycle_01_tradeforward",
+  "notes": "Tuned 5-6h family sweep after trade-floor/trade-band quick probes. Focus on linear_score and gated UMC under shared rolling gates. | family=linear_score threshold=0.62 fitness=profit_active selection=jun2024",
+  "requested_risk_fraction": 0.75,
+  "reserve_fraction": 0.30000000000000004,
+  "scenario_name": "subset_2_cand_2d1a8164da71+cand_efc33d83e7dc_risk_0.75",
+  "schema_version": "1",
+  "selection_mode": "combination",
+  "source_allocator_report": null,
+  "source_cluster_report": "family_sweep_20260319_tuned_6h__lin62_active_jun2024__rolling_cycle_01_clusters",
+  "source_combination_report": "family_sweep_20260319_tuned_6h__lin62_active_jun2024__rolling_cycle_01_combinations",
+  "source_cycle_report": "family_sweep_20260319_tuned_6h__lin62_active_jun2024__rolling_cycle_01"
+}

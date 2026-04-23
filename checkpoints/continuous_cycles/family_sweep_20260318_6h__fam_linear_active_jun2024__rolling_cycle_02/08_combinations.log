@@ -1,0 +1,13 @@
+Saved combination search to /home/user/mcs/candidate_registry/combinations/family_sweep_20260318_6h__fam_linear_active_jun2024__rolling_cycle_02_combinations.json
+Pool=4 combinations=14 scenarios=42
+Best scenario: subset_2_cand_6faef50a0fc7+cand_a0e05fd0faa9_risk_0.75
+wf_02_20240529_run01,wf_01_20240522_run02 | size=2 requested=0.75 risk=0.70 objective=-0.1482 p05_pnl=-181.73 p95_dd=3.03
+wf_02_20240529_run01,wf_01_20240522_run02 | size=2 requested=0.50 risk=0.50 objective=-0.1518 p05_pnl=-129.73 p95_dd=2.17
+wf_02_20240529_run01,wf_01_20240522_run02 | size=2 requested=0.25 risk=0.25 objective=-0.1563 p05_pnl=-64.82 p95_dd=1.09
+wf_02_20240529_run01,wf_01_20240522_run01,wf_01_20240522_run02 | size=3 requested=0.75 risk=0.75 objective=-0.1595 p05_pnl=-144.43 p95_dd=2.24
+wf_02_20240529_run01,wf_01_20240522_run01,wf_01_20240522_run02 | size=3 requested=0.50 risk=0.50 objective=-0.1618 p05_pnl=-96.35 p95_dd=1.50
+wf_01_20240522_run01,wf_01_20240522_run02 | size=2 requested=0.75 risk=0.70 objective=-0.1621 p05_pnl=-193.10 p95_dd=3.01
+wf_02_20240529_run01,wf_01_20240522_run01,wf_01_20240522_run02 | size=3 requested=0.25 risk=0.25 objective=-0.1641 p05_pnl=-48.21 p95_dd=0.75
+wf_01_20240522_run01,wf_01_20240522_run02 | size=2 requested=0.50 risk=0.50 objective=-0.1651 p05_pnl=-138.02 p95_dd=2.16
+wf_01_20240522_run01,wf_01_20240522_run02 | size=2 requested=0.25 risk=0.25 objective=-0.1689 p05_pnl=-69.07 p95_dd=1.08
+wf_01_20240522_run02 | size=1 requested=0.50 risk=0.35 objective=-0.1790 p05_pnl=-172.15 p95_dd=2.91

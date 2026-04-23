@@ -1,0 +1,76 @@
+{
+  "name": "generate_farm_long_20260311",
+  "notes": "Long generate-mode candidate farm over fused32 neurobars with realistic binance economics and live farm feed sync.",
+  "defaults": {
+    "rolling_args": {
+      "mode": "generate",
+      "selection_days": 7,
+      "forward_days": 7,
+      "step_days": 7,
+      "num_cycles": 2,
+      "initial_balance": 10000.0,
+      "curve_points": 192
+    },
+    "forwarded_cycle_args": [
+      "--tag", "generated",
+      "--tag", "walkforward",
+      "--tag", "fused32",
+      "--generator-window-mode", "selection_anchored",
+      "--generator-window-offset-days", "0",
+      "--generator-window-offset-days", "-7",
+      "--runs-per-window", "2",
+      "--population-size", "10",
+      "--resampling-fraction", "0.5",
+      "--resampling-fraction", "1.0",
+      "--resampling-iterations", "256",
+      "--portfolio-iterations", "160",
+      "--portfolio-block-size", "64",
+      "--shortlist-max-candidates", "4",
+      "--shortlist-min-marginal-score", "0.25",
+      "--combination-max-pool-size", "6",
+      "--combination-max-subset-size", "3",
+      "--risk-fraction", "0.25",
+      "--risk-fraction", "0.50",
+      "--risk-fraction", "0.75",
+      "--default-cluster-cap", "0.50",
+      "--per-system-cap", "0.35",
+      "--data-path", "data/BTCUSDT_parquet_neurobars_autoresearch.npz",
+      "--exchange", "binance",
+      "--position-sizing-mode", "fraction_of_equity",
+      "--position-notional-fraction", "1.0",
+      "--execution-fee-mode", "taker"
+    ]
+  },
+  "scenario_templates": [
+    {
+      "name": "gen_{selection_label}_td{train_days}_g{generations}",
+      "notes": "selection={selection_label} train_days={train_days} generations={generations}",
+      "rolling_args": {
+        "selection_start_utc": "{selection_start_utc}"
+      },
+      "forwarded_cycle_args": [
+        "--train-days", "{train_days}",
+        "--oos-days", "7",
+        "--generations", "{generations}"
+      ],
+      "cases": [
+        {
+          "selection_label": "jan2024",
+          "selection_start_utc": "2024-01-01 00:00:00"
+        },
+        {
+          "selection_label": "jun2024",
+          "selection_start_utc": "2024-06-01 00:00:00"
+        },
+        {
+          "selection_label": "may2025",
+          "selection_start_utc": "2025-05-01 00:00:00"
+        }
+      ],
+      "matrix": {
+        "train_days": [7, 10],
+        "generations": [8, 12]
+      }
+    }
+  ]
+}

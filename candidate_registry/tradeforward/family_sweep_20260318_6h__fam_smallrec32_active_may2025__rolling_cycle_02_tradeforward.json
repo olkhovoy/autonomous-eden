@@ -1,0 +1,52 @@
+{
+  "allocated_risk_fraction": 0.25,
+  "allocations": [
+    {
+      "candidate_id": "cand_54ada34d3fef",
+      "cap_reason": null,
+      "capital_fraction": 0.125,
+      "capped": false,
+      "checkpoint_path": "/home/user/mcs/checkpoints/continuous_cycles/family_sweep_20260318_6h__fam_smallrec32_active_may2025__rolling_cycle_02/wf_01_20250421_run01.npy",
+      "cluster_id": "cluster_001",
+      "display_name": "wf_01_20250421_run01",
+      "engine_name": "family_sweep_engine",
+      "normalized_share": 0.5,
+      "representation_name": "neurobars_autoresearch_fused32",
+      "status": "research"
+    },
+    {
+      "candidate_id": "cand_1788c8ebcd07",
+      "cap_reason": null,
+      "capital_fraction": 0.125,
+      "capped": false,
+      "checkpoint_path": "/home/user/mcs/checkpoints/continuous_cycles/family_sweep_20260318_6h__fam_smallrec32_active_may2025__rolling_cycle_02/wf_01_20250421_run02.npy",
+      "cluster_id": "cluster_000",
+      "display_name": "wf_01_20250421_run02",
+      "engine_name": "family_sweep_engine",
+      "normalized_share": 0.5,
+      "representation_name": "neurobars_autoresearch_fused32",
+      "status": "research"
+    }
+  ],
+  "candidate_ids": [
+    "cand_54ada34d3fef",
+    "cand_1788c8ebcd07"
+  ],
+  "created_at_utc": "2026-03-18T00:34:13Z",
+  "data_path": "/home/user/mcs/data/BTCUSDT_parquet_neurobars_autoresearch.npz",
+  "forward_end_utc": "2025-05-22 00:00:00",
+  "forward_max_steps": 10080,
+  "forward_start_step": 2702117,
+  "forward_start_utc": "2025-05-15 00:00:00",
+  "name": "family_sweep_20260318_6h__fam_smallrec32_active_may2025__rolling_cycle_02_tradeforward",
+  "notes": "5-6h profit-first family sweep over fused32 neurobars. Parallel engine families with shared rolling gates and live farm feed sync. | family=small_recurrent hidden=32 mode=confidence_gate fitness=profit_active selection=may2025",
+  "requested_risk_fraction": 0.25,
+  "reserve_fraction": 0.75,
+  "scenario_name": "subset_2_cand_54ada34d3fef+cand_1788c8ebcd07_risk_0.25",
+  "schema_version": "1",
+  "selection_mode": "combination",
+  "source_allocator_report": null,
+  "source_cluster_report": "family_sweep_20260318_6h__fam_smallrec32_active_may2025__rolling_cycle_02_clusters",
+  "source_combination_report": "family_sweep_20260318_6h__fam_smallrec32_active_may2025__rolling_cycle_02_combinations",
+  "source_cycle_report": "family_sweep_20260318_6h__fam_smallrec32_active_may2025__rolling_cycle_02"
+}

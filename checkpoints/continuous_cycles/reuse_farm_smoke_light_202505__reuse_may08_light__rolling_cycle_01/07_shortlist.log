@@ -1,0 +1,6 @@
+Saved shortlist report to /home/user/mcs/candidate_registry/shortlists/reuse_farm_smoke_light_202505__reuse_may08_light__rolling_cycle_01_shortlist.json
+Selected candidates:
+  rank=1 wf_03_20250501_run02 base=+1.840 marginal=+1.840 brightness=1.00 flags=oos_positive_vs_fragile_train
+  rank=2 wf_02_20240601_run02 base=-0.399 marginal=+0.995 brightness=0.91 flags=diversifier_outlier
+Selected pair compatibility:
+  cand_a1becdcb5dba <-> cand_d8959d02a5e6 compat=+1.394 downside=+0.117 sim_loss=0.170

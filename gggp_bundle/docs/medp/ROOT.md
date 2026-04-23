@@ -11,6 +11,8 @@
 - `../EMBEDDING_GGGP.md` — текущая реализация embedding-фенотипа.
 - `../EVOLUTIONARY_ENGINE_ROADMAP.md` — продуктовый фокус движка.
 - `../RUST_PORT_STATUS.md` — индекс статуса Rust-порта.
+- `research/toth-semiotics.md` — prior art: Alfred Tóth, Peirce/Bense
+  семиотическая традиция и её применимость к нашим грамматикам.
 
 ---
 
@@ -53,7 +55,14 @@ MEDP = применение тех же принципов (UMC NC1/NC4, SCL rou
 
 - **Plan** — узел дерева разработки. Обязательные поля:
   `intent, parent, branch_id, budget_{dev_hours, compute_hours},
-  checkpoints[], preserve_on_fail[], on_fail_next[]`.
+  checkpoints[], preserve_on_fail[], on_fail_next[], units[]`.
+- **Unit** — атомарная единица работы внутри Plan; структура и правила
+  декомпозиции/роутинга агентов см. в правиле
+  `.cursor/rules/PLAN-DECOMPOSITION-AND-AGENT-ROUTING.mdc`. Обязательные
+  поля: `id, title, depends_on, parallel_group, recommended_agent,
+  rationale_for_agent, est_minutes, artifacts_{in,out}, preserve_on_fail`.
+  `budget_dev_hours` плана = сумма `est_minutes` по **critical path**,
+  а не по всем unit'ам.
 - **Fork** — точка ветвления с ≥2 технически разными альтернативами,
   имеющими сопоставимые ожидаемые utilities.
 - **Gate (Checkpoint)** — фальсифицируемое численное условие с дедлайном:

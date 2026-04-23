@@ -1,0 +1,3 @@
+Saved lifecycle report to /home/user/mcs/candidate_registry/lifecycle/family_sweep_20260319_tuned_6h__lin57_active_jan2024__lifecycle.json
+rolling=family_sweep_20260319_tuned_6h__lin57_active_jan2024__rolling candidates=8 applied=False
+final_status_counts {'research': 8}

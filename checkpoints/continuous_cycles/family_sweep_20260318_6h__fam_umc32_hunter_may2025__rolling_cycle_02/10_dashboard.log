@@ -1,0 +1,4 @@
+Saved dashboard feed to /home/user/mcs/candidate_registry/dashboard/family_sweep_20260318_6h__fam_umc32_hunter_may2025__rolling_cycle_02_dashboard.json
+summary: candidates=138 visible=138 selected=1 exceptions=2 clusters=2
+allocator chosen=risk_0.50
+combination best=subset_2_cand_b20c290a7a98+cand_5236ec295329_risk_0.75

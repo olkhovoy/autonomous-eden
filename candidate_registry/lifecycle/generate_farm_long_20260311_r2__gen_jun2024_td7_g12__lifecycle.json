@@ -1,0 +1,468 @@
+{
+  "applied_status_updates": false,
+  "candidate_ids": [
+    "cand_241d4ed53649",
+    "cand_2a0d07ae166c",
+    "cand_4797dff952ad",
+    "cand_5d1d2c2c15c5",
+    "cand_8dd4bac66697",
+    "cand_d33759ddb75e",
+    "cand_e4a32ba90d07",
+    "cand_f7507213d1c1"
+  ],
+  "candidate_summaries": [
+    {
+      "candidate_id": "cand_241d4ed53649",
+      "display_name": "wf_02_20240525_run02",
+      "failed_forward_cycles": 0,
+      "final_status": "research",
+      "idle_cycles": 2,
+      "initial_status": "research",
+      "last_selected_cycle_index": null,
+      "last_transition_cycle_index": null,
+      "no_trade_cycles": 0,
+      "selected_cycles": 0,
+      "successful_forward_cycles": 0,
+      "total_cycles_seen": 2,
+      "transition_count": 0
+    },
+    {
+      "candidate_id": "cand_2a0d07ae166c",
+      "display_name": "wf_02_20240601_run01",
+      "failed_forward_cycles": 0,
+      "final_status": "research",
+      "idle_cycles": 2,
+      "initial_status": "research",
+      "last_selected_cycle_index": null,
+      "last_transition_cycle_index": null,
+      "no_trade_cycles": 0,
+      "selected_cycles": 0,
+      "successful_forward_cycles": 0,
+      "total_cycles_seen": 2,
+      "transition_count": 0
+    },
+    {
+      "candidate_id": "cand_4797dff952ad",
+      "display_name": "wf_01_20240518_run01",
+      "failed_forward_cycles": 0,
+      "final_status": "research",
+      "idle_cycles": 2,
+      "initial_status": "research",
+      "last_selected_cycle_index": null,
+      "last_transition_cycle_index": null,
+      "no_trade_cycles": 0,
+      "selected_cycles": 0,
+      "successful_forward_cycles": 0,
+      "total_cycles_seen": 2,
+      "transition_count": 0
+    },
+    {
+      "candidate_id": "cand_5d1d2c2c15c5",
+      "display_name": "wf_02_20240601_run02",
+      "failed_forward_cycles": 0,
+      "final_status": "research",
+      "idle_cycles": 2,
+      "initial_status": "research",
+      "last_selected_cycle_index": null,
+      "last_transition_cycle_index": null,
+      "no_trade_cycles": 0,
+      "selected_cycles": 0,
+      "successful_forward_cycles": 0,
+      "total_cycles_seen": 2,
+      "transition_count": 0
+    },
+    {
+      "candidate_id": "cand_8dd4bac66697",
+      "display_name": "wf_01_20240525_run02",
+      "failed_forward_cycles": 1,
+      "final_status": "research",
+      "idle_cycles": 1,
+      "initial_status": "research",
+      "last_selected_cycle_index": 2,
+      "last_transition_cycle_index": null,
+      "no_trade_cycles": 0,
+      "selected_cycles": 1,
+      "successful_forward_cycles": 0,
+      "total_cycles_seen": 2,
+      "transition_count": 0
+    },
+    {
+      "candidate_id": "cand_d33759ddb75e",
+      "display_name": "wf_01_20240518_run02",
+      "failed_forward_cycles": 1,
+      "final_status": "research",
+      "idle_cycles": 1,
+      "initial_status": "research",
+      "last_selected_cycle_index": 1,
+      "last_transition_cycle_index": null,
+      "no_trade_cycles": 0,
+      "selected_cycles": 1,
+      "successful_forward_cycles": 0,
+      "total_cycles_seen": 2,
+      "transition_count": 0
+    },
+    {
+      "candidate_id": "cand_e4a32ba90d07",
+      "display_name": "wf_02_20240525_run01",
+      "failed_forward_cycles": 1,
+      "final_status": "research",
+      "idle_cycles": 1,
+      "initial_status": "research",
+      "last_selected_cycle_index": 1,
+      "last_transition_cycle_index": null,
+      "no_trade_cycles": 0,
+      "selected_cycles": 1,
+      "successful_forward_cycles": 0,
+      "total_cycles_seen": 2,
+      "transition_count": 0
+    },
+    {
+      "candidate_id": "cand_f7507213d1c1",
+      "display_name": "wf_01_20240525_run01",
+      "failed_forward_cycles": 1,
+      "final_status": "research",
+      "idle_cycles": 1,
+      "initial_status": "research",
+      "last_selected_cycle_index": 2,
+      "last_transition_cycle_index": null,
+      "no_trade_cycles": 0,
+      "selected_cycles": 1,
+      "successful_forward_cycles": 0,
+      "total_cycles_seen": 2,
+      "transition_count": 0
+    }
+  ],
+  "config": {
+    "idle_cycles_to_drain": 1,
+    "idle_cycles_to_retire": 2,
+    "max_forward_drawdown_pct": 8.0,
+    "min_forward_pnl": 0.0,
+    "min_selected_trades": 1,
+    "successful_selected_cycles_to_activate": 2,
+    "successful_selected_cycles_to_recover": 1
+  },
+  "created_at_utc": "2026-03-11T02:55:24Z",
+  "decisions": [
+    {
+      "action": "hold",
+      "candidate_id": "cand_241d4ed53649",
+      "consecutive_failures": 0,
+      "consecutive_idle_cycles": 1,
+      "consecutive_successes": 0,
+      "cycle_index": 1,
+      "cycle_name": "generate_farm_long_20260311_r2__gen_jun2024_td7_g12__rolling_cycle_01",
+      "display_name": "wf_02_20240525_run02",
+      "max_drawdown_pct": null,
+      "next_status": "research",
+      "pnl": null,
+      "previous_status": "research",
+      "reason_codes": [
+        "idle_hold"
+      ],
+      "selected": false,
+      "trades": null
+    },
+    {
+      "action": "hold",
+      "candidate_id": "cand_2a0d07ae166c",
+      "consecutive_failures": 0,
+      "consecutive_idle_cycles": 1,
+      "consecutive_successes": 0,
+      "cycle_index": 1,
+      "cycle_name": "generate_farm_long_20260311_r2__gen_jun2024_td7_g12__rolling_cycle_01",
+      "display_name": "wf_02_20240601_run01",
+      "max_drawdown_pct": null,
+      "next_status": "research",
+      "pnl": null,
+      "previous_status": "research",
+      "reason_codes": [
+        "idle_hold"
+      ],
+      "selected": false,
+      "trades": null
+    },
+    {
+      "action": "hold",
+      "candidate_id": "cand_4797dff952ad",
+      "consecutive_failures": 0,
+      "consecutive_idle_cycles": 1,
+      "consecutive_successes": 0,
+      "cycle_index": 1,
+      "cycle_name": "generate_farm_long_20260311_r2__gen_jun2024_td7_g12__rolling_cycle_01",
+      "display_name": "wf_01_20240518_run01",
+      "max_drawdown_pct": null,
+      "next_status": "research",
+      "pnl": null,
+      "previous_status": "research",
+      "reason_codes": [
+        "idle_hold"
+      ],
+      "selected": false,
+      "trades": null
+    },
+    {
+      "action": "hold",
+      "candidate_id": "cand_5d1d2c2c15c5",
+      "consecutive_failures": 0,
+      "consecutive_idle_cycles": 1,
+      "consecutive_successes": 0,
+      "cycle_index": 1,
+      "cycle_name": "generate_farm_long_20260311_r2__gen_jun2024_td7_g12__rolling_cycle_01",
+      "display_name": "wf_02_20240601_run02",
+      "max_drawdown_pct": null,
+      "next_status": "research",
+      "pnl": null,
+      "previous_status": "research",
+      "reason_codes": [
+        "idle_hold"
+      ],
+      "selected": false,
+      "trades": null
+    },
+    {
+      "action": "hold",
+      "candidate_id": "cand_8dd4bac66697",
+      "consecutive_failures": 0,
+      "consecutive_idle_cycles": 1,
+      "consecutive_successes": 0,
+      "cycle_index": 1,
+      "cycle_name": "generate_farm_long_20260311_r2__gen_jun2024_td7_g12__rolling_cycle_01",
+      "display_name": "wf_01_20240525_run02",
+      "max_drawdown_pct": null,
+      "next_status": "research",
+      "pnl": null,
+      "previous_status": "research",
+      "reason_codes": [
+        "idle_hold"
+      ],
+      "selected": false,
+      "trades": null
+    },
+    {
+      "action": "hold",
+      "candidate_id": "cand_d33759ddb75e",
+      "consecutive_failures": 1,
+      "consecutive_idle_cycles": 0,
+      "consecutive_successes": 0,
+      "cycle_index": 1,
+      "cycle_name": "generate_farm_long_20260311_r2__gen_jun2024_td7_g12__rolling_cycle_01",
+      "display_name": "wf_01_20240518_run02",
+      "max_drawdown_pct": 9.250960072960988,
+      "next_status": "research",
+      "pnl": -720.6219032452955,
+      "previous_status": "research",
+      "reason_codes": [
+        "negative_pnl",
+        "drawdown_breach",
+        "research_failure"
+      ],
+      "selected": true,
+      "trades": 44
+    },
+    {
+      "action": "hold",
+      "candidate_id": "cand_e4a32ba90d07",
+      "consecutive_failures": 1,
+      "consecutive_idle_cycles": 0,
+      "consecutive_successes": 0,
+      "cycle_index": 1,
+      "cycle_name": "generate_farm_long_20260311_r2__gen_jun2024_td7_g12__rolling_cycle_01",
+      "display_name": "wf_02_20240525_run01",
+      "max_drawdown_pct": 0.3507683006364823,
+      "next_status": "research",
+      "pnl": -35.07683006364823,
+      "previous_status": "research",
+      "reason_codes": [
+        "negative_pnl",
+        "research_failure"
+      ],
+      "selected": true,
+      "trades": 4
+    },
+    {
+      "action": "hold",
+      "candidate_id": "cand_f7507213d1c1",
+      "consecutive_failures": 0,
+      "consecutive_idle_cycles": 1,
+      "consecutive_successes": 0,
+      "cycle_index": 1,
+      "cycle_name": "generate_farm_long_20260311_r2__gen_jun2024_td7_g12__rolling_cycle_01",
+      "display_name": "wf_01_20240525_run01",
+      "max_drawdown_pct": null,
+      "next_status": "research",
+      "pnl": null,
+      "previous_status": "research",
+      "reason_codes": [
+        "idle_hold"
+      ],
+      "selected": false,
+      "trades": null
+    },
+    {
+      "action": "hold",
+      "candidate_id": "cand_241d4ed53649",
+      "consecutive_failures": 0,
+      "consecutive_idle_cycles": 2,
+      "consecutive_successes": 0,
+      "cycle_index": 2,
+      "cycle_name": "generate_farm_long_20260311_r2__gen_jun2024_td7_g12__rolling_cycle_02",
+      "display_name": "wf_02_20240525_run02",
+      "max_drawdown_pct": null,
+      "next_status": "research",
+      "pnl": null,
+      "previous_status": "research",
+      "reason_codes": [
+        "idle_hold"
+      ],
+      "selected": false,
+      "trades": null
+    },
+    {
+      "action": "hold",
+      "candidate_id": "cand_2a0d07ae166c",
+      "consecutive_failures": 0,
+      "consecutive_idle_cycles": 2,
+      "consecutive_successes": 0,
+      "cycle_index": 2,
+      "cycle_name": "generate_farm_long_20260311_r2__gen_jun2024_td7_g12__rolling_cycle_02",
+      "display_name": "wf_02_20240601_run01",
+      "max_drawdown_pct": null,
+      "next_status": "research",
+      "pnl": null,
+      "previous_status": "research",
+      "reason_codes": [
+        "idle_hold"
+      ],
+      "selected": false,
+      "trades": null
+    },
+    {
+      "action": "hold",
+      "candidate_id": "cand_4797dff952ad",
+      "consecutive_failures": 0,
+      "consecutive_idle_cycles": 2,
+      "consecutive_successes": 0,
+      "cycle_index": 2,
+      "cycle_name": "generate_farm_long_20260311_r2__gen_jun2024_td7_g12__rolling_cycle_02",
+      "display_name": "wf_01_20240518_run01",
+      "max_drawdown_pct": null,
+      "next_status": "research",
+      "pnl": null,
+      "previous_status": "research",
+      "reason_codes": [
+        "idle_hold"
+      ],
+      "selected": false,
+      "trades": null
+    },
+    {
+      "action": "hold",
+      "candidate_id": "cand_5d1d2c2c15c5",
+      "consecutive_failures": 0,
+      "consecutive_idle_cycles": 2,
+      "consecutive_successes": 0,
+      "cycle_index": 2,
+      "cycle_name": "generate_farm_long_20260311_r2__gen_jun2024_td7_g12__rolling_cycle_02",
+      "display_name": "wf_02_20240601_run02",
+      "max_drawdown_pct": null,
+      "next_status": "research",
+      "pnl": null,
+      "previous_status": "research",
+      "reason_codes": [
+        "idle_hold"
+      ],
+      "selected": false,
+      "trades": null
+    },
+    {
+      "action": "hold",
+      "candidate_id": "cand_8dd4bac66697",
+      "consecutive_failures": 1,
+      "consecutive_idle_cycles": 0,
+      "consecutive_successes": 0,
+      "cycle_index": 2,
+      "cycle_name": "generate_farm_long_20260311_r2__gen_jun2024_td7_g12__rolling_cycle_02",
+      "display_name": "wf_01_20240525_run02",
+      "max_drawdown_pct": 14.055726920812747,
+      "next_status": "research",
+      "pnl": -1144.867525885351,
+      "previous_status": "research",
+      "reason_codes": [
+        "negative_pnl",
+        "drawdown_breach",
+        "research_failure"
+      ],
+      "selected": true,
+      "trades": 178
+    },
+    {
+      "action": "hold",
+      "candidate_id": "cand_d33759ddb75e",
+      "consecutive_failures": 0,
+      "consecutive_idle_cycles": 1,
+      "consecutive_successes": 0,
+      "cycle_index": 2,
+      "cycle_name": "generate_farm_long_20260311_r2__gen_jun2024_td7_g12__rolling_cycle_02",
+      "display_name": "wf_01_20240518_run02",
+      "max_drawdown_pct": null,
+      "next_status": "research",
+      "pnl": null,
+      "previous_status": "research",
+      "reason_codes": [
+        "idle_hold"
+      ],
+      "selected": false,
+      "trades": null
+    },
+    {
+      "action": "hold",
+      "candidate_id": "cand_e4a32ba90d07",
+      "consecutive_failures": 0,
+      "consecutive_idle_cycles": 1,
+      "consecutive_successes": 0,
+      "cycle_index": 2,
+      "cycle_name": "generate_farm_long_20260311_r2__gen_jun2024_td7_g12__rolling_cycle_02",
+      "display_name": "wf_02_20240525_run01",
+      "max_drawdown_pct": null,
+      "next_status": "research",
+      "pnl": null,
+      "previous_status": "research",
+      "reason_codes": [
+        "idle_hold"
+      ],
+      "selected": false,
+      "trades": null
+    },
+    {
+      "action": "hold",
+      "candidate_id": "cand_f7507213d1c1",
+      "consecutive_failures": 1,
+      "consecutive_idle_cycles": 0,
+      "consecutive_successes": 0,
+      "cycle_index": 2,
+      "cycle_name": "generate_farm_long_20260311_r2__gen_jun2024_td7_g12__rolling_cycle_02",
+      "display_name": "wf_01_20240525_run01",
+      "max_drawdown_pct": 3.2633047438219833,
+      "next_status": "research",
+      "pnl": -308.65198856605093,
+      "previous_status": "research",
+      "reason_codes": [
+        "negative_pnl",
+        "research_failure"
+      ],
+      "selected": true,
+      "trades": 22
+    }
+  ],
+  "final_status_counts": {
+    "research": 8
+  },
+  "name": "generate_farm_long_20260311_r2__gen_jun2024_td7_g12__lifecycle",
+  "notes": "Long generate-mode candidate farm over fused32 neurobars with realistic binance economics and live farm feed sync. | selection=jun2024 train_days=7 generations=12",
+  "schema_version": "1",
+  "source_rolling_report": "generate_farm_long_20260311_r2__gen_jun2024_td7_g12__rolling",
+  "source_tradeforward_evaluations": [
+    "generate_farm_long_20260311_r2__gen_jun2024_td7_g12__rolling_cycle_01_tradeforward_eval",
+    "generate_farm_long_20260311_r2__gen_jun2024_td7_g12__rolling_cycle_02_tradeforward_eval"
+  ]
+}

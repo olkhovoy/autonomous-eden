@@ -1,0 +1,8 @@
+Saved portfolio baselines to /home/user/mcs/candidate_registry/portfolio_baselines/generate_farm_long_20260311_r2__gen_jun2024_td10_g12__baselines.json
+conveyor pnl=-212.04 return=-2.12% max_dd=2.61%
+  flat                           lag delta_pnl=-212.04 delta_return=-2.12% dd_adv=-2.61pp
+  long                           beat delta_pnl=+97.30 delta_return=+0.97% dd_adv=+1.30pp
+  equal_weight_selected_subset   lag delta_pnl=-26.25 delta_return=-0.26% dd_adv=-0.22pp
+  single_best_candidate          lag delta_pnl=-104.81 delta_return=-1.05% dd_adv=-1.54pp
+  naive_top_oos_rotation         beat delta_pnl=+91.11 delta_return=+0.91% dd_adv=+1.14pp
+gate overall_pass=False checks={'positive_total_pnl': False, 'max_drawdown_within_limit': True, 'required_baselines_beaten': False, 'minimum_baselines_beaten': True}

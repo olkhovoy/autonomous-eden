@@ -1,0 +1,13 @@
+Saved combination search to /home/user/mcs/candidate_registry/combinations/reuse_rolling_20250501_cycle_01_combinations.json
+Pool=6 combinations=41 scenarios=123
+Best scenario: subset_2_cand_d8959d02a5e6+cand_eb598e21812d_risk_0.75
+wf_03_20250501_run02,wf_01_20240101_run01 | size=2 requested=0.75 risk=0.70 objective=-0.1995 p05_pnl=-280.46 p95_dd=4.40
+wf_01_20240101_run01 | size=1 requested=0.50 risk=0.35 objective=-0.2041 p05_pnl=-145.94 p95_dd=2.44
+wf_01_20240101_run01 | size=1 requested=0.75 risk=0.35 objective=-0.2041 p05_pnl=-145.94 p95_dd=2.44
+wf_01_20240101_run01 | size=1 requested=0.25 risk=0.25 objective=-0.2065 p05_pnl=-104.24 p95_dd=1.74
+wf_03_20250501_run02,wf_01_20240101_run01 | size=2 requested=0.50 risk=0.50 objective=-0.2092 p05_pnl=-194.63 p95_dd=3.08
+wf_03_20250501_run02,wf_01_20240101_run01 | size=2 requested=0.25 risk=0.25 objective=-0.2175 p05_pnl=-94.69 p95_dd=1.58
+wf_03_20250501_run02 | size=1 requested=0.25 risk=0.25 objective=-0.2196 p05_pnl=-93.97 p95_dd=1.58
+wf_03_20250501_run02 | size=1 requested=0.50 risk=0.35 objective=-0.2204 p05_pnl=-131.59 p95_dd=2.21
+wf_03_20250501_run02 | size=1 requested=0.75 risk=0.35 objective=-0.2204 p05_pnl=-131.59 p95_dd=2.21
+wf_03_20250501_run02,wf_01_20240101_run01,wf_03_20250501_run01 | size=3 requested=0.25 risk=0.25 objective=-0.2212 p05_pnl=-96.45 p95_dd=1.60

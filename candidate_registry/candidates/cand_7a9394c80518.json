@@ -1,0 +1,353 @@
+{
+  "baselines": {
+    "oos": {
+      "flat": {
+        "action_counts": {
+          "0": 10080
+        },
+        "baseline_winner": null,
+        "beats_best_baseline": null,
+        "beats_flat": null,
+        "end_utc": null,
+        "final_balance": 10000.0,
+        "full_window": null,
+        "max_drawdown_pct": 0.0,
+        "name": "flat",
+        "pnl": 0.0,
+        "position_counts": {
+          "0": 10081
+        },
+        "requested_max_steps": 10080,
+        "start_step": 2681957,
+        "start_utc": null,
+        "steps_run": 10080,
+        "trades": 0,
+        "win_rate_pct": 0.0,
+        "wins": 0
+      },
+      "long": {
+        "action_counts": {
+          "1": 10080
+        },
+        "baseline_winner": null,
+        "beats_best_baseline": null,
+        "beats_flat": null,
+        "end_utc": null,
+        "final_balance": 10306.199276586935,
+        "full_window": null,
+        "max_drawdown_pct": 4.519412867647636,
+        "name": "long",
+        "pnl": 306.1992765869345,
+        "position_counts": {
+          "0": 1,
+          "1": 10080
+        },
+        "requested_max_steps": 10080,
+        "start_step": 2681957,
+        "start_utc": null,
+        "steps_run": 10080,
+        "trades": 0,
+        "win_rate_pct": 0.0,
+        "wins": 0
+      },
+      "short": {
+        "action_counts": {
+          "2": 10080
+        },
+        "baseline_winner": null,
+        "beats_best_baseline": null,
+        "beats_flat": null,
+        "end_utc": null,
+        "final_balance": 9683.800723413065,
+        "full_window": null,
+        "max_drawdown_pct": 4.447310023449568,
+        "name": "short",
+        "pnl": -316.1992765869345,
+        "position_counts": {
+          "0": 1,
+          "2": 10080
+        },
+        "requested_max_steps": 10080,
+        "start_step": 2681957,
+        "start_utc": null,
+        "steps_run": 10080,
+        "trades": 0,
+        "win_rate_pct": 0.0,
+        "wins": 0
+      }
+    },
+    "train": {
+      "flat": {
+        "action_counts": {
+          "0": 10080
+        },
+        "baseline_winner": null,
+        "beats_best_baseline": null,
+        "beats_flat": null,
+        "end_utc": null,
+        "final_balance": 10000.0,
+        "full_window": null,
+        "max_drawdown_pct": 0.0,
+        "name": "flat",
+        "pnl": 0.0,
+        "position_counts": {
+          "0": 10081
+        },
+        "requested_max_steps": 10080,
+        "start_step": 2671877,
+        "start_utc": null,
+        "steps_run": 10080,
+        "trades": 0,
+        "win_rate_pct": 0.0,
+        "wins": 0
+      },
+      "long": {
+        "action_counts": {
+          "1": 10080
+        },
+        "baseline_winner": null,
+        "beats_best_baseline": null,
+        "beats_flat": null,
+        "end_utc": null,
+        "final_balance": 10040.81404912441,
+        "full_window": null,
+        "max_drawdown_pct": 2.9571095438069346,
+        "name": "long",
+        "pnl": 40.8140491244103,
+        "position_counts": {
+          "0": 1,
+          "1": 10080
+        },
+        "requested_max_steps": 10080,
+        "start_step": 2671877,
+        "start_utc": null,
+        "steps_run": 10080,
+        "trades": 0,
+        "win_rate_pct": 0.0,
+        "wins": 0
+      },
+      "short": {
+        "action_counts": {
+          "2": 10080
+        },
+        "baseline_winner": null,
+        "beats_best_baseline": null,
+        "beats_flat": null,
+        "end_utc": null,
+        "final_balance": 9949.18595087559,
+        "full_window": null,
+        "max_drawdown_pct": 4.123057086298062,
+        "name": "short",
+        "pnl": -50.8140491244103,
+        "position_counts": {
+          "0": 1,
+          "2": 10080
+        },
+        "requested_max_steps": 10080,
+        "start_step": 2671877,
+        "start_utc": null,
+        "steps_run": 10080,
+        "trades": 0,
+        "win_rate_pct": 0.0,
+        "wins": 0
+      }
+    }
+  },
+  "candidate_id": "cand_7a9394c80518",
+  "created_at_utc": "2026-03-11T06:13:10Z",
+  "display_name": "wf_02_20250424_run01",
+  "engine_name": "monolith",
+  "engine_role": "candidate_engine",
+  "manifest": {
+    "checkpoint_path": "/home/user/mcs/checkpoints/continuous_cycles/generate_farm_long_20260311_r2__gen_may2025_td7_g12__rolling_cycle_01/wf_02_20250424_run01.npy",
+    "created_at_utc": "2026-03-11T06:13:10Z",
+    "data_path": "/home/user/mcs/data/BTCUSDT_parquet_neurobars_autoresearch.npz",
+    "econ_config": {
+      "exchange": "binance",
+      "execution_fee_mode": "taker",
+      "fixed_position_qty": 1.0,
+      "initial_balance": 10000.0,
+      "leverage": 1.0,
+      "maker_fee_rate": null,
+      "position_notional_fraction": 1.0,
+      "position_sizing_mode": "fraction_of_equity",
+      "slippage": 0.0,
+      "taker_fee_rate": null
+    },
+    "engine_name": "monolith",
+    "engine_role": "candidate_engine",
+    "log_path": "/home/user/mcs/checkpoints/continuous_cycles/generate_farm_long_20260311_r2__gen_may2025_td7_g12__rolling_cycle_01/wf_02_20250424_run01.log",
+    "notes": "Long generate-mode candidate farm over fused32 neurobars with realistic binance economics and live farm feed sync. | selection=may2025 train_days=7 generations=12",
+    "oos_window_utc": {
+      "end": "2025-05-08 00:00:00",
+      "start": "2025-05-01 00:00:00"
+    },
+    "representation_name": "neurobars_autoresearch_fused32",
+    "schema_version": "1",
+    "search_config": {
+      "generations": 12,
+      "oos_days": 7,
+      "population_size": 10,
+      "run_index": 1,
+      "runs_per_window": 2,
+      "train_days": 7,
+      "window_name": "wf_02_20250424"
+    },
+    "source_script": "/home/user/mcs/scripts/probe_monolith_walkforward.py",
+    "source_summary_path": "/home/user/mcs/checkpoints/continuous_cycles/generate_farm_long_20260311_r2__gen_may2025_td7_g12__rolling_cycle_01/summary.json",
+    "train_window_utc": {
+      "end": "2025-05-01 00:00:00",
+      "start": "2025-04-24 00:00:00"
+    }
+  },
+  "metadata": {
+    "oos_start_step": 2681957,
+    "run_index": 1,
+    "train_start_step": 2671877,
+    "window_name": "wf_02_20250424"
+  },
+  "notes": "Long generate-mode candidate farm over fused32 neurobars with realistic binance economics and live farm feed sync. | selection=may2025 train_days=7 generations=12",
+  "periods": {
+    "oos": {
+      "action_counts": {
+        "0": 1063,
+        "1": 28,
+        "2": 8989
+      },
+      "baseline_winner": "long",
+      "beats_best_baseline": false,
+      "beats_flat": false,
+      "end_utc": "2025-05-08 00:00:00",
+      "final_balance": 8994.26741303828,
+      "full_window": true,
+      "max_drawdown_pct": 10.60288241937953,
+      "name": "oos",
+      "pnl": -1005.7325869617198,
+      "position_counts": {
+        "0": 1064,
+        "1": 28,
+        "2": 8989
+      },
+      "requested_max_steps": 10080,
+      "start_step": 2681957,
+      "start_utc": "2025-05-01 00:00:00",
+      "steps_run": 10080,
+      "trades": 83,
+      "win_rate_pct": 39.75903614457831,
+      "wins": 33
+    },
+    "train": {
+      "action_counts": {
+        "0": 16,
+        "2": 10064
+      },
+      "baseline_winner": "long",
+      "beats_best_baseline": false,
+      "beats_flat": false,
+      "end_utc": "2025-05-01 00:00:00",
+      "final_balance": 9941.53945114343,
+      "full_window": true,
+      "max_drawdown_pct": 3.9501432183280256,
+      "name": "train",
+      "pnl": -58.46054885657031,
+      "position_counts": {
+        "0": 17,
+        "2": 10064
+      },
+      "requested_max_steps": 10080,
+      "start_step": 2671877,
+      "start_utc": "2025-04-24 00:00:00",
+      "steps_run": 10080,
+      "trades": 3,
+      "win_rate_pct": 66.66666666666666,
+      "wins": 2
+    }
+  },
+  "resampling_artifact_path": "/home/user/mcs/candidate_registry/resampling/cand_7a9394c80518.json",
+  "resampling_results": {
+    "bootstrap_f0.50": {
+      "fraction": 0.5,
+      "initial_balance": 10000.0,
+      "iterations": 256,
+      "loss_rate": 0.23828125,
+      "mean_final_balance": 10016.79483564528,
+      "mean_max_drawdown_pct": 0.2616302244696871,
+      "mean_net_profit": 16.79483564527976,
+      "median_final_balance": 10013.936559873402,
+      "median_max_drawdown_pct": 0.2954530158838698,
+      "median_net_profit": 13.936559873402075,
+      "name": "bootstrap_f0.50",
+      "original_final_balance": 10013.936559873402,
+      "original_max_drawdown_pct": 0.2954530158838766,
+      "original_net_profit": 13.936559873402075,
+      "original_trade_count": 3,
+      "p05_final_balance": 9949.07392952733,
+      "p05_net_profit": -50.926070472669835,
+      "p25_final_balance": 10011.739153683135,
+      "p25_net_profit": 11.739153683134646,
+      "p75_max_drawdown_pct": 0.2954530158838804,
+      "p95_max_drawdown_pct": 0.6634605432404924,
+      "period_name": "train",
+      "pessimistic_max_drawdown_pct": 0.6634605432404924,
+      "pessimistic_net_profit": -50.926070472669835,
+      "profitable_rate": 0.76171875,
+      "ruin_rate": 0.0,
+      "sample_size": 3,
+      "seed": 42,
+      "sizing_mode": "fractional_returns"
+    },
+    "bootstrap_f1.00": {
+      "fraction": 1.0,
+      "initial_balance": 10000.0,
+      "iterations": 256,
+      "loss_rate": 0.23828125,
+      "mean_final_balance": 10033.629574192852,
+      "mean_max_drawdown_pct": 0.5228871466016533,
+      "mean_net_profit": 33.62957419285101,
+      "median_final_balance": 10027.709508729527,
+      "median_max_drawdown_pct": 0.5909060317677433,
+      "median_net_profit": 27.709508729527442,
+      "name": "bootstrap_f1.00",
+      "original_final_balance": 10027.709508729526,
+      "original_max_drawdown_pct": 0.5909060317677527,
+      "original_net_profit": 27.709508729525623,
+      "original_trade_count": 3,
+      "p05_final_balance": 9898.226845209298,
+      "p05_net_profit": -101.77315479070194,
+      "p25_final_balance": 10023.318675715385,
+      "p25_net_profit": 23.318675715385325,
+      "p75_max_drawdown_pct": 0.590906031767754,
+      "p95_max_drawdown_pct": 1.3243061805673189,
+      "period_name": "train",
+      "pessimistic_max_drawdown_pct": 1.3243061805673189,
+      "pessimistic_net_profit": -101.77315479070194,
+      "profitable_rate": 0.76171875,
+      "ruin_rate": 0.0,
+      "sample_size": 3,
+      "seed": 42,
+      "sizing_mode": "fractional_returns"
+    }
+  },
+  "schema_version": "1",
+  "selection_flags": {
+    "oos_beats_best_baseline": false,
+    "oos_beats_flat": false,
+    "oos_full_window": true,
+    "oos_has_trades": true,
+    "oos_positive": false,
+    "oos_profitable_and_active": false,
+    "train_beats_best_baseline": false,
+    "train_beats_flat": false,
+    "train_full_window": true,
+    "train_positive": false
+  },
+  "status": "research",
+  "tags": [
+    "continuous",
+    "cycle:generate_farm_long_20260311_r2__gen_may2025_td7_g12__rolling_cycle_01",
+    "fused32",
+    "generated",
+    "walkforward"
+  ],
+  "trade_records_path": "/home/user/mcs/candidate_registry/trades/cand_7a9394c80518.json"
+}

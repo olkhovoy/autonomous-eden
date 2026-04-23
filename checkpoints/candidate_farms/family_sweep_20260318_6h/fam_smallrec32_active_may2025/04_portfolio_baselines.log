@@ -1,0 +1,8 @@
+Saved portfolio baselines to /home/user/mcs/candidate_registry/portfolio_baselines/family_sweep_20260318_6h__fam_smallrec32_active_may2025__baselines.json
+conveyor pnl=+119.16 return=+1.19% max_dd=1.41%
+  flat                           beat delta_pnl=+119.16 delta_return=+1.19% dd_adv=-1.41pp
+  long                           lag delta_pnl=-195.28 delta_return=-1.95% dd_adv=-0.22pp
+  equal_weight_selected_subset   lag delta_pnl=-0.00 delta_return=-0.00% dd_adv=+0.10pp
+  single_best_candidate          beat delta_pnl=+119.16 delta_return=+1.19% dd_adv=-1.41pp
+  naive_top_oos_rotation         beat delta_pnl=+122.03 delta_return=+1.22% dd_adv=-1.38pp
+gate overall_pass=False checks={'positive_total_pnl': True, 'max_drawdown_within_limit': True, 'required_baselines_beaten': False, 'minimum_baselines_beaten': True}

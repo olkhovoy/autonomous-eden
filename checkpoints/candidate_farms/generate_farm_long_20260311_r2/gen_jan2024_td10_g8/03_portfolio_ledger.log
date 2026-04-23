@@ -1,0 +1,6 @@
+Saved portfolio ledger to /home/user/mcs/candidate_registry/portfolio_ledger/generate_farm_long_20260311_r2__gen_jan2024_td10_g8__portfolio.json
+rolling=generate_farm_long_20260311_r2__gen_jan2024_td10_g8__rolling lifecycle=generate_farm_long_20260311_r2__gen_jan2024_td10_g8__lifecycle cycles=2 balance=9905.55 pnl=-94.45 return=-0.94% max_dd=1.22%
+turnover gross=1.000 buy=0.750 sell=0.250 cost=0.00
+reserve_avg=0.625 peak_cluster=0.350 non_tradable_selected=3
+  cycle_01 gross=-38.17 net=-38.17 turnover=0.250 reserve=0.750 active=1
+  cycle_02 gross=-56.27 net=-56.27 turnover=0.750 reserve=0.500 active=2

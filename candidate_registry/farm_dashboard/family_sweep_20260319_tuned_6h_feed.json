@@ -1,0 +1,777 @@
+{
+  "broom": {
+    "line_count": 9,
+    "lines": [
+      {
+        "brightness_hint": 1.0,
+        "final_balance": 10409.394849938693,
+        "gate_pass": true,
+        "max_drawdown_pct": 1.3291729877811993,
+        "mode": "generate",
+        "normalized_balance_history": [
+          1.0,
+          1.019758451687724,
+          1.0409394849938693
+        ],
+        "progress_stage": "completed",
+        "sample_indices": [
+          0,
+          1,
+          2
+        ],
+        "scenario_name": "lin57_active_may2025",
+        "status": "completed",
+        "total_pnl": 409.39484993869337
+      },
+      {
+        "brightness_hint": 0.88,
+        "final_balance": 10232.879389691943,
+        "gate_pass": true,
+        "max_drawdown_pct": 1.329156577937428,
+        "mode": "generate",
+        "normalized_balance_history": [
+          1.0,
+          1.0133607875408635,
+          1.0232879389691942
+        ],
+        "progress_stage": "completed",
+        "sample_indices": [
+          0,
+          1,
+          2
+        ],
+        "scenario_name": "umc62_active_may2025",
+        "status": "completed",
+        "total_pnl": 232.8793896919433
+      },
+      {
+        "brightness_hint": 0.76,
+        "final_balance": 10290.353757531671,
+        "gate_pass": false,
+        "max_drawdown_pct": 1.6335462544607586,
+        "mode": "generate",
+        "normalized_balance_history": [
+          1.0,
+          1.0145428681967614,
+          1.0290353757531672
+        ],
+        "progress_stage": "completed",
+        "sample_indices": [
+          0,
+          1,
+          2
+        ],
+        "scenario_name": "lin62_active_may2025",
+        "status": "completed",
+        "total_pnl": 290.35375753167136
+      },
+      {
+        "brightness_hint": 0.64,
+        "final_balance": 9942.771238928883,
+        "gate_pass": false,
+        "max_drawdown_pct": 1.7155018609416766,
+        "mode": "generate",
+        "normalized_balance_history": [
+          1.0,
+          0.9968782545052837,
+          0.9942771238928882
+        ],
+        "progress_stage": "completed",
+        "sample_indices": [
+          0,
+          1,
+          2
+        ],
+        "scenario_name": "lin62_active_jan2024",
+        "status": "completed",
+        "total_pnl": -57.22876107111733
+      },
+      {
+        "brightness_hint": 0.52,
+        "final_balance": 9917.059538315614,
+        "gate_pass": false,
+        "max_drawdown_pct": 2.041409769102572,
+        "mode": "generate",
+        "normalized_balance_history": [
+          1.0,
+          0.9872570330278598,
+          0.9917059538315615
+        ],
+        "progress_stage": "completed",
+        "sample_indices": [
+          0,
+          1,
+          2
+        ],
+        "scenario_name": "lin57_active_jun2024",
+        "status": "completed",
+        "total_pnl": -82.94046168438581
+      },
+      {
+        "brightness_hint": 0.4,
+        "final_balance": 9858.588090496092,
+        "gate_pass": false,
+        "max_drawdown_pct": 2.821356150124693,
+        "mode": "generate",
+        "normalized_balance_history": [
+          1.0,
+          0.9787052975350491,
+          0.9858588090496092
+        ],
+        "progress_stage": "completed",
+        "sample_indices": [
+          0,
+          1,
+          2
+        ],
+        "scenario_name": "lin62_active_jun2024",
+        "status": "completed",
+        "total_pnl": -141.41190950390774
+      },
+      {
+        "brightness_hint": 0.28,
+        "final_balance": 9802.798591619905,
+        "gate_pass": false,
+        "max_drawdown_pct": 5.194315888967325,
+        "mode": "generate",
+        "normalized_balance_history": [
+          1.0,
+          0.9823272914806388,
+          0.9802798591619905
+        ],
+        "progress_stage": "completed",
+        "sample_indices": [
+          0,
+          1,
+          2
+        ],
+        "scenario_name": "lin57_active_jan2024",
+        "status": "completed",
+        "total_pnl": -197.20140838009502
+      },
+      {
+        "brightness_hint": 0.16000000000000003,
+        "final_balance": 9608.920496521492,
+        "gate_pass": false,
+        "max_drawdown_pct": 4.8142124946692695,
+        "mode": "generate",
+        "normalized_balance_history": [
+          1.0,
+          0.9751970710941185,
+          0.9608920496521492
+        ],
+        "progress_stage": "completed",
+        "sample_indices": [
+          0,
+          1,
+          2
+        ],
+        "scenario_name": "umc62_active_jun2024",
+        "status": "completed",
+        "total_pnl": -391.07950347850783
+      },
+      {
+        "brightness_hint": 0.16,
+        "final_balance": 9383.041835535028,
+        "gate_pass": false,
+        "max_drawdown_pct": 9.588602407097238,
+        "mode": "generate",
+        "normalized_balance_history": [
+          1.0,
+          0.9390659108750702,
+          0.9383041835535029
+        ],
+        "progress_stage": "completed",
+        "sample_indices": [
+          0,
+          1,
+          2
+        ],
+        "scenario_name": "umc62_active_jan2024",
+        "status": "completed",
+        "total_pnl": -616.9581644649716
+      }
+    ],
+    "source_report": "family_sweep_20260319_tuned_6h",
+    "source_reports": [
+      "family_sweep_20260319_tuned_6h__lin57_active_may2025__portfolio",
+      "family_sweep_20260319_tuned_6h__umc62_active_may2025__portfolio",
+      "family_sweep_20260319_tuned_6h__lin62_active_may2025__portfolio",
+      "family_sweep_20260319_tuned_6h__lin62_active_jan2024__portfolio",
+      "family_sweep_20260319_tuned_6h__lin57_active_jun2024__portfolio",
+      "family_sweep_20260319_tuned_6h__lin62_active_jun2024__portfolio",
+      "family_sweep_20260319_tuned_6h__lin57_active_jan2024__portfolio",
+      "family_sweep_20260319_tuned_6h__umc62_active_jun2024__portfolio",
+      "family_sweep_20260319_tuned_6h__umc62_active_jan2024__portfolio"
+    ],
+    "total_line_count": 9
+  },
+  "created_at_utc": "2026-03-19T14:23:25Z",
+  "monitoring": {
+    "completion_event_count": 9,
+    "completion_events_last_15m": 1,
+    "completion_events_per_hour": 3.486120077469335,
+    "event_count": 508,
+    "events_last_15m": 49,
+    "events_per_hour": 196.77211103938026,
+    "gate_pass_completion_count": 2,
+    "gate_pass_events_last_15m": 1,
+    "gate_pass_events_per_hour": 0.7746933505487411,
+    "heartbeat_state": "fresh",
+    "last_completion_at": "2026-03-19T14:23:25Z",
+    "last_event_at": "2026-03-19T14:23:25Z",
+    "last_gate_pass_at": "2026-03-19T14:23:25Z",
+    "latest_updated_at": "2026-03-19T14:23:25Z",
+    "median_completion_gap_seconds": 791.0,
+    "median_event_gap_seconds": 20.0,
+    "planned_scenarios": [],
+    "progress_stage_counts": {
+      "completed": 9
+    },
+    "recent_events": [
+      {
+        "created_at_utc": "2026-03-19T14:20:53Z",
+        "event_kind": "heartbeat",
+        "gate_pass": null,
+        "note": null,
+        "progress_stage": "rolling",
+        "scenario_name": "umc62_active_may2025",
+        "sequence": 497,
+        "status": "running",
+        "total_pnl": null
+      },
+      {
+        "created_at_utc": "2026-03-19T14:21:13Z",
+        "event_kind": "heartbeat",
+        "gate_pass": null,
+        "note": null,
+        "progress_stage": "rolling",
+        "scenario_name": "umc62_active_may2025",
+        "sequence": 498,
+        "status": "running",
+        "total_pnl": null
+      },
+      {
+        "created_at_utc": "2026-03-19T14:21:33Z",
+        "event_kind": "heartbeat",
+        "gate_pass": null,
+        "note": null,
+        "progress_stage": "rolling",
+        "scenario_name": "umc62_active_may2025",
+        "sequence": 499,
+        "status": "running",
+        "total_pnl": null
+      },
+      {
+        "created_at_utc": "2026-03-19T14:21:53Z",
+        "event_kind": "heartbeat",
+        "gate_pass": null,
+        "note": null,
+        "progress_stage": "rolling",
+        "scenario_name": "umc62_active_may2025",
+        "sequence": 500,
+        "status": "running",
+        "total_pnl": null
+      },
+      {
+        "created_at_utc": "2026-03-19T14:22:13Z",
+        "event_kind": "heartbeat",
+        "gate_pass": null,
+        "note": null,
+        "progress_stage": "rolling",
+        "scenario_name": "umc62_active_may2025",
+        "sequence": 501,
+        "status": "running",
+        "total_pnl": null
+      },
+      {
+        "created_at_utc": "2026-03-19T14:22:33Z",
+        "event_kind": "heartbeat",
+        "gate_pass": null,
+        "note": null,
+        "progress_stage": "rolling",
+        "scenario_name": "umc62_active_may2025",
+        "sequence": 502,
+        "status": "running",
+        "total_pnl": null
+      },
+      {
+        "created_at_utc": "2026-03-19T14:22:53Z",
+        "event_kind": "heartbeat",
+        "gate_pass": null,
+        "note": null,
+        "progress_stage": "rolling",
+        "scenario_name": "umc62_active_may2025",
+        "sequence": 503,
+        "status": "running",
+        "total_pnl": null
+      },
+      {
+        "created_at_utc": "2026-03-19T14:22:57Z",
+        "event_kind": "stage",
+        "gate_pass": null,
+        "note": null,
+        "progress_stage": "lifecycle",
+        "scenario_name": "umc62_active_may2025",
+        "sequence": 504,
+        "status": "running",
+        "total_pnl": null
+      },
+      {
+        "created_at_utc": "2026-03-19T14:22:58Z",
+        "event_kind": "stage",
+        "gate_pass": null,
+        "note": null,
+        "progress_stage": "portfolio_ledger",
+        "scenario_name": "umc62_active_may2025",
+        "sequence": 505,
+        "status": "running",
+        "total_pnl": null
+      },
+      {
+        "created_at_utc": "2026-03-19T14:22:59Z",
+        "event_kind": "stage",
+        "gate_pass": null,
+        "note": null,
+        "progress_stage": "portfolio_baselines",
+        "scenario_name": "umc62_active_may2025",
+        "sequence": 506,
+        "status": "running",
+        "total_pnl": null
+      },
+      {
+        "created_at_utc": "2026-03-19T14:23:19Z",
+        "event_kind": "heartbeat",
+        "gate_pass": null,
+        "note": null,
+        "progress_stage": "portfolio_baselines",
+        "scenario_name": "umc62_active_may2025",
+        "sequence": 507,
+        "status": "running",
+        "total_pnl": null
+      },
+      {
+        "created_at_utc": "2026-03-19T14:23:25Z",
+        "event_kind": "completed",
+        "gate_pass": true,
+        "note": null,
+        "progress_stage": "completed",
+        "scenario_name": "umc62_active_may2025",
+        "sequence": 508,
+        "status": "completed",
+        "total_pnl": 232.8793896919433
+      }
+    ],
+    "recent_failed_scenarios": [],
+    "recent_gate_pass_scenarios": [
+      "lin57_active_may2025",
+      "umc62_active_may2025"
+    ],
+    "running_scenarios": [],
+    "seconds_since_last_completion": 0.431606,
+    "seconds_since_last_event": 0.431606,
+    "seconds_since_last_gate_pass": 0.431606,
+    "stagnation_state": "healthy"
+  },
+  "name": "family_sweep_20260319_tuned_6h_feed",
+  "notes": "Tuned 5-6h family sweep after trade-floor/trade-band quick probes. Focus on linear_score and gated UMC under shared rolling gates.",
+  "scenarios": [
+    {
+      "beaten_baselines": [
+        "flat",
+        "equal_weight_selected_subset"
+      ],
+      "candidate_pool_count": 8,
+      "error_message": null,
+      "evaluated_cycle_count": 2,
+      "failed_required_baselines": [],
+      "final_status_counts": {
+        "approved": 1,
+        "research": 7
+      },
+      "gate_pass": true,
+      "lifecycle_report_name": "family_sweep_20260319_tuned_6h__lin57_active_may2025__lifecycle",
+      "log_paths": {
+        "lifecycle": "/home/user/mcs/checkpoints/candidate_farms/family_sweep_20260319_tuned_6h/lin57_active_may2025/02_lifecycle.log",
+        "portfolio_baselines": "/home/user/mcs/checkpoints/candidate_farms/family_sweep_20260319_tuned_6h/lin57_active_may2025/04_portfolio_baselines.log",
+        "portfolio_ledger": "/home/user/mcs/checkpoints/candidate_farms/family_sweep_20260319_tuned_6h/lin57_active_may2025/03_portfolio_ledger.log",
+        "rolling": "/home/user/mcs/checkpoints/candidate_farms/family_sweep_20260319_tuned_6h/lin57_active_may2025/01_rolling.log"
+      },
+      "max_drawdown_pct": 1.3291729877811993,
+      "mode": "generate",
+      "num_cycles": 2,
+      "output_dir": "/home/user/mcs/checkpoints/candidate_farms/family_sweep_20260319_tuned_6h/lin57_active_may2025",
+      "portfolio_baselines_report_name": "family_sweep_20260319_tuned_6h__lin57_active_may2025__baselines",
+      "portfolio_ledger_report_name": "family_sweep_20260319_tuned_6h__lin57_active_may2025__portfolio",
+      "positive_cycle_count": 2,
+      "progress_stage": "completed",
+      "rolling_report_name": "family_sweep_20260319_tuned_6h__lin57_active_may2025__rolling",
+      "scenario_name": "lin57_active_may2025",
+      "selected_candidate_count": 3,
+      "selection_days": 7,
+      "selection_start_utc": "2025-05-01 00:00:00",
+      "status": "completed",
+      "total_pnl": 409.39484993869337,
+      "total_return_pct": 4.093948499386935,
+      "updated_at_utc": "2026-03-19T12:27:29Z"
+    },
+    {
+      "beaten_baselines": [
+        "flat",
+        "equal_weight_selected_subset",
+        "naive_top_oos_rotation"
+      ],
+      "candidate_pool_count": 8,
+      "error_message": null,
+      "evaluated_cycle_count": 2,
+      "failed_required_baselines": [],
+      "final_status_counts": {
+        "approved": 2,
+        "research": 6
+      },
+      "gate_pass": true,
+      "lifecycle_report_name": "family_sweep_20260319_tuned_6h__umc62_active_may2025__lifecycle",
+      "log_paths": {
+        "lifecycle": "/home/user/mcs/checkpoints/candidate_farms/family_sweep_20260319_tuned_6h/umc62_active_may2025/02_lifecycle.log",
+        "portfolio_baselines": "/home/user/mcs/checkpoints/candidate_farms/family_sweep_20260319_tuned_6h/umc62_active_may2025/04_portfolio_baselines.log",
+        "portfolio_ledger": "/home/user/mcs/checkpoints/candidate_farms/family_sweep_20260319_tuned_6h/umc62_active_may2025/03_portfolio_ledger.log",
+        "rolling": "/home/user/mcs/checkpoints/candidate_farms/family_sweep_20260319_tuned_6h/umc62_active_may2025/01_rolling.log"
+      },
+      "max_drawdown_pct": 1.329156577937428,
+      "mode": "generate",
+      "num_cycles": 2,
+      "output_dir": "/home/user/mcs/checkpoints/candidate_farms/family_sweep_20260319_tuned_6h/umc62_active_may2025",
+      "portfolio_baselines_report_name": "family_sweep_20260319_tuned_6h__umc62_active_may2025__baselines",
+      "portfolio_ledger_report_name": "family_sweep_20260319_tuned_6h__umc62_active_may2025__portfolio",
+      "positive_cycle_count": 2,
+      "progress_stage": "completed",
+      "rolling_report_name": "family_sweep_20260319_tuned_6h__umc62_active_may2025__rolling",
+      "scenario_name": "umc62_active_may2025",
+      "selected_candidate_count": 3,
+      "selection_days": 7,
+      "selection_start_utc": "2025-05-01 00:00:00",
+      "status": "completed",
+      "total_pnl": 232.8793896919433,
+      "total_return_pct": 2.3287938969194233,
+      "updated_at_utc": "2026-03-19T14:23:25Z"
+    },
+    {
+      "beaten_baselines": [
+        "flat"
+      ],
+      "candidate_pool_count": 8,
+      "error_message": null,
+      "evaluated_cycle_count": 2,
+      "failed_required_baselines": [
+        "equal_weight_selected_subset"
+      ],
+      "final_status_counts": {
+        "approved": 2,
+        "research": 6
+      },
+      "gate_pass": false,
+      "lifecycle_report_name": "family_sweep_20260319_tuned_6h__lin62_active_may2025__lifecycle",
+      "log_paths": {
+        "lifecycle": "/home/user/mcs/checkpoints/candidate_farms/family_sweep_20260319_tuned_6h/lin62_active_may2025/02_lifecycle.log",
+        "portfolio_baselines": "/home/user/mcs/checkpoints/candidate_farms/family_sweep_20260319_tuned_6h/lin62_active_may2025/04_portfolio_baselines.log",
+        "portfolio_ledger": "/home/user/mcs/checkpoints/candidate_farms/family_sweep_20260319_tuned_6h/lin62_active_may2025/03_portfolio_ledger.log",
+        "rolling": "/home/user/mcs/checkpoints/candidate_farms/family_sweep_20260319_tuned_6h/lin62_active_may2025/01_rolling.log"
+      },
+      "max_drawdown_pct": 1.6335462544607586,
+      "mode": "generate",
+      "num_cycles": 2,
+      "output_dir": "/home/user/mcs/checkpoints/candidate_farms/family_sweep_20260319_tuned_6h/lin62_active_may2025",
+      "portfolio_baselines_report_name": "family_sweep_20260319_tuned_6h__lin62_active_may2025__baselines",
+      "portfolio_ledger_report_name": "family_sweep_20260319_tuned_6h__lin62_active_may2025__portfolio",
+      "positive_cycle_count": 2,
+      "progress_stage": "completed",
+      "rolling_report_name": "family_sweep_20260319_tuned_6h__lin62_active_may2025__rolling",
+      "scenario_name": "lin62_active_may2025",
+      "selected_candidate_count": 2,
+      "selection_days": 7,
+      "selection_start_utc": "2025-05-01 00:00:00",
+      "status": "completed",
+      "total_pnl": 290.35375753167136,
+      "total_return_pct": 2.903537575316717,
+      "updated_at_utc": "2026-03-19T13:06:29Z"
+    },
+    {
+      "beaten_baselines": [
+        "long",
+        "equal_weight_selected_subset",
+        "single_best_candidate"
+      ],
+      "candidate_pool_count": 8,
+      "error_message": null,
+      "evaluated_cycle_count": 2,
+      "failed_required_baselines": [
+        "flat"
+      ],
+      "final_status_counts": {
+        "research": 8
+      },
+      "gate_pass": false,
+      "lifecycle_report_name": "family_sweep_20260319_tuned_6h__lin62_active_jan2024__lifecycle",
+      "log_paths": {
+        "lifecycle": "/home/user/mcs/checkpoints/candidate_farms/family_sweep_20260319_tuned_6h/lin62_active_jan2024/02_lifecycle.log",
+        "portfolio_baselines": "/home/user/mcs/checkpoints/candidate_farms/family_sweep_20260319_tuned_6h/lin62_active_jan2024/04_portfolio_baselines.log",
+        "portfolio_ledger": "/home/user/mcs/checkpoints/candidate_farms/family_sweep_20260319_tuned_6h/lin62_active_jan2024/03_portfolio_ledger.log",
+        "rolling": "/home/user/mcs/checkpoints/candidate_farms/family_sweep_20260319_tuned_6h/lin62_active_jan2024/01_rolling.log"
+      },
+      "max_drawdown_pct": 1.7155018609416766,
+      "mode": "generate",
+      "num_cycles": 2,
+      "output_dir": "/home/user/mcs/checkpoints/candidate_farms/family_sweep_20260319_tuned_6h/lin62_active_jan2024",
+      "portfolio_baselines_report_name": "family_sweep_20260319_tuned_6h__lin62_active_jan2024__baselines",
+      "portfolio_ledger_report_name": "family_sweep_20260319_tuned_6h__lin62_active_jan2024__portfolio",
+      "positive_cycle_count": 0,
+      "progress_stage": "completed",
+      "rolling_report_name": "family_sweep_20260319_tuned_6h__lin62_active_jan2024__rolling",
+      "scenario_name": "lin62_active_jan2024",
+      "selected_candidate_count": 2,
+      "selection_days": 7,
+      "selection_start_utc": "2024-01-01 00:00:00",
+      "status": "completed",
+      "total_pnl": -57.22876107111733,
+      "total_return_pct": -0.5722876107111752,
+      "updated_at_utc": "2026-03-19T12:40:07Z"
+    },
+    {
+      "beaten_baselines": [
+        "long",
+        "single_best_candidate",
+        "naive_top_oos_rotation"
+      ],
+      "candidate_pool_count": 8,
+      "error_message": null,
+      "evaluated_cycle_count": 2,
+      "failed_required_baselines": [
+        "flat",
+        "equal_weight_selected_subset"
+      ],
+      "final_status_counts": {
+        "approved": 2,
+        "research": 6
+      },
+      "gate_pass": false,
+      "lifecycle_report_name": "family_sweep_20260319_tuned_6h__lin57_active_jun2024__lifecycle",
+      "log_paths": {
+        "lifecycle": "/home/user/mcs/checkpoints/candidate_farms/family_sweep_20260319_tuned_6h/lin57_active_jun2024/02_lifecycle.log",
+        "portfolio_baselines": "/home/user/mcs/checkpoints/candidate_farms/family_sweep_20260319_tuned_6h/lin57_active_jun2024/04_portfolio_baselines.log",
+        "portfolio_ledger": "/home/user/mcs/checkpoints/candidate_farms/family_sweep_20260319_tuned_6h/lin57_active_jun2024/03_portfolio_ledger.log",
+        "rolling": "/home/user/mcs/checkpoints/candidate_farms/family_sweep_20260319_tuned_6h/lin57_active_jun2024/01_rolling.log"
+      },
+      "max_drawdown_pct": 2.041409769102572,
+      "mode": "generate",
+      "num_cycles": 2,
+      "output_dir": "/home/user/mcs/checkpoints/candidate_farms/family_sweep_20260319_tuned_6h/lin57_active_jun2024",
+      "portfolio_baselines_report_name": "family_sweep_20260319_tuned_6h__lin57_active_jun2024__baselines",
+      "portfolio_ledger_report_name": "family_sweep_20260319_tuned_6h__lin57_active_jun2024__portfolio",
+      "positive_cycle_count": 1,
+      "progress_stage": "completed",
+      "rolling_report_name": "family_sweep_20260319_tuned_6h__lin57_active_jun2024__rolling",
+      "scenario_name": "lin57_active_jun2024",
+      "selected_candidate_count": 4,
+      "selection_days": 7,
+      "selection_start_utc": "2024-06-01 00:00:00",
+      "status": "completed",
+      "total_pnl": -82.94046168438581,
+      "total_return_pct": -0.829404616843854,
+      "updated_at_utc": "2026-03-19T12:14:31Z"
+    },
+    {
+      "beaten_baselines": [
+        "long",
+        "equal_weight_selected_subset",
+        "naive_top_oos_rotation"
+      ],
+      "candidate_pool_count": 8,
+      "error_message": null,
+      "evaluated_cycle_count": 2,
+      "failed_required_baselines": [
+        "flat"
+      ],
+      "final_status_counts": {
+        "approved": 1,
+        "research": 7
+      },
+      "gate_pass": false,
+      "lifecycle_report_name": "family_sweep_20260319_tuned_6h__lin62_active_jun2024__lifecycle",
+      "log_paths": {
+        "lifecycle": "/home/user/mcs/checkpoints/candidate_farms/family_sweep_20260319_tuned_6h/lin62_active_jun2024/02_lifecycle.log",
+        "portfolio_baselines": "/home/user/mcs/checkpoints/candidate_farms/family_sweep_20260319_tuned_6h/lin62_active_jun2024/04_portfolio_baselines.log",
+        "portfolio_ledger": "/home/user/mcs/checkpoints/candidate_farms/family_sweep_20260319_tuned_6h/lin62_active_jun2024/03_portfolio_ledger.log",
+        "rolling": "/home/user/mcs/checkpoints/candidate_farms/family_sweep_20260319_tuned_6h/lin62_active_jun2024/01_rolling.log"
+      },
+      "max_drawdown_pct": 2.821356150124693,
+      "mode": "generate",
+      "num_cycles": 2,
+      "output_dir": "/home/user/mcs/checkpoints/candidate_farms/family_sweep_20260319_tuned_6h/lin62_active_jun2024",
+      "portfolio_baselines_report_name": "family_sweep_20260319_tuned_6h__lin62_active_jun2024__baselines",
+      "portfolio_ledger_report_name": "family_sweep_20260319_tuned_6h__lin62_active_jun2024__portfolio",
+      "positive_cycle_count": 1,
+      "progress_stage": "completed",
+      "rolling_report_name": "family_sweep_20260319_tuned_6h__lin62_active_jun2024__rolling",
+      "scenario_name": "lin62_active_jun2024",
+      "selected_candidate_count": 3,
+      "selection_days": 7,
+      "selection_start_utc": "2024-06-01 00:00:00",
+      "status": "completed",
+      "total_pnl": -141.41190950390774,
+      "total_return_pct": -1.4141190950390792,
+      "updated_at_utc": "2026-03-19T12:53:11Z"
+    },
+    {
+      "beaten_baselines": [
+        "single_best_candidate",
+        "naive_top_oos_rotation"
+      ],
+      "candidate_pool_count": 8,
+      "error_message": null,
+      "evaluated_cycle_count": 2,
+      "failed_required_baselines": [
+        "flat",
+        "equal_weight_selected_subset"
+      ],
+      "final_status_counts": {
+        "research": 8
+      },
+      "gate_pass": false,
+      "lifecycle_report_name": "family_sweep_20260319_tuned_6h__lin57_active_jan2024__lifecycle",
+      "log_paths": {
+        "lifecycle": "/home/user/mcs/checkpoints/candidate_farms/family_sweep_20260319_tuned_6h/lin57_active_jan2024/02_lifecycle.log",
+        "portfolio_baselines": "/home/user/mcs/checkpoints/candidate_farms/family_sweep_20260319_tuned_6h/lin57_active_jan2024/04_portfolio_baselines.log",
+        "portfolio_ledger": "/home/user/mcs/checkpoints/candidate_farms/family_sweep_20260319_tuned_6h/lin57_active_jan2024/03_portfolio_ledger.log",
+        "rolling": "/home/user/mcs/checkpoints/candidate_farms/family_sweep_20260319_tuned_6h/lin57_active_jan2024/01_rolling.log"
+      },
+      "max_drawdown_pct": 5.194315888967325,
+      "mode": "generate",
+      "num_cycles": 2,
+      "output_dir": "/home/user/mcs/checkpoints/candidate_farms/family_sweep_20260319_tuned_6h/lin57_active_jan2024",
+      "portfolio_baselines_report_name": "family_sweep_20260319_tuned_6h__lin57_active_jan2024__baselines",
+      "portfolio_ledger_report_name": "family_sweep_20260319_tuned_6h__lin57_active_jan2024__portfolio",
+      "positive_cycle_count": 0,
+      "progress_stage": "completed",
+      "rolling_report_name": "family_sweep_20260319_tuned_6h__lin57_active_jan2024__rolling",
+      "scenario_name": "lin57_active_jan2024",
+      "selected_candidate_count": 2,
+      "selection_days": 7,
+      "selection_start_utc": "2024-01-01 00:00:00",
+      "status": "completed",
+      "total_pnl": -197.20140838009502,
+      "total_return_pct": -1.9720140838009548,
+      "updated_at_utc": "2026-03-19T12:01:40Z"
+    },
+    {
+      "beaten_baselines": [
+        "single_best_candidate"
+      ],
+      "candidate_pool_count": 8,
+      "error_message": null,
+      "evaluated_cycle_count": 2,
+      "failed_required_baselines": [
+        "flat",
+        "equal_weight_selected_subset"
+      ],
+      "final_status_counts": {
+        "research": 8
+      },
+      "gate_pass": false,
+      "lifecycle_report_name": "family_sweep_20260319_tuned_6h__umc62_active_jun2024__lifecycle",
+      "log_paths": {
+        "lifecycle": "/home/user/mcs/checkpoints/candidate_farms/family_sweep_20260319_tuned_6h/umc62_active_jun2024/02_lifecycle.log",
+        "portfolio_baselines": "/home/user/mcs/checkpoints/candidate_farms/family_sweep_20260319_tuned_6h/umc62_active_jun2024/04_portfolio_baselines.log",
+        "portfolio_ledger": "/home/user/mcs/checkpoints/candidate_farms/family_sweep_20260319_tuned_6h/umc62_active_jun2024/03_portfolio_ledger.log",
+        "rolling": "/home/user/mcs/checkpoints/candidate_farms/family_sweep_20260319_tuned_6h/umc62_active_jun2024/01_rolling.log"
+      },
+      "max_drawdown_pct": 4.8142124946692695,
+      "mode": "generate",
+      "num_cycles": 2,
+      "output_dir": "/home/user/mcs/checkpoints/candidate_farms/family_sweep_20260319_tuned_6h/umc62_active_jun2024",
+      "portfolio_baselines_report_name": "family_sweep_20260319_tuned_6h__umc62_active_jun2024__baselines",
+      "portfolio_ledger_report_name": "family_sweep_20260319_tuned_6h__umc62_active_jun2024__portfolio",
+      "positive_cycle_count": 0,
+      "progress_stage": "completed",
+      "rolling_report_name": "family_sweep_20260319_tuned_6h__umc62_active_jun2024__rolling",
+      "scenario_name": "umc62_active_jun2024",
+      "selected_candidate_count": 2,
+      "selection_days": 7,
+      "selection_start_utc": "2024-06-01 00:00:00",
+      "status": "completed",
+      "total_pnl": -391.07950347850783,
+      "total_return_pct": -3.910795034785075,
+      "updated_at_utc": "2026-03-19T13:59:12Z"
+    },
+    {
+      "beaten_baselines": [
+        "single_best_candidate"
+      ],
+      "candidate_pool_count": 8,
+      "error_message": null,
+      "evaluated_cycle_count": 2,
+      "failed_required_baselines": [
+        "flat",
+        "equal_weight_selected_subset"
+      ],
+      "final_status_counts": {
+        "research": 8
+      },
+      "gate_pass": false,
+      "lifecycle_report_name": "family_sweep_20260319_tuned_6h__umc62_active_jan2024__lifecycle",
+      "log_paths": {
+        "lifecycle": "/home/user/mcs/checkpoints/candidate_farms/family_sweep_20260319_tuned_6h/umc62_active_jan2024/02_lifecycle.log",
+        "portfolio_baselines": "/home/user/mcs/checkpoints/candidate_farms/family_sweep_20260319_tuned_6h/umc62_active_jan2024/04_portfolio_baselines.log",
+        "portfolio_ledger": "/home/user/mcs/checkpoints/candidate_farms/family_sweep_20260319_tuned_6h/umc62_active_jan2024/03_portfolio_ledger.log",
+        "rolling": "/home/user/mcs/checkpoints/candidate_farms/family_sweep_20260319_tuned_6h/umc62_active_jan2024/01_rolling.log"
+      },
+      "max_drawdown_pct": 9.588602407097238,
+      "mode": "generate",
+      "num_cycles": 2,
+      "output_dir": "/home/user/mcs/checkpoints/candidate_farms/family_sweep_20260319_tuned_6h/umc62_active_jan2024",
+      "portfolio_baselines_report_name": "family_sweep_20260319_tuned_6h__umc62_active_jan2024__baselines",
+      "portfolio_ledger_report_name": "family_sweep_20260319_tuned_6h__umc62_active_jan2024__portfolio",
+      "positive_cycle_count": 0,
+      "progress_stage": "completed",
+      "rolling_report_name": "family_sweep_20260319_tuned_6h__umc62_active_jan2024__rolling",
+      "scenario_name": "umc62_active_jan2024",
+      "selected_candidate_count": 2,
+      "selection_days": 7,
+      "selection_start_utc": "2024-01-01 00:00:00",
+      "status": "completed",
+      "total_pnl": -616.9581644649716,
+      "total_return_pct": -6.169581644649713,
+      "updated_at_utc": "2026-03-19T13:33:30Z"
+    }
+  ],
+  "schema_version": "1",
+  "source_farm_report": "family_sweep_20260319_tuned_6h",
+  "summary": {
+    "best_gate_scenario_by_pnl": "lin57_active_may2025",
+    "best_scenario_by_pnl": "lin57_active_may2025",
+    "completed_or_reused_scenarios": 9,
+    "completed_scenarios": 9,
+    "failed_scenarios": 0,
+    "gate_pass_count": 2,
+    "gate_pass_rate": 0.2222222222222222,
+    "lowest_drawdown_scenario": "umc62_active_may2025",
+    "planned_scenarios": 0,
+    "ranked_scenarios": [
+      "lin57_active_may2025",
+      "umc62_active_may2025",
+      "lin62_active_may2025",
+      "lin62_active_jan2024",
+      "lin57_active_jun2024",
+      "lin62_active_jun2024",
+      "lin57_active_jan2024",
+      "umc62_active_jun2024",
+      "umc62_active_jan2024"
+    ],
+    "running_scenarios": 0,
+    "scenario_count": 9,
+    "status_counts": {
+      "completed": 9
+    },
+    "total_unique_candidate_pool_ids": 72,
+    "total_unique_selected_candidate_ids": 23
+  }
+}

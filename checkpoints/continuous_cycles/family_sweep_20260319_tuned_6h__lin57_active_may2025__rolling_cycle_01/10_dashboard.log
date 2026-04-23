@@ -1,0 +1,4 @@
+Saved dashboard feed to /home/user/mcs/candidate_registry/dashboard/family_sweep_20260319_tuned_6h__lin57_active_may2025__rolling_cycle_01_dashboard.json
+summary: candidates=206 visible=206 selected=1 exceptions=3 clusters=2
+allocator chosen=risk_0.50
+combination best=subset_2_cand_c3cedbf426e6+cand_c5c0d59bb709_risk_0.50

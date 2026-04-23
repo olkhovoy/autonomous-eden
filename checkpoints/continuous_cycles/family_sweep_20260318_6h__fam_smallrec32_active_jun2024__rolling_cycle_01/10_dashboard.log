@@ -1,0 +1,4 @@
+Saved dashboard feed to /home/user/mcs/candidate_registry/dashboard/family_sweep_20260318_6h__fam_smallrec32_active_jun2024__rolling_cycle_01_dashboard.json
+summary: candidates=150 visible=150 selected=1 exceptions=3 clusters=4
+allocator chosen=risk_0.25
+combination best=subset_2_cand_055ffcc75fe8+cand_31dfede5a4f9_risk_0.25

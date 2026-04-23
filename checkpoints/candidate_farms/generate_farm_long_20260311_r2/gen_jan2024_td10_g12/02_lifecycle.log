@@ -1,0 +1,3 @@
+Saved lifecycle report to /home/user/mcs/candidate_registry/lifecycle/generate_farm_long_20260311_r2__gen_jan2024_td10_g12__lifecycle.json
+rolling=generate_farm_long_20260311_r2__gen_jan2024_td10_g12__rolling candidates=8 applied=False
+final_status_counts {'research': 8}

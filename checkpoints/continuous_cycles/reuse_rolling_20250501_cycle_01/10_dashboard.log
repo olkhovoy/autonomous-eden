@@ -1,0 +1,4 @@
+Saved dashboard feed to /home/user/mcs/candidate_registry/dashboard/reuse_rolling_20250501_cycle_01_dashboard.json
+summary: candidates=6 visible=6 selected=2 exceptions=4 clusters=3
+allocator chosen=risk_0.25
+combination best=subset_2_cand_d8959d02a5e6+cand_eb598e21812d_risk_0.75

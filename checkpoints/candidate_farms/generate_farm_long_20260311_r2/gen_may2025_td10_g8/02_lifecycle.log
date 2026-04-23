@@ -1,0 +1,4 @@
+Saved lifecycle report to /home/user/mcs/candidate_registry/lifecycle/generate_farm_long_20260311_r2__gen_may2025_td10_g8__lifecycle.json
+rolling=generate_farm_long_20260311_r2__gen_may2025_td10_g8__rolling candidates=8 applied=False
+final_status_counts {'research': 7, 'approved': 1}
+  wf_02_20250421_run02 research->approved selected=1 success=1 fail=0 idle=1 transitions=1

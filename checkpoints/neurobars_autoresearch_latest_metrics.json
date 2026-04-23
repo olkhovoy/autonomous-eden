@@ -1,0 +1,7 @@
+{
+  "val_score": 0.510630450495853,
+  "val_weighted_mse": 0.46248797234147787,
+  "val_close_delta_mse": 0.044771284433750225,
+  "val_direction_acc": 0.48486328125,
+  "val_sequences_evaluated": 131072
+}

@@ -1,0 +1,4 @@
+Saved cluster report to /home/user/mcs/candidate_registry/clusters/reuse_rolling_20250501_cycle_01_clusters.json
+cluster_000 | size=4 members=wf_02_20240601_run01,wf_03_20250501_run02,wf_01_20240101_run01,wf_03_20250501_run01 sim=0.556 downside=0.653 sim_loss=0.323
+cluster_002 | size=1 members=wf_01_20240101_run02 sim=0.000 downside=0.000 sim_loss=0.000
+cluster_001 | size=1 members=wf_02_20240601_run02 sim=0.000 downside=0.000 sim_loss=0.000

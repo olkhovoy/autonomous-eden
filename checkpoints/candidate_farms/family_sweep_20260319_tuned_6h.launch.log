@@ -1,0 +1,12 @@
+[completed] lin57_active_jan2024 gate=False pnl=-197.20
+[completed] lin57_active_jun2024 gate=False pnl=-82.94
+[completed] lin57_active_may2025 gate=True pnl=+409.39
+[completed] lin62_active_jan2024 gate=False pnl=-57.23
+[completed] lin62_active_jun2024 gate=False pnl=-141.41
+[completed] lin62_active_may2025 gate=False pnl=+290.35
+[completed] umc62_active_jan2024 gate=False pnl=-616.96
+[completed] umc62_active_jun2024 gate=False pnl=-391.08
+[completed] umc62_active_may2025 gate=True pnl=+232.88
+Saved candidate farm report to /home/user/mcs/candidate_registry/farms/family_sweep_20260319_tuned_6h.json
+scenarios=9 completed=9 gate_pass=2 unique_pool=72
+best_by_pnl=lin57_active_may2025

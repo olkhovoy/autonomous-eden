@@ -1,0 +1,11 @@
+Saved allocator workbench to /home/user/mcs/candidate_registry/allocations/reuse_cycle_20250508_allocator.json
+Chosen scenario: risk_0.25
+risk_0.25 | objective=-0.6817 risk=0.25 reserve=0.75 orig_pnl=-161.92 p05_pnl=-292.18 p95_dd=3.14
+  wf_03_20250501_run02 capital=0.154 share=0.615 raw=1.983
+  wf_02_20240601_run02 capital=0.096 share=0.385 raw=1.241
+risk_0.50 | objective=-0.6955 risk=0.50 reserve=0.50 orig_pnl=-321.89 p05_pnl=-576.56 p95_dd=6.19
+  wf_03_20250501_run02 capital=0.308 share=0.615 raw=1.983
+  wf_02_20240601_run02 capital=0.192 share=0.385 raw=1.241
+risk_0.75 | objective=-0.7709 risk=0.70 reserve=0.30 orig_pnl=-631.31 p05_pnl=-969.84 p95_dd=10.05
+  wf_03_20250501_run02 capital=0.350 share=0.500 raw=1.983
+  wf_02_20240601_run02 capital=0.350 share=0.500 raw=1.241

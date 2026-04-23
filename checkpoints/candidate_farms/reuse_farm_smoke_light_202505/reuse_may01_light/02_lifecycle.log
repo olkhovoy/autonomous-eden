@@ -1,0 +1,5 @@
+Saved lifecycle report to /home/user/mcs/candidate_registry/lifecycle/reuse_farm_smoke_light_202505__reuse_may01_light__lifecycle.json
+rolling=reuse_farm_smoke_light_202505__reuse_may01_light__rolling candidates=6 applied=False
+final_status_counts {'research': 4, 'approved': 2}
+  wf_03_20250501_run02 research->approved selected=1 success=1 fail=0 idle=0 transitions=1
+  wf_01_20240101_run01 research->approved selected=1 success=1 fail=0 idle=0 transitions=1

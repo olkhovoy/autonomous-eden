@@ -1,0 +1,4 @@
+Saved tradeforward plan to /home/user/mcs/candidate_registry/tradeforward/family_sweep_20260318_6h__fam_umc32_hunter_jan2024__rolling_cycle_01_tradeforward.json
+combination:subset_2_cand_9f42fc284d5c+cand_ca82186545ae_risk_0.50 risk=0.50 reserve=0.50 forward=2024-01-08 00:00:00 -> 2024-01-15 00:00:00
+  wf_02_20231222_run01 capital=0.150 share=0.300 cluster=cluster_001
+  wf_01_20231215_run02 capital=0.350 share=0.700 cluster=cluster_000

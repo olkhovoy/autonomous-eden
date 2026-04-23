@@ -1,0 +1,87 @@
+{
+  "assignments": [
+    {
+      "candidate_id": "cand_55ddf731610e",
+      "cluster_id": "cluster_000",
+      "display_name": "wf_01_20231215_run01"
+    },
+    {
+      "candidate_id": "cand_6464bd2e7933",
+      "cluster_id": "cluster_001",
+      "display_name": "wf_01_20231215_run02"
+    },
+    {
+      "candidate_id": "cand_79898a9d5c4b",
+      "cluster_id": "cluster_002",
+      "display_name": "wf_02_20231222_run01"
+    },
+    {
+      "candidate_id": "cand_706751d0b7e6",
+      "cluster_id": "cluster_002",
+      "display_name": "wf_02_20231222_run02"
+    }
+  ],
+  "candidate_ids": [
+    "cand_55ddf731610e",
+    "cand_6464bd2e7933",
+    "cand_706751d0b7e6",
+    "cand_79898a9d5c4b"
+  ],
+  "clusters": [
+    {
+      "candidate_ids": [
+        "cand_706751d0b7e6",
+        "cand_79898a9d5c4b"
+      ],
+      "cluster_id": "cluster_002",
+      "cluster_size": 2,
+      "display_names": [
+        "wf_02_20231222_run02",
+        "wf_02_20231222_run01"
+      ],
+      "mean_downside_corr": 0.8088269220859865,
+      "mean_return_corr": 0.789986429432502,
+      "mean_similarity_score": 0.6744343650678549,
+      "mean_simultaneous_loss_rate": 0.3794642857142857
+    },
+    {
+      "candidate_ids": [
+        "cand_6464bd2e7933"
+      ],
+      "cluster_id": "cluster_001",
+      "cluster_size": 1,
+      "display_names": [
+        "wf_01_20231215_run02"
+      ],
+      "mean_downside_corr": 0.0,
+      "mean_return_corr": 0.0,
+      "mean_similarity_score": 0.0,
+      "mean_simultaneous_loss_rate": 0.0
+    },
+    {
+      "candidate_ids": [
+        "cand_55ddf731610e"
+      ],
+      "cluster_id": "cluster_000",
+      "cluster_size": 1,
+      "display_names": [
+        "wf_01_20231215_run01"
+      ],
+      "mean_downside_corr": 0.0,
+      "mean_return_corr": 0.0,
+      "mean_similarity_score": 0.0,
+      "mean_simultaneous_loss_rate": 0.0
+    }
+  ],
+  "created_at_utc": "2026-03-19T11:54:05Z",
+  "data_path": "/home/user/mcs/data/BTCUSDT_parquet_neurobars_autoresearch.npz",
+  "end_utc": "2024-01-08 00:00:00",
+  "max_steps": 10080,
+  "name": "family_sweep_20260319_tuned_6h__lin57_active_jan2024__rolling_cycle_01_clusters",
+  "notes": null,
+  "schema_version": "1",
+  "similarity_threshold": 0.4,
+  "source_diversification_report": "family_sweep_20260319_tuned_6h__lin57_active_jan2024__rolling_cycle_01_div",
+  "start_step": 1982117,
+  "start_utc": "2024-01-01 00:00:00"
+}

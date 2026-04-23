@@ -1,0 +1,8 @@
+Saved allocator workbench to /home/user/mcs/candidate_registry/allocations/family_sweep_20260318_6h__fam_umc32_hunter_jan2024__rolling_cycle_02_allocator.json
+Chosen scenario: risk_0.25
+risk_0.25 | objective=-0.7637 risk=0.25 reserve=0.75 orig_pnl=-201.78 p05_pnl=-607.42 p95_dd=6.99
+  wf_02_20231229_run01 capital=0.250 share=1.000 raw=0.971
+risk_0.50 | objective=-0.7686 risk=0.35 reserve=0.65 orig_pnl=-283.46 p05_pnl=-841.82 p95_dd=9.67
+  wf_02_20231229_run01 capital=0.350 share=1.000 raw=0.971
+risk_0.75 | objective=-0.7686 risk=0.35 reserve=0.65 orig_pnl=-283.46 p05_pnl=-841.82 p95_dd=9.67
+  wf_02_20231229_run01 capital=0.350 share=1.000 raw=0.971

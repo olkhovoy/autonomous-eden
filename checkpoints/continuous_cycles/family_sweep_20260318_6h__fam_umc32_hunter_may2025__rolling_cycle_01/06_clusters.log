@@ -1,0 +1,2 @@
+Saved cluster report to /home/user/mcs/candidate_registry/clusters/family_sweep_20260318_6h__fam_umc32_hunter_may2025__rolling_cycle_01_clusters.json
+cluster_000 | size=4 members=wf_01_20250414_run01,wf_01_20250414_run02,wf_02_20250421_run02,wf_02_20250421_run01 sim=0.626 downside=0.725 sim_loss=0.382

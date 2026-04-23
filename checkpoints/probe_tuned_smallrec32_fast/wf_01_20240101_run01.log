@@ -1,0 +1,40 @@
+Importing PyTorch...
+Imported torch successfully.
+Importing Rust Module...
+Imported rust module successfully.
+Script started.
+Initializing SemanticHypercube with neuro_grammar.cfg...
+Loading SemanticHypercube...
+SemanticHypercube loaded.
+
+================================================
+      THE MONOLITHIC RUN INITIATED              
+================================================
+Device:          cuda
+Architecture:    small_recurrent
+Input Mode:      Neurobars (Feature Dim 32)
+Data File:       /home/user/mcs/data/BTCUSDT_parquet_neurobars_autoresearch.npz
+Dimensions:      2211 (Weights & Biases)
+Engine Config:   {'family': 'small_recurrent', 'hidden_dim': 32, 'alpha': 0.5, 'action_head_mode': 'confidence_gate', 'action_threshold': 0.58}
+Generations:     3
+Population Size: 5
+Evaluation:      11520-step deterministic loop from start_step=1982117
+Econ Model:      10000 USD | binance | taker | fraction_of_equity
+Positioning:     notional_fraction=1.00 | leverage=1.00 | fixed_qty=1.0000
+Slippage:        0.00000
+Fitness:         profit_active
+Trade Floor:     min_trades=6 | activity_target=16
+Trade Band:      low=8 | high=64 | floor=0.25
+Selection:       min_trades enforced across all generations
+================================================
+
+Filtering Generation 0 for minimum viability...
+Starting hypercube.evolve_with_fitness...
+  Eval 1/5                      Eval 2/5                      Eval 3/5                      Eval 4/5                      Eval 5/5                    Gen 000 | Fit: -2812.43 (Best: -1092.94) | PnL: -1970.4 | DD: 20.4% | Trades:  193 | Win: 29.8% | Time: 32.3s
+  Eval 6/5                      Eval 7/5                      Eval 8/5                      Eval 9/5                      Eval 10/5                    Gen 001 | Fit: -3514.88 (Best: -384.48) | PnL: -1928.1 | DD: 19.4% | Trades:  226 | Win: 32.1% | Time: 31.2s
+  Eval 11/5                      Eval 12/5                      Eval 13/5                      Eval 14/5                      Eval 15/5                    Gen 002 | Fit: -4910.50 (Best: -2387.59) | PnL: -2875.2 | DD: 29.2% | Trades:  330 | Win: 34.7% | Time: 24.4s
+  Eval 16/5                    Evolution loop finished.
+
+--- Evolution Complete ---
+Final Fitness (Balance): -384.4820
+Saved optimized genome to /home/user/mcs/checkpoints/probe_tuned_smallrec32_fast/wf_01_20240101_run01.npy

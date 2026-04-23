@@ -1,0 +1,8 @@
+Saved allocator workbench to /home/user/mcs/candidate_registry/allocations/family_sweep_20260319_tuned_6h__lin57_active_jun2024__rolling_cycle_01_allocator.json
+Chosen scenario: risk_0.50
+risk_0.25 | objective=-0.2719 risk=0.25 reserve=0.75 orig_pnl=+37.08 p05_pnl=-131.85 p95_dd=2.42
+  wf_01_20240515_run02 capital=0.250 share=1.000 raw=1.766
+risk_0.50 | objective=-0.2703 risk=0.35 reserve=0.65 orig_pnl=+51.51 p05_pnl=-184.52 p95_dd=3.37
+  wf_01_20240515_run02 capital=0.350 share=1.000 raw=1.766
+risk_0.75 | objective=-0.2703 risk=0.35 reserve=0.65 orig_pnl=+51.51 p05_pnl=-184.52 p95_dd=3.37
+  wf_01_20240515_run02 capital=0.350 share=1.000 raw=1.766

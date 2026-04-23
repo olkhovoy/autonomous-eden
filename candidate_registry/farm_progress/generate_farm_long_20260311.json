@@ -1,0 +1,152 @@
+{
+  "created_at_utc": "2026-03-10T21:03:54Z",
+  "events": [
+    {
+      "created_at_utc": "2026-03-10T21:03:54Z",
+      "event_kind": "queued",
+      "gate_pass": null,
+      "note": null,
+      "progress_stage": "queued",
+      "scenario_name": "gen_jan2024_td7_g8",
+      "sequence": 1,
+      "status": "planned",
+      "total_pnl": null
+    },
+    {
+      "created_at_utc": "2026-03-10T21:03:54Z",
+      "event_kind": "queued",
+      "gate_pass": null,
+      "note": null,
+      "progress_stage": "queued",
+      "scenario_name": "gen_jan2024_td7_g12",
+      "sequence": 2,
+      "status": "planned",
+      "total_pnl": null
+    },
+    {
+      "created_at_utc": "2026-03-10T21:03:54Z",
+      "event_kind": "queued",
+      "gate_pass": null,
+      "note": null,
+      "progress_stage": "queued",
+      "scenario_name": "gen_jan2024_td10_g8",
+      "sequence": 3,
+      "status": "planned",
+      "total_pnl": null
+    },
+    {
+      "created_at_utc": "2026-03-10T21:03:54Z",
+      "event_kind": "queued",
+      "gate_pass": null,
+      "note": null,
+      "progress_stage": "queued",
+      "scenario_name": "gen_jan2024_td10_g12",
+      "sequence": 4,
+      "status": "planned",
+      "total_pnl": null
+    },
+    {
+      "created_at_utc": "2026-03-10T21:03:54Z",
+      "event_kind": "queued",
+      "gate_pass": null,
+      "note": null,
+      "progress_stage": "queued",
+      "scenario_name": "gen_jun2024_td7_g8",
+      "sequence": 5,
+      "status": "planned",
+      "total_pnl": null
+    },
+    {
+      "created_at_utc": "2026-03-10T21:03:54Z",
+      "event_kind": "queued",
+      "gate_pass": null,
+      "note": null,
+      "progress_stage": "queued",
+      "scenario_name": "gen_jun2024_td7_g12",
+      "sequence": 6,
+      "status": "planned",
+      "total_pnl": null
+    },
+    {
+      "created_at_utc": "2026-03-10T21:03:54Z",
+      "event_kind": "queued",
+      "gate_pass": null,
+      "note": null,
+      "progress_stage": "queued",
+      "scenario_name": "gen_jun2024_td10_g8",
+      "sequence": 7,
+      "status": "planned",
+      "total_pnl": null
+    },
+    {
+      "created_at_utc": "2026-03-10T21:03:54Z",
+      "event_kind": "queued",
+      "gate_pass": null,
+      "note": null,
+      "progress_stage": "queued",
+      "scenario_name": "gen_jun2024_td10_g12",
+      "sequence": 8,
+      "status": "planned",
+      "total_pnl": null
+    },
+    {
+      "created_at_utc": "2026-03-10T21:03:54Z",
+      "event_kind": "queued",
+      "gate_pass": null,
+      "note": null,
+      "progress_stage": "queued",
+      "scenario_name": "gen_may2025_td7_g8",
+      "sequence": 9,
+      "status": "planned",
+      "total_pnl": null
+    },
+    {
+      "created_at_utc": "2026-03-10T21:03:54Z",
+      "event_kind": "queued",
+      "gate_pass": null,
+      "note": null,
+      "progress_stage": "queued",
+      "scenario_name": "gen_may2025_td7_g12",
+      "sequence": 10,
+      "status": "planned",
+      "total_pnl": null
+    },
+    {
+      "created_at_utc": "2026-03-10T21:03:54Z",
+      "event_kind": "queued",
+      "gate_pass": null,
+      "note": null,
+      "progress_stage": "queued",
+      "scenario_name": "gen_may2025_td10_g8",
+      "sequence": 11,
+      "status": "planned",
+      "total_pnl": null
+    },
+    {
+      "created_at_utc": "2026-03-10T21:03:54Z",
+      "event_kind": "queued",
+      "gate_pass": null,
+      "note": null,
+      "progress_stage": "queued",
+      "scenario_name": "gen_may2025_td10_g12",
+      "sequence": 12,
+      "status": "planned",
+      "total_pnl": null
+    },
+    {
+      "created_at_utc": "2026-03-10T21:03:54Z",
+      "event_kind": "stage",
+      "gate_pass": null,
+      "note": null,
+      "progress_stage": "rolling",
+      "scenario_name": "gen_jan2024_td7_g8",
+      "sequence": 13,
+      "status": "running",
+      "total_pnl": null
+    }
+  ],
+  "farm_name": "generate_farm_long_20260311",
+  "notes": "Long generate-mode candidate farm over fused32 neurobars with realistic binance economics and live farm feed sync.",
+  "schema_version": "1",
+  "updated_at_utc": "2026-03-10T21:03:54Z"
+}

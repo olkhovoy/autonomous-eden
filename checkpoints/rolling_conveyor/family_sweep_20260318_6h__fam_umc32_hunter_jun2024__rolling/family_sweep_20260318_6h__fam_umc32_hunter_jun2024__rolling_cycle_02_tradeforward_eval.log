@@ -1,0 +1,4 @@
+Saved tradeforward evaluation to /home/user/mcs/candidate_registry/tradeforward_eval/family_sweep_20260318_6h__fam_umc32_hunter_jun2024__rolling_cycle_02_tradeforward_eval.json
+combination:subset_2_cand_5a723a95e343+cand_9af26ca5d88d_risk_0.75 actual_pnl=+99.76 expected_orig=+63.77 delta=+35.98
+  wf_01_20240522_run01 capital=0.350 pnl=+0.00 dd=0.00 trades=0
+  wf_01_20240522_run02 capital=0.350 pnl=+279.11 dd=3.51 trades=0

@@ -1,0 +1,1433 @@
+{
+  "config": {
+    "data_path": "data/BTCUSDT_parquet_neurobars_autoresearch.npz",
+    "window_start": [
+      "2024-05-22 00:00:00",
+      "2024-05-29 00:00:00"
+    ],
+    "train_days": 10,
+    "valid_days": 2,
+    "oos_days": 7,
+    "runs_per_window": 2,
+    "generations": 8,
+    "population_size": 8,
+    "initial_balance": 10000.0,
+    "exchange": "binance",
+    "maker_fee_rate": null,
+    "taker_fee_rate": null,
+    "execution_fee_mode": "taker",
+    "slippage": 0.0,
+    "position_sizing_mode": "fraction_of_equity",
+    "position_notional_fraction": 1.0,
+    "leverage": 1.0,
+    "fixed_position_qty": 1.0,
+    "engine_family": "small_recurrent",
+    "engine_hidden_dim": 32,
+    "engine_alpha": 0.5,
+    "action_head_mode": "confidence_gate",
+    "action_threshold": 0.58,
+    "fitness_profile": "profit_active",
+    "output_dir": "/home/user/mcs/checkpoints/continuous_cycles/family_sweep_20260318_6h__fam_smallrec32_active_jun2024__rolling_cycle_02"
+  },
+  "results": [
+    {
+      "window_name": "wf_01_20240522",
+      "run_index": 1,
+      "train_start_utc": "2024-05-22 00:00:00",
+      "train_end_utc": "2024-05-30 00:00:00",
+      "valid_end_utc": "2024-06-01 00:00:00",
+      "oos_end_utc": "2024-06-08 00:00:00",
+      "train_start_step": 2186597,
+      "train_max_steps": 11520,
+      "valid_start_step": 2198117,
+      "valid_max_steps": 2880,
+      "oos_start_step": 2200997,
+      "oos_max_steps": 10080,
+      "total_max_steps": 24480,
+      "checkpoint_path": "/home/user/mcs/checkpoints/continuous_cycles/family_sweep_20260318_6h__fam_smallrec32_active_jun2024__rolling_cycle_02/wf_01_20240522_run01.npy",
+      "log_path": "/home/user/mcs/checkpoints/continuous_cycles/family_sweep_20260318_6h__fam_smallrec32_active_jun2024__rolling_cycle_02/wf_01_20240522_run01.log",
+      "train_metrics": {
+        "flat": {
+          "policy": "flat",
+          "start_step": 2186597,
+          "requested_max_steps": 11520,
+          "steps_run": 11520,
+          "final_balance": 10000.0,
+          "pnl": 0.0,
+          "max_drawdown_pct": 0.0,
+          "trades": 0,
+          "wins": 0,
+          "win_rate_pct": 0.0,
+          "action_counts": {
+            "0": 11520
+          },
+          "position_counts": {
+            "0": 11521
+          }
+        },
+        "long": {
+          "policy": "long",
+          "start_step": 2186597,
+          "requested_max_steps": 11520,
+          "steps_run": 11520,
+          "final_balance": 9630.822206627281,
+          "pnl": -369.17779337271895,
+          "max_drawdown_pct": 5.778024802779398,
+          "trades": 0,
+          "wins": 0,
+          "win_rate_pct": 0.0,
+          "action_counts": {
+            "1": 11520
+          },
+          "position_counts": {
+            "0": 1,
+            "1": 11520
+          }
+        },
+        "short": {
+          "policy": "short",
+          "start_step": 2186597,
+          "requested_max_steps": 11520,
+          "steps_run": 11520,
+          "final_balance": 10359.177793372719,
+          "pnl": 359.17779337271895,
+          "max_drawdown_pct": 5.500139140666492,
+          "trades": 0,
+          "wins": 0,
+          "win_rate_pct": 0.0,
+          "action_counts": {
+            "2": 11520
+          },
+          "position_counts": {
+            "0": 1,
+            "2": 11520
+          }
+        },
+        "monolith": {
+          "policy": "monolith",
+          "start_step": 2186597,
+          "requested_max_steps": 11520,
+          "steps_run": 11520,
+          "final_balance": 9810.528937458275,
+          "pnl": -189.47106254172468,
+          "max_drawdown_pct": 6.842044393381864,
+          "trades": 49,
+          "wins": 15,
+          "win_rate_pct": 30.612244897959183,
+          "action_counts": {
+            "0": 351,
+            "2": 11169
+          },
+          "position_counts": {
+            "0": 352,
+            "2": 11169
+          }
+        }
+      },
+      "valid_metrics": {
+        "flat": {
+          "policy": "flat",
+          "start_step": 2198117,
+          "requested_max_steps": 2880,
+          "steps_run": 2880,
+          "final_balance": 10000.0,
+          "pnl": 0.0,
+          "max_drawdown_pct": 0.0,
+          "trades": 0,
+          "wins": 0,
+          "win_rate_pct": 0.0,
+          "action_counts": {
+            "0": 2880
+          },
+          "position_counts": {
+            "0": 2881
+          }
+        },
+        "long": {
+          "policy": "long",
+          "start_step": 2198117,
+          "requested_max_steps": 2880,
+          "steps_run": 2880,
+          "final_balance": 9980.564943440662,
+          "pnl": -19.43505655933768,
+          "max_drawdown_pct": 4.065440314677791,
+          "trades": 0,
+          "wins": 0,
+          "win_rate_pct": 0.0,
+          "action_counts": {
+            "1": 2880
+          },
+          "position_counts": {
+            "0": 1,
+            "1": 2880
+          }
+        },
+        "short": {
+          "policy": "short",
+          "start_step": 2198117,
+          "requested_max_steps": 2880,
+          "steps_run": 2880,
+          "final_balance": 10009.435056559338,
+          "pnl": 9.435056559337681,
+          "max_drawdown_pct": 3.5235177263740742,
+          "trades": 0,
+          "wins": 0,
+          "win_rate_pct": 0.0,
+          "action_counts": {
+            "2": 2880
+          },
+          "position_counts": {
+            "0": 1,
+            "2": 2880
+          }
+        },
+        "monolith": {
+          "policy": "monolith",
+          "start_step": 2198117,
+          "requested_max_steps": 2880,
+          "steps_run": 2880,
+          "final_balance": 9934.997996747335,
+          "pnl": -65.00200325266451,
+          "max_drawdown_pct": 3.651876015243241,
+          "trades": 14,
+          "wins": 5,
+          "win_rate_pct": 35.714285714285715,
+          "action_counts": {
+            "0": 191,
+            "2": 2689
+          },
+          "position_counts": {
+            "0": 192,
+            "2": 2689
+          }
+        }
+      },
+      "oos_metrics": {
+        "flat": {
+          "policy": "flat",
+          "start_step": 2200997,
+          "requested_max_steps": 10080,
+          "steps_run": 10080,
+          "final_balance": 10000.0,
+          "pnl": 0.0,
+          "max_drawdown_pct": 0.0,
+          "trades": 0,
+          "wins": 0,
+          "win_rate_pct": 0.0,
+          "action_counts": {
+            "0": 10080
+          },
+          "position_counts": {
+            "0": 10081
+          }
+        },
+        "long": {
+          "policy": "long",
+          "start_step": 2200997,
+          "requested_max_steps": 10080,
+          "steps_run": 10080,
+          "final_balance": 10258.761672018574,
+          "pnl": 258.76167201857425,
+          "max_drawdown_pct": 4.678089570314668,
+          "trades": 0,
+          "wins": 0,
+          "win_rate_pct": 0.0,
+          "action_counts": {
+            "1": 10080
+          },
+          "position_counts": {
+            "0": 1,
+            "1": 10080
+          }
+        },
+        "short": {
+          "policy": "short",
+          "start_step": 2200997,
+          "requested_max_steps": 10080,
+          "steps_run": 10080,
+          "final_balance": 9731.238327981426,
+          "pnl": -268.76167201857425,
+          "max_drawdown_pct": 6.799009703171453,
+          "trades": 0,
+          "wins": 0,
+          "win_rate_pct": 0.0,
+          "action_counts": {
+            "2": 10080
+          },
+          "position_counts": {
+            "0": 1,
+            "2": 10080
+          }
+        },
+        "monolith": {
+          "policy": "monolith",
+          "start_step": 2200997,
+          "requested_max_steps": 10080,
+          "steps_run": 10080,
+          "final_balance": 9423.645544595931,
+          "pnl": -576.3544554040691,
+          "max_drawdown_pct": 9.29457930905123,
+          "trades": 34,
+          "wins": 8,
+          "win_rate_pct": 23.52941176470588,
+          "action_counts": {
+            "0": 117,
+            "1": 5,
+            "2": 9958
+          },
+          "position_counts": {
+            "0": 118,
+            "1": 5,
+            "2": 9958
+          }
+        }
+      },
+      "total_metrics": {
+        "flat": {
+          "policy": "flat",
+          "start_step": 2186597,
+          "requested_max_steps": 24480,
+          "steps_run": 24480,
+          "final_balance": 10000.0,
+          "pnl": 0.0,
+          "max_drawdown_pct": 0.0,
+          "trades": 0,
+          "wins": 0,
+          "win_rate_pct": 0.0,
+          "action_counts": {
+            "0": 24480
+          },
+          "position_counts": {
+            "0": 24481
+          }
+        },
+        "long": {
+          "policy": "long",
+          "start_step": 2186597,
+          "requested_max_steps": 24480,
+          "steps_run": 24480,
+          "final_balance": 9870.583221034429,
+          "pnl": -129.4167789655712,
+          "max_drawdown_pct": 5.778024802779398,
+          "trades": 0,
+          "wins": 0,
+          "win_rate_pct": 0.0,
+          "action_counts": {
+            "1": 24480
+          },
+          "position_counts": {
+            "0": 1,
+            "1": 24480
+          }
+        },
+        "short": {
+          "policy": "short",
+          "start_step": 2186597,
+          "requested_max_steps": 24480,
+          "steps_run": 24480,
+          "final_balance": 10119.416778965571,
+          "pnl": 119.41677896557121,
+          "max_drawdown_pct": 7.285057037868839,
+          "trades": 0,
+          "wins": 0,
+          "win_rate_pct": 0.0,
+          "action_counts": {
+            "2": 24480
+          },
+          "position_counts": {
+            "0": 1,
+            "2": 24480
+          }
+        },
+        "monolith": {
+          "policy": "monolith",
+          "start_step": 2186597,
+          "requested_max_steps": 24480,
+          "steps_run": 24480,
+          "final_balance": 9186.447267823007,
+          "pnl": -813.5527321769932,
+          "max_drawdown_pct": 15.755608420376982,
+          "trades": 97,
+          "wins": 29,
+          "win_rate_pct": 29.896907216494846,
+          "action_counts": {
+            "0": 656,
+            "1": 5,
+            "2": 23819
+          },
+          "position_counts": {
+            "0": 657,
+            "1": 5,
+            "2": 23819
+          }
+        }
+      },
+      "flags": {
+        "train_positive": false,
+        "train_beats_flat": false,
+        "train_beats_best_baseline": false,
+        "train_full_window": true,
+        "oos_positive": false,
+        "oos_beats_flat": false,
+        "oos_beats_best_baseline": false,
+        "oos_full_window": true,
+        "oos_has_trades": true,
+        "oos_profitable_and_active": false
+      }
+    },
+    {
+      "window_name": "wf_01_20240522",
+      "run_index": 2,
+      "train_start_utc": "2024-05-22 00:00:00",
+      "train_end_utc": "2024-05-30 00:00:00",
+      "valid_end_utc": "2024-06-01 00:00:00",
+      "oos_end_utc": "2024-06-08 00:00:00",
+      "train_start_step": 2186597,
+      "train_max_steps": 11520,
+      "valid_start_step": 2198117,
+      "valid_max_steps": 2880,
+      "oos_start_step": 2200997,
+      "oos_max_steps": 10080,
+      "total_max_steps": 24480,
+      "checkpoint_path": "/home/user/mcs/checkpoints/continuous_cycles/family_sweep_20260318_6h__fam_smallrec32_active_jun2024__rolling_cycle_02/wf_01_20240522_run02.npy",
+      "log_path": "/home/user/mcs/checkpoints/continuous_cycles/family_sweep_20260318_6h__fam_smallrec32_active_jun2024__rolling_cycle_02/wf_01_20240522_run02.log",
+      "train_metrics": {
+        "flat": {
+          "policy": "flat",
+          "start_step": 2186597,
+          "requested_max_steps": 11520,
+          "steps_run": 11520,
+          "final_balance": 10000.0,
+          "pnl": 0.0,
+          "max_drawdown_pct": 0.0,
+          "trades": 0,
+          "wins": 0,
+          "win_rate_pct": 0.0,
+          "action_counts": {
+            "0": 11520
+          },
+          "position_counts": {
+            "0": 11521
+          }
+        },
+        "long": {
+          "policy": "long",
+          "start_step": 2186597,
+          "requested_max_steps": 11520,
+          "steps_run": 11520,
+          "final_balance": 9630.822206627281,
+          "pnl": -369.17779337271895,
+          "max_drawdown_pct": 5.778024802779398,
+          "trades": 0,
+          "wins": 0,
+          "win_rate_pct": 0.0,
+          "action_counts": {
+            "1": 11520
+          },
+          "position_counts": {
+            "0": 1,
+            "1": 11520
+          }
+        },
+        "short": {
+          "policy": "short",
+          "start_step": 2186597,
+          "requested_max_steps": 11520,
+          "steps_run": 11520,
+          "final_balance": 10359.177793372719,
+          "pnl": 359.17779337271895,
+          "max_drawdown_pct": 5.500139140666492,
+          "trades": 0,
+          "wins": 0,
+          "win_rate_pct": 0.0,
+          "action_counts": {
+            "2": 11520
+          },
+          "position_counts": {
+            "0": 1,
+            "2": 11520
+          }
+        },
+        "monolith": {
+          "policy": "monolith",
+          "start_step": 2186597,
+          "requested_max_steps": 11520,
+          "steps_run": 11520,
+          "final_balance": 10258.75232567736,
+          "pnl": 258.7523256773602,
+          "max_drawdown_pct": 6.2445508614536145,
+          "trades": 11,
+          "wins": 6,
+          "win_rate_pct": 54.54545454545454,
+          "action_counts": {
+            "0": 30,
+            "2": 11490
+          },
+          "position_counts": {
+            "0": 31,
+            "2": 11490
+          }
+        }
+      },
+      "valid_metrics": {
+        "flat": {
+          "policy": "flat",
+          "start_step": 2198117,
+          "requested_max_steps": 2880,
+          "steps_run": 2880,
+          "final_balance": 10000.0,
+          "pnl": 0.0,
+          "max_drawdown_pct": 0.0,
+          "trades": 0,
+          "wins": 0,
+          "win_rate_pct": 0.0,
+          "action_counts": {
+            "0": 2880
+          },
+          "position_counts": {
+            "0": 2881
+          }
+        },
+        "long": {
+          "policy": "long",
+          "start_step": 2198117,
+          "requested_max_steps": 2880,
+          "steps_run": 2880,
+          "final_balance": 9980.564943440662,
+          "pnl": -19.43505655933768,
+          "max_drawdown_pct": 4.065440314677791,
+          "trades": 0,
+          "wins": 0,
+          "win_rate_pct": 0.0,
+          "action_counts": {
+            "1": 2880
+          },
+          "position_counts": {
+            "0": 1,
+            "1": 2880
+          }
+        },
+        "short": {
+          "policy": "short",
+          "start_step": 2198117,
+          "requested_max_steps": 2880,
+          "steps_run": 2880,
+          "final_balance": 10009.435056559338,
+          "pnl": 9.435056559337681,
+          "max_drawdown_pct": 3.5235177263740742,
+          "trades": 0,
+          "wins": 0,
+          "win_rate_pct": 0.0,
+          "action_counts": {
+            "2": 2880
+          },
+          "position_counts": {
+            "0": 1,
+            "2": 2880
+          }
+        },
+        "monolith": {
+          "policy": "monolith",
+          "start_step": 2198117,
+          "requested_max_steps": 2880,
+          "steps_run": 2880,
+          "final_balance": 8787.16693724048,
+          "pnl": -1212.8330627595205,
+          "max_drawdown_pct": 12.661784651641264,
+          "trades": 129,
+          "wins": 37,
+          "win_rate_pct": 28.68217054263566,
+          "action_counts": {
+            "0": 890,
+            "1": 1,
+            "2": 1989
+          },
+          "position_counts": {
+            "0": 891,
+            "1": 1,
+            "2": 1989
+          }
+        }
+      },
+      "oos_metrics": {
+        "flat": {
+          "policy": "flat",
+          "start_step": 2200997,
+          "requested_max_steps": 10080,
+          "steps_run": 10080,
+          "final_balance": 10000.0,
+          "pnl": 0.0,
+          "max_drawdown_pct": 0.0,
+          "trades": 0,
+          "wins": 0,
+          "win_rate_pct": 0.0,
+          "action_counts": {
+            "0": 10080
+          },
+          "position_counts": {
+            "0": 10081
+          }
+        },
+        "long": {
+          "policy": "long",
+          "start_step": 2200997,
+          "requested_max_steps": 10080,
+          "steps_run": 10080,
+          "final_balance": 10258.761672018574,
+          "pnl": 258.76167201857425,
+          "max_drawdown_pct": 4.678089570314668,
+          "trades": 0,
+          "wins": 0,
+          "win_rate_pct": 0.0,
+          "action_counts": {
+            "1": 10080
+          },
+          "position_counts": {
+            "0": 1,
+            "1": 10080
+          }
+        },
+        "short": {
+          "policy": "short",
+          "start_step": 2200997,
+          "requested_max_steps": 10080,
+          "steps_run": 10080,
+          "final_balance": 9731.238327981426,
+          "pnl": -268.76167201857425,
+          "max_drawdown_pct": 6.799009703171453,
+          "trades": 0,
+          "wins": 0,
+          "win_rate_pct": 0.0,
+          "action_counts": {
+            "2": 10080
+          },
+          "position_counts": {
+            "0": 1,
+            "2": 10080
+          }
+        },
+        "monolith": {
+          "policy": "monolith",
+          "start_step": 2200997,
+          "requested_max_steps": 10080,
+          "steps_run": 10080,
+          "final_balance": 7684.690470210306,
+          "pnl": -2315.3095297896944,
+          "max_drawdown_pct": 24.564971423399037,
+          "trades": 213,
+          "wins": 61,
+          "win_rate_pct": 28.638497652582164,
+          "action_counts": {
+            "0": 2842,
+            "1": 2,
+            "2": 7236
+          },
+          "position_counts": {
+            "0": 2843,
+            "1": 2,
+            "2": 7236
+          }
+        }
+      },
+      "total_metrics": {
+        "flat": {
+          "policy": "flat",
+          "start_step": 2186597,
+          "requested_max_steps": 24480,
+          "steps_run": 24480,
+          "final_balance": 10000.0,
+          "pnl": 0.0,
+          "max_drawdown_pct": 0.0,
+          "trades": 0,
+          "wins": 0,
+          "win_rate_pct": 0.0,
+          "action_counts": {
+            "0": 24480
+          },
+          "position_counts": {
+            "0": 24481
+          }
+        },
+        "long": {
+          "policy": "long",
+          "start_step": 2186597,
+          "requested_max_steps": 24480,
+          "steps_run": 24480,
+          "final_balance": 9870.583221034429,
+          "pnl": -129.4167789655712,
+          "max_drawdown_pct": 5.778024802779398,
+          "trades": 0,
+          "wins": 0,
+          "win_rate_pct": 0.0,
+          "action_counts": {
+            "1": 24480
+          },
+          "position_counts": {
+            "0": 1,
+            "1": 24480
+          }
+        },
+        "short": {
+          "policy": "short",
+          "start_step": 2186597,
+          "requested_max_steps": 24480,
+          "steps_run": 24480,
+          "final_balance": 10119.416778965571,
+          "pnl": 119.41677896557121,
+          "max_drawdown_pct": 7.285057037868839,
+          "trades": 0,
+          "wins": 0,
+          "win_rate_pct": 0.0,
+          "action_counts": {
+            "2": 24480
+          },
+          "position_counts": {
+            "0": 1,
+            "2": 24480
+          }
+        },
+        "monolith": {
+          "policy": "monolith",
+          "start_step": 2186597,
+          "requested_max_steps": 24480,
+          "steps_run": 24480,
+          "final_balance": 6926.299703725875,
+          "pnl": -3073.7002962741253,
+          "max_drawdown_pct": 35.30910088045647,
+          "trades": 352,
+          "wins": 102,
+          "win_rate_pct": 28.97727272727273,
+          "action_counts": {
+            "0": 3767,
+            "1": 3,
+            "2": 20710
+          },
+          "position_counts": {
+            "0": 3768,
+            "1": 3,
+            "2": 20710
+          }
+        }
+      },
+      "flags": {
+        "train_positive": true,
+        "train_beats_flat": true,
+        "train_beats_best_baseline": false,
+        "train_full_window": true,
+        "oos_positive": false,
+        "oos_beats_flat": false,
+        "oos_beats_best_baseline": false,
+        "oos_full_window": true,
+        "oos_has_trades": true,
+        "oos_profitable_and_active": false
+      }
+    },
+    {
+      "window_name": "wf_02_20240529",
+      "run_index": 1,
+      "train_start_utc": "2024-05-29 00:00:00",
+      "train_end_utc": "2024-06-06 00:00:00",
+      "valid_end_utc": "2024-06-08 00:00:00",
+      "oos_end_utc": "2024-06-15 00:00:00",
+      "train_start_step": 2196677,
+      "train_max_steps": 11520,
+      "valid_start_step": 2208197,
+      "valid_max_steps": 2880,
+      "oos_start_step": 2211077,
+      "oos_max_steps": 10080,
+      "total_max_steps": 24480,
+      "checkpoint_path": "/home/user/mcs/checkpoints/continuous_cycles/family_sweep_20260318_6h__fam_smallrec32_active_jun2024__rolling_cycle_02/wf_02_20240529_run01.npy",
+      "log_path": "/home/user/mcs/checkpoints/continuous_cycles/family_sweep_20260318_6h__fam_smallrec32_active_jun2024__rolling_cycle_02/wf_02_20240529_run01.log",
+      "train_metrics": {
+        "flat": {
+          "policy": "flat",
+          "start_step": 2196677,
+          "requested_max_steps": 11520,
+          "steps_run": 11520,
+          "final_balance": 10000.0,
+          "pnl": 0.0,
+          "max_drawdown_pct": 0.0,
+          "trades": 0,
+          "wins": 0,
+          "win_rate_pct": 0.0,
+          "action_counts": {
+            "0": 11520
+          },
+          "position_counts": {
+            "0": 11521
+          }
+        },
+        "long": {
+          "policy": "long",
+          "start_step": 2196677,
+          "requested_max_steps": 11520,
+          "steps_run": 11520,
+          "final_balance": 10397.671475678862,
+          "pnl": 397.6714756788624,
+          "max_drawdown_pct": 4.062429835545894,
+          "trades": 0,
+          "wins": 0,
+          "win_rate_pct": 0.0,
+          "action_counts": {
+            "1": 11520
+          },
+          "position_counts": {
+            "0": 1,
+            "1": 11520
+          }
+        },
+        "short": {
+          "policy": "short",
+          "start_step": 2196677,
+          "requested_max_steps": 11520,
+          "steps_run": 11520,
+          "final_balance": 9592.328524321138,
+          "pnl": -407.6714756788624,
+          "max_drawdown_pct": 7.229259194987672,
+          "trades": 0,
+          "wins": 0,
+          "win_rate_pct": 0.0,
+          "action_counts": {
+            "2": 11520
+          },
+          "position_counts": {
+            "0": 1,
+            "2": 11520
+          }
+        },
+        "monolith": {
+          "policy": "monolith",
+          "start_step": 2196677,
+          "requested_max_steps": 11520,
+          "steps_run": 11520,
+          "final_balance": 10269.226114427867,
+          "pnl": 269.2261144278673,
+          "max_drawdown_pct": 4.18494001436275,
+          "trades": 12,
+          "wins": 5,
+          "win_rate_pct": 41.66666666666667,
+          "action_counts": {
+            "0": 6,
+            "1": 11510,
+            "2": 4
+          },
+          "position_counts": {
+            "0": 7,
+            "1": 11510,
+            "2": 4
+          }
+        }
+      },
+      "valid_metrics": {
+        "flat": {
+          "policy": "flat",
+          "start_step": 2208197,
+          "requested_max_steps": 2880,
+          "steps_run": 2880,
+          "final_balance": 10000.0,
+          "pnl": 0.0,
+          "max_drawdown_pct": 0.0,
+          "trades": 0,
+          "wins": 0,
+          "win_rate_pct": 0.0,
+          "action_counts": {
+            "0": 2880
+          },
+          "position_counts": {
+            "0": 2881
+          }
+        },
+        "long": {
+          "policy": "long",
+          "start_step": 2208197,
+          "requested_max_steps": 2880,
+          "steps_run": 2880,
+          "final_balance": 9746.642707238187,
+          "pnl": -253.35729276181337,
+          "max_drawdown_pct": 4.675731688268589,
+          "trades": 0,
+          "wins": 0,
+          "win_rate_pct": 0.0,
+          "action_counts": {
+            "1": 2880
+          },
+          "position_counts": {
+            "0": 1,
+            "1": 2880
+          }
+        },
+        "short": {
+          "policy": "short",
+          "start_step": 2208197,
+          "requested_max_steps": 2880,
+          "steps_run": 2880,
+          "final_balance": 10243.357292761813,
+          "pnl": 243.35729276181337,
+          "max_drawdown_pct": 2.5044797991815737,
+          "trades": 0,
+          "wins": 0,
+          "win_rate_pct": 0.0,
+          "action_counts": {
+            "2": 2880
+          },
+          "position_counts": {
+            "0": 1,
+            "2": 2880
+          }
+        },
+        "monolith": {
+          "policy": "monolith",
+          "start_step": 2208197,
+          "requested_max_steps": 2880,
+          "steps_run": 2880,
+          "final_balance": 9618.79956815983,
+          "pnl": -381.2004318401705,
+          "max_drawdown_pct": 5.588988525769452,
+          "trades": 6,
+          "wins": 1,
+          "win_rate_pct": 16.666666666666664,
+          "action_counts": {
+            "0": 4,
+            "1": 2861,
+            "2": 15
+          },
+          "position_counts": {
+            "0": 5,
+            "1": 2861,
+            "2": 15
+          }
+        }
+      },
+      "oos_metrics": {
+        "flat": {
+          "policy": "flat",
+          "start_step": 2211077,
+          "requested_max_steps": 10080,
+          "steps_run": 10080,
+          "final_balance": 10000.0,
+          "pnl": 0.0,
+          "max_drawdown_pct": 0.0,
+          "trades": 0,
+          "wins": 0,
+          "win_rate_pct": 0.0,
+          "action_counts": {
+            "0": 10080
+          },
+          "position_counts": {
+            "0": 10081
+          }
+        },
+        "long": {
+          "policy": "long",
+          "start_step": 2211077,
+          "requested_max_steps": 10080,
+          "steps_run": 10080,
+          "final_balance": 9517.323207054871,
+          "pnl": -482.6767929451289,
+          "max_drawdown_pct": 7.2990466824578775,
+          "trades": 0,
+          "wins": 0,
+          "win_rate_pct": 0.0,
+          "action_counts": {
+            "1": 10080
+          },
+          "position_counts": {
+            "0": 1,
+            "1": 10080
+          }
+        },
+        "short": {
+          "policy": "short",
+          "start_step": 2211077,
+          "requested_max_steps": 10080,
+          "steps_run": 10080,
+          "final_balance": 10472.676792945129,
+          "pnl": 472.6767929451289,
+          "max_drawdown_pct": 5.267992455693377,
+          "trades": 0,
+          "wins": 0,
+          "win_rate_pct": 0.0,
+          "action_counts": {
+            "2": 10080
+          },
+          "position_counts": {
+            "0": 1,
+            "2": 10080
+          }
+        },
+        "monolith": {
+          "policy": "monolith",
+          "start_step": 2211077,
+          "requested_max_steps": 10080,
+          "steps_run": 10080,
+          "final_balance": 6803.212056899108,
+          "pnl": -3196.7879431008923,
+          "max_drawdown_pct": 33.01546346582957,
+          "trades": 332,
+          "wins": 54,
+          "win_rate_pct": 16.265060240963855,
+          "action_counts": {
+            "0": 231,
+            "1": 7672,
+            "2": 2177
+          },
+          "position_counts": {
+            "0": 232,
+            "1": 7672,
+            "2": 2177
+          }
+        }
+      },
+      "total_metrics": {
+        "flat": {
+          "policy": "flat",
+          "start_step": 2196677,
+          "requested_max_steps": 24480,
+          "steps_run": 24480,
+          "final_balance": 10000.0,
+          "pnl": 0.0,
+          "max_drawdown_pct": 0.0,
+          "trades": 0,
+          "wins": 0,
+          "win_rate_pct": 0.0,
+          "action_counts": {
+            "0": 24480
+          },
+          "position_counts": {
+            "0": 24481
+          }
+        },
+        "long": {
+          "policy": "long",
+          "start_step": 2196677,
+          "requested_max_steps": 24480,
+          "steps_run": 24480,
+          "final_balance": 9646.472132399305,
+          "pnl": -353.52786760069466,
+          "max_drawdown_pct": 9.68212063224555,
+          "trades": 0,
+          "wins": 0,
+          "win_rate_pct": 0.0,
+          "action_counts": {
+            "1": 24480
+          },
+          "position_counts": {
+            "0": 1,
+            "1": 24480
+          }
+        },
+        "short": {
+          "policy": "short",
+          "start_step": 2196677,
+          "requested_max_steps": 24480,
+          "steps_run": 24480,
+          "final_balance": 10343.527867600695,
+          "pnl": 343.52786760069466,
+          "max_drawdown_pct": 7.5346830394435305,
+          "trades": 0,
+          "wins": 0,
+          "win_rate_pct": 0.0,
+          "action_counts": {
+            "2": 24480
+          },
+          "position_counts": {
+            "0": 1,
+            "2": 24480
+          }
+        },
+        "monolith": {
+          "policy": "monolith",
+          "start_step": 2196677,
+          "requested_max_steps": 24480,
+          "steps_run": 24480,
+          "final_balance": 6735.020055729863,
+          "pnl": -3264.979944270137,
+          "max_drawdown_pct": 36.15377976832771,
+          "trades": 342,
+          "wins": 54,
+          "win_rate_pct": 15.789473684210526,
+          "action_counts": {
+            "0": 243,
+            "1": 22080,
+            "2": 2157
+          },
+          "position_counts": {
+            "0": 244,
+            "1": 22080,
+            "2": 2157
+          }
+        }
+      },
+      "flags": {
+        "train_positive": true,
+        "train_beats_flat": true,
+        "train_beats_best_baseline": false,
+        "train_full_window": true,
+        "oos_positive": false,
+        "oos_beats_flat": false,
+        "oos_beats_best_baseline": false,
+        "oos_full_window": true,
+        "oos_has_trades": true,
+        "oos_profitable_and_active": false
+      }
+    },
+    {
+      "window_name": "wf_02_20240529",
+      "run_index": 2,
+      "train_start_utc": "2024-05-29 00:00:00",
+      "train_end_utc": "2024-06-06 00:00:00",
+      "valid_end_utc": "2024-06-08 00:00:00",
+      "oos_end_utc": "2024-06-15 00:00:00",
+      "train_start_step": 2196677,
+      "train_max_steps": 11520,
+      "valid_start_step": 2208197,
+      "valid_max_steps": 2880,
+      "oos_start_step": 2211077,
+      "oos_max_steps": 10080,
+      "total_max_steps": 24480,
+      "checkpoint_path": "/home/user/mcs/checkpoints/continuous_cycles/family_sweep_20260318_6h__fam_smallrec32_active_jun2024__rolling_cycle_02/wf_02_20240529_run02.npy",
+      "log_path": "/home/user/mcs/checkpoints/continuous_cycles/family_sweep_20260318_6h__fam_smallrec32_active_jun2024__rolling_cycle_02/wf_02_20240529_run02.log",
+      "train_metrics": {
+        "flat": {
+          "policy": "flat",
+          "start_step": 2196677,
+          "requested_max_steps": 11520,
+          "steps_run": 11520,
+          "final_balance": 10000.0,
+          "pnl": 0.0,
+          "max_drawdown_pct": 0.0,
+          "trades": 0,
+          "wins": 0,
+          "win_rate_pct": 0.0,
+          "action_counts": {
+            "0": 11520
+          },
+          "position_counts": {
+            "0": 11521
+          }
+        },
+        "long": {
+          "policy": "long",
+          "start_step": 2196677,
+          "requested_max_steps": 11520,
+          "steps_run": 11520,
+          "final_balance": 10397.671475678862,
+          "pnl": 397.6714756788624,
+          "max_drawdown_pct": 4.062429835545894,
+          "trades": 0,
+          "wins": 0,
+          "win_rate_pct": 0.0,
+          "action_counts": {
+            "1": 11520
+          },
+          "position_counts": {
+            "0": 1,
+            "1": 11520
+          }
+        },
+        "short": {
+          "policy": "short",
+          "start_step": 2196677,
+          "requested_max_steps": 11520,
+          "steps_run": 11520,
+          "final_balance": 9592.328524321138,
+          "pnl": -407.6714756788624,
+          "max_drawdown_pct": 7.229259194987672,
+          "trades": 0,
+          "wins": 0,
+          "win_rate_pct": 0.0,
+          "action_counts": {
+            "2": 11520
+          },
+          "position_counts": {
+            "0": 1,
+            "2": 11520
+          }
+        },
+        "monolith": {
+          "policy": "monolith",
+          "start_step": 2196677,
+          "requested_max_steps": 11520,
+          "steps_run": 11520,
+          "final_balance": 10004.867735917867,
+          "pnl": 4.867735917867321,
+          "max_drawdown_pct": 4.909054435445986,
+          "trades": 39,
+          "wins": 14,
+          "win_rate_pct": 35.8974358974359,
+          "action_counts": {
+            "0": 48,
+            "1": 11444,
+            "2": 28
+          },
+          "position_counts": {
+            "0": 49,
+            "1": 11444,
+            "2": 28
+          }
+        }
+      },
+      "valid_metrics": {
+        "flat": {
+          "policy": "flat",
+          "start_step": 2208197,
+          "requested_max_steps": 2880,
+          "steps_run": 2880,
+          "final_balance": 10000.0,
+          "pnl": 0.0,
+          "max_drawdown_pct": 0.0,
+          "trades": 0,
+          "wins": 0,
+          "win_rate_pct": 0.0,
+          "action_counts": {
+            "0": 2880
+          },
+          "position_counts": {
+            "0": 2881
+          }
+        },
+        "long": {
+          "policy": "long",
+          "start_step": 2208197,
+          "requested_max_steps": 2880,
+          "steps_run": 2880,
+          "final_balance": 9746.642707238187,
+          "pnl": -253.35729276181337,
+          "max_drawdown_pct": 4.675731688268589,
+          "trades": 0,
+          "wins": 0,
+          "win_rate_pct": 0.0,
+          "action_counts": {
+            "1": 2880
+          },
+          "position_counts": {
+            "0": 1,
+            "1": 2880
+          }
+        },
+        "short": {
+          "policy": "short",
+          "start_step": 2208197,
+          "requested_max_steps": 2880,
+          "steps_run": 2880,
+          "final_balance": 10243.357292761813,
+          "pnl": 243.35729276181337,
+          "max_drawdown_pct": 2.5044797991815737,
+          "trades": 0,
+          "wins": 0,
+          "win_rate_pct": 0.0,
+          "action_counts": {
+            "2": 2880
+          },
+          "position_counts": {
+            "0": 1,
+            "2": 2880
+          }
+        },
+        "monolith": {
+          "policy": "monolith",
+          "start_step": 2208197,
+          "requested_max_steps": 2880,
+          "steps_run": 2880,
+          "final_balance": 9746.642707238187,
+          "pnl": -253.35729276181337,
+          "max_drawdown_pct": 4.675731688268589,
+          "trades": 0,
+          "wins": 0,
+          "win_rate_pct": 0.0,
+          "action_counts": {
+            "1": 2880
+          },
+          "position_counts": {
+            "0": 1,
+            "1": 2880
+          }
+        }
+      },
+      "oos_metrics": {
+        "flat": {
+          "policy": "flat",
+          "start_step": 2211077,
+          "requested_max_steps": 10080,
+          "steps_run": 10080,
+          "final_balance": 10000.0,
+          "pnl": 0.0,
+          "max_drawdown_pct": 0.0,
+          "trades": 0,
+          "wins": 0,
+          "win_rate_pct": 0.0,
+          "action_counts": {
+            "0": 10080
+          },
+          "position_counts": {
+            "0": 10081
+          }
+        },
+        "long": {
+          "policy": "long",
+          "start_step": 2211077,
+          "requested_max_steps": 10080,
+          "steps_run": 10080,
+          "final_balance": 9517.323207054871,
+          "pnl": -482.6767929451289,
+          "max_drawdown_pct": 7.2990466824578775,
+          "trades": 0,
+          "wins": 0,
+          "win_rate_pct": 0.0,
+          "action_counts": {
+            "1": 10080
+          },
+          "position_counts": {
+            "0": 1,
+            "1": 10080
+          }
+        },
+        "short": {
+          "policy": "short",
+          "start_step": 2211077,
+          "requested_max_steps": 10080,
+          "steps_run": 10080,
+          "final_balance": 10472.676792945129,
+          "pnl": 472.6767929451289,
+          "max_drawdown_pct": 5.267992455693377,
+          "trades": 0,
+          "wins": 0,
+          "win_rate_pct": 0.0,
+          "action_counts": {
+            "2": 10080
+          },
+          "position_counts": {
+            "0": 1,
+            "2": 10080
+          }
+        },
+        "monolith": {
+          "policy": "monolith",
+          "start_step": 2211077,
+          "requested_max_steps": 10080,
+          "steps_run": 10080,
+          "final_balance": 9451.473425144393,
+          "pnl": -548.5265748556067,
+          "max_drawdown_pct": 7.891989294031979,
+          "trades": 27,
+          "wins": 14,
+          "win_rate_pct": 51.85185185185185,
+          "action_counts": {
+            "0": 129,
+            "1": 9951
+          },
+          "position_counts": {
+            "0": 130,
+            "1": 9951
+          }
+        }
+      },
+      "total_metrics": {
+        "flat": {
+          "policy": "flat",
+          "start_step": 2196677,
+          "requested_max_steps": 24480,
+          "steps_run": 24480,
+          "final_balance": 10000.0,
+          "pnl": 0.0,
+          "max_drawdown_pct": 0.0,
+          "trades": 0,
+          "wins": 0,
+          "win_rate_pct": 0.0,
+          "action_counts": {
+            "0": 24480
+          },
+          "position_counts": {
+            "0": 24481
+          }
+        },
+        "long": {
+          "policy": "long",
+          "start_step": 2196677,
+          "requested_max_steps": 24480,
+          "steps_run": 24480,
+          "final_balance": 9646.472132399305,
+          "pnl": -353.52786760069466,
+          "max_drawdown_pct": 9.68212063224555,
+          "trades": 0,
+          "wins": 0,
+          "win_rate_pct": 0.0,
+          "action_counts": {
+            "1": 24480
+          },
+          "position_counts": {
+            "0": 1,
+            "1": 24480
+          }
+        },
+        "short": {
+          "policy": "short",
+          "start_step": 2196677,
+          "requested_max_steps": 24480,
+          "steps_run": 24480,
+          "final_balance": 10343.527867600695,
+          "pnl": 343.52786760069466,
+          "max_drawdown_pct": 7.5346830394435305,
+          "trades": 0,
+          "wins": 0,
+          "win_rate_pct": 0.0,
+          "action_counts": {
+            "2": 24480
+          },
+          "position_counts": {
+            "0": 1,
+            "2": 24480
+          }
+        },
+        "monolith": {
+          "policy": "monolith",
+          "start_step": 2196677,
+          "requested_max_steps": 24480,
+          "steps_run": 24480,
+          "final_balance": 9217.422146389548,
+          "pnl": -782.5778536104517,
+          "max_drawdown_pct": 11.238743046499094,
+          "trades": 66,
+          "wins": 27,
+          "win_rate_pct": 40.909090909090914,
+          "action_counts": {
+            "0": 177,
+            "1": 24275,
+            "2": 28
+          },
+          "position_counts": {
+            "0": 178,
+            "1": 24275,
+            "2": 28
+          }
+        }
+      },
+      "flags": {
+        "train_positive": true,
+        "train_beats_flat": true,
+        "train_beats_best_baseline": false,
+        "train_full_window": true,
+        "oos_positive": false,
+        "oos_beats_flat": false,
+        "oos_beats_best_baseline": false,
+        "oos_full_window": true,
+        "oos_has_trades": true,
+        "oos_profitable_and_active": false
+      }
+    }
+  ],
+  "summary": {
+    "runs": 4,
+    "train_positive_runs": 3,
+    "train_beats_best_baseline_runs": 0,
+    "oos_positive_runs": 0,
+    "oos_beats_flat_runs": 0,
+    "oos_beats_best_baseline_runs": 0,
+    "oos_profitable_and_active_runs": 0,
+    "median_train_pnl": 131.81003079761376,
+    "median_oos_pnl": -1445.8319925968817,
+    "median_oos_trades": 123.5,
+    "best_oos_run": "/home/user/mcs/checkpoints/continuous_cycles/family_sweep_20260318_6h__fam_smallrec32_active_jun2024__rolling_cycle_02/wf_02_20240529_run02.npy",
+    "worst_oos_run": "/home/user/mcs/checkpoints/continuous_cycles/family_sweep_20260318_6h__fam_smallrec32_active_jun2024__rolling_cycle_02/wf_02_20240529_run01.npy"
+  }
+}

@@ -1,0 +1,13 @@
+Saved combination search to /home/user/mcs/candidate_registry/combinations/reuse_farm_smoke_light_202505__reuse_may01_light__rolling_cycle_01_combinations.json
+Pool=4 combinations=10 scenarios=30
+Best scenario: subset_2_cand_d8959d02a5e6+cand_eb598e21812d_risk_0.75
+wf_03_20250501_run02,wf_01_20240101_run01 | size=2 requested=0.75 risk=0.70 objective=-0.2304 p05_pnl=-250.88 p95_dd=4.27
+wf_03_20250501_run02 | size=1 requested=0.50 risk=0.35 objective=-0.2349 p05_pnl=-120.85 p95_dd=2.23
+wf_03_20250501_run02 | size=1 requested=0.75 risk=0.35 objective=-0.2349 p05_pnl=-120.85 p95_dd=2.23
+wf_03_20250501_run02,wf_01_20240101_run01 | size=2 requested=0.25 risk=0.25 objective=-0.2349 p05_pnl=-84.31 p95_dd=1.59
+wf_01_20240101_run01 | size=1 requested=0.50 risk=0.35 objective=-0.2356 p05_pnl=-145.78 p95_dd=2.40
+wf_01_20240101_run01 | size=1 requested=0.75 risk=0.35 objective=-0.2356 p05_pnl=-145.78 p95_dd=2.40
+wf_03_20250501_run02 | size=1 requested=0.25 risk=0.25 objective=-0.2361 p05_pnl=-86.30 p95_dd=1.59
+wf_01_20240101_run01 | size=1 requested=0.25 risk=0.25 objective=-0.2375 p05_pnl=-104.13 p95_dd=1.72
+wf_03_20250501_run02,wf_01_20240101_run01 | size=2 requested=0.50 risk=0.50 objective=-0.2378 p05_pnl=-166.62 p95_dd=3.07
+wf_03_20250501_run02,wf_01_20240101_run02 | size=2 requested=0.25 risk=0.25 objective=-0.2378 p05_pnl=-88.54 p95_dd=1.55

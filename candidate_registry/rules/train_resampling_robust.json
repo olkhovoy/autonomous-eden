@@ -1,0 +1,19 @@
+{
+  "created_at_utc": "2026-03-10T07:29:21Z",
+  "description": "High train bootstrap hit-rate and shallow pessimistic loss",
+  "name": "train_resampling_robust",
+  "require_all": true,
+  "rules": [
+    {
+      "field": "resampling_results.train_bootstrap_f1.00.profitable_rate",
+      "op": "gte",
+      "value": 0.9
+    },
+    {
+      "field": "resampling_results.train_bootstrap_f1.00.p05_net_profit",
+      "op": "gt",
+      "value": -10
+    }
+  ],
+  "schema_version": "1"
+}

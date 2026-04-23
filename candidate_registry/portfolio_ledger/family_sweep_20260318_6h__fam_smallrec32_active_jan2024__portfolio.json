@@ -1,0 +1,328 @@
+{
+  "average_allocated_risk_fraction": 0.25,
+  "average_gross_turnover_fraction": 0.375,
+  "average_reserve_fraction": 0.75,
+  "candidate_summaries": [
+    {
+      "added_cycles": 1,
+      "average_target_capital_fraction": 0.25,
+      "candidate_id": "cand_3f737f7ad57c",
+      "decreased_cycles": 0,
+      "display_name": "wf_02_20231222_run02",
+      "ending_capital_fraction": 0.0,
+      "final_status": "research",
+      "first_selected_cycle_index": 1,
+      "gross_target_capital_fraction": 0.25,
+      "increased_cycles": 0,
+      "last_selected_cycle_index": 1,
+      "max_target_capital_fraction": 0.25,
+      "removed_cycles": 1,
+      "selected_cycles": 1,
+      "unchanged_cycles": 0
+    },
+    {
+      "added_cycles": 1,
+      "average_target_capital_fraction": 0.25,
+      "candidate_id": "cand_4ca72aa2c385",
+      "decreased_cycles": 0,
+      "display_name": "wf_01_20231222_run01",
+      "ending_capital_fraction": 0.25,
+      "final_status": "research",
+      "first_selected_cycle_index": 2,
+      "gross_target_capital_fraction": 0.25,
+      "increased_cycles": 0,
+      "last_selected_cycle_index": 2,
+      "max_target_capital_fraction": 0.25,
+      "removed_cycles": 0,
+      "selected_cycles": 1,
+      "unchanged_cycles": 0
+    },
+    {
+      "added_cycles": 0,
+      "average_target_capital_fraction": 0.0,
+      "candidate_id": "cand_0de32b78cf7a",
+      "decreased_cycles": 0,
+      "display_name": "wf_02_20231229_run01",
+      "ending_capital_fraction": 0.0,
+      "final_status": "research",
+      "first_selected_cycle_index": null,
+      "gross_target_capital_fraction": 0.0,
+      "increased_cycles": 0,
+      "last_selected_cycle_index": null,
+      "max_target_capital_fraction": 0.0,
+      "removed_cycles": 0,
+      "selected_cycles": 0,
+      "unchanged_cycles": 0
+    },
+    {
+      "added_cycles": 0,
+      "average_target_capital_fraction": 0.0,
+      "candidate_id": "cand_1d2be6ed0a33",
+      "decreased_cycles": 0,
+      "display_name": "wf_01_20231215_run02",
+      "ending_capital_fraction": 0.0,
+      "final_status": "research",
+      "first_selected_cycle_index": null,
+      "gross_target_capital_fraction": 0.0,
+      "increased_cycles": 0,
+      "last_selected_cycle_index": null,
+      "max_target_capital_fraction": 0.0,
+      "removed_cycles": 0,
+      "selected_cycles": 0,
+      "unchanged_cycles": 0
+    },
+    {
+      "added_cycles": 0,
+      "average_target_capital_fraction": 0.0,
+      "candidate_id": "cand_2246a3913beb",
+      "decreased_cycles": 0,
+      "display_name": "wf_01_20231222_run02",
+      "ending_capital_fraction": 0.0,
+      "final_status": "research",
+      "first_selected_cycle_index": null,
+      "gross_target_capital_fraction": 0.0,
+      "increased_cycles": 0,
+      "last_selected_cycle_index": null,
+      "max_target_capital_fraction": 0.0,
+      "removed_cycles": 0,
+      "selected_cycles": 0,
+      "unchanged_cycles": 0
+    },
+    {
+      "added_cycles": 0,
+      "average_target_capital_fraction": 0.0,
+      "candidate_id": "cand_7b98d3a10479",
+      "decreased_cycles": 0,
+      "display_name": "wf_02_20231229_run02",
+      "ending_capital_fraction": 0.0,
+      "final_status": "research",
+      "first_selected_cycle_index": null,
+      "gross_target_capital_fraction": 0.0,
+      "increased_cycles": 0,
+      "last_selected_cycle_index": null,
+      "max_target_capital_fraction": 0.0,
+      "removed_cycles": 0,
+      "selected_cycles": 0,
+      "unchanged_cycles": 0
+    },
+    {
+      "added_cycles": 0,
+      "average_target_capital_fraction": 0.0,
+      "candidate_id": "cand_88919d82e6d0",
+      "decreased_cycles": 0,
+      "display_name": "wf_01_20231215_run01",
+      "ending_capital_fraction": 0.0,
+      "final_status": "research",
+      "first_selected_cycle_index": null,
+      "gross_target_capital_fraction": 0.0,
+      "increased_cycles": 0,
+      "last_selected_cycle_index": null,
+      "max_target_capital_fraction": 0.0,
+      "removed_cycles": 0,
+      "selected_cycles": 0,
+      "unchanged_cycles": 0
+    },
+    {
+      "added_cycles": 0,
+      "average_target_capital_fraction": 0.0,
+      "candidate_id": "cand_eab7a56409b2",
+      "decreased_cycles": 0,
+      "display_name": "wf_02_20231222_run01",
+      "ending_capital_fraction": 0.0,
+      "final_status": "research",
+      "first_selected_cycle_index": null,
+      "gross_target_capital_fraction": 0.0,
+      "increased_cycles": 0,
+      "last_selected_cycle_index": null,
+      "max_target_capital_fraction": 0.0,
+      "removed_cycles": 0,
+      "selected_cycles": 0,
+      "unchanged_cycles": 0
+    }
+  ],
+  "config": {
+    "tradable_statuses": [
+      "approved",
+      "paper",
+      "active",
+      "draining"
+    ],
+    "turnover_cost_rate": 0.0,
+    "unassigned_cluster_label": "unassigned"
+  },
+  "created_at_utc": "2026-03-17T23:55:24Z",
+  "cycle_entries": [
+    {
+      "added_candidate_ids": [
+        "cand_3f737f7ad57c"
+      ],
+      "allocated_risk_fraction": 0.25,
+      "buy_turnover_fraction": 0.25,
+      "cluster_exposure_after": {
+        "cluster_001": 0.25
+      },
+      "cluster_exposure_before": {},
+      "cycle_index": 1,
+      "cycle_name": "family_sweep_20260318_6h__fam_smallrec32_active_jan2024__rolling_cycle_01",
+      "decreased_candidate_ids": [],
+      "estimated_rebalance_cost": 0.0,
+      "forward_end_utc": "2024-01-15 00:00:00",
+      "forward_start_utc": "2024-01-08 00:00:00",
+      "gross_cycle_pnl": -2.0833885396365215,
+      "gross_turnover_fraction": 0.25,
+      "increased_candidate_ids": [],
+      "ledger_balance_after_cycle": 9997.916611460363,
+      "ledger_balance_after_rebalance": 10000.0,
+      "ledger_balance_before": 10000.0,
+      "net_cycle_pnl": -2.0833885396368714,
+      "non_tradable_selected_candidate_ids": [
+        "cand_3f737f7ad57c"
+      ],
+      "portfolio_max_drawdown_pct": 0.020833885396368716,
+      "previous_active_candidate_ids": [],
+      "rebalance_changes": [
+        {
+          "candidate_id": "cand_3f737f7ad57c",
+          "cluster_id": "cluster_001",
+          "delta_capital_fraction": 0.25,
+          "display_name": "wf_02_20231222_run02",
+          "previous_capital_fraction": 0.0,
+          "rebalance_action": "added",
+          "status_after_cycle": "research",
+          "status_before_cycle": "research",
+          "target_capital_fraction": 0.25
+        }
+      ],
+      "removed_candidate_ids": [],
+      "requested_risk_fraction": 0.25,
+      "reserve_fraction_after": 0.75,
+      "reserve_fraction_before": 1.0,
+      "selection_end_utc": "2024-01-08 00:00:00",
+      "selection_start_utc": "2024-01-01 00:00:00",
+      "sell_turnover_fraction": 0.0,
+      "status_counts_after": {
+        "research": 8
+      },
+      "status_counts_before": {
+        "research": 8
+      },
+      "target_candidate_ids": [
+        "cand_3f737f7ad57c"
+      ],
+      "tradeforward_evaluation_name": "family_sweep_20260318_6h__fam_smallrec32_active_jan2024__rolling_cycle_01_tradeforward_eval",
+      "tradeforward_plan_name": "family_sweep_20260318_6h__fam_smallrec32_active_jan2024__rolling_cycle_01_tradeforward",
+      "unchanged_candidate_ids": []
+    },
+    {
+      "added_candidate_ids": [
+        "cand_4ca72aa2c385"
+      ],
+      "allocated_risk_fraction": 0.25,
+      "buy_turnover_fraction": 0.25,
+      "cluster_exposure_after": {
+        "cluster_002": 0.25
+      },
+      "cluster_exposure_before": {
+        "cluster_001": 0.25
+      },
+      "cycle_index": 2,
+      "cycle_name": "family_sweep_20260318_6h__fam_smallrec32_active_jan2024__rolling_cycle_02",
+      "decreased_candidate_ids": [],
+      "estimated_rebalance_cost": 0.0,
+      "forward_end_utc": "2024-01-22 00:00:00",
+      "forward_start_utc": "2024-01-15 00:00:00",
+      "gross_cycle_pnl": 9.03886587989382,
+      "gross_turnover_fraction": 0.5,
+      "increased_candidate_ids": [],
+      "ledger_balance_after_cycle": 10006.955477340258,
+      "ledger_balance_after_rebalance": 9997.916611460363,
+      "ledger_balance_before": 9997.916611460363,
+      "net_cycle_pnl": 9.038865879894729,
+      "non_tradable_selected_candidate_ids": [
+        "cand_4ca72aa2c385"
+      ],
+      "portfolio_max_drawdown_pct": 1.121880828690937,
+      "previous_active_candidate_ids": [
+        "cand_3f737f7ad57c"
+      ],
+      "rebalance_changes": [
+        {
+          "candidate_id": "cand_3f737f7ad57c",
+          "cluster_id": "cluster_001",
+          "delta_capital_fraction": -0.25,
+          "display_name": "wf_02_20231222_run02",
+          "previous_capital_fraction": 0.25,
+          "rebalance_action": "removed",
+          "status_after_cycle": "research",
+          "status_before_cycle": "research",
+          "target_capital_fraction": 0.0
+        },
+        {
+          "candidate_id": "cand_4ca72aa2c385",
+          "cluster_id": "cluster_002",
+          "delta_capital_fraction": 0.25,
+          "display_name": "wf_01_20231222_run01",
+          "previous_capital_fraction": 0.0,
+          "rebalance_action": "added",
+          "status_after_cycle": "research",
+          "status_before_cycle": "research",
+          "target_capital_fraction": 0.25
+        }
+      ],
+      "removed_candidate_ids": [
+        "cand_3f737f7ad57c"
+      ],
+      "requested_risk_fraction": 0.25,
+      "reserve_fraction_after": 0.75,
+      "reserve_fraction_before": 0.75,
+      "selection_end_utc": "2024-01-15 00:00:00",
+      "selection_start_utc": "2024-01-08 00:00:00",
+      "sell_turnover_fraction": 0.25,
+      "status_counts_after": {
+        "research": 8
+      },
+      "status_counts_before": {
+        "research": 8
+      },
+      "target_candidate_ids": [
+        "cand_4ca72aa2c385"
+      ],
+      "tradeforward_evaluation_name": "family_sweep_20260318_6h__fam_smallrec32_active_jan2024__rolling_cycle_02_tradeforward_eval",
+      "tradeforward_plan_name": "family_sweep_20260318_6h__fam_smallrec32_active_jan2024__rolling_cycle_02_tradeforward",
+      "unchanged_candidate_ids": []
+    }
+  ],
+  "final_active_candidate_ids": [
+    "cand_4ca72aa2c385"
+  ],
+  "final_balance": 10006.955477340258,
+  "final_status_counts": {
+    "research": 8
+  },
+  "initial_balance": 10000.0,
+  "ledger_balance_history": [
+    10000.0,
+    9997.916611460363,
+    10006.955477340258
+  ],
+  "ledger_cycle_indices": [
+    0,
+    1,
+    2
+  ],
+  "max_drawdown_pct": 1.0468054639048385,
+  "name": "family_sweep_20260318_6h__fam_smallrec32_active_jan2024__portfolio",
+  "non_tradable_selection_count": 2,
+  "notes": "5-6h profit-first family sweep over fused32 neurobars. Parallel engine families with shared rolling gates and live farm feed sync. | family=small_recurrent hidden=32 mode=confidence_gate fitness=profit_active selection=jan2024",
+  "peak_cluster_exposure_fraction": 0.25,
+  "schema_version": "1",
+  "source_lifecycle_report": "family_sweep_20260318_6h__fam_smallrec32_active_jan2024__lifecycle",
+  "source_rolling_report": "family_sweep_20260318_6h__fam_smallrec32_active_jan2024__rolling",
+  "total_buy_turnover_fraction": 0.5,
+  "total_churn_count": 3,
+  "total_estimated_rebalance_cost": 0.0,
+  "total_gross_turnover_fraction": 0.75,
+  "total_pnl": 6.955477340257858,
+  "total_return_pct": 0.06955477340258032,
+  "total_sell_turnover_fraction": 0.25
+}

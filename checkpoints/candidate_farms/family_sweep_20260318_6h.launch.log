@@ -1,0 +1,12 @@
+[completed] fam_umc32_hunter_jan2024 gate=False pnl=-261.78
+[completed] fam_umc32_hunter_jun2024 gate=False pnl=-11.65
+[completed] fam_umc32_hunter_may2025 gate=False pnl=+626.08
+[completed] fam_smallrec32_active_jan2024 gate=True pnl=+6.96
+[completed] fam_smallrec32_active_jun2024 gate=False pnl=-900.45
+[completed] fam_smallrec32_active_may2025 gate=False pnl=+119.16
+[completed] fam_linear_active_jan2024 gate=False pnl=-306.95
+[completed] fam_linear_active_jun2024 gate=False pnl=-242.06
+[completed] fam_linear_active_may2025 gate=False pnl=-3.67
+Saved candidate farm report to /home/user/mcs/candidate_registry/farms/family_sweep_20260318_6h.json
+scenarios=9 completed=9 gate_pass=1 unique_pool=72
+best_by_pnl=fam_umc32_hunter_may2025

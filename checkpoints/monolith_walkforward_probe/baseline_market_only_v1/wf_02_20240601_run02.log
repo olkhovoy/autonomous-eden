@@ -1,0 +1,56 @@
+Importing PyTorch...
+Imported torch successfully.
+Importing Rust Module...
+Imported rust module successfully.
+Script started.
+Initializing SemanticHypercube with neuro_grammar.cfg...
+Loading SemanticHypercube...
+SemanticHypercube loaded.
+
+================================================
+      THE MONOLITHIC RUN INITIATED              
+================================================
+Device:          cuda
+Architecture:    UMC_Cell (Spectral Normalization: NC4)
+Input Mode:      Neurobars (Feature Dim 32)
+Data File:       /home/user/mcs/data/BTCUSDT_parquet_neurobars_baseline_market_only_v1.npz
+Dimensions:      6467 (Weights & Biases)
+Generations:     8
+Population Size: 8
+Evaluation:      10080-step deterministic loop from start_step=2200997
+Econ Model:      10000 USD | binance | taker | fraction_of_equity
+Positioning:     notional_fraction=1.00 | leverage=1.00 | fixed_qty=1.0000
+Slippage:        0.00000
+Selection:       Only initially active agents (trades >= 5)
+================================================
+
+Filtering Generation 0 for minimum viability...
+Starting hypercube.evolve_with_fitness...
+
+  [Filtering Phase] SURVIVOR FOUND (1/8) after 7 deaths: trades= 390, PnL=-2788.1, win= 22.3%, Fit=-2788.1306
+
+  [Filtering Phase] SURVIVOR FOUND (2/8) after 4 deaths: trades= 318, PnL=-2755.8, win= 20.8%, Fit=-2755.7736
+
+  [Filtering Phase] SURVIVOR FOUND (3/8) after 2 deaths: trades= 319, PnL=-2689.2, win= 19.4%, Fit=-2689.1586
+
+  [Filtering Phase] SURVIVOR FOUND (4/8) after 3 deaths: trades= 279, PnL=-2390.8, win= 24.4%, Fit=-2390.8416
+
+  [Filtering Phase] SURVIVOR FOUND (5/8) after 0 deaths: trades= 365, PnL=-3270.5, win= 25.2%, Fit=-3270.5432
+
+  [Filtering Phase] SURVIVOR FOUND (6/8) after 3 deaths: trades= 372, PnL=-2868.2, win= 19.9%, Fit=-2868.2294
+
+  [Filtering Phase] SURVIVOR FOUND (7/8) after 3 deaths: trades= 448, PnL=-3959.1, win= 15.4%, Fit=-3959.0805
+
+  [Filtering Phase] SURVIVOR FOUND (8/8) after 0 deaths: trades= 126, PnL=-1004.0, win= 20.6%, Fit=-1004.0071
+
+=== FILTERING PHASE COMPLETE. INITIAL POPULATION READY. ===
+
+  Eval 1/8                      Eval 2/8                      Eval 3/8                      Eval 4/8                      Eval 5/8                      Eval 6/8                      Eval 7/8                      Eval 8/8                    Gen 000 | Fit: -1566.08 (Best: -1000.00) | PnL: -1074.1 | DD: 11.2% | Trades:  122 | Win: 12.3% | Time: 26.2s
+  Eval 9/8                      Eval 10/8                      Eval 11/8                      Eval 12/8                      Eval 13/8                      Eval 14/8                      Eval 15/8                      Eval 16/8                    Gen 001 | Fit: -2052.62 (Best: -1000.00) | PnL: -1435.7 | DD: 14.7% | Trades:  186 | Win:  6.7% | Time: 26.1s
+  Eval 17/8                      Eval 18/8                      Eval 19/8                      Eval 20/8                      Eval 21/8                      Eval 22/8                      Eval 23/8                      Eval 24/8                    Gen 002 | Fit: -1242.18 (Best: -1000.00) | PnL: -381.3 | DD:  4.2% | Trades:   31 | Win:  2.7% | Time: 24.1s
+  Eval 25/8                      Eval 26/8                      Eval 27/8                      Eval 28/8                      Eval 29/8                      Eval 30/8                      Eval 31/8                      Eval 32/8                    Gen 003 | Fit: -1501.21 (Best: -1000.00) | PnL: -635.5 | DD:  6.6% | Trades:   86 | Win:  1.5% | Time: 24.2s
+  Eval 33/8                      Eval 34/8                      Eval 35/8                      Eval 36/8                    Evolution loop finished.
+
+--- Evolution Complete ---
+Final Fitness (Balance): -1000.0000
+Saved optimized genome to /home/user/mcs/checkpoints/monolith_walkforward_probe/baseline_market_only_v1/wf_02_20240601_run02.npy

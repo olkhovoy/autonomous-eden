@@ -1,0 +1,86 @@
+{
+  "created_at_utc": "2026-03-10T15:23:15Z",
+  "cycle_outcomes": [
+    {
+      "actual_minus_expected_original_max_drawdown_pct": 0.014484333373827596,
+      "actual_minus_expected_original_net_profit": 58.00020591098473,
+      "allocated_risk_fraction": 0.35,
+      "candidate_ids": [
+        "cand_6caa94014fa0",
+        "cand_a1becdcb5dba",
+        "cand_d8959d02a5e6",
+        "cand_eb598e21812d",
+        "cand_f0baa9d04549",
+        "cand_fe4fbb8096b0"
+      ],
+      "cycle_index": 1,
+      "cycle_name": "reuse_farm_smoke_light_202505__reuse_may08_light__rolling_cycle_01",
+      "cycle_report_name": "reuse_farm_smoke_light_202505__reuse_may08_light__rolling_cycle_01",
+      "cycle_return_fraction": 0.01969539217050209,
+      "forward_end_utc": "2025-05-22 00:00:00",
+      "forward_start_utc": "2025-05-15 00:00:00",
+      "ledger_balance_after": 10196.95392170502,
+      "ledger_balance_before": 10000.0,
+      "portfolio_final_balance": 10196.95392170502,
+      "portfolio_max_drawdown_pct": 1.6592860231835902,
+      "portfolio_pnl": 196.95392170502055,
+      "requested_risk_fraction": 0.5,
+      "reserve_fraction": 0.65,
+      "selected_candidate_ids": [
+        "cand_eb598e21812d"
+      ],
+      "selection_end_utc": "2025-05-15 00:00:00",
+      "selection_start_utc": "2025-05-08 00:00:00",
+      "tradeforward_evaluation_name": "reuse_farm_smoke_light_202505__reuse_may08_light__rolling_cycle_01_tradeforward_eval",
+      "tradeforward_plan_name": "reuse_farm_smoke_light_202505__reuse_may08_light__rolling_cycle_01_tradeforward"
+    }
+  ],
+  "evaluated_cycle_count": 1,
+  "final_balance": 10196.95392170502,
+  "forward_days": 7,
+  "initial_balance": 10000.0,
+  "ledger_balance_history": [
+    10000.0,
+    10196.95392170502
+  ],
+  "ledger_cycle_indices": [
+    0,
+    1
+  ],
+  "max_drawdown_pct": 1.1127242169620937,
+  "mode": "reuse",
+  "name": "reuse_farm_smoke_light_202505__reuse_may08_light__rolling",
+  "notes": "light reuse smoke farm over existing fused32 walkforward pool",
+  "positive_cycle_count": 1,
+  "schema_version": "1",
+  "selection_days": 7,
+  "selector": {
+    "forwarded_cycle_args": [
+      "--tag",
+      "walkforward",
+      "--tag",
+      "probe",
+      "--tag",
+      "fused32",
+      "--portfolio-iterations",
+      "64",
+      "--combination-max-pool-size",
+      "4",
+      "--combination-max-subset-size",
+      "2",
+      "--shortlist-max-candidates",
+      "3"
+    ],
+    "mean_cycle_return_pct": 1.969539217050209,
+    "median_cycle_return_pct": 1.969539217050209,
+    "selection_start_utc": "2025-05-08 00:00:00",
+    "tags": [
+      "walkforward",
+      "probe",
+      "fused32"
+    ]
+  },
+  "step_days": 7,
+  "total_pnl": 196.95392170502055,
+  "total_return_pct": 1.969539217050209
+}

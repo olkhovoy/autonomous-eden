@@ -1,0 +1,237 @@
+{
+  "broom": {
+    "line_count": 2,
+    "lines": [
+      {
+        "brightness_hint": 1.0,
+        "final_balance": 10231.99548343977,
+        "gate_pass": true,
+        "max_drawdown_pct": 2.3379818018973597,
+        "mode": "reuse",
+        "normalized_balance_history": [
+          1.0,
+          1.023199548343977
+        ],
+        "progress_stage": "completed",
+        "sample_indices": [
+          0,
+          1
+        ],
+        "scenario_name": "reuse_may01_light",
+        "status": "reused",
+        "total_pnl": 231.9954834397704
+      },
+      {
+        "brightness_hint": 0.88,
+        "final_balance": 10196.95392170502,
+        "gate_pass": false,
+        "max_drawdown_pct": 1.1127242169620937,
+        "mode": "reuse",
+        "normalized_balance_history": [
+          1.0,
+          1.019695392170502
+        ],
+        "progress_stage": "completed",
+        "sample_indices": [
+          0,
+          1
+        ],
+        "scenario_name": "reuse_may08_light",
+        "status": "reused",
+        "total_pnl": 196.95392170502055
+      }
+    ],
+    "source_report": "reuse_farm_smoke_light_202505",
+    "source_reports": [
+      "reuse_farm_smoke_light_202505__reuse_may01_light__portfolio",
+      "reuse_farm_smoke_light_202505__reuse_may08_light__portfolio"
+    ],
+    "total_line_count": 2
+  },
+  "created_at_utc": "2026-03-10T20:54:30Z",
+  "monitoring": {
+    "completion_event_count": 2,
+    "completion_events_last_15m": 2,
+    "completion_events_per_hour": null,
+    "event_count": 4,
+    "events_last_15m": 4,
+    "events_per_hour": null,
+    "gate_pass_completion_count": 1,
+    "gate_pass_events_last_15m": 1,
+    "gate_pass_events_per_hour": null,
+    "heartbeat_state": "fresh",
+    "latest_updated_at": "2026-03-10T20:54:30Z",
+    "median_completion_gap_seconds": 0.0,
+    "median_event_gap_seconds": 0.0,
+    "planned_scenarios": [],
+    "progress_stage_counts": {
+      "completed": 2
+    },
+    "recent_events": [
+      {
+        "created_at_utc": "2026-03-10T20:54:30Z",
+        "event_kind": "queued",
+        "gate_pass": null,
+        "note": null,
+        "progress_stage": "queued",
+        "scenario_name": "reuse_may01_light",
+        "sequence": 1,
+        "status": "planned",
+        "total_pnl": null
+      },
+      {
+        "created_at_utc": "2026-03-10T20:54:30Z",
+        "event_kind": "queued",
+        "gate_pass": null,
+        "note": null,
+        "progress_stage": "queued",
+        "scenario_name": "reuse_may08_light",
+        "sequence": 2,
+        "status": "planned",
+        "total_pnl": null
+      },
+      {
+        "created_at_utc": "2026-03-10T20:54:30Z",
+        "event_kind": "reused",
+        "gate_pass": true,
+        "note": null,
+        "progress_stage": "completed",
+        "scenario_name": "reuse_may01_light",
+        "sequence": 3,
+        "status": "reused",
+        "total_pnl": 231.9954834397704
+      },
+      {
+        "created_at_utc": "2026-03-10T20:54:30Z",
+        "event_kind": "reused",
+        "gate_pass": false,
+        "note": null,
+        "progress_stage": "completed",
+        "scenario_name": "reuse_may08_light",
+        "sequence": 4,
+        "status": "reused",
+        "total_pnl": 196.95392170502055
+      }
+    ],
+    "recent_failed_scenarios": [],
+    "recent_gate_pass_scenarios": [
+      "reuse_may01_light"
+    ],
+    "running_scenarios": [],
+    "seconds_since_last_completion": 0.723199,
+    "seconds_since_last_event": 0.723199,
+    "seconds_since_last_gate_pass": 0.723199,
+    "stagnation_state": "healthy"
+  },
+  "name": "reuse_farm_smoke_light_202505_feed",
+  "notes": "light reuse smoke farm over existing fused32 walkforward pool",
+  "scenarios": [
+    {
+      "beaten_baselines": [
+        "flat",
+        "equal_weight_selected_subset",
+        "single_best_candidate",
+        "naive_top_oos_rotation"
+      ],
+      "candidate_pool_count": 6,
+      "error_message": null,
+      "evaluated_cycle_count": 1,
+      "failed_required_baselines": [],
+      "final_status_counts": {
+        "approved": 2,
+        "research": 4
+      },
+      "gate_pass": true,
+      "lifecycle_report_name": "reuse_farm_smoke_light_202505__reuse_may01_light__lifecycle",
+      "log_paths": {
+        "lifecycle": "/home/user/mcs/checkpoints/candidate_farms/reuse_farm_smoke_light_202505/reuse_may01_light/02_lifecycle.log",
+        "portfolio_baselines": "/home/user/mcs/checkpoints/candidate_farms/reuse_farm_smoke_light_202505/reuse_may01_light/04_portfolio_baselines.log",
+        "portfolio_ledger": "/home/user/mcs/checkpoints/candidate_farms/reuse_farm_smoke_light_202505/reuse_may01_light/03_portfolio_ledger.log",
+        "rolling": "/home/user/mcs/checkpoints/candidate_farms/reuse_farm_smoke_light_202505/reuse_may01_light/01_rolling.log"
+      },
+      "max_drawdown_pct": 2.3379818018973597,
+      "mode": "reuse",
+      "num_cycles": 1,
+      "output_dir": "/home/user/mcs/checkpoints/candidate_farms/reuse_farm_smoke_light_202505/reuse_may01_light",
+      "portfolio_baselines_report_name": "reuse_farm_smoke_light_202505__reuse_may01_light__baselines",
+      "portfolio_ledger_report_name": "reuse_farm_smoke_light_202505__reuse_may01_light__portfolio",
+      "positive_cycle_count": 1,
+      "progress_stage": "completed",
+      "rolling_report_name": "reuse_farm_smoke_light_202505__reuse_may01_light__rolling",
+      "scenario_name": "reuse_may01_light",
+      "selected_candidate_count": 2,
+      "selection_days": 7,
+      "selection_start_utc": "2025-05-01 00:00:00",
+      "status": "reused",
+      "total_pnl": 231.9954834397704,
+      "total_return_pct": 2.3199548343977083,
+      "updated_at_utc": "2026-03-10T20:54:30Z"
+    },
+    {
+      "beaten_baselines": [
+        "flat",
+        "single_best_candidate",
+        "naive_top_oos_rotation"
+      ],
+      "candidate_pool_count": 6,
+      "error_message": null,
+      "evaluated_cycle_count": 1,
+      "failed_required_baselines": [
+        "equal_weight_selected_subset"
+      ],
+      "final_status_counts": {
+        "approved": 1,
+        "research": 5
+      },
+      "gate_pass": false,
+      "lifecycle_report_name": "reuse_farm_smoke_light_202505__reuse_may08_light__lifecycle",
+      "log_paths": {
+        "lifecycle": "/home/user/mcs/checkpoints/candidate_farms/reuse_farm_smoke_light_202505/reuse_may08_light/02_lifecycle.log",
+        "portfolio_baselines": "/home/user/mcs/checkpoints/candidate_farms/reuse_farm_smoke_light_202505/reuse_may08_light/04_portfolio_baselines.log",
+        "portfolio_ledger": "/home/user/mcs/checkpoints/candidate_farms/reuse_farm_smoke_light_202505/reuse_may08_light/03_portfolio_ledger.log",
+        "rolling": "/home/user/mcs/checkpoints/candidate_farms/reuse_farm_smoke_light_202505/reuse_may08_light/01_rolling.log"
+      },
+      "max_drawdown_pct": 1.1127242169620937,
+      "mode": "reuse",
+      "num_cycles": 1,
+      "output_dir": "/home/user/mcs/checkpoints/candidate_farms/reuse_farm_smoke_light_202505/reuse_may08_light",
+      "portfolio_baselines_report_name": "reuse_farm_smoke_light_202505__reuse_may08_light__baselines",
+      "portfolio_ledger_report_name": "reuse_farm_smoke_light_202505__reuse_may08_light__portfolio",
+      "positive_cycle_count": 1,
+      "progress_stage": "completed",
+      "rolling_report_name": "reuse_farm_smoke_light_202505__reuse_may08_light__rolling",
+      "scenario_name": "reuse_may08_light",
+      "selected_candidate_count": 1,
+      "selection_days": 7,
+      "selection_start_utc": "2025-05-08 00:00:00",
+      "status": "reused",
+      "total_pnl": 196.95392170502055,
+      "total_return_pct": 1.969539217050209,
+      "updated_at_utc": "2026-03-10T20:54:30Z"
+    }
+  ],
+  "schema_version": "1",
+  "source_farm_report": "reuse_farm_smoke_light_202505",
+  "summary": {
+    "best_gate_scenario_by_pnl": null,
+    "best_scenario_by_pnl": null,
+    "completed_or_reused_scenarios": 2,
+    "completed_scenarios": 2,
+    "failed_scenarios": 0,
+    "gate_pass_count": 1,
+    "gate_pass_rate": 0.5,
+    "lowest_drawdown_scenario": null,
+    "planned_scenarios": 0,
+    "ranked_scenarios": [
+      "reuse_may01_light",
+      "reuse_may08_light"
+    ],
+    "running_scenarios": 0,
+    "scenario_count": 2,
+    "status_counts": {
+      "reused": 2
+    },
+    "total_unique_candidate_pool_ids": 6,
+    "total_unique_selected_candidate_ids": 2
+  }
+}

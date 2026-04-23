@@ -1,0 +1,75 @@
+{
+  "assignments": [
+    {
+      "candidate_id": "cand_01c38b257a51",
+      "cluster_id": "cluster_000",
+      "display_name": "wf_01_20231215_run01"
+    },
+    {
+      "candidate_id": "cand_ca82186545ae",
+      "cluster_id": "cluster_000",
+      "display_name": "wf_01_20231215_run02"
+    },
+    {
+      "candidate_id": "cand_9f42fc284d5c",
+      "cluster_id": "cluster_001",
+      "display_name": "wf_02_20231222_run01"
+    },
+    {
+      "candidate_id": "cand_c52648b88828",
+      "cluster_id": "cluster_001",
+      "display_name": "wf_02_20231222_run02"
+    }
+  ],
+  "candidate_ids": [
+    "cand_01c38b257a51",
+    "cand_9f42fc284d5c",
+    "cand_c52648b88828",
+    "cand_ca82186545ae"
+  ],
+  "clusters": [
+    {
+      "candidate_ids": [
+        "cand_9f42fc284d5c",
+        "cand_c52648b88828"
+      ],
+      "cluster_id": "cluster_001",
+      "cluster_size": 2,
+      "display_names": [
+        "wf_02_20231222_run01",
+        "wf_02_20231222_run02"
+      ],
+      "mean_downside_corr": 0.9637470022248152,
+      "mean_return_corr": 0.9578950989734946,
+      "mean_similarity_score": 0.8185112888630639,
+      "mean_simultaneous_loss_rate": 0.4836309523809524
+    },
+    {
+      "candidate_ids": [
+        "cand_01c38b257a51",
+        "cand_ca82186545ae"
+      ],
+      "cluster_id": "cluster_000",
+      "cluster_size": 2,
+      "display_names": [
+        "wf_01_20231215_run01",
+        "wf_01_20231215_run02"
+      ],
+      "mean_downside_corr": 0.48428569685593004,
+      "mean_return_corr": 0.10657467698689647,
+      "mean_similarity_score": 0.43994651116494904,
+      "mean_simultaneous_loss_rate": 0.41101190476190474
+    }
+  ],
+  "created_at_utc": "2026-03-17T22:36:54Z",
+  "data_path": "/home/user/mcs/data/BTCUSDT_parquet_neurobars_autoresearch.npz",
+  "end_utc": "2024-01-08 00:00:00",
+  "max_steps": 10080,
+  "name": "family_sweep_20260318_6h__fam_umc32_hunter_jan2024__rolling_cycle_01_clusters",
+  "notes": null,
+  "schema_version": "1",
+  "similarity_threshold": 0.4,
+  "source_diversification_report": "family_sweep_20260318_6h__fam_umc32_hunter_jan2024__rolling_cycle_01_div",
+  "start_step": 1982117,
+  "start_utc": "2024-01-01 00:00:00"
+}

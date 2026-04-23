@@ -1,0 +1,56 @@
+{
+  "audit_entries": [
+    {
+      "action": "update_candidate_override",
+      "actor": "operator",
+      "changes": {
+        "candidate_id": "cand_d8959d02a5e6",
+        "exclude": false,
+        "force_include": false,
+        "max_cap_fraction": null,
+        "note": "keep oos-positive candidate in reviewed subsets",
+        "pin": true
+      },
+      "created_at_utc": "2026-03-10T09:28:40Z",
+      "note": "keep oos-positive candidate in reviewed subsets",
+      "target_id": "cand_d8959d02a5e6",
+      "target_type": "candidate"
+    },
+    {
+      "action": "update_cluster_override",
+      "actor": "operator",
+      "changes": {
+        "cluster_id": "cluster_002",
+        "max_cap_fraction": 0.5,
+        "note": "cap dense co-crash cluster at 50%"
+      },
+      "created_at_utc": "2026-03-10T09:28:40Z",
+      "note": "cap dense co-crash cluster at 50%",
+      "target_id": "cluster_002",
+      "target_type": "cluster"
+    }
+  ],
+  "candidate_overrides": [
+    {
+      "candidate_id": "cand_d8959d02a5e6",
+      "exclude": false,
+      "force_include": false,
+      "max_cap_fraction": null,
+      "note": "keep oos-positive candidate in reviewed subsets",
+      "pin": true
+    }
+  ],
+  "cluster_overrides": [
+    {
+      "cluster_id": "cluster_002",
+      "max_cap_fraction": 0.5,
+      "note": "cap dense co-crash cluster at 50%"
+    }
+  ],
+  "created_at_utc": "2026-03-10T09:28:40Z",
+  "description": null,
+  "name": "ops_20250508",
+  "schema_version": "1",
+  "source_cluster_report": "clusters_20250508_20250515",
+  "updated_at_utc": "2026-03-10T09:28:40Z"
+}

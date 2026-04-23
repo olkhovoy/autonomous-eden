@@ -1,0 +1,3 @@
+Saved tradeforward evaluation to /home/user/mcs/candidate_registry/tradeforward_eval/family_sweep_20260318_6h__fam_linear_active_jan2024__rolling_cycle_02_tradeforward_eval.json
+combination:subset_1_cand_868e230a6a6d_risk_0.25 actual_pnl=-128.39 expected_orig=-9.02 delta=-119.37
+  wf_02_20231229_run02 capital=0.250 pnl=-504.19 dd=5.19 trades=60

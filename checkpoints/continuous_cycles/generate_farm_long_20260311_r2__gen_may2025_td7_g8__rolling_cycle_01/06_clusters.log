@@ -1,0 +1,2 @@
+Saved cluster report to /home/user/mcs/candidate_registry/clusters/generate_farm_long_20260311_r2__gen_may2025_td7_g8__rolling_cycle_01_clusters.json
+cluster_000 | size=4 members=wf_01_20250417_run02,wf_01_20250417_run01,wf_02_20250424_run01,wf_02_20250424_run02 sim=0.499 downside=0.590 sim_loss=0.279

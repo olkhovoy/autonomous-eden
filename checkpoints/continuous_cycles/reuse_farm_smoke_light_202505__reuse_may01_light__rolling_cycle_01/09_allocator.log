@@ -1,0 +1,8 @@
+Saved allocator workbench to /home/user/mcs/candidate_registry/allocations/reuse_farm_smoke_light_202505__reuse_may01_light__rolling_cycle_01_allocator.json
+Chosen scenario: risk_0.50
+risk_0.25 | objective=-0.2400 risk=0.25 reserve=0.75 orig_pnl=+36.31 p05_pnl=-92.82 p95_dd=1.58
+  wf_03_20250501_run02 capital=0.250 share=1.000 raw=1.781
+risk_0.50 | objective=-0.2387 risk=0.35 reserve=0.65 orig_pnl=+50.61 p05_pnl=-129.93 p95_dd=2.21
+  wf_03_20250501_run02 capital=0.350 share=1.000 raw=1.781
+risk_0.75 | objective=-0.2387 risk=0.35 reserve=0.65 orig_pnl=+50.61 p05_pnl=-129.93 p95_dd=2.21
+  wf_03_20250501_run02 capital=0.350 share=1.000 raw=1.781

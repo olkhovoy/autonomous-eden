@@ -1,0 +1,62 @@
+Importing PyTorch...
+Imported torch successfully.
+Importing Rust Module...
+Imported rust module successfully.
+Script started.
+Initializing SemanticHypercube with neuro_grammar.cfg...
+Loading SemanticHypercube...
+SemanticHypercube loaded.
+
+================================================
+      THE MONOLITHIC RUN INITIATED              
+================================================
+Device:          cuda
+Architecture:    UMC_Cell (Spectral Normalization: NC4)
+Input Mode:      Neurobars (Feature Dim 32)
+Data File:       /home/user/mcs/data/BTCUSDT_parquet_neurobars_autoresearch.npz
+Dimensions:      6467 (Weights & Biases)
+Generations:     8
+Population Size: 10
+Evaluation:      14400-step deterministic loop from start_step=2176517
+Econ Model:      10000 USD | binance | taker | fraction_of_equity
+Positioning:     notional_fraction=1.00 | leverage=1.00 | fixed_qty=1.0000
+Slippage:        0.00000
+Selection:       Only initially active agents (trades >= 5)
+================================================
+
+Filtering Generation 0 for minimum viability...
+Starting hypercube.evolve_with_fitness...
+
+  [Filtering Phase] SURVIVOR FOUND (1/10) after 0 deaths: trades= 109, PnL=-266.5, win= 30.3%, Fit=-266.4917
+
+  [Filtering Phase] SURVIVOR FOUND (2/10) after 0 deaths: trades= 116, PnL=-2285.2, win= 23.3%, Fit=-2285.2293
+
+  [Filtering Phase] SURVIVOR FOUND (3/10) after 2 deaths: trades=  11, PnL= 676.1, win= 36.4%, Fit=241.0449
+
+  [Filtering Phase] SURVIVOR FOUND (4/10) after 0 deaths: trades= 149, PnL=-2103.2, win= 29.5%, Fit=-2103.1969
+
+  [Filtering Phase] SURVIVOR FOUND (5/10) after 3 deaths: trades= 200, PnL= -26.8, win= 46.0%, Fit=-26.8301
+
+  [Filtering Phase] SURVIVOR FOUND (6/10) after 1 deaths: trades=  69, PnL=-483.6, win= 40.6%, Fit=-483.5834
+
+  [Filtering Phase] SURVIVOR FOUND (7/10) after 0 deaths: trades= 103, PnL=-1686.5, win= 33.0%, Fit=-1686.4938
+
+  [Filtering Phase] SURVIVOR FOUND (8/10) after 0 deaths: trades=  84, PnL=-1260.8, win= 27.4%, Fit=-1260.8221
+
+  [Filtering Phase] SURVIVOR FOUND (9/10) after 0 deaths: trades= 164, PnL=-934.4, win= 29.3%, Fit=-934.4027
+
+  [Filtering Phase] SURVIVOR FOUND (10/10) after 0 deaths: trades= 281, PnL=-2047.2, win= 22.4%, Fit=-2047.2021
+
+=== FILTERING PHASE COMPLETE. INITIAL POPULATION READY. ===
+
+  Eval 1/10                      Eval 2/10                      Eval 3/10                      Eval 4/10                      Eval 5/10                      Eval 6/10                      Eval 7/10                      Eval 8/10                      Eval 9/10                      Eval 10/10                    Gen 000 | Fit: -1505.36 (Best: -94.98) | PnL: -1205.4 | DD: 13.6% | Trades:  137 | Win: 19.9% | Time: 38.3s
+  Eval 11/10                      Eval 12/10                      Eval 13/10                      Eval 14/10                      Eval 15/10                      Eval 16/10                      Eval 17/10                      Eval 18/10                      Eval 19/10                      Eval 20/10                    Gen 001 | Fit: -1289.04 (Best:  60.23) | PnL: -958.7 | DD: 11.3% | Trades:  110 | Win: 23.3% | Time: 39.8s
+  Eval 21/10                      Eval 22/10                      Eval 23/10                      Eval 24/10                      Eval 25/10                      Eval 26/10                      Eval 27/10                      Eval 28/10                      Eval 29/10                      Eval 30/10                    Gen 002 | Fit: -1445.51 (Best: -37.77) | PnL: -1138.7 | DD: 12.7% | Trades:   94 | Win: 20.8% | Time: 39.9s
+  Eval 31/10                      Eval 32/10                      Eval 33/10                      Eval 34/10                      Eval 35/10                      Eval 36/10                      Eval 37/10                      Eval 38/10                      Eval 39/10                      Eval 40/10                    Gen 003 | Fit: -1236.22 (Best: -214.65) | PnL: -1129.4 | DD: 12.1% | Trades:  130 | Win: 27.1% | Time: 43.1s
+  Eval 41/10                      Eval 42/10                      Eval 43/10                      Eval 44/10                      Eval 45/10                      Eval 46/10                      Eval 47/10                      Eval 48/10                      Eval 49/10                      Eval 50/10                    Gen 004 | Fit: -614.53 (Best:   2.52) | PnL: -507.7 | DD:  5.4% | Trades:   38 | Win: 32.3% | Time: 43.1s
+  Eval 51/10                      Eval 52/10                      Eval 53/10                      Eval 54/10                      Eval 55/10                      Eval 56/10                      Eval 57/10                      Eval 58/10                      Eval 59/10                      Eval 60/10                    Gen 005 | Fit: -542.42 (Best: -20.83) | PnL: -235.6 | DD:  2.7% | Trades:   20 | Win: 23.2% | Time: 39.8s
+  Eval 61/10                      Eval 62/10                      Eval 63/10                      Eval 64/10                      Eval 65/10                      Eval 66/10                    Evolution loop finished.
+
+--- Evolution Complete ---
+Final Fitness (Balance): 243.5194
+Saved optimized genome to /home/user/mcs/checkpoints/continuous_cycles/generate_farm_long_20260311_r2__gen_jun2024_td10_g8__rolling_cycle_01/wf_01_20240515_run02.npy
