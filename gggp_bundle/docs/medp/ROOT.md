@@ -11,6 +11,8 @@
 - `../EMBEDDING_GGGP.md` — текущая реализация embedding-фенотипа.
 - `../EVOLUTIONARY_ENGINE_ROADMAP.md` — продуктовый фокус движка.
 - `../RUST_PORT_STATUS.md` — индекс статуса Rust-порта.
+- `research/toth-semiotics.md` — prior art: Alfred Tóth, Peirce/Bense
+  семиотическая традиция и её применимость к нашим грамматикам.
 
 ---
 
