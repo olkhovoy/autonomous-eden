@@ -47,3 +47,55 @@ gamma_seed_range = [0.0, 2.0]
 # If a chromosome renders to all zeros or NaN, return this fixed
 # fitness instead of NaN. Keeps sort-by-fitness deterministic.
 fallback_fitness = -1.0
+
+# =====================================================================
+# [nc_weights] -- A2 UMC scalarized fitness (MEDP A2 / S2a)
+#
+# Weighted-sum combiner for the four UMC neural-constraint components,
+# as locked in A2 plan.md Q2 (scalarization, no NSGA-II):
+#
+#   F_umc = w_nc4 * F_nc4
+#         + w_nc1 * F_nc1
+#         + w_nc2 * F_nc2
+#         + w_nc3 * F_nc3_signal
+#
+# Then the existing [fitness] penalties still apply:
+#
+#   F_shaped = F_umc
+#            - alpha_len  * (len_g + len_d) / L_max
+#            - beta_class * class_incoherence(c, classes)
+#            - gamma_seed * seed_std(F_across_seeds)
+#
+# Metric shapes (see A2 plan.md §Fitness):
+#   F_nc4        = mean_i cos(T_i, D(G(T_i)))                in [-1, 1]
+#   F_nc1        = mean_i cos(c_i, G(D(c_i)))                in [-1, 1]
+#   F_nc2        = mean triplet(D(0.5 c_i + 0.5 c_j),
+#                               (T_i+T_j)/2, T_k_rand)       in [0, 1]
+#   F_nc3_signal = fraction of D-ops in {CTRL, SBC, ADDC}    in [0, 1]
+#
+# Weight-selection rationale:
+#   w_nc4 dominates (1.0) to keep A1.1 quality (F=0.92) as the backbone.
+#   w_nc1 is strong (0.5) because NC1 is the main new hypothesis -- the
+#         dual fixed point G(D(c))=c is what distinguishes A2 from A1.1.
+#   w_nc3 is moderate (0.3): must be large enough to cross G_NC3 > 0.20
+#         but small enough not to override reconstruction quality.
+#   w_nc2 is smallest (0.2): compositional triplet is noisy and prone
+#         to cheating (see A2 plan.md §Risks); low weight limits damage
+#         while still letting the gate detect compositional structure.
+#
+# Each weight ships with an allowed meta-optimization range so a later
+# GGGP meta-run can tune the scalarization without editing this file.
+# =====================================================================
+
+[nc_weights]
+w_nc4 = 1.0
+w_nc4_range = [0.0, 2.0]
+
+w_nc1 = 0.5
+w_nc1_range = [0.0, 1.5]
+
+w_nc2 = 0.2
+w_nc2_range = [0.0, 1.0]
+
+w_nc3 = 0.3
+w_nc3_range = [0.0, 1.0]
