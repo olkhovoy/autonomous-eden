@@ -44,4 +44,12 @@ pub enum VectorOp {
     AxisAdd(usize, f64),       // Add scalar to axis: v[axis] += val
     Seq,                       // Sequence of ops
     Zero,                      // Reset
+    // --- NC3 downward-causation ops (A2: code-gated, index `input` buffer) ---
+    // CTRL(axis, code_idx):     state[axis] += input[code_idx]
+    // ScaleByCode(code_idx):    state *= input[code_idx]                    (scalar broadcast)
+    // AddCode(axis, code_idx):  state[axis] += input[code_idx] * state[axis] (multiplicative gating)
+    // All three are no-ops if `input` is None or indices are out of range.
+    Ctrl(usize, usize),
+    ScaleByCode(usize),
+    AddCode(usize, usize),
 }

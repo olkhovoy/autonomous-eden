@@ -121,58 +121,113 @@ pub fn compile_tree_to_vector_with_input(
     }
     let mut ops = Vec::new();
     collect_ops(tree, dim, 0, 0, fractal_config, &mut ops);
-    
+    execute_ops(&ops, &mut out, dim, input);
+    out
+}
+
+/// Apply a flat sequence of `VectorOp`s to `state` in-place.
+///
+/// Separated from `compile_tree_to_vector_with_input` for two reasons:
+///   1. Keeps tree-walk (collect_ops) and op-semantics (this fn) decoupled.
+///   2. Lets unit tests exercise op semantics without building GpTree mocks.
+///
+/// Ops with out-of-range axis / code_idx, non-finite params, or a missing
+/// `input` buffer (for NC3 code-gated ops) degrade to no-ops: EA runs are
+/// expected to produce malformed programs, and silent no-op keeps fitness
+/// well-defined. Grammar bounds must still constrain axis/code_idx to
+/// valid ranges to avoid wasting evaluation budget.
+pub(crate) fn execute_ops(
+    ops: &[VectorOp],
+    state: &mut DVector<f64>,
+    dim: usize,
+    input: Option<&DVector<f64>>,
+) {
     for op in ops {
-        match op {
+        match *op {
             VectorOp::AxisAdd(axis, val) => {
                 if axis < dim {
-                    out[axis] += val;
+                    state[axis] += val;
                 }
             }
             VectorOp::Scale(val) => {
-                out *= val;
+                *state *= val;
             }
             VectorOp::Norm => {
-                let n = out.norm();
+                let n = state.norm();
                 if n > 1e-12 {
-                    out /= n;
+                    *state /= n;
                 }
             }
             VectorOp::Mix(a, b, w) => {
                 if a < dim && b < dim && a != b {
                     let w = w.clamp(0.0, 1.0);
-                    let va = out[a];
-                    let vb = out[b];
-                    out[a] = va * (1.0 - w) + vb * w;
-                    out[b] = vb * (1.0 - w) + va * w;
+                    let va = state[a];
+                    let vb = state[b];
+                    state[a] = va * (1.0 - w) + vb * w;
+                    state[b] = vb * (1.0 - w) + va * w;
                 }
             }
             VectorOp::Rotate(a, b, ang) => {
                 if a < dim && b < dim && a != b {
                     let rad = ang.to_radians();
                     let (sin, cos) = rad.sin_cos();
-                    let x = out[a];
-                    let y = out[b];
-                    out[a] = x * cos - y * sin;
-                    out[b] = x * sin + y * cos;
+                    let x = state[a];
+                    let y = state[b];
+                    state[a] = x * cos - y * sin;
+                    state[b] = x * sin + y * cos;
                 }
             }
             VectorOp::Fractal(exp) => {
                 if exp.is_finite() {
                     for i in 0..dim {
-                        let v = out[i];
+                        let v = state[i];
                         let sign = if v >= 0.0 { 1.0 } else { -1.0 };
-                        out[i] = sign * v.abs().powf(exp);
+                        state[i] = sign * v.abs().powf(exp);
                     }
                 }
             }
             VectorOp::Zero => {
-                out.fill(0.0);
+                state.fill(0.0);
             }
-            _ => {}
+            VectorOp::Ctrl(axis, cidx) => {
+                if axis < dim {
+                    if let Some(c) = input {
+                        if cidx < c.len() && c[cidx].is_finite() {
+                            state[axis] += c[cidx];
+                        }
+                    }
+                }
+            }
+            VectorOp::ScaleByCode(cidx) => {
+                if let Some(c) = input {
+                    if cidx < c.len() {
+                        let s = c[cidx];
+                        if s.is_finite() {
+                            *state *= s;
+                        }
+                    }
+                }
+            }
+            VectorOp::AddCode(axis, cidx) => {
+                if axis < dim {
+                    if let Some(c) = input {
+                        if cidx < c.len() {
+                            let k = c[cidx];
+                            if k.is_finite() {
+                                state[axis] += k * state[axis];
+                            }
+                        }
+                    }
+                }
+            }
+            VectorOp::Add | VectorOp::Subtract | VectorOp::Cross | VectorOp::Seq => {
+                // Not implemented in the scalar-axis dispatch path.
+                // Intentional no-op: these enum variants exist for the
+                // higher-level vector-symbolic compositor, not the flat
+                // axis-grammar used by A1/A2.
+            }
         }
     }
-    out
 }
 
 fn collect_ops(
@@ -203,7 +258,8 @@ fn collect_ops(
             let tokens: Vec<&str> = text.split_whitespace().collect();
             if let Some(&first) = tokens.first() {
                 let is_op = match first {
-                    "AX" | "ADD" | "SCALE" | "NORM" | "MIX" | "ROT" | "FRAC" | "ZERO" => true,
+                    "AX" | "ADD" | "SCALE" | "NORM" | "MIX" | "ROT" | "FRAC" | "ZERO"
+                    | "CTRL" | "SBC" | "ADDC" => true,
                     _ => false,
                 };
                 
@@ -262,6 +318,35 @@ fn collect_ops(
                                 ops.push(VectorOp::Zero);
                                 i += 1;
                             }
+                            // --- NC3 downward-causation tokens (A2 S1a) ---
+                            // Token forms:
+                            //   CTRL <axis> <code_idx>
+                            //   SBC  <code_idx>
+                            //   ADDC <axis> <code_idx>
+                            "CTRL" => {
+                                if i + 2 < r_tokens.len() {
+                                    if let (Some(ax), Some(ci)) = (parse_number(r_tokens[i+1]), parse_number(r_tokens[i+2])) {
+                                        ops.push(VectorOp::Ctrl(ax.round() as usize, ci.round() as usize));
+                                    }
+                                    i += 3;
+                                } else { i += 1; }
+                            }
+                            "SBC" => {
+                                if i + 1 < r_tokens.len() {
+                                    if let Some(ci) = parse_number(r_tokens[i+1]) {
+                                        ops.push(VectorOp::ScaleByCode(ci.round() as usize));
+                                    }
+                                    i += 2;
+                                } else { i += 1; }
+                            }
+                            "ADDC" => {
+                                if i + 2 < r_tokens.len() {
+                                    if let (Some(ax), Some(ci)) = (parse_number(r_tokens[i+1]), parse_number(r_tokens[i+2])) {
+                                        ops.push(VectorOp::AddCode(ax.round() as usize, ci.round() as usize));
+                                    }
+                                    i += 3;
+                                } else { i += 1; }
+                            }
                             _ => { i += 1; }
                         }
                     }
@@ -295,4 +380,182 @@ fn parse_number(token: &str) -> Option<f64> {
         return None;
     }
     token[..end].parse::<f64>().ok()
+}
+
+// ============================================================================
+// Unit tests for S1a (NC3 downward-causation ops) and op-execution semantics.
+// Exercises execute_ops directly so the parser/tree-walk layer is not on the
+// critical test path.
+// ============================================================================
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    fn v(slice: &[f64]) -> DVector<f64> {
+        DVector::from_row_slice(slice)
+    }
+
+    // --- NC4 carry-over ops (sanity regression) -----------------------------
+
+    #[test]
+    fn axis_add_shifts_single_component() {
+        let mut s = DVector::<f64>::zeros(4);
+        execute_ops(&[VectorOp::AxisAdd(2, 0.75)], &mut s, 4, None);
+        assert_eq!(s, v(&[0.0, 0.0, 0.75, 0.0]));
+    }
+
+    #[test]
+    fn axis_add_out_of_range_is_noop() {
+        let mut s = v(&[1.0, 2.0]);
+        execute_ops(&[VectorOp::AxisAdd(5, 9.9)], &mut s, 2, None);
+        assert_eq!(s, v(&[1.0, 2.0]));
+    }
+
+    #[test]
+    fn scale_multiplies_all_components() {
+        let mut s = v(&[1.0, -2.0, 3.0]);
+        execute_ops(&[VectorOp::Scale(2.0)], &mut s, 3, None);
+        assert_eq!(s, v(&[2.0, -4.0, 6.0]));
+    }
+
+    // --- NC3 CTRL ------------------------------------------------------------
+
+    #[test]
+    fn ctrl_adds_code_component_to_target_axis() {
+        let mut s = v(&[0.0, 0.0, 0.0, 0.0]);
+        let code = v(&[0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8]); // code_dim=8
+        execute_ops(&[VectorOp::Ctrl(2, 5)], &mut s, 4, Some(&code));
+        //           state[2] += code[5] == 0.6
+        assert!((s[2] - 0.6).abs() < 1e-12);
+        assert_eq!(s[0], 0.0);
+        assert_eq!(s[1], 0.0);
+        assert_eq!(s[3], 0.0);
+    }
+
+    #[test]
+    fn ctrl_accumulates_across_invocations() {
+        let mut s = v(&[1.0, 0.0]);
+        let code = v(&[0.5, -0.25]);
+        execute_ops(
+            &[VectorOp::Ctrl(0, 0), VectorOp::Ctrl(0, 1)],
+            &mut s,
+            2,
+            Some(&code),
+        );
+        // 1.0 + 0.5 + (-0.25) == 1.25
+        assert!((s[0] - 1.25).abs() < 1e-12);
+    }
+
+    #[test]
+    fn ctrl_is_noop_without_input() {
+        let mut s = v(&[2.0, 3.0]);
+        execute_ops(&[VectorOp::Ctrl(0, 0)], &mut s, 2, None);
+        assert_eq!(s, v(&[2.0, 3.0]));
+    }
+
+    #[test]
+    fn ctrl_is_noop_when_code_idx_out_of_range() {
+        let mut s = v(&[2.0]);
+        let code = v(&[9.9, 8.8]);
+        execute_ops(&[VectorOp::Ctrl(0, 42)], &mut s, 1, Some(&code));
+        assert_eq!(s, v(&[2.0]));
+    }
+
+    #[test]
+    fn ctrl_is_noop_when_axis_out_of_range() {
+        let mut s = v(&[2.0]);
+        let code = v(&[9.9]);
+        execute_ops(&[VectorOp::Ctrl(5, 0)], &mut s, 1, Some(&code));
+        assert_eq!(s, v(&[2.0]));
+    }
+
+    // --- NC3 SCALE_BY_CODE ---------------------------------------------------
+
+    #[test]
+    fn sbc_broadcasts_scalar_from_code() {
+        let mut s = v(&[1.0, -2.0, 0.5]);
+        let code = v(&[0.0, 3.0, 0.0]);
+        execute_ops(&[VectorOp::ScaleByCode(1)], &mut s, 3, Some(&code));
+        // all scaled by code[1] == 3
+        assert_eq!(s, v(&[3.0, -6.0, 1.5]));
+    }
+
+    #[test]
+    fn sbc_is_noop_without_input() {
+        let mut s = v(&[1.0, 2.0]);
+        execute_ops(&[VectorOp::ScaleByCode(0)], &mut s, 2, None);
+        assert_eq!(s, v(&[1.0, 2.0]));
+    }
+
+    #[test]
+    fn sbc_skips_non_finite_code() {
+        let mut s = v(&[1.0, 2.0]);
+        let code = v(&[f64::NAN, 7.0]);
+        execute_ops(&[VectorOp::ScaleByCode(0)], &mut s, 2, Some(&code));
+        assert_eq!(s, v(&[1.0, 2.0]));
+    }
+
+    // --- NC3 ADD_CODE (multiplicative gating) --------------------------------
+
+    #[test]
+    fn add_code_multiplicatively_gates_axis() {
+        // state[axis] += code[k] * state[axis]  ==>  state[axis] *= (1 + code[k])
+        let mut s = v(&[4.0, 0.0]);
+        let code = v(&[0.25, 0.0]);
+        execute_ops(&[VectorOp::AddCode(0, 0)], &mut s, 2, Some(&code));
+        // 4 + 0.25*4 == 5
+        assert!((s[0] - 5.0).abs() < 1e-12);
+        assert_eq!(s[1], 0.0);
+    }
+
+    #[test]
+    fn add_code_is_noop_on_zero_axis() {
+        // state[axis]=0 => 0 + k*0 = 0 regardless of k
+        let mut s = v(&[0.0, 0.0]);
+        let code = v(&[999.0]);
+        execute_ops(&[VectorOp::AddCode(0, 0)], &mut s, 2, Some(&code));
+        assert_eq!(s, v(&[0.0, 0.0]));
+    }
+
+    #[test]
+    fn add_code_is_noop_without_input() {
+        let mut s = v(&[5.0]);
+        execute_ops(&[VectorOp::AddCode(0, 0)], &mut s, 1, None);
+        assert_eq!(s, v(&[5.0]));
+    }
+
+    // --- NC3 structural signal: functional dependence on `input` -------------
+
+    #[test]
+    fn nc3_programs_are_functionally_code_dependent() {
+        // Sanity for the F_nc3 metric rationale: running the SAME ops with
+        // two different `input` buffers must produce two different states.
+        // If this ever fails, NC3 ops would be a simulacrum.
+        let ops = vec![
+            VectorOp::Ctrl(0, 0),
+            VectorOp::ScaleByCode(1),
+            VectorOp::AddCode(1, 2),
+        ];
+        let c1 = v(&[1.0, 2.0, 0.5]);
+        let c2 = v(&[-1.0, 0.5, -0.25]);
+
+        let mut s1 = v(&[0.1, 0.1]);
+        let mut s2 = v(&[0.1, 0.1]);
+        execute_ops(&ops, &mut s1, 2, Some(&c1));
+        execute_ops(&ops, &mut s2, 2, Some(&c2));
+        assert_ne!(s1, s2, "NC3 ops must make state functionally depend on code");
+    }
+
+    // --- parser smoke: token forms map to the right VectorOp variants --------
+    // Full tree-walk tests live at integration level; here we only verify
+    // parse_number covers the numeric tails our tokens rely on.
+
+    #[test]
+    fn parse_number_accepts_common_numeric_forms() {
+        assert_eq!(parse_number("0"), Some(0.0));
+        assert_eq!(parse_number("7"), Some(7.0));
+        assert_eq!(parse_number("-3.5"), Some(-3.5));
+        assert_eq!(parse_number("1e2"), Some(100.0));
+        assert_eq!(parse_number("abc"), None);
+    }
 }
