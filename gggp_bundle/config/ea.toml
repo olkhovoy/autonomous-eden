@@ -69,3 +69,23 @@ max_gene_count_range = [16, 256]
 # random_chromosome(seed=fresh) instead.
 max_resample_attempts = 8
 max_resample_attempts_range = [1, 64]
+
+# =====================================================================
+# [a2] -- A2-specific settings (MEDP A2 / S2c).
+#
+# Only consumed by scripts/run_A2.py. run_A1.py ignores this section.
+# =====================================================================
+[a2]
+# Number of NC2 triplets (i, j, k) sampled per generation.
+# Each triplet costs one decoder render at target_dim + three cosines,
+# so cost scales linearly with nc2_pairs. For N=256 rows:
+#   nc2_pairs=256  -> ~256 decoder renders per individual per generation
+# which at ~0.2 ms per render is ~13 s/generation for pop_size=50.
+# Triplet statistics stabilize around M ~ N; we do not need M >> N.
+nc2_pairs = 256
+nc2_pairs_range = [32, 2048]
+
+# Dims for A2 PCA mode. NOT evolutionary -- locked by the A1.1 PCA
+# basis and by gen_neuro_grammar's decoder-nc3 bounds.
+code_dim = 8
+target_dim = 16
