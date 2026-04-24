@@ -163,29 +163,7 @@ impl SemioticHypercube {
     /// that hit MaxDepth). Output is a Vec<i32>.
     #[pyo3(signature = (seed, role="encoder"))]
     fn random_chromosome(&self, seed: u64, role: &str) -> PyResult<Vec<i32>> {
-        let cfg = match role {
-            "encoder" => self.cfg.clone(),
-            "decoder" => {
-                let dec = self.decoder_cfg.borrow();
-                match dec.as_ref() {
-                    Some(c) => c.clone(),
-                    None => {
-                        return Err(PyRuntimeError::new_err(
-                            "random_chromosome(role='decoder'): no decoder \
-                             grammar attached. Call \
-                             attach_decoder_grammar(path) first.",
-                        ))
-                    }
-                }
-            }
-            other => {
-                return Err(PyValueError::new_err(format!(
-                    "random_chromosome: unknown role '{}'. Valid: \
-                     'encoder' | 'decoder'.",
-                    other
-                )))
-            }
-        };
+        let cfg = self.resolve_role_cfg(role, "random_chromosome")?;
         let mut rng = StdRng::seed_from_u64(seed);
         let mut ind = GpIndividual::new();
         ind.random_trees(&[cfg], &mut rng);
@@ -214,7 +192,8 @@ impl SemioticHypercube {
     ///
     /// Used by MEDP A1 SCL PoC:
     ///   c_i = render_tree_with_input(G_chromosome, code_dim=16,  input=T_i)
-    ///   r_i = render_tree_with_input(D_chromosome, state_dim=1024, input=c_i)
+    ///   r_i = render_tree_with_input(D_chromosome, state_dim=1024, input=c_i,
+    ///                                role="decoder")
     ///
     /// Arguments:
     ///   chromosome -- genotype integer-array (e.g. [0, 1, 3, 2, ...]).
@@ -223,18 +202,25 @@ impl SemioticHypercube {
     ///                 min(len(input), dim) components of the state are
     ///                 initialized from input; rest stay zero.
     ///                 If None, state starts at zero (classic path).
+    ///   role       -- "encoder" (default) parses `chromosome` against
+    ///                 self.cfg. "decoder" parses against the grammar
+    ///                 attached via attach_decoder_grammar. A2/S1c added
+    ///                 this so NC2 can call D(c_mix) -> T_mix without
+    ///                 round-tripping through batch_render_dual.
     ///
     /// Returns: 1-D numpy array of length `dim` (float64).
     ///
     /// Errors: PyValueError if the chromosome is ill-formed for the
-    /// loaded grammar.
-    #[pyo3(signature = (chromosome, dim, input=None))]
+    /// selected grammar; PyRuntimeError if role="decoder" but no decoder
+    /// grammar is attached.
+    #[pyo3(signature = (chromosome, dim, input=None, role="encoder"))]
     fn render_tree_with_input<'py>(
         &self,
         py: Python<'py>,
         chromosome: Vec<i32>,
         dim: usize,
         input: Option<&'py PyArray1<f64>>,
+        role: &str,
     ) -> PyResult<&'py PyArray1<f64>> {
         let chromo_str = chromosome
             .iter()
@@ -242,13 +228,15 @@ impl SemioticHypercube {
             .collect::<Vec<String>>()
             .join("-");
 
-        let tree = self.cfg.tree_from_chromosome(&chromo_str).map_err(|e| {
+        let cfg = self.resolve_role_cfg(role, "render_tree_with_input")?;
+        let tree = cfg.tree_from_chromosome(&chromo_str).map_err(|e| {
             PyValueError::new_err(format!(
-                "Failed to parse chromosome '{}': {:?}. Hint: verify the \
-                 chromosome matches the grammar (.cfg) loaded by this \
+                "render_tree_with_input(role='{}'): failed to parse \
+                 chromosome '{}': {:?}. Hint: verify the chromosome \
+                 matches the {} grammar loaded by this \
                  SemioticHypercube instance -- genome integers must be \
                  valid choice-indices at each grammar rule.",
-                chromo_str, e
+                role, chromo_str, e, role
             ))
         })?;
 
@@ -399,6 +387,48 @@ impl SemioticHypercube {
         out.set_item("per_i_cos", per_i_np)?;
         out.set_item("F", f_mean)?;
         Ok(out)
+    }
+
+    /// Render a chromosome to its string form (the program text).
+    ///
+    /// Used by MEDP A2 / S1c to let Python-side code analyze the
+    /// structural properties of a decoder program, e.g. NC3 requires
+    /// counting the fraction of opcode tokens that are code-gated
+    /// (CTRL / SBC / ADDC). Without this binding we would either have
+    /// to re-implement tree_from_chromosome in Python (duplicating
+    /// Rust logic against the binary .cfg format) or add a
+    /// task-specific counter in Rust.
+    ///
+    /// Arguments:
+    ///   chromosome -- genotype integer-array (same format as all other
+    ///                 APIs on this class).
+    ///   role       -- "encoder" (default) parses against self.cfg.
+    ///                 "decoder" parses against the attached decoder
+    ///                 grammar; PyRuntimeError if none is attached.
+    ///
+    /// Returns: the GpTree::text() of the parsed chromosome, i.e. the
+    /// rendered program with all grammar parameters filled in (e.g.
+    /// "AX 2 0.5 CTRL 3 1 SCALE 1.0 ...").
+    ///
+    /// Errors: PyValueError if the chromosome does not parse against
+    /// the selected grammar.
+    #[pyo3(signature = (chromosome, role="encoder"))]
+    fn chromosome_text(&self, chromosome: Vec<i32>, role: &str) -> PyResult<String> {
+        let chromo_str = chromosome
+            .iter()
+            .map(|x| x.to_string())
+            .collect::<Vec<String>>()
+            .join("-");
+        let cfg = self.resolve_role_cfg(role, "chromosome_text")?;
+        let tree = cfg.tree_from_chromosome(&chromo_str).map_err(|e| {
+            PyValueError::new_err(format!(
+                "chromosome_text(role='{}'): failed to parse chromosome \
+                 '{}': {:?}. Hint: verify the chromosome matches the {} \
+                 grammar.",
+                role, chromo_str, e, role
+            ))
+        })?;
+        Ok(tree.text())
     }
 
     fn evolve_target<'py>(
@@ -571,6 +601,36 @@ impl SemioticHypercube {
         let chromo_ints: Vec<i32> = chromo_str.split('-').filter_map(|s| s.parse().ok()).collect();
 
         Ok((chromo_ints, final_vec.as_slice().to_vec().to_pyarray(py), final_fitness))
+    }
+}
+
+impl SemioticHypercube {
+    /// Resolve a role string to the matching `Rc<GpConfig>`.
+    ///
+    /// Shared by random_chromosome / render_tree_with_input / chromosome_text.
+    /// `api_name` is injected into error messages so the caller always sees
+    /// which binding failed, and therefore which grammar they actually need
+    /// to attach. Private (not a pymethod) on purpose: role resolution is
+    /// an internal concern of the Python bindings, not a public API.
+    fn resolve_role_cfg(&self, role: &str, api_name: &str) -> PyResult<Rc<GpConfig>> {
+        match role {
+            "encoder" => Ok(self.cfg.clone()),
+            "decoder" => {
+                let dec = self.decoder_cfg.borrow();
+                match dec.as_ref() {
+                    Some(c) => Ok(c.clone()),
+                    None => Err(PyRuntimeError::new_err(format!(
+                        "{}(role='decoder'): no decoder grammar attached. \
+                         Call attach_decoder_grammar(path) first.",
+                        api_name
+                    ))),
+                }
+            }
+            other => Err(PyValueError::new_err(format!(
+                "{}: unknown role '{}'. Valid: 'encoder' | 'decoder'.",
+                api_name, other
+            ))),
+        }
     }
 }
 
