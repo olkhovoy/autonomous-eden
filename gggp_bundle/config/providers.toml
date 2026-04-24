@@ -40,7 +40,11 @@ chat_temperature = 0.0
 
 # HTTP timeout. First call cold-loads the model into VRAM and can take
 # 30-60s on RTX3090 for 35B MoE. Subsequent calls are ~100ms.
-request_timeout_s = 300
+# Raised 300 -> 900 in A2/S0a: corpus_v2 asks for 32 paraphrases per call
+# (2x v1). With a large CoT (Qwen3 thinks ~200 tokens before the answer),
+# a cold-start class can push past 5 min. 15 min is a comfortable cap
+# that still catches truly hung requests instead of blocking forever.
+request_timeout_s = 900
 
 # ---------------------------------------------------------------------
 # OpenAI backend (stub, not used in A1, kept for CI + SOTA comparisons).

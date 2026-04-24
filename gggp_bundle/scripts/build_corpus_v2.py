@@ -24,9 +24,15 @@ Run:
     cd <repo-root>
     gggp_bundle/.venv/bin/python gggp_bundle/scripts/build_corpus_v2.py
 
-Idempotent at filesystem level (overwrites output). NOT idempotent at
-content level -- LLM outputs drift between runs. Intended flow:
-generate once, commit the snapshot, downstream consumes the snapshot.
+Idempotent at the class level: if OUT_PATH already exists, any class
+that already has exactly PARAPHRASES_PER_SEED rows is reused verbatim
+(original ts_utc preserved); only missing or partial classes are
+regenerated. A completed run is bit-identical to the previous one for
+completed classes. To force a full regeneration, delete OUT_PATH first.
+
+Write is atomic: rows are buffered, written to OUT_PATH.tmp, then
+renamed over OUT_PATH. A crash mid-generation leaves the previous
+snapshot intact.
 
 MEDP ref: A2 plan.md §Unit table (S0a) and §Locked Decisions Q1=256.
 """
@@ -194,52 +200,172 @@ def generate_class(
     )
 
 
-def build_corpus(provider: Provider) -> list[CorpusRow]:
-    ts = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
-    rows: list[CorpusRow] = []
-    global_id = 0
+def load_existing_rows_by_class(path: Path) -> dict[int, list[dict]]:
+    """Read an existing corpus JSONL (if present) and group rows by class_id.
+
+    Malformed lines are skipped with a stderr warning (rather than crashing
+    resume), but a malformed FILE header / unreadable file is fatal: better
+    to fail loudly than to silently discard a half-finished run.
+
+    Returns empty dict if the file does not exist. Note that rows inside a
+    class keep their on-disk order, which matters: generate_class returns
+    paraphrases in arrival order, so preserving that order keeps row ids
+    stable across resumes of the same class.
+    """
+    if not path.is_file():
+        return {}
+    grouped: dict[int, list[dict]] = {}
+    with path.open("r", encoding="utf-8") as f:
+        for ln_no, line in enumerate(f, start=1):
+            line = line.strip()
+            if not line:
+                continue
+            try:
+                row = json.loads(line)
+            except json.JSONDecodeError as exc:
+                print(
+                    f"[S0a] WARN {path.name}:{ln_no} malformed JSON, "
+                    f"dropping: {exc}",
+                    file=sys.stderr,
+                )
+                continue
+            cid = row.get("class_id")
+            if not isinstance(cid, int):
+                print(
+                    f"[S0a] WARN {path.name}:{ln_no} row lacks int class_id, "
+                    f"dropping: {row!r}",
+                    file=sys.stderr,
+                )
+                continue
+            grouped.setdefault(cid, []).append(row)
+    return grouped
+
+
+def build_corpus_with_resume(
+    provider: Provider,
+    existing: dict[int, list[dict]],
+    checkpoint_path: Path,
+) -> list[dict]:
+    """Assemble the full corpus, reusing any complete classes from `existing`.
+
+    A class is "complete" iff it has exactly PARAPHRASES_PER_SEED rows in
+    `existing`. Complete classes are copied verbatim (original ts_utc kept).
+    Partial or missing classes are regenerated via generate_class.
+
+    Incremental durability: after every class whose rows were freshly
+    generated, the full-so-far corpus is flushed atomically to
+    `checkpoint_path`. A crash (timeout, OOM, Ctrl-C) during a later
+    class therefore leaves earlier classes durably on disk, and the next
+    invocation will find them and SKIP their regeneration. This is the
+    whole point of the resume protocol -- the alternative (single flush
+    at the very end) turns one bad timeout into hours of redundant LLM
+    calls.
+
+    Ids are reassigned in the final order to match v1's schema (id ==
+    position in the output file). Ids of rows inside complete classes are
+    stable across resumes because complete classes occupy the same
+    contiguous block on every run.
+    """
+    ts_new = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+    all_rows: list[dict] = []
 
     for class_id, seed in enumerate(SEEDS):
+        existing_rows = existing.get(class_id, [])
+        if len(existing_rows) == PARAPHRASES_PER_SEED:
+            print(
+                f"[S0a] class={class_id} seed='{seed}' SKIP "
+                f"({PARAPHRASES_PER_SEED} rows already present)",
+                file=sys.stderr,
+            )
+            all_rows.extend(existing_rows)
+            continue
+
+        if existing_rows:
+            print(
+                f"[S0a] class={class_id} seed='{seed}' PARTIAL "
+                f"({len(existing_rows)}/{PARAPHRASES_PER_SEED} rows), "
+                f"regenerating whole class",
+                file=sys.stderr,
+            )
+
         paraphrases = generate_class(provider, seed, class_id)
         for p in paraphrases:
-            rows.append(
-                CorpusRow(
-                    id=global_id,
-                    class_id=class_id,
-                    class_name=seed,
-                    text=p,
-                    method="gamma.c-LLMOnly",
-                    provider=provider.name,
-                    model=provider.chat_model,
-                    seed=provider.chat_seed,
-                    temperature=provider.chat_temperature,
-                    ts_utc=ts,
+            all_rows.append(
+                asdict(
+                    CorpusRow(
+                        id=-1,  # reassigned below
+                        class_id=class_id,
+                        class_name=seed,
+                        text=p,
+                        method="gamma.c-LLMOnly",
+                        provider=provider.name,
+                        model=provider.chat_model,
+                        seed=provider.chat_seed,
+                        temperature=provider.chat_temperature,
+                        ts_utc=ts_new,
+                    )
                 )
             )
-            global_id += 1
 
-    return rows
+        # Checkpoint after every freshly-generated class. Reassign ids
+        # first so the on-disk snapshot is always in a consistent,
+        # resumable state.
+        for i, row in enumerate(all_rows):
+            row["id"] = i
+        write_jsonl_atomic(checkpoint_path, all_rows)
+        print(
+            f"[S0a] class={class_id} checkpoint: flushed {len(all_rows)} "
+            f"rows to {checkpoint_path.name}",
+            file=sys.stderr,
+        )
+
+    # Final id reassignment is a no-op if a checkpoint just ran; still
+    # cheap and keeps the contract explicit for the all-classes-skipped path.
+    for i, row in enumerate(all_rows):
+        row["id"] = i
+
+    return all_rows
+
+
+def write_jsonl_atomic(path: Path, rows: list[dict]) -> None:
+    """Write rows to path via a tmp file + os.replace to prevent torn snapshots."""
+    path.parent.mkdir(parents=True, exist_ok=True)
+    tmp = path.with_suffix(path.suffix + ".tmp")
+    with tmp.open("w", encoding="utf-8") as f:
+        for row in rows:
+            f.write(json.dumps(row, ensure_ascii=False) + "\n")
+    tmp.replace(path)
 
 
 def main() -> None:
+    existing = load_existing_rows_by_class(OUT_PATH)
+    complete = sum(
+        1 for rows in existing.values() if len(rows) == PARAPHRASES_PER_SEED
+    )
+    if existing:
+        print(
+            f"[S0a] resume: {OUT_PATH.name} has "
+            f"{sum(len(r) for r in existing.values())} rows across "
+            f"{len(existing)} classes; {complete} classes are complete.",
+            file=sys.stderr,
+        )
+
     provider = load_provider(CONFIG_PATH)
     print(
         f"[S0a] provider={provider.name} chat_model={provider.chat_model} "
-        f"seed={provider.chat_seed} temp={provider.chat_temperature}",
+        f"seed={provider.chat_seed} temp={provider.chat_temperature} "
+        f"timeout_s={provider.request_timeout_s}",
         file=sys.stderr,
     )
 
-    rows = build_corpus(provider)
+    rows = build_corpus_with_resume(provider, existing, OUT_PATH)
 
     expected = len(SEEDS) * PARAPHRASES_PER_SEED
     assert len(rows) == expected, (
         f"corpus size mismatch: got {len(rows)}, expected {expected}"
     )
 
-    OUT_PATH.parent.mkdir(parents=True, exist_ok=True)
-    with OUT_PATH.open("w", encoding="utf-8") as f:
-        for row in rows:
-            f.write(json.dumps(asdict(row), ensure_ascii=False) + "\n")
+    write_jsonl_atomic(OUT_PATH, rows)
 
     print(f"[S0a] wrote {len(rows)} rows to {OUT_PATH}")
     print(
