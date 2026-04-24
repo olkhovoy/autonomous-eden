@@ -1,8 +1,12 @@
 """
 gggp_bundle/scripts/pca_reduce.py
 
-MEDP A1.1 / R1 -- reduce T.npy (128 x 1024) to T_pca.npy (128 x 16)
-via sklearn PCA and normalize rows to unit L2.
+MEDP A1.1 / R1 and A2 / S0c -- reduce T<suffix>.npy to T<suffix>_pca.npy
+via sklearn PCA + L2 row-normalization.
+
+Version selector (--version v1|v2):
+  v1 (default, A1): T.npy (128, 1024) -> T_pca.npy (128, 16)
+  v2 (A2)        : T_v2.npy (256, 1024) -> T_v2_pca.npy (256, 16)
 
 Why PCA: A1 diagnostic showed that axis-index grammar operations
 cannot climb above F=0.17 because embedding energy lives in top
@@ -10,15 +14,14 @@ singular-value directions, not in the first 16 raw coordinates.
 PCA rotates T into a basis where the first 16 coordinates ARE the
 high-energy directions, giving the grammar a fair chance.
 
-Output:
-  T_pca.npy               (128, 16) float32, L2-row-normalized
-  pca_meta.json           explained_variance_ratio, mean, components hash
-
-Commit T_pca.npy? No -- gitignored. Regenerate from T.npy deterministically.
+Outputs are gitignored -- regenerate from T<suffix>.npy deterministically
+(sklearn PCA is not seeded-stable across versions, but the components
+hash in the meta file lets you detect a basis-change if one happens).
 """
 
 from __future__ import annotations
 
+import argparse
 import hashlib
 import json
 import sys
@@ -29,26 +32,54 @@ import numpy as np
 
 REPO_ROOT = Path(__file__).resolve().parents[2]
 DEMO_DIR = REPO_ROOT / "gggp_bundle" / "demos" / "semiotic_hypercube"
-T_PATH = DEMO_DIR / "T.npy"
-T_PCA_PATH = DEMO_DIR / "T_pca.npy"
-PCA_META_PATH = DEMO_DIR / "pca_meta.json"
+
+_VERSION_PATHS = {
+    "v1": {
+        "T":      DEMO_DIR / "T.npy",
+        "T_pca":  DEMO_DIR / "T_pca.npy",
+        "meta":   DEMO_DIR / "pca_meta.json",
+    },
+    "v2": {
+        "T":      DEMO_DIR / "T_v2.npy",
+        "T_pca":  DEMO_DIR / "T_v2_pca.npy",
+        "meta":   DEMO_DIR / "pca_meta_v2.json",
+    },
+}
 
 N_COMPONENTS = 16
 
 
 def main() -> None:
-    from sklearn.decomposition import PCA
-    if not T_PATH.is_file():
-        raise SystemExit(
-            f"{T_PATH} missing. Run scripts/embed_corpus.py first (T2)."
-        )
-    T = np.load(T_PATH).astype(np.float64)
-    print(f"[pca_reduce] T shape={T.shape} dtype={T.dtype}")
+    ap = argparse.ArgumentParser()
+    ap.add_argument(
+        "--version", choices=["v1", "v2"], default="v1",
+        help="corpus version (v1=A1 T.npy, v2=A2 T_v2.npy)",
+    )
+    ap.add_argument(
+        "--n-components", type=int, default=N_COMPONENTS,
+        help=f"number of PCA components (default {N_COMPONENTS})",
+    )
+    args = ap.parse_args()
+    paths = _VERSION_PATHS[args.version]
+    t_path = paths["T"]
+    t_pca_path = paths["T_pca"]
+    meta_path = paths["meta"]
+    n_components = int(args.n_components)
+    tag = f"pca_reduce/{args.version}"
 
-    pca = PCA(n_components=N_COMPONENTS, random_state=0, whiten=False)
+    from sklearn.decomposition import PCA
+    if not t_path.is_file():
+        raise SystemExit(
+            f"{t_path} missing. Run scripts/embed_corpus.py "
+            f"--version {args.version} first."
+        )
+    T = np.load(t_path).astype(np.float64)
+    print(f"[{tag}] T shape={T.shape} dtype={T.dtype}")
+
+    pca = PCA(n_components=n_components, random_state=0, whiten=False)
     T_pca_raw = pca.fit_transform(T)
     print(
-        f"[pca_reduce] fit PCA(n_components={N_COMPONENTS}); "
+        f"[{tag}] fit PCA(n_components={n_components}); "
         f"explained_variance cumulative = "
         f"{pca.explained_variance_ratio_.cumsum()[-1]:.4f}"
     )
@@ -62,16 +93,17 @@ def main() -> None:
     )
     T_pca = (T_pca_raw / norms).astype(np.float32)
 
-    np.save(T_PCA_PATH, T_pca)
+    np.save(t_pca_path, T_pca)
 
     # Meta: everything that lets us re-derive T_pca independently if needed.
     components_hash = hashlib.sha256(
         pca.components_.astype(np.float64).tobytes()
     ).hexdigest()[:16]
     meta = {
-        "source_path": str(T_PATH.relative_to(REPO_ROOT)),
-        "output_path": str(T_PCA_PATH.relative_to(REPO_ROOT)),
-        "n_components": N_COMPONENTS,
+        "corpus_version": args.version,
+        "source_path": str(t_path.relative_to(REPO_ROOT)),
+        "output_path": str(t_pca_path.relative_to(REPO_ROOT)),
+        "n_components": n_components,
         "explained_variance_ratio": pca.explained_variance_ratio_.tolist(),
         "explained_variance_cumsum": pca.explained_variance_ratio_.cumsum().tolist(),
         "total_explained": float(pca.explained_variance_ratio_.sum()),
@@ -79,11 +111,11 @@ def main() -> None:
         "l2_row_normalized": True,
         "ts_utc": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
     }
-    PCA_META_PATH.write_text(json.dumps(meta, indent=2))
-    print(f"[pca_reduce] wrote {T_PCA_PATH} shape={T_pca.shape}")
-    print(f"[pca_reduce] wrote {PCA_META_PATH}")
+    meta_path.write_text(json.dumps(meta, indent=2))
+    print(f"[{tag}] wrote {t_pca_path} shape={T_pca.shape}")
+    print(f"[{tag}] wrote {meta_path}")
     print(
-        f"[pca_reduce] top-{N_COMPONENTS} captures "
+        f"[{tag}] top-{n_components} captures "
         f"{meta['total_explained']:.4f} of total variance"
     )
 
